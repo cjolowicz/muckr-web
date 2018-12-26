@@ -1,0 +1,9 @@
+{
+  "name": "muckr-web",
+  "version": "0.1.0",
+  "description": "Web app for muckr",
+  "main": "index.js",
+  "repository": "https://github.com/cjolowicz/muckr-web.git",
+  "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
+  "license": "MIT"
+}
