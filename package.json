@@ -9,7 +9,7 @@
   "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node ."
+    "start": "babel-node ."
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
