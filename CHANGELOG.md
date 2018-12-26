@@ -9,3 +9,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial version.
 - Use [eslint](https://eslint.org/) linter.
 - Use [babel](https://babeljs.io/) compiler.
+- Use [flow](https://flow.org/) type checker.
