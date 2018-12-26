@@ -24,6 +24,7 @@
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
     "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-compat": "^2.6.3",
