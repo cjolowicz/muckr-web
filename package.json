@@ -4,6 +4,7 @@
   "description": "Web app for muckr",
   "main": "index.js",
   "repository": "https://github.com/cjolowicz/muckr-web.git",
+  "homepage": "https://github.com/cjolowicz/muckr-web#muckr-web",
   "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
   "license": "MIT"
 }
