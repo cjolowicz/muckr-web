@@ -10,3 +10,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [eslint](https://eslint.org/) linter.
 - Use [babel](https://babeljs.io/) compiler.
 - Use [flow](https://flow.org/) type checker.
+- Use [jest](https://jestjs.io/) for testing.
