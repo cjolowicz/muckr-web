@@ -13,7 +13,7 @@
     "test": "jest --coverage",
     "build": "babel --delete-dir-on-start src --out-dir lib",
     "heroku-postbuild": "yarn build",
-    "start": "babel-node ."
+    "start": "nodemon --ignore lib --exec babel-node ."
   },
   "browserslist": [
     "last 1 version",
