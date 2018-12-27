@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint src",
     "test": "jest --coverage",
-    "build": "babel src --out-dir lib",
+    "build": "babel --delete-dir-on-start src --out-dir lib",
     "start": "babel-node ."
   },
   "browserslist": [
