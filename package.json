@@ -9,7 +9,7 @@
   "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src",
+    "lint": "eslint src __tests__",
     "test": "jest --coverage",
     "build": "babel --delete-dir-on-start src --out-dir lib",
     "start": "babel-node ."
