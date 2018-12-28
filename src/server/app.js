@@ -3,12 +3,23 @@ import express from 'express';
 import compression from 'compression';
 
 import { STATIC_PATH } from '../constants';
-import { WEBPACK_PATH } from '../../webpack.config.babel';
+import {
+  WEBPACK_PATH,
+  WEBPACK_LOCATION,
+} from '../../webpack.config.babel';
+
+const HOMEPAGE = `<!doctype html>
+<html>
+  <body>
+    <div class="app"></div>
+    <script src="${WEBPACK_LOCATION}"></script>
+  </body>
+</html>`;
 
 const app = express();
 
 app.use(compression());
 app.use(STATIC_PATH, express.static(WEBPACK_PATH));
-app.get('/', (request, response) => response.send('Hello world'));
+app.get('/', (request, response) => response.send(HOMEPAGE));
 
 export default app;

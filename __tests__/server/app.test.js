@@ -1,6 +1,7 @@
 import request from 'supertest';
 
 import app from '../../src/server/app';
+import { WEBPACK_LOCATION } from '../../webpack.config.babel';
 
 describe('GET /', () => {
   test('responds with status 200', (done) => {
@@ -10,9 +11,11 @@ describe('GET /', () => {
     });
   });
 
-  test('responds with "Hello world"', (done) => {
+  test('responds with webpack location', (done) => {
     request(app).get('/').then((response) => {
-      expect(response.text).toBe('Hello world');
+      expect(response.text).toEqual(
+        expect.stringContaining(WEBPACK_LOCATION),
+      );
       done();
     });
   });
