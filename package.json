@@ -13,6 +13,7 @@
     "test": "jest --coverage",
     "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "babel --delete-dir-on-start src --out-dir lib",
+    "bundle": "webpack -p --progress --env.NODE_ENV=production",
     "heroku-postbuild": "yarn run build",
     "start": "nodemon --ignore lib --exec babel-node ."
   },
