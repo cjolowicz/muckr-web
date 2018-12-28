@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Use [nodemon](https://nodemon.io/) app runner.
+- Use [webpack](https://webpack.js.org/) module bundler.
+- Sample app generates "Hello world" client-side.
+
+### Changed
+- Enable browser environment for eslint.
+- Typecheck tests.
+- Add libdefs from flow-typed.
+
+### Removed
+- Drop "maintained node versions" from browserslist.
 
 ## [0.1.0] - 2018-12-27
 ### Added
