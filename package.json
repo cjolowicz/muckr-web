@@ -42,7 +42,8 @@
     "flow-bin": "^0.89.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
-    "supertest": "^3.3.0"
+    "supertest": "^3.3.0",
+    "webpack": "^4.28.2"
   },
   "dependencies": {
     "compression": "^1.7.3",
