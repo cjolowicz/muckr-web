@@ -9,7 +9,7 @@
   "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src __tests__",
+    "lint": "eslint src __tests__ webpack.config.babel.js",
     "test": "jest --coverage",
     "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "babel --delete-dir-on-start src --out-dir lib",
