@@ -2,11 +2,11 @@
 import express from 'express';
 import compression from 'compression';
 
-import { STATIC_PATH } from '../constants';
 import {
+  STATIC_PATH,
   WEBPACK_PATH,
   WEBPACK_LOCATION,
-} from '../../webpack.config.babel';
+} from '../constants';
 
 const HOMEPAGE = `<!doctype html>
 <html>

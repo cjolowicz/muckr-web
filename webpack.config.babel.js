@@ -1,20 +1,13 @@
 // @flow
 import path from 'path';
 
-import { STATIC_PATH } from './src/constants';
-
-const isProduction = process.env.NODE_ENV === 'production';
-const WEBPACK_PATH = 'dist';
-const WEBPACK_FILE = 'js/bundle.js';
-const WEBPACK_DEV_SERVER_PORT = 7000;
-const WEBPACK_DEV_SERVER_URL = `http://localhost:${WEBPACK_DEV_SERVER_PORT}/${WEBPACK_PATH}/`;
-const WEBPACK_PUBLIC_PATH = isProduction ? STATIC_PATH : WEBPACK_DEV_SERVER_URL;
-const WEBPACK_LOCATION = `${WEBPACK_PUBLIC_PATH}${WEBPACK_FILE}`;
-
-export {
+import {
+  PRODUCTION,
+  WEBPACK_FILE,
   WEBPACK_PATH,
-  WEBPACK_LOCATION,
-};
+  WEBPACK_PUBLIC_PATH,
+  WEBPACK_DEV_SERVER_PORT,
+} from './src/constants';
 
 export default {
   entry: [
@@ -34,12 +27,12 @@ export default {
       },
     ],
   },
-  devtool: isProduction ? 'source-map' : 'eval',
+  devtool: PRODUCTION ? 'source-map' : 'eval',
   resolve: {
     extensions: ['.js'],
   },
   devServer: {
     port: WEBPACK_DEV_SERVER_PORT,
   },
-  mode: isProduction ? 'production' : 'development',
+  mode: PRODUCTION ? 'production' : 'development',
 };
