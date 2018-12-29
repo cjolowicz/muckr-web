@@ -43,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "flow-bin": "^0.89.0",
+    "flow-typed": "^2.5.1",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
     "supertest": "^3.3.0",
