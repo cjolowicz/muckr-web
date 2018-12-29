@@ -11,6 +11,7 @@
   "scripts": {
     "lint": "eslint src __tests__",
     "test": "jest --coverage",
+    "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "babel --delete-dir-on-start src --out-dir lib",
     "heroku-postbuild": "yarn run build",
     "start": "nodemon --ignore lib --exec babel-node ."
