@@ -20,6 +20,6 @@ const app = express();
 
 app.use(compression());
 app.use(STATIC_PATH, express.static(WEBPACK_PATH));
-app.get('/', (request, response) => response.send(HOMEPAGE));
+app.get('/', (request, response: express$Response) => response.send(HOMEPAGE));
 
 export default app;
