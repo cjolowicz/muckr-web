@@ -1,4 +1,6 @@
 // @flow
+import '@babel/polyfill';
+
 const element = document.querySelector('.app');
 
 if (element != null) {
