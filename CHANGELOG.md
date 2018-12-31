@@ -6,11 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Client retrieves authentication token and displays it.
 - Use [nodemon](https://nodemon.io/) app runner.
 - Use [webpack](https://webpack.js.org/) module bundler.
-- Sample app generates "Hello world" client-side.
+- Load env files using [dotenv](https://github.com/motdotla/dotenv)
+  and [dotenv-webpack](https://github.com/mrsteele/dotenv-webpack).
 
 ### Changed
+- Enable polyfills in client code.
 - Enable browser environment for eslint.
 - Typecheck tests.
 - Add libdefs from flow-typed.
