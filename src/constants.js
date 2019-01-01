@@ -9,9 +9,7 @@ export const WEBPACK_DEV_SERVER_URL = `http://localhost:${WEBPACK_DEV_SERVER_POR
 export const WEBPACK_PUBLIC_PATH = PRODUCTION ? STATIC_PATH : WEBPACK_DEV_SERVER_URL;
 export const WEBPACK_LOCATION = `${WEBPACK_PUBLIC_PATH}/${WEBPACK_FILE}`;
 
-export const {
-  API_URL,
-  API_USER,
-  API_PASSWORD,
-  NODE_ENV = 'development',
-} = process.env;
+export const { API_URL } = process.env;
+export const { API_USER } = process.env;
+export const { API_PASSWORD } = process.env;
+export const { NODE_ENV = 'development' } = process.env;
