@@ -13,4 +13,5 @@ export const {
   API_URL,
   API_USER,
   API_PASSWORD,
+  NODE_ENV = 'development',
 } = process.env;
