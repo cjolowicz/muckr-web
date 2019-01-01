@@ -15,7 +15,7 @@
     "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "yarn run compile && yarn run bundle",
     "compile": "babel --delete-dir-on-start src --out-dir lib",
-    "bundle": "webpack -p --progress --env.NODE_ENV=production",
+    "bundle": "webpack -p --progress",
     "bundle-server": "webpack-dev-server --progress",
     "heroku-postbuild": "yarn run build",
     "start": "nodemon --ignore lib --ignore dist --exec babel-node ."
