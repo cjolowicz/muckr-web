@@ -1,5 +1,6 @@
 // @flow
 import path from 'path';
+import Dotenv from 'dotenv-webpack';
 
 import {
   PRODUCTION,
@@ -27,6 +28,9 @@ export default {
       },
     ],
   },
+  plugins: [
+    new Dotenv(),
+  ],
   devtool: PRODUCTION ? 'source-map' : 'eval',
   resolve: {
     extensions: ['.js'],
