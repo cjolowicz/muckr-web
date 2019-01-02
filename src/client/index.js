@@ -3,9 +3,9 @@ import '@babel/polyfill';
 
 import { fetchToken } from './auth';
 import { fetchArtists } from './artists';
-import { API_USER, API_PASSWORD } from '../constants';
+import { API_USER, API_PASSWORD, APP_SELECTOR } from '../constants';
 
-const element = document.querySelector('.app');
+const element = document.querySelector(`.${APP_SELECTOR}`);
 
 if (element != null) {
   fetchToken(API_USER, API_PASSWORD)

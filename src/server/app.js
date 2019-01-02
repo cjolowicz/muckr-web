@@ -3,6 +3,7 @@ import express from 'express';
 import compression from 'compression';
 
 import {
+  APP_SELECTOR,
   STATIC_PATH,
   WEBPACK_PATH,
   WEBPACK_LOCATION,
@@ -11,7 +12,7 @@ import {
 const HOMEPAGE = `<!doctype html>
 <html>
   <body>
-    <div class="app"></div>
+    <div class="${APP_SELECTOR}"></div>
     <script src="${WEBPACK_LOCATION}"></script>
   </body>
 </html>`;
