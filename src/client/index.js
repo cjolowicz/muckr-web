@@ -11,7 +11,7 @@ if (element != null) {
   fetchToken(API_USER, API_PASSWORD)
     .then(fetchArtists)
     .then((artists) => {
-      element.innerHTML = JSON.stringify(artists);
+      element.innerHTML = `<ul>${artists.map(artist => `<li>${artist.name}</li>`).join('')}</ul>`;
     })
     .catch((error) => {
       element.innerHTML = `error: ${error}`;
