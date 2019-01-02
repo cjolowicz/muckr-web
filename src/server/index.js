@@ -6,6 +6,6 @@ import { PORT, NODE_ENV } from '../constants';
 import app from './app';
 
 app.listen(PORT, () => {
-  /* eslint-disable no-console */
+  // eslint-disable-next-line no-console
   console.log(`Server running on port ${PORT} (${NODE_ENV}).`);
 });
