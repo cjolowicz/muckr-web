@@ -10,6 +10,12 @@ export function createBasicAuthHeader(username: string, password: string) {
   });
 }
 
+export function createTokenAuthHeader(token: string) {
+  return new Headers({
+    Authorization: `Bearer ${token}`,
+  });
+}
+
 export function fetchToken(username: string, password: string) {
   return fetch(`${API_URL}/tokens`, {
     method: 'POST',
