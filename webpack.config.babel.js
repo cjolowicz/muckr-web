@@ -29,7 +29,9 @@ export default {
     ],
   },
   plugins: [
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true,
+    }),
   ],
   devtool: PRODUCTION ? 'source-map' : 'eval',
   resolve: {
