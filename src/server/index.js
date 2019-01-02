@@ -1,6 +1,7 @@
 // @flow
 import 'dotenv/config';
 
+// eslint-disable-next-line import/named
 import { NODE_ENV } from '../constants';
 import app from './app';
 
