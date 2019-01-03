@@ -15,4 +15,4 @@ export const { API_PASSWORD } = process.env;
 export const { NODE_ENV = 'development' } = process.env;
 export const { PORT = 8000 } = process.env;
 
-export const APP_SELECTOR = 'app';
+export const APP_SELECTOR = 'root';
