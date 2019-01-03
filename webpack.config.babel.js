@@ -36,7 +36,10 @@ export default {
   ],
   devtool: PRODUCTION ? 'source-map' : 'eval',
   resolve: {
-    extensions: ['.js'],
+    extensions: [
+      '.js',
+      '.jsx',
+    ],
   },
   devServer: {
     port: WEBPACK_DEV_SERVER_PORT,
