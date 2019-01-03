@@ -15,7 +15,7 @@ const HOMEPAGE = `<!doctype html>
     <meta charset="utf-8">
   </head>
   <body>
-    <div class="${APP_SELECTOR}"></div>
+    <div id="${APP_SELECTOR}"></div>
     <script src="${WEBPACK_LOCATION}"></script>
   </body>
 </html>`;
