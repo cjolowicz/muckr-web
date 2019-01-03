@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint src __tests__ webpack.config.babel.js",
+    "flow": "flow",
     "test": "jest --coverage",
     "fulltest": "yarn run lint && yarn run flow && yarn run test",
     "submit-coverage": "coveralls < coverage/lcov.info",
