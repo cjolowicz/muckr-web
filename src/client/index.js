@@ -1,4 +1,3 @@
-// @flow
 import '@babel/polyfill';
 
 import { fetchToken } from './auth';

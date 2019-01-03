@@ -1,4 +1,3 @@
-// @flow
 import fetchMock from 'fetch-mock';
 import { API_URL } from '../../src/constants';
 import {

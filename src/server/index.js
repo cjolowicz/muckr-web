@@ -1,4 +1,3 @@
-// @flow
 import 'dotenv/config';
 
 // eslint-disable-next-line import/named
