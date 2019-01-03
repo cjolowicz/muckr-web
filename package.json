@@ -9,7 +9,7 @@
   "author": "Claudio Jolowicz <mail@claudiojolowicz.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src webpack.config.babel.js",
+    "lint": "eslint --ext .js,.jsx src webpack.config.babel.js",
     "flow": "flow",
     "test": "env `cat .env.example` jest --coverage src",
     "fulltest": "yarn run lint && yarn run flow && yarn run test",
