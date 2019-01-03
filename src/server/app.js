@@ -11,6 +11,9 @@ import {
 
 const HOMEPAGE = `<!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8">
+  </head>
   <body>
     <div class="${APP_SELECTOR}"></div>
     <script src="${WEBPACK_LOCATION}"></script>
