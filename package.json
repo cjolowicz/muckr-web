@@ -19,7 +19,7 @@
     "bundle": "webpack -p --progress",
     "bundle-server": "webpack-dev-server --progress",
     "heroku-postbuild": "yarn run build",
-    "start": "nodemon --ignore lib --ignore dist --exec babel-node ."
+    "start": "nodemon --ext js,jsx --ignore lib --ignore dist --exec babel-node ."
   },
   "browserslist": [
     "last 1 version",
