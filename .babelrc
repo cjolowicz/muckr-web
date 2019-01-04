@@ -6,6 +6,7 @@
         "useBuiltIns": "entry"
       }
     ],
-    "@babel/flow"
+    "@babel/flow",
+    "@babel/preset-react"
   ]
 }
