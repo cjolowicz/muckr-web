@@ -10,7 +10,7 @@
   ],
   "rules": {
     "import/prefer-default-export": "off",
-    "compat/compat": 2
+    "compat/compat": "error"
   },
   "settings": {
     "polyfills": [
