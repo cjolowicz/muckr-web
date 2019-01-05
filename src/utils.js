@@ -10,3 +10,11 @@ export function just<T>(value: ?T): T {
 
   return value;
 }
+
+export function fromMaybe<T>(fallback: T, value: ?T): T {
+  if (value == null) {
+    return fallback;
+  }
+
+  return value;
+}

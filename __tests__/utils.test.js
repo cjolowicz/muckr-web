@@ -1,5 +1,8 @@
 // @flow
-import { just } from '../src/utils';
+import {
+  just,
+  fromMaybe,
+} from '../src/utils';
 
 describe('just', () => {
   test.each([
@@ -25,5 +28,32 @@ describe('just', () => {
     [() => undefined],
   ])('returns argument', (arg) => {
     expect(just(arg)).toBe(arg);
+  });
+});
+
+describe('fromMaybe', () => {
+  test.each([
+    [undefined],
+    [null],
+  ])('returns default if undefined or null', (arg) => {
+    expect(fromMaybe('default', arg)).toBe('default');
+  });
+
+  test.each([
+    [false],
+    [true],
+    [0],
+    [1],
+    [2],
+    [''],
+    ['foo'],
+    [[]],
+    [['foo']],
+    [{}],
+    [{ foo: 'foo' }],
+    [() => null],
+    [() => undefined],
+  ])('returns value', (arg) => {
+    expect(fromMaybe('default', arg)).toBe(arg);
   });
 });
