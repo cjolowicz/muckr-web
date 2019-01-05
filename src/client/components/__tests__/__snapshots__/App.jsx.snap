@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderApp renders 1`] = `
+<App>
+  <WithAuth(ArtistList)
+    password="secret"
+    username="john"
+  >
+    <p>
+      Logging in...
+    </p>
+  </WithAuth(ArtistList)>
+</App>
+`;
