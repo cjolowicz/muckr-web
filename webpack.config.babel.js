@@ -1,5 +1,6 @@
 // @flow
 import path from 'path';
+import 'dotenv/config';
 import Dotenv from 'dotenv-webpack';
 
 import {
