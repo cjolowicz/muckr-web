@@ -1,3 +1,3 @@
 language: node_js
 node_js: node
-script: yarn run fulltest && yarn run build && yarn run submit-coverage
+script: yarn run fulltest && cp .env.example .env && yarn run build && yarn run submit-coverage
