@@ -1,9 +1,9 @@
 // @flow
 import fetchMock from 'fetch-mock';
 
-import { just } from '../../src/utils';
-import { API_URL } from '../../src/constants';
-import { renderApp } from '../../src/client/app';
+import { just } from '../../utils';
+import { API_URL } from '../../constants';
+import { renderApp } from '../app';
 
 // an arbitrary 32-byte sequence in hexadecimal
 const TOKEN = 'a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2';

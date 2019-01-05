@@ -2,7 +2,7 @@
 import {
   just,
   fromMaybe,
-} from '../src/utils';
+} from '../utils';
 
 describe('just', () => {
   test.each([

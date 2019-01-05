@@ -1,11 +1,12 @@
 // @flow
 import fetchMock from 'fetch-mock';
-import { API_URL } from '../../src/constants';
+
+import { API_URL } from '../../constants';
 import {
   createBasicAuthHeader,
   createTokenAuthHeader,
   fetchToken,
-} from '../../src/client/auth';
+} from '../auth';
 
 // an arbitrary 32-byte sequence in hexadecimal
 const TOKEN = 'a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2';

@@ -1,8 +1,8 @@
 // @flow
 import request from 'supertest';
 
-import app from '../../src/server/app';
-import { WEBPACK_LOCATION } from '../../src/constants';
+import app from '../app';
+import { WEBPACK_LOCATION } from '../../constants';
 
 describe('GET /', () => {
   test('responds with status 200', (done) => {
