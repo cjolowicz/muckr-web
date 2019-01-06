@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint src webpack.config.babel.js",
     "flow": "flow",
-    "test": "env `cat .env.example` jest --coverage",
+    "test": "env `cat .env.example` jest --coverage src",
     "fulltest": "yarn run lint && yarn run flow && yarn run test",
     "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "yarn run compile && yarn run bundle",
