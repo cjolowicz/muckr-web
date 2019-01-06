@@ -8,7 +8,7 @@ import { renderApp } from '../app';
 const TOKEN = 'a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2';
 
 describe('renderApp', () => {
-  test('modifies app root', (done) => {
+  it('modifies app root', (done) => {
     jest.spyOn(axios, 'post').mockReturnValue(
       Promise.resolve({ data: { token: TOKEN } }),
     );

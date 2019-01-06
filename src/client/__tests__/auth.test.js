@@ -10,7 +10,7 @@ import {
 const TOKEN = 'a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2';
 
 describe('createTokenAuthHeader', () => {
-  test('creates HTTP Token Auth header', () => {
+  it('creates HTTP Token Auth header', () => {
     expect(createTokenAuthHeader(TOKEN)).toEqual(
       { Authorization: `Bearer ${TOKEN}` },
     );
@@ -18,7 +18,7 @@ describe('createTokenAuthHeader', () => {
 });
 
 describe('fetchToken', () => {
-  test('returns token', (done) => {
+  it('returns token', (done) => {
     const data = { token: TOKEN };
     const promise = Promise.resolve({ data });
     jest.spyOn(axios, 'post').mockReturnValue(promise);

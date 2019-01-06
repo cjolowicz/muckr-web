@@ -7,7 +7,7 @@ import { fetchArtists } from '../artists';
 const TOKEN = 'a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2';
 
 describe('fetchArtists', () => {
-  test('returns array of artists', (done) => {
+  it('returns array of artists', (done) => {
     jest.spyOn(axios, 'post').mockReturnValue(
       Promise.resolve({ data: { token: TOKEN } }),
     );
