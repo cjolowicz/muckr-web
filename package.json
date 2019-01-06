@@ -15,7 +15,7 @@
     "fulltest": "yarn run lint && yarn run flow && yarn run test",
     "submit-coverage": "coveralls < coverage/lcov.info",
     "build": "yarn run compile && yarn run bundle",
-    "compile": "babel --delete-dir-on-start src --out-dir lib",
+    "compile": "babel --delete-dir-on-start src --out-dir lib --ignore .test.js",
     "bundle": "webpack -p --progress",
     "bundle-server": "webpack-dev-server --progress",
     "heroku-postbuild": "yarn run build",
