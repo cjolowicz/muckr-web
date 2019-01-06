@@ -1,12 +1,10 @@
 // @flow
-import 'isomorphic-fetch';
+import axios from 'axios';
 import { API_URL } from '../constants';
 import { createTokenAuthHeader } from './auth';
 
 export function fetchArtists(token: string) {
-  return fetch(`${API_URL}/artists`, {
-    method: 'GET',
-    mode: 'cors',
+  return axios.get(`${API_URL}/artists`, {
     headers: createTokenAuthHeader(token),
-  }).then(response => response.json());
+  }).then(response => response.data);
 }
