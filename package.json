@@ -51,6 +51,7 @@
     "flow-bin": "^0.89.0",
     "flow-typed": "^2.5.1",
     "jest": "^23.6.0",
+    "jest-enzyme": "^7.0.1",
     "nodemon": "^1.18.9",
     "react-test-renderer": "^16.7.0",
     "supertest": "^3.3.0",
