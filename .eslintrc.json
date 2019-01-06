@@ -13,6 +13,12 @@
     "no-param-reassign": ["error", { "props": false }],
     "compat/compat": "error"
   },
+  "overrides": {
+    "files": ["*.test.js"],
+    "rules": {
+      "compat/compat": "off"
+    }
+  },
   "settings": {
     "polyfills": [
       "fetch"
