@@ -6,15 +6,17 @@
     "plugin:react/recommended"
   ],
   "plugins": [
+    "prettier",
     "flowtype",
     "compat",
     "react"
   ],
   "rules": {
+    "prettier/prettier": "error",
+    "compat/compat": "error",
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { "props": false }],
-    "react/jsx-one-expression-per-line": ["off"],
-    "compat/compat": "error"
+    "react/jsx-one-expression-per-line": ["off"]
   },
   "overrides": {
     "files": ["**/__tests__/**"],
