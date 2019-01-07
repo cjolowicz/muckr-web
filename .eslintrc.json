@@ -2,11 +2,13 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended"
   ],
   "plugins": [
     "flowtype",
-    "compat"
+    "compat",
+    "react"
   ],
   "rules": {
     "import/prefer-default-export": "off",
