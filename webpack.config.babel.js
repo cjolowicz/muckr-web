@@ -13,7 +13,7 @@ import {
 
 export default {
   entry: [
-    './src/client/index.js',
+    './src/client/index.jsx',
   ],
   output: {
     filename: WEBPACK_FILE,
