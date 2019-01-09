@@ -28,6 +28,7 @@
   ],
   "jest": {
     "setupTestFrameworkScriptFile": "jest-enzyme",
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
     "testEnvironment": "enzyme",
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
