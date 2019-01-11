@@ -1,21 +1,21 @@
 // @flow
-import React from 'react';
+import React from "react";
 
-import { fetchArtists } from '../artists';
+import { fetchArtists } from "../artists";
 
 type Props = {
-  token: string,
+  token: string
 };
 
 type Artist = {
   id: number,
-  name: string,
+  name: string
 };
 
 type State = {
   artists: Array<Artist>,
   error: ?Error,
-  isLoading: boolean,
+  isLoading: boolean
 };
 
 export class ArtistList extends React.Component<Props, State> {
@@ -25,7 +25,7 @@ export class ArtistList extends React.Component<Props, State> {
     this.state = {
       artists: [],
       error: null,
-      isLoading: false,
+      isLoading: false
     };
   }
 
@@ -35,14 +35,18 @@ export class ArtistList extends React.Component<Props, State> {
     const { token } = this.props;
 
     fetchArtists(token)
-      .then(artists => this.setState({
-        artists,
-        isLoading: false,
-      }))
-      .catch(error => this.setState({
-        error,
-        isLoading: false,
-      }));
+      .then(artists =>
+        this.setState({
+          artists,
+          isLoading: false
+        })
+      )
+      .catch(error =>
+        this.setState({
+          error,
+          isLoading: false
+        })
+      );
   }
 
   render() {

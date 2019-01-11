@@ -1,25 +1,25 @@
 // @flow
-import * as React from 'react';
+import * as React from "react";
 
-import { fetchToken } from '../auth';
+import { fetchToken } from "../auth";
 
 type Props = {
   username: string,
-  password: string,
+  password: string
 };
 
 type State = {
   token: ?string,
   error: ?Error,
-  isLoading: boolean,
+  isLoading: boolean
 };
 
 function getDisplayName(Component) {
-  return Component.displayName || Component.name || 'Component';
+  return Component.displayName || Component.name || "Component";
 }
 
 export function withAuth(
-  Component: React.ComponentType<{ token: string }>,
+  Component: React.ComponentType<{ token: string }>
 ): React.ComponentType<Props> {
   class WithAuth extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -28,7 +28,7 @@ export function withAuth(
       this.state = {
         token: null,
         error: null,
-        isLoading: false,
+        isLoading: false
       };
     }
 
@@ -38,13 +38,18 @@ export function withAuth(
       const { username, password } = this.props;
 
       fetchToken(username, password)
-        .then(token => this.setState({
-          token,
-          isLoading: false,
-        })).catch(error => this.setState({
-          error,
-          isLoading: false,
-        }));
+        .then(token =>
+          this.setState({
+            token,
+            isLoading: false
+          })
+        )
+        .catch(error =>
+          this.setState({
+            error,
+            isLoading: false
+          })
+        );
     }
 
     render() {

@@ -8,12 +8,7 @@
     "prettier/flowtype",
     "prettier/react"
   ],
-  "plugins": [
-    "prettier",
-    "flowtype",
-    "compat",
-    "react"
-  ],
+  "plugins": ["prettier", "flowtype", "compat", "react"],
   "rules": {
     "prettier/prettier": "error",
     "compat/compat": "error",

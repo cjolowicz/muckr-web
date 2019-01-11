@@ -1,48 +1,43 @@
 // @flow
-import path from 'path';
-import 'dotenv/config';
-import Dotenv from 'dotenv-webpack';
+import path from "path";
+import "dotenv/config";
+import Dotenv from "dotenv-webpack";
 
 import {
   PRODUCTION,
   WEBPACK_FILE,
   WEBPACK_PATH,
   WEBPACK_PUBLIC_PATH,
-  WEBPACK_DEV_SERVER_PORT,
-} from './src/constants';
+  WEBPACK_DEV_SERVER_PORT
+} from "./src/constants";
 
 export default {
-  entry: [
-    './src/client/index.jsx',
-  ],
+  entry: ["./src/client/index.jsx"],
   output: {
     filename: WEBPACK_FILE,
     path: path.resolve(__dirname, WEBPACK_PATH),
-    publicPath: WEBPACK_PUBLIC_PATH,
+    publicPath: WEBPACK_PUBLIC_PATH
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-    ],
+        use: "babel-loader",
+        exclude: /node_modules/
+      }
+    ]
   },
   plugins: [
     new Dotenv({
-      systemvars: true,
-    }),
+      systemvars: true
+    })
   ],
-  devtool: PRODUCTION ? 'source-map' : 'eval',
+  devtool: PRODUCTION ? "source-map" : "eval",
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-    ],
+    extensions: [".js", ".jsx"]
   },
   devServer: {
-    port: WEBPACK_DEV_SERVER_PORT,
+    port: WEBPACK_DEV_SERVER_PORT
   },
-  mode: PRODUCTION ? 'production' : 'development',
+  mode: PRODUCTION ? "production" : "development"
 };

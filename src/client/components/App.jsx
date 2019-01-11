@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
+import React from "react";
 
-import { withAuth } from './Auth';
-import { ArtistList } from './ArtistList';
-import { API_USER, API_PASSWORD } from '../../constants';
+import { withAuth } from "./Auth";
+import { ArtistList } from "./ArtistList";
+import { API_USER, API_PASSWORD } from "../../constants";
 
 const ArtistListWithAuth = withAuth(ArtistList);
 
