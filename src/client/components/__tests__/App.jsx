@@ -5,7 +5,7 @@ import { mount } from "enzyme";
 import { App } from "../App";
 import * as artists from "../../artists";
 import * as auth from "../../auth";
-import { mock } from "../../../test-utils";
+import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 
 describe("renderApp", () => {

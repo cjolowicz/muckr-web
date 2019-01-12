@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 
 import { withAuth } from "../Auth";
 import * as auth from "../../auth";
-import { mock } from "../../../test-utils";
+import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 
 export const Auth = withAuth((props: { token: string }) => (
