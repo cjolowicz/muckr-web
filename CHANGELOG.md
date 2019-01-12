@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2019-01-12
+### Added
+- Use [React](https://reactjs.org) framework.
+- Use [Enzyme](https://airbnb.io/enzyme/) testing utility.
+- Use [Prettier](https://github.com/prettier/prettier) code formatter.
+- Use [axios](https://github.com/axios/axios) HTTP client library.
+
+### Changed
+- Upgrade dev dependencies:
+  - babel-loader 8.0.5
+  - eslint 5.12.0
+  - eslint-plugin-flowtype 3.2.1
+  - webpack 4.28.4
+  - webpack-cli 3.2.1
+
+### Removed
+- Do not use Fetch API.
+
+### Fixed
+- Fix deprecation warnings on Travis CI due to outdated yarn.
+
 ## [0.2.0] - 2019-01-02
 ### Added
 - Client retrieves list of artists and displays it.
