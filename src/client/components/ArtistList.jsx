@@ -60,7 +60,7 @@ export class ArtistList extends React.Component<Props, State> {
       return <p>Loading...</p>;
     }
 
-    if (!artists) {
+    if (!artists.length) {
       return <p>No artists</p>;
     }
 
