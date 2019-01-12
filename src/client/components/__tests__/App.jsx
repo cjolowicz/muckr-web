@@ -6,12 +6,11 @@ import { App } from "../App";
 import * as artists from "../../artists";
 import * as auth from "../../auth";
 import { mock } from "../../../test-utils";
+import { TOKEN } from "../../../test/fixtures";
 
 describe("renderApp", () => {
-  const token =
-    "a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2";
   const artist = { id: 1, name: "Artist" };
-  const authPromise = Promise.resolve(token);
+  const authPromise = Promise.resolve(TOKEN);
   const artistsPromise = Promise.resolve([artist]);
 
   beforeAll(() => {

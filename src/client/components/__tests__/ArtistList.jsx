@@ -5,11 +5,10 @@ import { mount } from "enzyme";
 import { ArtistList } from "../ArtistList";
 import * as artists from "../../artists";
 import { mock } from "../../../test-utils";
+import { TOKEN } from "../../../test/fixtures";
 
 describe("ArtistList", () => {
   describe("on success", () => {
-    const token =
-      "a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2";
     const artist = { id: 1, name: "Artist" };
     const promise = Promise.resolve([artist]);
 
@@ -22,7 +21,7 @@ describe("ArtistList", () => {
     });
 
     test("stores artists", () => {
-      const wrapper = mount(<ArtistList token={token} />);
+      const wrapper = mount(<ArtistList token={TOKEN} />);
 
       expect(wrapper.state().artists).toEqual([]);
 

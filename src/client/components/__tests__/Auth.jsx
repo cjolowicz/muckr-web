@@ -5,6 +5,7 @@ import { mount } from "enzyme";
 import { withAuth } from "../Auth";
 import * as auth from "../../auth";
 import { mock } from "../../../test-utils";
+import { TOKEN } from "../../../test/fixtures";
 
 export const Auth = withAuth((props: { token: string }) => (
   <p>Logged in: {props.token}</p>
@@ -12,8 +13,6 @@ export const Auth = withAuth((props: { token: string }) => (
 
 describe("Auth", () => {
   describe("on success", () => {
-    const TOKEN =
-      "a7e743fb7ca1c7c883312b6abb0c99131e4ff210e0730d2f1ee4fad87e514ea2";
     const promise = Promise.resolve(TOKEN);
 
     beforeAll(() => {
