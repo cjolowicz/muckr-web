@@ -2,13 +2,116 @@
 
 exports[`renderApp renders 1`] = `
 <App>
-  <WithAuth(ArtistList)
-    password="secret"
-    username="john"
-  >
-    <p>
-      Logging in...
-    </p>
-  </WithAuth(ArtistList)>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <div>
+        <Header>
+          <nav>
+            <ul>
+              <li>
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    Home
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  replace={false}
+                  to="/artists/"
+                >
+                  <a
+                    href="/artists/"
+                    onClick={[Function]}
+                  >
+                    Artists
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </Header>
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/"
+        >
+          <Index
+            history={
+              Object {
+                "action": "POP",
+                "block": [Function],
+                "createHref": [Function],
+                "go": [Function],
+                "goBack": [Function],
+                "goForward": [Function],
+                "length": 1,
+                "listen": [Function],
+                "location": Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": undefined,
+                },
+                "push": [Function],
+                "replace": [Function],
+              }
+            }
+            location={
+              Object {
+                "hash": "",
+                "pathname": "/",
+                "search": "",
+                "state": undefined,
+              }
+            }
+            match={
+              Object {
+                "isExact": true,
+                "params": Object {},
+                "path": "/",
+                "url": "/",
+              }
+            }
+          >
+            <h2>
+              Welcome
+            </h2>
+          </Index>
+        </Route>
+        <Route
+          component={[Function]}
+          path="/artists/"
+        />
+      </div>
+    </Router>
+  </BrowserRouter>
 </App>
 `;
