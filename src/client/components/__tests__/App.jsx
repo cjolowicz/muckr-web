@@ -1,32 +1,30 @@
 // @flow
 import React from "react";
+import { MemoryRouter } from "react-router-dom";
 import { mount } from "enzyme";
 
-import { App } from "../App";
-import * as artists from "../../artists";
-import * as auth from "../../auth";
-import { mock } from "../../../test/utils";
-import { TOKEN } from "../../../test/fixtures";
+import { App, AppWithoutRouter } from "../App";
 
-describe("renderApp", () => {
-  const artist = { id: 1, name: "Artist" };
-  const authPromise = Promise.resolve(TOKEN);
-  const artistsPromise = Promise.resolve([artist]);
-
-  beforeAll(() => {
-    jest.spyOn(auth, "fetchToken").mockReturnValue(authPromise);
-    jest.spyOn(artists, "fetchArtists").mockReturnValue(artistsPromise);
-  });
-
-  afterAll(() => {
-    mock(artists.fetchArtists).mockRestore();
-    mock(auth.fetchToken).mockRestore();
-  });
-
-  it("renders", () => {
+describe("App", () => {
+  it("renders Index", () => {
     const wrapper = mount(<App />);
-    return Promise.resolve().then(() => {
-      expect(wrapper).toMatchSnapshot();
-    });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it("renders Artists", () => {
+    const wrapper = mount(
+      <MemoryRouter
+        initialEntries={[
+          {
+            pathname: "/artists/",
+            key: "test"
+          }
+        ]}
+      >
+        <AppWithoutRouter />
+      </MemoryRouter>
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

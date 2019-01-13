@@ -1,30 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renderApp renders 1`] = `
-<App>
-  <BrowserRouter>
-    <Router
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
+exports[`App renders Artists 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "test",
+        "pathname": "/artists/",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
             "hash": "",
-            "pathname": "/",
+            "key": "test",
+            "pathname": "/artists/",
             "search": "",
-            "state": undefined,
           },
-          "push": [Function],
-          "replace": [Function],
-        }
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "test",
+          "pathname": "/artists/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
       }
-    >
+    }
+  >
+    <AppWithoutRouter>
       <div>
         <Header>
           <nav>
@@ -58,59 +77,223 @@ exports[`renderApp renders 1`] = `
             </ul>
           </nav>
         </Header>
-        <Route
-          component={[Function]}
-          exact={true}
-          path="/"
-        >
-          <Index
-            history={
-              Object {
-                "action": "POP",
-                "block": [Function],
-                "createHref": [Function],
-                "go": [Function],
-                "goBack": [Function],
-                "goForward": [Function],
-                "length": 1,
-                "listen": [Function],
-                "location": Object {
+        <Routes>
+          <Switch>
+            <Route
+              component={[Function]}
+              computedMatch={
+                Object {
+                  "isExact": true,
+                  "params": Object {},
+                  "path": "/artists/",
+                  "url": "/artists/",
+                }
+              }
+              location={
+                Object {
                   "hash": "",
-                  "pathname": "/",
+                  "key": "test",
+                  "pathname": "/artists/",
                   "search": "",
-                  "state": undefined,
-                },
-                "push": [Function],
-                "replace": [Function],
+                }
               }
-            }
-            location={
-              Object {
-                "hash": "",
-                "pathname": "/",
-                "search": "",
-                "state": undefined,
-              }
-            }
-            match={
-              Object {
-                "isExact": true,
-                "params": Object {},
-                "path": "/",
-                "url": "/",
-              }
-            }
-          >
-            <h2>
-              Welcome
-            </h2>
-          </Index>
-        </Route>
-        <Route
-          component={[Function]}
-          path="/artists/"
-        />
+              path="/artists/"
+            >
+              <Artists
+                history={
+                  Object {
+                    "action": "POP",
+                    "block": [Function],
+                    "canGo": [Function],
+                    "createHref": [Function],
+                    "entries": Array [
+                      Object {
+                        "hash": "",
+                        "key": "test",
+                        "pathname": "/artists/",
+                        "search": "",
+                      },
+                    ],
+                    "go": [Function],
+                    "goBack": [Function],
+                    "goForward": [Function],
+                    "index": 0,
+                    "length": 1,
+                    "listen": [Function],
+                    "location": Object {
+                      "hash": "",
+                      "key": "test",
+                      "pathname": "/artists/",
+                      "search": "",
+                    },
+                    "push": [Function],
+                    "replace": [Function],
+                  }
+                }
+                location={
+                  Object {
+                    "hash": "",
+                    "key": "test",
+                    "pathname": "/artists/",
+                    "search": "",
+                  }
+                }
+                match={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/artists/",
+                    "url": "/artists/",
+                  }
+                }
+              >
+                <WithAuth(ArtistList)
+                  password="secret"
+                  username="john"
+                >
+                  <p>
+                    Logging in...
+                  </p>
+                </WithAuth(ArtistList)>
+              </Artists>
+            </Route>
+          </Switch>
+        </Routes>
       </div>
+    </AppWithoutRouter>
+  </Router>
+</MemoryRouter>
+`;
+
+exports[`App renders Index 1`] = `
+<App>
+  <BrowserRouter>
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <AppWithoutRouter>
+        <div>
+          <Header>
+            <nav>
+              <ul>
+                <li>
+                  <Link
+                    replace={false}
+                    to="/"
+                  >
+                    <a
+                      href="/"
+                      onClick={[Function]}
+                    >
+                      Home
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    replace={false}
+                    to="/artists/"
+                  >
+                    <a
+                      href="/artists/"
+                      onClick={[Function]}
+                    >
+                      Artists
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </Header>
+          <Routes>
+            <Switch>
+              <Route
+                component={[Function]}
+                computedMatch={
+                  Object {
+                    "isExact": true,
+                    "params": Object {},
+                    "path": "/",
+                    "url": "/",
+                  }
+                }
+                exact={true}
+                location={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": undefined,
+                  }
+                }
+                path="/"
+              >
+                <Index
+                  history={
+                    Object {
+                      "action": "POP",
+                      "block": [Function],
+                      "createHref": [Function],
+                      "go": [Function],
+                      "goBack": [Function],
+                      "goForward": [Function],
+                      "length": 1,
+                      "listen": [Function],
+                      "location": Object {
+                        "hash": "",
+                        "pathname": "/",
+                        "search": "",
+                        "state": undefined,
+                      },
+                      "push": [Function],
+                      "replace": [Function],
+                    }
+                  }
+                  location={
+                    Object {
+                      "hash": "",
+                      "pathname": "/",
+                      "search": "",
+                      "state": undefined,
+                    }
+                  }
+                  match={
+                    Object {
+                      "isExact": true,
+                      "params": Object {},
+                      "path": "/",
+                      "url": "/",
+                    }
+                  }
+                >
+                  <h2>
+                    Welcome
+                  </h2>
+                </Index>
+              </Route>
+            </Switch>
+          </Routes>
+        </div>
+      </AppWithoutRouter>
     </Router>
   </BrowserRouter>
 </App>

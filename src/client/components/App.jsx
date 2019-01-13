@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import { withAuth } from "./Auth";
 import { ArtistList } from "./ArtistList";
@@ -26,12 +26,22 @@ const Header = () => (
   </nav>
 );
 
+const Routes = () => (
+  <Switch>
+    <Route path="/" exact component={Index} />
+    <Route path="/artists/" component={Artists} />
+  </Switch>
+);
+
+export const AppWithoutRouter = () => (
+  <div>
+    <Header />
+    <Routes />
+  </div>
+);
+
 export const App = () => (
   <BrowserRouter>
-    <div>
-      <Header />
-      <Route path="/" exact component={Index} />
-      <Route path="/artists/" component={Artists} />
-    </div>
+    <AppWithoutRouter />
   </BrowserRouter>
 );
