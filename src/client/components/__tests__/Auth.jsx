@@ -12,6 +12,16 @@ export const Auth = withAuth((props: { token: string }) => (
 ));
 
 describe("Auth", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it("loads token from storage", () => {
+    localStorage.setItem("token", TOKEN);
+    const wrapper = mount(<Auth username="john" password="secret" />);
+    expect(wrapper.state().token).toEqual(TOKEN);
+  });
+
   describe("on success", () => {
     const promise = Promise.resolve(TOKEN);
 

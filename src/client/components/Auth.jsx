@@ -33,17 +33,25 @@ export function withAuth(
     }
 
     componentDidMount() {
+      const storedToken = localStorage.getItem("token");
+
+      if (storedToken) {
+        this.setState({ token: storedToken });
+        return;
+      }
+
       this.setState({ isLoading: true });
 
       const { username, password } = this.props;
 
       fetchToken(username, password)
-        .then(token =>
-          this.setState({
+        .then(token => {
+          localStorage.setItem("token", token);
+          return this.setState({
             token,
             isLoading: false
-          })
-        )
+          });
+        })
         .catch(error =>
           this.setState({
             error,
