@@ -4,14 +4,11 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import { withAuth } from "./Auth";
 import { ArtistList } from "./ArtistList";
-import { API_USER, API_PASSWORD } from "../../constants";
 
 const ArtistListWithAuth = withAuth(ArtistList);
 
 const Index = () => <h2>Welcome</h2>;
-const Artists = () => (
-  <ArtistListWithAuth username={API_USER} password={API_PASSWORD} />
-);
+const Artists = () => <ArtistListWithAuth />;
 
 const Header = () => (
   <nav>

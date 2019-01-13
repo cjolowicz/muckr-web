@@ -4,6 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { mount } from "enzyme";
 
 import { App, AppWithoutRouter } from "../App";
+import { TOKEN } from "../../../test/fixtures";
 
 describe("App", () => {
   it("renders Index", () => {
@@ -12,6 +13,8 @@ describe("App", () => {
   });
 
   it("renders Artists", () => {
+    localStorage.setItem("token", TOKEN);
+
     const wrapper = mount(
       <MemoryRouter
         initialEntries={[
