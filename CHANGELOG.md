@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Add client-side routing with two pages.
+- Add yarn script to update Jest snapshots.
+- Use [React Router](https://reacttraining.com/react-router/).
+
 ### Changed
 - Upgrade dev dependencies:
   - flow-bin 0.90.0
