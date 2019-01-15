@@ -3,7 +3,7 @@ import React from "react";
 import { mount, shallow } from "enzyme";
 
 import { LoginFormBase } from "../LoginForm";
-import * as auth from "../../auth";
+import * as auth from "../../services/auth";
 import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 

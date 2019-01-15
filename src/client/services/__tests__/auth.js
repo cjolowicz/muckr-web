@@ -2,7 +2,7 @@
 import axios from "axios";
 
 import { createTokenAuthHeader, fetchToken } from "../auth";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN } from "../../../test/fixtures";
 
 describe("createTokenAuthHeader", () => {
   it("creates HTTP Token Auth header", () => {
