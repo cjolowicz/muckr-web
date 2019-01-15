@@ -1,4 +1,4 @@
-// flow-typed signature: 053d3f24808c6889fc26b8c514b12db5
+// flow-typed signature: 32f911f1b98e5d289cc851578b07c9bc
 // flow-typed version: <<STUB>>/eslint-config-prettier_v^3.3.0/flow_v0.90.0
 
 /**
@@ -42,6 +42,10 @@ declare module 'eslint-config-prettier/standard' {
   declare module.exports: any;
 }
 
+declare module 'eslint-config-prettier/typescript' {
+  declare module.exports: any;
+}
+
 declare module 'eslint-config-prettier/unicorn' {
   declare module.exports: any;
 }
@@ -71,6 +75,9 @@ declare module 'eslint-config-prettier/react.js' {
 }
 declare module 'eslint-config-prettier/standard.js' {
   declare module.exports: $Exports<'eslint-config-prettier/standard'>;
+}
+declare module 'eslint-config-prettier/typescript.js' {
+  declare module.exports: $Exports<'eslint-config-prettier/typescript'>;
 }
 declare module 'eslint-config-prettier/unicorn.js' {
   declare module.exports: $Exports<'eslint-config-prettier/unicorn'>;
