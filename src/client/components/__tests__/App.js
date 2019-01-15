@@ -10,7 +10,7 @@ import * as routes from "../../routes";
 describe("App", () => {
   it("renders Index", () => {
     const wrapper = mount(<App />);
-    expect(wrapper.find("Index")).toHaveLength(1);
+    expect(wrapper).toContainMatchingElement("Index");
   });
 
   it("renders Artists", () => {
@@ -29,6 +29,6 @@ describe("App", () => {
       </MemoryRouter>
     );
 
-    expect(wrapper.find("Artists")).toHaveLength(1);
+    expect(wrapper).toContainMatchingElement("Artists");
   });
 });

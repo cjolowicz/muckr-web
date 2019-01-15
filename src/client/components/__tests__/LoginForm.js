@@ -13,21 +13,21 @@ describe("LoginForm", () => {
 
   describe("on startup", () => {
     it("displays form", () => {
-      const loginForm = shallow(
+      const wrapper = shallow(
         <LoginFormBase history={window.history} nextRoute="/" />
       );
-      expect(loginForm.find("form")).toHaveLength(1);
+      expect(wrapper).toContainMatchingElement("form");
     });
   });
 
   describe("on change", () => {
     it("updates state", () => {
-      const loginForm = shallow(
+      const wrapper = shallow(
         <LoginFormBase history={window.history} nextRoute="/" />
       );
-      const usernameField = loginForm.find("input[name='username']");
+      const usernameField = wrapper.find("input[name='username']");
 
-      expect(loginForm.state().username).toEqual("");
+      expect(wrapper).toHaveState({ username: "" });
 
       usernameField.simulate("change", {
         currentTarget: {
@@ -36,7 +36,7 @@ describe("LoginForm", () => {
         }
       });
 
-      expect(loginForm.state().username).toEqual("john");
+      expect(wrapper).toHaveState({ username: "john" });
     });
   });
 
@@ -53,17 +53,17 @@ describe("LoginForm", () => {
 
     it("redirects", () => {
       const historyMock = { push: jest.fn() };
-      const loginForm = mount(
+      const wrapper = mount(
         <LoginFormBase history={historyMock} nextRoute="/" />
       );
 
-      loginForm.simulate("submit", {
+      wrapper.simulate("submit", {
         preventDefault: () => {}
       });
 
       return promise.then(() => {
-        loginForm.update();
-        expect(historyMock.push.mock.calls[0]).toEqual(["/"]);
+        wrapper.update();
+        expect(historyMock.push).toHaveBeenLastCalledWith("/");
       });
     });
   });
@@ -91,11 +91,11 @@ describe("LoginForm", () => {
         preventDefault: () => {}
       });
 
-      expect(wrapper.state().error).toBeNull();
+      expect(wrapper).toHaveState({ error: null });
 
       return promise.then().catch(() => {
         wrapper.update();
-        expect(wrapper.state().error).toBe(error);
+        expect(wrapper).toHaveState({ error });
       });
     });
   });

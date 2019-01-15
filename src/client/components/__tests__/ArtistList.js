@@ -25,11 +25,11 @@ describe("ArtistList", () => {
 
       const wrapper = mount(<ArtistList token={TOKEN} />);
 
-      expect(wrapper.state().artists).toEqual([]);
+      expect(wrapper).toHaveState({ artists: [] });
 
       return promise.then(() => {
         wrapper.update();
-        expect(wrapper.state().artists).toEqual(artists);
+        expect(wrapper).toHaveState({ artists });
       });
     });
 
@@ -40,11 +40,11 @@ describe("ArtistList", () => {
 
       const wrapper = mount(<ArtistList token={TOKEN} />);
 
-      expect(wrapper.find("p").text()).toEqual("Loading...");
+      expect(wrapper.find("p")).toHaveText("Loading...");
 
       return promise.then(() => {
         wrapper.update();
-        expect(wrapper.find("p").text()).toEqual("No artists");
+        expect(wrapper.find("p")).toHaveText("No artists");
       });
     });
   });
@@ -60,11 +60,11 @@ describe("ArtistList", () => {
 
       const wrapper = mount(<ArtistList token={TOKEN} />);
 
-      expect(wrapper.state().error).toBeNull();
+      expect(wrapper).toHaveState({ error: null });
 
       return promise.then().catch(() => {
         wrapper.update();
-        expect(wrapper.state().error).toBe(error);
+        expect(wrapper).toHaveState({ error });
       });
     });
   });

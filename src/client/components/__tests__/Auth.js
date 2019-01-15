@@ -17,7 +17,7 @@ describe("withAuth", () => {
   describe("without token", () => {
     it("redirects", () => {
       const wrapper = shallow(<Auth />);
-      expect(wrapper.find("Redirect")).toHaveLength(1);
+      expect(wrapper).toContainMatchingElement("Redirect");
     });
   });
 
@@ -28,13 +28,13 @@ describe("withAuth", () => {
 
     it("renders component", () => {
       const wrapper = shallow(<Auth />);
-      expect(wrapper.find(Component)).toHaveLength(1);
+      expect(wrapper).toContainMatchingElement("Component");
     });
 
     it("passes token to component", () => {
       const wrapper = shallow(<Auth />);
       const component = wrapper.find(Component);
-      expect(component.props().token).toEqual(TOKEN);
+      expect(component).toHaveProp({ token: TOKEN });
     });
   });
 });
