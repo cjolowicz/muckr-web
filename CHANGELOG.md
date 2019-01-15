@@ -4,18 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.4.0] - 2019-01-15
 ### Added
-- Add client-side routing with two pages.
+- Add login page.
+- Add user service.
+- Add client-side routing.
 - Add yarn script to update Jest snapshots.
 - Use [React Router](https://reacttraining.com/react-router/).
 
 ### Changed
+- Support class properties.
+- Use .js extension for JSX.
 - Upgrade dev dependencies:
   - flow-bin 0.90.0
+  - eslint-config-prettier 3.4.0
+
+### Removed
+- Remove `API_USER` and `API_PASSWORD` settings.
 
 ### Fixed
 - Fix message when no artists are found.
+- Do not compile test modules.
 
 ## [0.3.0] - 2019-01-12
 ### Added
