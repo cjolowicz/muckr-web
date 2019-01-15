@@ -17,3 +17,9 @@ export function fetchToken(username: string, password: string) {
     )
     .then(response => response.data.token);
 }
+
+export function login(username: string, password: string) {
+  return fetchToken(username, password).then(token => {
+    localStorage.setItem("token", token);
+  });
+}

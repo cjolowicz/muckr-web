@@ -4,7 +4,7 @@ import type { ContextRouter } from "react-router";
 
 import { withRouter } from "react-router-dom";
 
-import { fetchToken } from "../services/user";
+import { login } from "../services/user";
 
 type Props = ContextRouter & {
   nextRoute: string
@@ -34,9 +34,8 @@ export class LoginFormBase extends React.Component<Props, State> {
 
     this.setState({ isLoading: true });
 
-    fetchToken(username, password)
-      .then(token => {
-        localStorage.setItem("token", token);
+    login(username, password)
+      .then(() => {
         this.setState({ isLoading: false });
         history.push(nextRoute);
       })

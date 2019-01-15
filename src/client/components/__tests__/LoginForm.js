@@ -5,7 +5,6 @@ import { mount, shallow } from "enzyme";
 import { LoginFormBase } from "../LoginForm";
 import * as user from "../../services/user";
 import { mock } from "../../../test/utils";
-import { TOKEN } from "../../../test/fixtures";
 
 describe("LoginForm", () => {
   beforeEach(() => {
@@ -41,23 +40,22 @@ describe("LoginForm", () => {
     });
   });
 
-  describe("on submit", () => {
-    const promise = Promise.resolve(TOKEN);
+  describe("on success", () => {
+    const promise = Promise.resolve();
 
     beforeAll(() => {
-      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
+      jest.spyOn(user, "login").mockReturnValue(promise);
     });
 
     afterAll(() => {
-      mock(user.fetchToken).mockRestore();
+      mock(user.login).mockRestore();
     });
 
-    it("stores token", () => {
+    it("redirects", () => {
+      const historyMock = { push: jest.fn() };
       const loginForm = mount(
-        <LoginFormBase history={window.history} nextRoute="/" />
+        <LoginFormBase history={historyMock} nextRoute="/" />
       );
-
-      expect(localStorage.getItem("token")).toBeNull();
 
       loginForm.simulate("submit", {
         preventDefault: () => {}
@@ -65,7 +63,39 @@ describe("LoginForm", () => {
 
       return promise.then(() => {
         loginForm.update();
-        expect(localStorage.getItem("token")).toEqual(TOKEN);
+        expect(historyMock.push.mock.calls[0]).toEqual(["/"]);
+      });
+    });
+  });
+
+  describe("on error", () => {
+    const error = new Error("fail");
+    const promise = Promise.reject(error);
+
+    beforeAll(() => {
+      jest.spyOn(user, "login").mockReturnValue(promise);
+    });
+
+    afterAll(() => {
+      mock(user.login).mockRestore();
+    });
+
+    it("redirects", () => {
+      expect.assertions(2);
+
+      const wrapper = mount(
+        <LoginFormBase history={window.history} nextRoute="/" />
+      );
+
+      wrapper.simulate("submit", {
+        preventDefault: () => {}
+      });
+
+      expect(wrapper.state().error).toBeNull();
+
+      return promise.then().catch(() => {
+        wrapper.update();
+        expect(wrapper.state().error).toBe(error);
       });
     });
   });
