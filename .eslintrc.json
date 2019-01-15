@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
+    "jest-enzyme",
     "plugin:flowtype/recommended",
     "plugin:react/recommended",
     "prettier",
