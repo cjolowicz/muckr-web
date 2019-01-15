@@ -5,6 +5,7 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import { withAuth } from "./Auth";
 import { ArtistList } from "./ArtistList";
 import { LoginForm } from "./LoginForm";
+import * as routes from "../routes";
 
 const ArtistListWithAuth = withAuth(ArtistList);
 
@@ -16,13 +17,13 @@ const Header = () => (
   <nav>
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <Link to={routes.INDEX}>Home</Link>
       </li>
       <li>
-        <Link to="/login/">Login</Link>
+        <Link to={routes.LOGIN}>Login</Link>
       </li>
       <li>
-        <Link to="/artists/">Artists</Link>
+        <Link to={routes.ARTISTS}>Artists</Link>
       </li>
     </ul>
   </nav>
@@ -30,9 +31,9 @@ const Header = () => (
 
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={Index} />
-    <Route path="/login" component={Login} />
-    <Route path="/artists/" component={Artists} />
+    <Route path={routes.INDEX} exact component={Index} />
+    <Route path={routes.LOGIN} component={Login} />
+    <Route path={routes.ARTISTS} component={Artists} />
   </Switch>
 );
 

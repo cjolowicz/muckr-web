@@ -2,6 +2,8 @@
 import * as React from "react";
 import { Redirect } from "react-router-dom";
 
+import * as routes from "../routes";
+
 const getDisplayName = Component =>
   Component.displayName || Component.name || "Component";
 
@@ -12,7 +14,7 @@ export function withAuth(
     const token = localStorage.getItem("token");
 
     if (!token) {
-      return <Redirect to="/login" />;
+      return <Redirect to={routes.LOGIN} />;
     }
 
     return <Component token={token} />;

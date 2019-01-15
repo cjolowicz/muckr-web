@@ -5,6 +5,7 @@ import { mount } from "enzyme";
 
 import { App, AppWithoutRouter } from "../App";
 import { TOKEN } from "../../../test/fixtures";
+import * as routes from "../../routes";
 
 describe("App", () => {
   it("renders Index", () => {
@@ -19,7 +20,7 @@ describe("App", () => {
       <MemoryRouter
         initialEntries={[
           {
-            pathname: "/artists/",
+            pathname: routes.ARTISTS,
             key: "test"
           }
         ]}
