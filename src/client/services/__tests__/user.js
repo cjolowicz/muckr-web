@@ -13,30 +13,33 @@ describe("createTokenAuthHeader", () => {
 });
 
 describe("fetchToken", () => {
-  it("returns token", done => {
-    const data = { token: TOKEN };
-    const promise = Promise.resolve({ data });
-    jest.spyOn(axios, "post").mockReturnValue(promise);
+  const data = { token: TOKEN };
+  const promise = Promise.resolve({ data });
 
+  beforeAll(() => {
+    jest.spyOn(axios, "post").mockReturnValue(promise);
+  });
+
+  it("returns token", () =>
     fetchToken("john", "secret").then(token => {
       expect(token).toEqual(TOKEN);
-    });
-    done();
-  });
+    }));
 });
 
 describe("login", () => {
+  const data = { token: TOKEN };
+  const promise = Promise.resolve({ data });
+
   beforeAll(() => {
+    jest.spyOn(axios, "post").mockReturnValue(promise);
+  });
+
+  beforeEach(() => {
     localStorage.clear();
   });
 
-  it("stores token", () => {
-    const data = { token: TOKEN };
-    const promise = Promise.resolve({ data });
-    jest.spyOn(axios, "post").mockReturnValue(promise);
-
+  it("stores token", () =>
     login("john", "secret").then(() => {
       expect(localStorage.getItem("token")).toEqual(TOKEN);
-    });
-  });
+    }));
 });

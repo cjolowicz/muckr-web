@@ -5,20 +5,17 @@ import { fetchArtists } from "../artist";
 import { TOKEN } from "../../../test/fixtures";
 
 describe("fetchArtists", () => {
-  it("returns array of artists", done => {
-    jest
-      .spyOn(axios, "post")
-      .mockReturnValue(Promise.resolve({ data: { token: TOKEN } }));
+  const artist = { id: 1, name: "Artist" };
+  const promise1 = Promise.resolve({ data: { token: TOKEN } });
+  const promise2 = Promise.resolve({ data: [artist] });
 
-    const artist = { id: 1, name: "Artist" };
-    jest
-      .spyOn(axios, "get")
-      .mockReturnValue(Promise.resolve({ data: [artist] }));
+  beforeAll(() => {
+    jest.spyOn(axios, "post").mockReturnValue(promise1);
+    jest.spyOn(axios, "get").mockReturnValue(promise2);
+  });
 
+  it("returns array of artists", () =>
     fetchArtists(TOKEN).then(artists => {
       expect(artists).toEqual([artist]);
-    });
-
-    done();
-  });
+    }));
 });
