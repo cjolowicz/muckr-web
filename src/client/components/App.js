@@ -10,7 +10,7 @@ import * as routes from "../routes";
 const ArtistListWithAuth = withAuth(ArtistList);
 
 const Index = () => <h2>Welcome</h2>;
-const Login = () => <LoginForm />;
+const Login = () => <LoginForm nextRoute={routes.ARTISTS} />;
 const Artists = () => <ArtistListWithAuth />;
 
 const Header = () => (
