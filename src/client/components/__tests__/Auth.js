@@ -2,7 +2,7 @@
 import * as React from "react";
 import { shallow } from "enzyme";
 
-import { withAuth } from "../Auth";
+import { withAuth, getDisplayName } from "../Auth";
 import { TOKEN } from "../../../test/fixtures";
 
 type Props = { token: string };
@@ -35,6 +35,23 @@ describe("withAuth", () => {
       const wrapper = shallow(<Auth />);
       const component = wrapper.find(Component);
       expect(component).toHaveProp({ token: TOKEN });
+    });
+  });
+});
+
+describe("getDisplayName", () => {
+  describe("when displayName exists", () => {
+    it("returns displayName", () => {
+      const Foo = () => <p>Foo</p>;
+      const result = getDisplayName(Foo);
+      expect(result).toEqual("Foo");
+    });
+  });
+
+  describe("when displayName does not exist", () => {
+    it("returns 'Component'", () => {
+      const result = getDisplayName(() => <p>Foo</p>);
+      expect(result).toEqual("Component");
     });
   });
 });

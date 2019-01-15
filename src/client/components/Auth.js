@@ -4,8 +4,9 @@ import { Redirect } from "react-router-dom";
 
 import * as routes from "../routes";
 
-const getDisplayName = Component =>
-  Component.displayName || Component.name || "Component";
+export function getDisplayName<T>(Component: React.AbstractComponent<T>) {
+  return Component.displayName || Component.name || "Component";
+}
 
 export function withAuth(
   Component: React.ComponentType<{ token: string }>
