@@ -4,7 +4,7 @@ import type { ContextRouter } from "react-router";
 
 import { withRouter } from "react-router-dom";
 
-import { fetchToken } from "../services/auth";
+import { fetchToken } from "../services/user";
 
 type Props = ContextRouter & {
   nextRoute: string

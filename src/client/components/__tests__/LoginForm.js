@@ -3,7 +3,7 @@ import React from "react";
 import { mount, shallow } from "enzyme";
 
 import { LoginFormBase } from "../LoginForm";
-import * as auth from "../../services/auth";
+import * as user from "../../services/user";
 import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 
@@ -45,11 +45,11 @@ describe("LoginForm", () => {
     const promise = Promise.resolve(TOKEN);
 
     beforeAll(() => {
-      jest.spyOn(auth, "fetchToken").mockReturnValue(promise);
+      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
     });
 
     afterAll(() => {
-      mock(auth.fetchToken).mockRestore();
+      mock(user.fetchToken).mockRestore();
     });
 
     it("stores token", () => {

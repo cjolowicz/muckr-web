@@ -1,7 +1,7 @@
 // @flow
 import axios from "axios";
 
-import { createTokenAuthHeader, fetchToken } from "../auth";
+import { createTokenAuthHeader, fetchToken } from "../user";
 import { TOKEN } from "../../../test/fixtures";
 
 describe("createTokenAuthHeader", () => {
