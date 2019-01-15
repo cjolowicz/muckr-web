@@ -12,7 +12,7 @@ import {
 } from "./src/constants";
 
 export default {
-  entry: ["./src/client/index.jsx"],
+  entry: ["./src/client/index.js"],
   output: {
     filename: WEBPACK_FILE,
     path: path.resolve(__dirname, WEBPACK_PATH),
@@ -21,7 +21,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         use: "babel-loader",
         exclude: /node_modules/
       }
@@ -33,9 +33,6 @@ export default {
     })
   ],
   devtool: PRODUCTION ? "source-map" : "eval",
-  resolve: {
-    extensions: [".js", ".jsx"]
-  },
   devServer: {
     port: WEBPACK_DEV_SERVER_PORT
   },
