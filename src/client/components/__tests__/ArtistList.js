@@ -3,7 +3,7 @@ import React from "react";
 import { mount } from "enzyme";
 
 import { ArtistList } from "../ArtistList";
-import * as artists from "../../artists";
+import * as artists from "../../services/artists";
 import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 

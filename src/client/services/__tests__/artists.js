@@ -2,7 +2,7 @@
 import axios from "axios";
 
 import { fetchArtists } from "../artists";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN } from "../../../test/fixtures";
 
 describe("fetchArtists", () => {
   it("returns array of artists", done => {
