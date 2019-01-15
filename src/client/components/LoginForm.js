@@ -22,20 +22,13 @@ export class LoginFormBase extends React.Component<Props, State> {
     super(props);
 
     this.state = { username: "", password: "", error: null, isLoading: false };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange: () => void;
-
-  handleChange(event: SyntheticEvent<HTMLInputElement>) {
+  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ [event.currentTarget.name]: event.currentTarget.value });
-  }
+  };
 
-  handleSubmit: () => void;
-
-  handleSubmit(event: SyntheticEvent<HTMLButtonElement>) {
+  handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     const { history, nextRoute } = this.props;
     const { username, password } = this.state;
 
@@ -52,7 +45,7 @@ export class LoginFormBase extends React.Component<Props, State> {
       });
 
     event.preventDefault();
-  }
+  };
 
   render() {
     const { username, password, error, isLoading } = this.state;
