@@ -1,7 +1,7 @@
 // @flow
 import axios from "axios";
 
-import { fetchArtists } from "../artists";
+import { fetchArtists } from "../artist";
 import { TOKEN } from "../../../test/fixtures";
 
 describe("fetchArtists", () => {

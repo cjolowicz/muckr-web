@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 
-import { fetchArtists } from "../services/artists";
+import { fetchArtists } from "../services/artist";
 
 type Props = {
   token: string

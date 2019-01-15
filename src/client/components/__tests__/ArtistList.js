@@ -3,25 +3,25 @@ import React from "react";
 import { mount } from "enzyme";
 
 import { ArtistList } from "../ArtistList";
-import * as artists from "../../services/artists";
+import * as artist from "../../services/artist";
 import { mock } from "../../../test/utils";
 import { TOKEN } from "../../../test/fixtures";
 
 describe("ArtistList", () => {
   beforeAll(() => {
-    jest.spyOn(artists, "fetchArtists");
+    jest.spyOn(artist, "fetchArtists");
   });
 
   afterAll(() => {
-    mock(artists.fetchArtists).mockRestore();
+    mock(artist.fetchArtists).mockRestore();
   });
 
   describe("on success", () => {
     it("stores artists", () => {
-      const artist = { id: 1, name: "Artist" };
-      const promise = Promise.resolve([artist]);
+      const artists = [{ id: 1, name: "Artist" }];
+      const promise = Promise.resolve(artists);
 
-      mock(artists.fetchArtists).mockReturnValue(promise);
+      mock(artist.fetchArtists).mockReturnValue(promise);
 
       const wrapper = mount(<ArtistList token={TOKEN} />);
 
@@ -29,14 +29,14 @@ describe("ArtistList", () => {
 
       return promise.then(() => {
         wrapper.update();
-        expect(wrapper.state().artists).toEqual([artist]);
+        expect(wrapper.state().artists).toEqual(artists);
       });
     });
 
     it("renders message if no artists", () => {
       const promise = Promise.resolve([]);
 
-      mock(artists.fetchArtists).mockReturnValue(promise);
+      mock(artist.fetchArtists).mockReturnValue(promise);
 
       const wrapper = mount(<ArtistList token={TOKEN} />);
 
@@ -54,7 +54,7 @@ describe("ArtistList", () => {
       const error = new Error("fail");
       const promise = Promise.reject(error);
 
-      mock(artists.fetchArtists).mockReturnValue(promise);
+      mock(artist.fetchArtists).mockReturnValue(promise);
 
       expect.assertions(2);
 
