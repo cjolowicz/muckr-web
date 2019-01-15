@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import { mount } from "enzyme";
 
 import { ArtistList } from "../ArtistList";
 import * as artists from "../../artists";

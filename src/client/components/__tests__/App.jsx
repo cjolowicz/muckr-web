@@ -1,7 +1,6 @@
 // @flow
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
-import { mount } from "enzyme";
 
 import { App, AppWithoutRouter } from "../App";
 import { TOKEN } from "../../../test/fixtures";

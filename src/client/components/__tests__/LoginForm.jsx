@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import { mount, shallow } from "enzyme";
 
 import { LoginFormBase } from "../LoginForm";
 import * as auth from "../../auth";

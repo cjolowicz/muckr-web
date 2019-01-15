@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
 
 import { withAuth } from "../Auth";
 import { TOKEN } from "../../../test/fixtures";
