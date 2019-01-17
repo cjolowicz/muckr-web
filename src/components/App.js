@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 
 import { withAuth } from "./Auth";
 import { ArtistList } from "./ArtistList";
@@ -37,15 +37,9 @@ const Routes = () => (
   </Switch>
 );
 
-export const AppWithoutRouter = () => (
+export const App = () => (
   <div>
     <Header />
     <Routes />
   </div>
-);
-
-export const App = () => (
-  <BrowserRouter>
-    <AppWithoutRouter />
-  </BrowserRouter>
 );
