@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { mount } from "enzyme";
 
 import { App, AppWithoutRouter } from "../App";
-import { TOKEN } from "../../../test/fixtures";
+import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
 
 describe("App", () => {

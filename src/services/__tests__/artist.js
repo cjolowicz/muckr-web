@@ -2,7 +2,7 @@
 import axios from "axios";
 
 import { fetchArtists } from "../artist";
-import { TOKEN } from "../../../test/fixtures";
+import { TOKEN } from "../../test/fixtures";
 
 describe("fetchArtists", () => {
   const artist = { id: 1, name: "Artist" };

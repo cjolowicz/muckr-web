@@ -1,6 +1,6 @@
 // @flow
 import axios from "axios";
-import { API_URL } from "../../constants";
+import { API_URL } from "../constants";
 import { createTokenAuthHeader } from "./user";
 
 export function fetchArtists(token: string) {

@@ -3,7 +3,7 @@ import * as React from "react";
 import { shallow } from "enzyme";
 
 import { withAuth, getDisplayName } from "../Auth";
-import { TOKEN } from "../../../test/fixtures";
+import { TOKEN } from "../../test/fixtures";
 
 type Props = { token: string };
 const Component = ({ token }: Props) => <p>{token}</p>;

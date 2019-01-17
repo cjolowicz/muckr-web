@@ -4,8 +4,8 @@ import { mount } from "enzyme";
 
 import { ArtistList } from "../ArtistList";
 import * as artist from "../../services/artist";
-import { mock } from "../../../test/utils";
-import { TOKEN } from "../../../test/fixtures";
+import { mock } from "../../test/utils";
+import { TOKEN } from "../../test/fixtures";
 
 describe("ArtistList", () => {
   beforeAll(() => {

@@ -1,6 +1,6 @@
 // @flow
 import axios from "axios";
-import { API_URL } from "../../constants";
+import { API_URL } from "../constants";
 
 export function createTokenAuthHeader(token: string) {
   return { Authorization: `Bearer ${token}` };

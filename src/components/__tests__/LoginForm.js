@@ -4,7 +4,7 @@ import { mount, shallow } from "enzyme";
 
 import { LoginFormBase } from "../LoginForm";
 import * as user from "../../services/user";
-import { mock } from "../../../test/utils";
+import { mock } from "../../test/utils";
 
 describe("LoginForm", () => {
   beforeEach(() => {
