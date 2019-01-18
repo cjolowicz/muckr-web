@@ -27,6 +27,11 @@ describe("App", () => {
     expect(wrapper).toContainMatchingElement("Index");
   });
 
+  it("renders Login", () => {
+    const wrapper = mountAppWithRoute(routes.LOGIN);
+    expect(wrapper).toContainMatchingElement("Login");
+  });
+
   it("renders Artists", () => {
     localStorage.setItem("token", TOKEN);
     const wrapper = mountAppWithRoute(routes.ARTISTS);
