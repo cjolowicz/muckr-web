@@ -4,6 +4,7 @@
 [![Dev Dependencies](https://img.shields.io/david/dev/cjolowicz/muckr-web.svg?style=flat-square)](https://david-dm.org/cjolowicz/muckr-web?type=dev)
 [![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-brightgreen.svg?style=flat-square)](https://github.com/airbnb/javascript)
+[![Greenkeeper](https://badges.greenkeeper.io/cjolowicz/muckr-web.svg?style=flat-square)](https://greenkeeper.io/)
 
 # muckr-web
 Web app for muckr
