@@ -6,7 +6,7 @@ import Dotenv from "dotenv-webpack";
 import {
   PRODUCTION,
   WEBPACK_FILE,
-  WEBPACK_PATH,
+  WEBPACK_DIR,
   WEBPACK_PUBLIC_PATH,
   WEBPACK_DEV_SERVER_PORT
 } from "./src/constants";
@@ -15,7 +15,7 @@ export default {
   entry: ["./src/client.js"],
   output: {
     filename: WEBPACK_FILE,
-    path: path.resolve(__dirname, WEBPACK_PATH),
+    path: path.resolve(__dirname, WEBPACK_DIR),
     publicPath: WEBPACK_PUBLIC_PATH
   },
   module: {

@@ -11,7 +11,7 @@ import { App } from "../components/App";
 import {
   APP_ROOT,
   STATIC_PATH,
-  WEBPACK_PATH,
+  WEBPACK_DIR,
   WEBPACK_LOCATION
 } from "../constants";
 
@@ -29,7 +29,7 @@ const generateHTML = jsx => `<!doctype html>
 const app = express();
 
 app.use(compression());
-app.use(STATIC_PATH, express.static(WEBPACK_PATH));
+app.use(STATIC_PATH, express.static(WEBPACK_DIR));
 app.use(cookiesMiddleware());
 app.get("/*", (request, response: express$Response) => {
   const jsx = (
