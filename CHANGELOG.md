@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add server-side rendering.
 
 ### Changed
+- Use async and await.
 - Upgrade dev dependencies:
   - dotenv-webpack 1.7.0
   - eslint-config-prettier 3.5.0
