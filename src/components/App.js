@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { Navigation } from "./Navigation";
 import { withAuth } from "./Auth";
@@ -24,6 +25,7 @@ const Routes = () => (
 
 export const App = () => (
   <>
+    <CssBaseline />
     <Navigation />
     <Routes />
   </>
