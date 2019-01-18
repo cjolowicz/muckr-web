@@ -38,8 +38,8 @@ const Routes = () => (
 );
 
 export const App = () => (
-  <div>
+  <>
     <Header />
     <Routes />
-  </div>
+  </>
 );
