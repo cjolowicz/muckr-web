@@ -8,7 +8,7 @@ import {
   WEBPACK_FILE,
   WEBPACK_DIR,
   WEBPACK_PUBLIC_PATH,
-  WEBPACK_DEV_SERVER_PORT
+  WEBPACK_PORT
 } from "./src/constants";
 
 export default {
@@ -34,7 +34,7 @@ export default {
   ],
   devtool: PRODUCTION ? "source-map" : "eval",
   devServer: {
-    port: WEBPACK_DEV_SERVER_PORT
+    port: WEBPACK_PORT
   },
   mode: PRODUCTION ? "production" : "development"
 };
