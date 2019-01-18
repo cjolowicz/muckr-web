@@ -28,20 +28,19 @@ export class LoginFormBase extends React.Component<Props, State> {
     this.setState({ [event.currentTarget.name]: event.currentTarget.value });
   };
 
-  handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
+  handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
     const { history, nextRoute } = this.props;
     const { username, password } = this.state;
 
     this.setState({ isLoading: true });
 
-    login(username, password)
-      .then(() => {
-        this.setState({ isLoading: false });
-        history.push(nextRoute);
-      })
-      .catch(error => {
-        this.setState({ error, isLoading: false });
-      });
+    try {
+      await login(username, password);
+      this.setState({ isLoading: false });
+      history.push(nextRoute);
+    } catch (error) {
+      this.setState({ error, isLoading: false });
+    }
 
     event.preventDefault();
   };

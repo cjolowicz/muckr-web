@@ -20,10 +20,10 @@ describe("fetchToken", () => {
     jest.spyOn(axios, "post").mockReturnValue(promise);
   });
 
-  it("returns token", () =>
-    fetchToken("john", "secret").then(token => {
-      expect(token).toEqual(TOKEN);
-    }));
+  it("returns token", async () => {
+    const token = await fetchToken("john", "secret");
+    expect(token).toEqual(TOKEN);
+  });
 });
 
 describe("login", () => {
@@ -38,8 +38,8 @@ describe("login", () => {
     localStorage.clear();
   });
 
-  it("stores token", () =>
-    login("john", "secret").then(() => {
-      expect(localStorage.getItem("token")).toEqual(TOKEN);
-    }));
+  it("stores token", async () => {
+    await login("john", "secret");
+    expect(localStorage.getItem("token")).toEqual(TOKEN);
+  });
 });

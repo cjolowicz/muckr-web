@@ -17,7 +17,7 @@ describe("ArtistList", () => {
   });
 
   describe("on success", () => {
-    it("stores artists", () => {
+    it("stores artists", async () => {
       const artists = [{ id: 1, name: "Artist" }];
       const promise = Promise.resolve(artists);
 
@@ -27,13 +27,13 @@ describe("ArtistList", () => {
 
       expect(wrapper).toHaveState({ artists: [] });
 
-      return promise.then(() => {
-        wrapper.update();
-        expect(wrapper).toHaveState({ artists });
-      });
+      await promise;
+
+      wrapper.update();
+      expect(wrapper).toHaveState({ artists });
     });
 
-    it("renders message if no artists", () => {
+    it("renders message if no artists", async () => {
       const promise = Promise.resolve([]);
 
       mock(artist.fetchArtists).mockReturnValue(promise);
@@ -42,15 +42,15 @@ describe("ArtistList", () => {
 
       expect(wrapper.find("p")).toHaveText("Loading...");
 
-      return promise.then(() => {
-        wrapper.update();
-        expect(wrapper.find("p")).toHaveText("No artists");
-      });
+      await promise;
+
+      wrapper.update();
+      expect(wrapper.find("p")).toHaveText("No artists");
     });
   });
 
   describe("on error", () => {
-    it("stores error", () => {
+    it("stores error", async () => {
       const error = new Error("fail");
       const promise = Promise.reject(error);
 
@@ -62,10 +62,12 @@ describe("ArtistList", () => {
 
       expect(wrapper).toHaveState({ error: null });
 
-      return promise.then().catch(() => {
+      try {
+        await promise;
+      } catch (unused) {
         wrapper.update();
         expect(wrapper).toHaveState({ error });
-      });
+      }
     });
   });
 });

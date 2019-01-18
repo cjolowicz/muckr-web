@@ -29,24 +29,17 @@ export class ArtistList extends React.Component<Props, State> {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({ isLoading: true });
 
     const { token } = this.props;
 
-    fetchArtists(token)
-      .then(artists =>
-        this.setState({
-          artists,
-          isLoading: false
-        })
-      )
-      .catch(error =>
-        this.setState({
-          error,
-          isLoading: false
-        })
-      );
+    try {
+      const artists = await fetchArtists(token);
+      this.setState({ artists, isLoading: false });
+    } catch (error) {
+      this.setState({ error, isLoading: false });
+    }
   }
 
   render() {

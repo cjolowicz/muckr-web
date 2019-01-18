@@ -14,8 +14,8 @@ describe("fetchArtists", () => {
     jest.spyOn(axios, "get").mockReturnValue(promise2);
   });
 
-  it("returns array of artists", () =>
-    fetchArtists(TOKEN).then(artists => {
-      expect(artists).toEqual([artist]);
-    }));
+  it("returns array of artists", async () => {
+    const artists = await fetchArtists(TOKEN);
+    expect(artists).toEqual([artist]);
+  });
 });

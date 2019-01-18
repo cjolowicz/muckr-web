@@ -51,7 +51,7 @@ describe("LoginForm", () => {
       mock(user.login).mockRestore();
     });
 
-    it("redirects", () => {
+    it("redirects", async () => {
       const historyMock = { push: jest.fn() };
       const wrapper = mount(
         <LoginFormBase history={historyMock} nextRoute="/" />
@@ -61,10 +61,10 @@ describe("LoginForm", () => {
         preventDefault: () => {}
       });
 
-      return promise.then(() => {
-        wrapper.update();
-        expect(historyMock.push).toHaveBeenLastCalledWith("/");
-      });
+      await promise;
+
+      wrapper.update();
+      expect(historyMock.push).toHaveBeenLastCalledWith("/");
     });
   });
 
@@ -80,7 +80,7 @@ describe("LoginForm", () => {
       mock(user.login).mockRestore();
     });
 
-    it("redirects", () => {
+    it("redirects", async () => {
       expect.assertions(2);
 
       const wrapper = mount(
@@ -93,10 +93,12 @@ describe("LoginForm", () => {
 
       expect(wrapper).toHaveState({ error: null });
 
-      return promise.then().catch(() => {
+      try {
+        await promise;
+      } catch (unused) {
         wrapper.update();
         expect(wrapper).toHaveState({ error });
-      });
+      }
     });
   });
 });

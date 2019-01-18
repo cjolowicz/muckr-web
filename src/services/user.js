@@ -6,20 +6,14 @@ export function createTokenAuthHeader(token: string) {
   return { Authorization: `Bearer ${token}` };
 }
 
-export function fetchToken(username: string, password: string) {
-  return axios
-    .post(
-      `${API_URL}/tokens`,
-      {},
-      {
-        auth: { username, password }
-      }
-    )
-    .then(response => response.data.token);
+export async function fetchToken(username: string, password: string) {
+  const auth = { username, password };
+  const response = await axios.post(`${API_URL}/tokens`, {}, { auth });
+
+  return response.data.token;
 }
 
-export function login(username: string, password: string) {
-  return fetchToken(username, password).then(token => {
-    localStorage.setItem("token", token);
-  });
+export async function login(username: string, password: string) {
+  const token = await fetchToken(username, password);
+  localStorage.setItem("token", token);
 }
