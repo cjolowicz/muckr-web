@@ -19,6 +19,10 @@ const generateHTML = jsx => `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    >
   </head>
   <body>
     <div id="${APP_ROOT}">${renderToString(jsx)}</div>
