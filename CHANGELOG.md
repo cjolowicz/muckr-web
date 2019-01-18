@@ -5,10 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Add server-side rendering.
+
 ### Changed
 - Upgrade dev dependencies:
-  - flow-bin 0.91.0
+  - dotenv-webpack 1.7.0
+  - eslint-config-prettier 3.5.0
   - eslint-plugin-react 7.12.4
+  - flow-bin 0.91.0
+  - supertest 3.4.1
 
 ## [0.4.0] - 2019-01-15
 ### Added
