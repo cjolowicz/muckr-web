@@ -20,11 +20,7 @@ type State = {
 };
 
 export class LoginFormBase extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = { username: "", password: "", error: null, isLoading: false };
-  }
+  state = { username: "", password: "", error: null, isLoading: false };
 
   handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
     this.setState({ [event.currentTarget.name]: event.currentTarget.value });

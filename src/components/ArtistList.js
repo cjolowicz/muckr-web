@@ -19,15 +19,11 @@ type State = {
 };
 
 export class ArtistList extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      artists: [],
-      error: null,
-      isLoading: false
-    };
-  }
+  state = {
+    artists: [],
+    error: null,
+    isLoading: false
+  };
 
   async componentDidMount() {
     this.setState({ isLoading: true });
