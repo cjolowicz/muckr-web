@@ -22,8 +22,10 @@ type State = {
 export class LoginFormBase extends React.Component<Props, State> {
   state = { username: "", password: "", error: null, isLoading: false };
 
-  handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+  handleChange = ({
+    currentTarget: { name, value }
+  }: SyntheticEvent<HTMLInputElement>) => {
+    this.setState({ [name]: value });
   };
 
   handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
