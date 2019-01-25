@@ -29,6 +29,9 @@
     "not dead"
   ],
   "jest": {
+    "setupFiles": [
+      "<rootDir>/node_modules/regenerator-runtime/runtime"
+    ],
     "setupFilesAfterEnv": [
       "jest-enzyme"
     ],
