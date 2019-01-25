@@ -11,11 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Use async and await.
 - Upgrade dev dependencies:
+  - @babel/plugin-proposal-class-properties 7.3.0
+  - @babel/preset-env 7.3.1
+  - babel-jest 24.0.0
   - dotenv-webpack 1.7.0
-  - eslint-config-prettier 3.5.0
+  - enzyme-adapter-react-16 1.8.0
+  - eslint 5.12.1
+  - eslint-config-prettier 4.0.0
+  - eslint-plugin-import 2.15.0
+  - eslint-plugin-jsx-a11y 6.2.0
   - eslint-plugin-react 7.12.4
   - flow-bin 0.91.0
-  - supertest 3.4.1
+  - jest 24.0.0
+  - prettier 1.16.1
+  - supertest 3.4.2
+  - webpack 4.29.0
 
 ## [0.4.0] - 2019-01-15
 ### Added
