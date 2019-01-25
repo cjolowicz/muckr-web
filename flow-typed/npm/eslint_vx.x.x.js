@@ -1,4 +1,4 @@
-// flow-typed signature: 87f3464e63e46309e9839039f2abb384
+// flow-typed signature: 4439d5a4072ecf78b4cb76444b4599b4
 // flow-typed version: <<STUB>>/eslint_v^5.11.0/flow_v0.91.0
 
 /**
@@ -47,6 +47,10 @@ declare module 'eslint/conf/eslint-recommended' {
 }
 
 declare module 'eslint/lib/api' {
+  declare module.exports: any;
+}
+
+declare module 'eslint/lib/built-in-rules-index' {
   declare module.exports: any;
 }
 
@@ -1463,6 +1467,9 @@ declare module 'eslint/conf/eslint-recommended.js' {
 }
 declare module 'eslint/lib/api.js' {
   declare module.exports: $Exports<'eslint/lib/api'>;
+}
+declare module 'eslint/lib/built-in-rules-index.js' {
+  declare module.exports: $Exports<'eslint/lib/built-in-rules-index'>;
 }
 declare module 'eslint/lib/cli-engine.js' {
   declare module.exports: $Exports<'eslint/lib/cli-engine'>;
