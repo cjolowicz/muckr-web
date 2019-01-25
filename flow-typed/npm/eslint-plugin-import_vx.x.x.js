@@ -1,4 +1,4 @@
-// flow-typed signature: 5f8a49916d66463e7e7dad93290ee627
+// flow-typed signature: 20e862e2b603295f3384971236207a90
 // flow-typed version: <<STUB>>/eslint-plugin-import_v^2.14.0/flow_v0.91.0
 
 /**
@@ -182,6 +182,10 @@ declare module 'eslint-plugin-import/lib/rules/no-named-default' {
   declare module.exports: any;
 }
 
+declare module 'eslint-plugin-import/lib/rules/no-named-export' {
+  declare module.exports: any;
+}
+
 declare module 'eslint-plugin-import/lib/rules/no-namespace' {
   declare module.exports: any;
 }
@@ -354,6 +358,9 @@ declare module 'eslint-plugin-import/lib/rules/no-named-as-default.js' {
 }
 declare module 'eslint-plugin-import/lib/rules/no-named-default.js' {
   declare module.exports: $Exports<'eslint-plugin-import/lib/rules/no-named-default'>;
+}
+declare module 'eslint-plugin-import/lib/rules/no-named-export.js' {
+  declare module.exports: $Exports<'eslint-plugin-import/lib/rules/no-named-export'>;
 }
 declare module 'eslint-plugin-import/lib/rules/no-namespace.js' {
   declare module.exports: $Exports<'eslint-plugin-import/lib/rules/no-namespace'>;
