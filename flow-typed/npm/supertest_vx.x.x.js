@@ -1,4 +1,4 @@
-// flow-typed signature: b2ae4bf5d3b3619940dab68ce2ce5165
+// flow-typed signature: 6ab24192b69af1d08673155c1bc18686
 // flow-typed version: <<STUB>>/supertest_v^3.3.0/flow_v0.91.0
 
 /**
@@ -22,18 +22,6 @@ declare module 'supertest' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'supertest/coverage/block-navigation' {
-  declare module.exports: any;
-}
-
-declare module 'supertest/coverage/prettify' {
-  declare module.exports: any;
-}
-
-declare module 'supertest/coverage/sorter' {
-  declare module.exports: any;
-}
-
 declare module 'supertest/lib/agent' {
   declare module.exports: any;
 }
@@ -43,15 +31,6 @@ declare module 'supertest/lib/test' {
 }
 
 // Filename aliases
-declare module 'supertest/coverage/block-navigation.js' {
-  declare module.exports: $Exports<'supertest/coverage/block-navigation'>;
-}
-declare module 'supertest/coverage/prettify.js' {
-  declare module.exports: $Exports<'supertest/coverage/prettify'>;
-}
-declare module 'supertest/coverage/sorter.js' {
-  declare module.exports: $Exports<'supertest/coverage/sorter'>;
-}
 declare module 'supertest/index' {
   declare module.exports: $Exports<'supertest'>;
 }
