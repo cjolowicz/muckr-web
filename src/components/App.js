@@ -7,6 +7,7 @@ import { Navigation } from "./Navigation";
 import { withAuth } from "./Auth";
 import { ArtistList } from "./ArtistList";
 import { LoginForm } from "./LoginForm";
+import { LoginDialog } from "./LoginDialog";
 import * as routes from "../routes";
 
 const ArtistListWithAuth = withAuth(ArtistList);
@@ -26,6 +27,7 @@ const Routes = () => (
 export const App = () => (
   <>
     <CssBaseline />
+    <LoginDialog />
     <Navigation />
     <Routes />
   </>
