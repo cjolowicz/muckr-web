@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.5.1] - 2019-01-29
+### Fixed
+- Fix ReferenceError `regeneratorRuntime is not defined`.
+
+## [0.5.0] - 2019-01-29
 ### Added
 - Add server-side rendering.
 
@@ -87,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Drop "maintained node versions" from browserslist.
 
-## [0.1.0] - 2018-12-27
+## 0.1.0 - 2018-12-27
 ### Added
 - Initial version.
 - Use [express](https://expressjs.com/) web framework.
@@ -97,3 +103,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [jest](https://jestjs.io/) for testing.
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
+
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/cjolowicz/muckr-web/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/cjolowicz/muckr-web/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/cjolowicz/muckr-web/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/cjolowicz/muckr-web/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/cjolowicz/muckr-web/compare/v0.1.0...v0.2.0
