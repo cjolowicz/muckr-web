@@ -18,3 +18,7 @@ export function fromMaybe<T>(fallback: T, value: ?T): T {
 
   return value;
 }
+
+export function unsafeCast<T>(value: any): T {
+  return (value: T);
+}

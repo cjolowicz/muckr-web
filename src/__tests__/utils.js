@@ -1,5 +1,5 @@
 // @flow
-import { just, fromMaybe } from "../utils";
+import { just, fromMaybe, unsafeCast } from "../utils";
 
 describe("just", () => {
   test.each([[undefined], [null]])("throws if undefined or null", arg => {
@@ -49,5 +49,11 @@ describe("fromMaybe", () => {
     [() => undefined]
   ])("returns value", arg => {
     expect(fromMaybe("default", arg)).toBe(arg);
+  });
+});
+
+describe("unsafeCast", () => {
+  test.each([[1, "foo", null]])("returns value", arg => {
+    expect(unsafeCast(arg)).toBe(arg);
   });
 });
