@@ -1,6 +1,5 @@
 // @flow
 import * as React from "react";
-import { Redirect } from "react-router-dom";
 import { withCookies, Cookies } from "react-cookie";
 
 import * as routes from "../routes";
@@ -18,7 +17,11 @@ export function withAuth(
     const token = cookies.get("token");
 
     if (!token) {
-      return <Redirect to={routes.LOGIN} />;
+      return (
+        <p>
+          Please log in.
+        </p>
+      );
     }
 
     return <Component token={token} />;
