@@ -75,7 +75,7 @@
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
     "nodemon": "^1.18.9",
-    "prettier": "1.16.1",
+    "prettier": "1.16.2",
     "react-test-renderer": "^16.7.0",
     "supertest": "^3.3.0",
     "webpack": "^4.28.2",
