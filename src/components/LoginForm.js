@@ -29,6 +29,8 @@ export class LoginFormBase extends React.Component<Props, State> {
   };
 
   handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
     const { history, nextRoute } = this.props;
     const { username, password } = this.state;
 
@@ -41,8 +43,6 @@ export class LoginFormBase extends React.Component<Props, State> {
     } catch (error) {
       this.setState({ error, isLoading: false });
     }
-
-    event.preventDefault();
   };
 
   render() {
