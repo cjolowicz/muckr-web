@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.2] - 2019-01-30
+### Fixed
+- Prevent `LoginForm` from performing GET request on submit.
+
 ## [0.5.1] - 2019-01-29
 ### Fixed
 - Fix ReferenceError `regeneratorRuntime is not defined`.
