@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Upgrade dependencies:
+  - react 16.8.1
+  - react-dom 16.8.1
+  - react-test-renderer 16.8.1
+- Upgrade dev dependencies:
+  - babel-jest 24.1.0
+  - enzyme-adapter-react-16 1.9.1
+  - eslint 5.13.0
+  - eslint-plugin-compat 2.7.0
+  - eslint-plugin-import 2.16.0
+  - eslint-plugin-jsx-a11y 6.2.1
+  - flow-bin 0.92.1
+  - jest 24.1.0
+  - prettier 1.16.4
+  - webpack 4.29.3
+  - webpack-cli 3.2.3
+
 ## [0.5.2] - 2019-01-30
 ### Fixed
 - Prevent `LoginForm` from performing GET request on submit.
