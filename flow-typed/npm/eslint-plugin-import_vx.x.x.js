@@ -1,4 +1,4 @@
-// flow-typed signature: 20e862e2b603295f3384971236207a90
+// flow-typed signature: 18ff9d9b7e3c77421b51fe0d640effdc
 // flow-typed version: <<STUB>>/eslint-plugin-import_v^2.14.0/flow_v0.91.0
 
 /**
@@ -43,6 +43,10 @@ declare module 'eslint-plugin-import/config/recommended' {
 }
 
 declare module 'eslint-plugin-import/config/stage-0' {
+  declare module.exports: any;
+}
+
+declare module 'eslint-plugin-import/config/typescript' {
   declare module.exports: any;
 }
 
@@ -256,6 +260,9 @@ declare module 'eslint-plugin-import/config/recommended.js' {
 }
 declare module 'eslint-plugin-import/config/stage-0.js' {
   declare module.exports: $Exports<'eslint-plugin-import/config/stage-0'>;
+}
+declare module 'eslint-plugin-import/config/typescript.js' {
+  declare module.exports: $Exports<'eslint-plugin-import/config/typescript'>;
 }
 declare module 'eslint-plugin-import/config/warnings.js' {
   declare module.exports: $Exports<'eslint-plugin-import/config/warnings'>;
