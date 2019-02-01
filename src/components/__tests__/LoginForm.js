@@ -6,110 +6,165 @@ import { Cookies } from "react-cookie";
 import { LoginFormBase } from "../LoginForm";
 import * as user from "../../services/user";
 import { mock } from "../../test/utils";
+import { unsafeCast } from "../../utils";
+
+const mockClasses = {
+  main: "main",
+  paper: "paper",
+  form: "form",
+  submit: "submit"
+};
 
 const cookies = new Cookies();
 
 describe("LoginForm", () => {
-  describe("on startup", () => {
-    it("displays form", () => {
+  describe("initially", () => {
+    it("renders main", () => {
       const wrapper = shallow(
         <LoginFormBase
           cookies={cookies}
           history={window.history}
+          classes={mockClasses}
           nextRoute="/"
         />
       );
-      expect(wrapper).toContainMatchingElement("form");
+      expect(wrapper).toContainMatchingElement("main");
     });
   });
 
-  describe("on change", () => {
+  describe("handleChange", () => {
     it("updates state", () => {
-      const wrapper = shallow(
+      const wrapper = mount(
         <LoginFormBase
           cookies={cookies}
           history={window.history}
+          classes={mockClasses}
           nextRoute="/"
         />
       );
-      const usernameField = wrapper.find("input[name='username']");
-
-      expect(wrapper).toHaveState({ username: "" });
-
-      usernameField.simulate("change", {
+      const component = unsafeCast<LoginFormBase>(wrapper.instance());
+      const event = unsafeCast<SyntheticEvent<HTMLInputElement>>({
         currentTarget: {
           name: "username",
           value: "john"
         }
       });
 
+      expect(wrapper).toHaveState({ username: "" });
+
+      component.handleChange(event);
+
       expect(wrapper).toHaveState({ username: "john" });
     });
   });
 
-  describe("on success", () => {
-    const promise = Promise.resolve();
-
-    beforeAll(() => {
-      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
+  describe("handleSubmit", () => {
+    const event = unsafeCast<SyntheticEvent<HTMLButtonElement>>({
+      preventDefault: () => {}
     });
 
-    afterAll(() => {
-      mock(user.fetchToken).mockRestore();
-    });
+    describe("on success", () => {
+      const promise = Promise.resolve();
 
-    it("redirects", async () => {
-      const historyMock = { push: jest.fn() };
-      const wrapper = mount(
-        <LoginFormBase cookies={cookies} history={historyMock} nextRoute="/" />
-      );
-
-      wrapper.simulate("submit", {
-        preventDefault: () => {}
+      beforeAll(() => {
+        jest.spyOn(user, "fetchToken").mockReturnValue(promise);
       });
 
-      await promise;
-
-      wrapper.update();
-      expect(historyMock.push).toHaveBeenLastCalledWith("/");
-    });
-  });
-
-  describe("on error", () => {
-    const error = new Error("fail");
-    const promise = Promise.reject(error);
-
-    beforeAll(() => {
-      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
-    });
-
-    afterAll(() => {
-      mock(user.fetchToken).mockRestore();
-    });
-
-    it("redirects", async () => {
-      expect.assertions(2);
-
-      const wrapper = mount(
-        <LoginFormBase
-          cookies={cookies}
-          history={window.history}
-          nextRoute="/"
-        />
-      );
-
-      wrapper.simulate("submit", {
-        preventDefault: () => {}
+      afterAll(() => {
+        mock(user.fetchToken).mockRestore();
       });
 
-      expect(wrapper).toHaveState({ error: null });
+      it("redirects", async () => {
+        const mockHistory = { push: jest.fn() };
+        const wrapper = mount(
+          <LoginFormBase
+            cookies={cookies}
+            history={mockHistory}
+            classes={mockClasses}
+            nextRoute="/"
+          />
+        );
+        const component = unsafeCast<LoginFormBase>(wrapper.instance());
 
-      try {
+        component.handleSubmit(event);
+
         await promise;
-      } catch (unused) {
-        wrapper.update();
-        expect(wrapper).toHaveState({ error });
-      }
+        expect(mockHistory.push).toHaveBeenLastCalledWith("/");
+      });
+    });
+
+    describe("on HTTP 401", () => {
+      const error = { response: { status: 401 } };
+      const promise = Promise.reject(error);
+
+      beforeAll(() => {
+        jest.spyOn(user, "fetchToken").mockReturnValue(promise);
+      });
+
+      afterAll(() => {
+        mock(user.fetchToken).mockRestore();
+      });
+
+      it("saves error", async () => {
+        expect.assertions(2);
+
+        const wrapper = mount(
+          <LoginFormBase
+            cookies={cookies}
+            history={window.history}
+            classes={mockClasses}
+            nextRoute="/"
+          />
+        );
+        const component = unsafeCast<LoginFormBase>(wrapper.instance());
+
+        component.handleSubmit(event);
+
+        expect(wrapper).toHaveState({ error: null });
+
+        try {
+          await promise;
+        } catch (unused) {
+          expect(wrapper).toHaveState({ error });
+        }
+      });
+    });
+
+    describe("on error", () => {
+      const error = new Error("fail");
+      const promise = Promise.reject(error);
+
+      beforeAll(() => {
+        jest.spyOn(user, "fetchToken").mockReturnValue(promise);
+      });
+
+      afterAll(() => {
+        mock(user.fetchToken).mockRestore();
+      });
+
+      it("saves error", async () => {
+        expect.assertions(2);
+
+        const wrapper = mount(
+          <LoginFormBase
+            cookies={cookies}
+            history={window.history}
+            classes={mockClasses}
+            nextRoute="/"
+          />
+        );
+        const component = unsafeCast<LoginFormBase>(wrapper.instance());
+
+        component.handleSubmit(event);
+
+        expect(wrapper).toHaveState({ error: null });
+
+        try {
+          await promise;
+        } catch (unused) {
+          expect(wrapper).toHaveState({ error });
+        }
+      });
     });
   });
 });
