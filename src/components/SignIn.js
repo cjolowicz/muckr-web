@@ -15,7 +15,7 @@ import { fetchToken } from "../services/user";
 import type { $FetchError } from "../services/user";
 
 type Props = ContextRouter & {
-  nextRoute: string,
+  nextRoute?: string,
   classes: Object
 };
 
@@ -72,7 +72,7 @@ export class SignInBase extends React.Component<Props, State> {
     try {
       const token = await fetchToken(username, password);
       cookies.set("token", token);
-      history.push(nextRoute);
+      history.push(nextRoute || "/");
     } catch (error) {
       this.setState({ error });
     }

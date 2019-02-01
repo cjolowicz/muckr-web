@@ -22,7 +22,6 @@ const createSignIn = history => (
     cookies={cookies}
     history={history || window.history}
     classes={mockClasses}
-    nextRoute="/"
   />
 );
 
