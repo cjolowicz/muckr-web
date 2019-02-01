@@ -52,7 +52,7 @@ const styles = theme => ({
   }
 });
 
-export class LoginFormBase extends React.Component<Props, State> {
+export class SignInBase extends React.Component<Props, State> {
   state = { username: "", password: "", error: null };
 
   handleChange = ({
@@ -138,6 +138,4 @@ export class LoginFormBase extends React.Component<Props, State> {
   }
 }
 
-export const LoginForm = withRouter(
-  withStyles(styles)(withCookies(LoginFormBase))
-);
+export const SignIn = withRouter(withStyles(styles)(withCookies(SignInBase)));

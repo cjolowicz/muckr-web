@@ -37,7 +37,7 @@ describe("App", () => {
   });
 
   it("renders Login", () => {
-    const wrapper = mountAppWithRoute(routes.LOGIN);
+    const wrapper = mountAppWithRoute(routes.SIGNIN);
     expect(wrapper).toContainMatchingElement("Login");
   });
 

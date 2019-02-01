@@ -18,7 +18,7 @@ export function withAuth(
     const token = cookies.get("token");
 
     if (!token) {
-      return <Redirect to={routes.LOGIN} />;
+      return <Redirect to={routes.SIGNIN} />;
     }
 
     return <Component token={token} />;

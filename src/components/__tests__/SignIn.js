@@ -3,7 +3,7 @@ import React from "react";
 import { mount, shallow } from "enzyme";
 import { Cookies } from "react-cookie";
 
-import { LoginFormBase } from "../LoginForm";
+import { SignInBase } from "../SignIn";
 import * as user from "../../services/user";
 import { mock } from "../../test/utils";
 import { unsafeCast } from "../../utils";
@@ -17,8 +17,8 @@ const mockClasses = {
 
 const cookies = new Cookies();
 
-const createLoginForm = history => (
-  <LoginFormBase
+const createSignIn = history => (
+  <SignInBase
     cookies={cookies}
     history={history || window.history}
     classes={mockClasses}
@@ -46,18 +46,18 @@ const mockFetchToken = promise => {
   return promise;
 };
 
-describe("LoginForm", () => {
+describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
-      const wrapper = shallow(createLoginForm());
+      const wrapper = shallow(createSignIn());
       expect(wrapper).toContainMatchingElement("main");
     });
   });
 
   describe("handleChange", () => {
     it("updates state", () => {
-      const wrapper = mount(createLoginForm());
-      const component = getInstance<LoginFormBase>(wrapper);
+      const wrapper = mount(createSignIn());
+      const component = getInstance<SignInBase>(wrapper);
       const event = mockEvent<HTMLInputElement>({
         currentTarget: {
           name: "username",
@@ -83,8 +83,8 @@ describe("LoginForm", () => {
 
       it("redirects", async () => {
         const mockHistory = { push: jest.fn() };
-        const wrapper = mount(createLoginForm(mockHistory));
-        const component = getInstance<LoginFormBase>(wrapper);
+        const wrapper = mount(createSignIn(mockHistory));
+        const component = getInstance<SignInBase>(wrapper);
 
         component.handleSubmit(event);
 
@@ -100,8 +100,8 @@ describe("LoginForm", () => {
       it("saves error", async () => {
         expect.assertions(2);
 
-        const wrapper = mount(createLoginForm());
-        const component = getInstance<LoginFormBase>(wrapper);
+        const wrapper = mount(createSignIn());
+        const component = getInstance<SignInBase>(wrapper);
 
         component.handleSubmit(event);
 
@@ -122,8 +122,8 @@ describe("LoginForm", () => {
       it("saves error", async () => {
         expect.assertions(2);
 
-        const wrapper = mount(createLoginForm());
-        const component = getInstance<LoginFormBase>(wrapper);
+        const wrapper = mount(createSignIn());
+        const component = getInstance<SignInBase>(wrapper);
 
         component.handleSubmit(event);
 
