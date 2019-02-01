@@ -36,9 +36,9 @@ describe("App", () => {
     expect(wrapper).toContainMatchingElement("Index");
   });
 
-  it("renders Login", () => {
+  it("renders SignInBase", () => {
     const wrapper = mountAppWithRoute(routes.SIGNIN);
-    expect(wrapper).toContainMatchingElement("Login");
+    expect(wrapper).toContainMatchingElement("SignInBase");
   });
 
   it("renders Artists", () => {

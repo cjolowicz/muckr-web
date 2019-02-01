@@ -12,13 +12,12 @@ import * as routes from "../routes";
 const ArtistListWithAuth = withAuth(ArtistList);
 
 const Index = () => <h2>Welcome</h2>;
-const Login = () => <SignIn />;
 const Artists = () => <ArtistListWithAuth />;
 
 const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
-    <Route path={routes.SIGNIN} component={Login} />
+    <Route path={routes.SIGNIN} component={SignIn} />
     <Route path={routes.ARTISTS} component={Artists} />
   </Switch>
 );
