@@ -12,7 +12,7 @@ import * as routes from "../routes";
 const ArtistListWithAuth = withAuth(ArtistList);
 
 const Index = () => <h2>Welcome</h2>;
-const Login = () => <SignIn nextRoute={routes.ARTISTS} />;
+const Login = () => <SignIn />;
 const Artists = () => <ArtistListWithAuth />;
 
 const Routes = () => (
