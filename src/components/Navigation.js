@@ -1,17 +1,41 @@
 // @flow
 import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
+
 import * as routes from "../routes";
 
-export const Navigation = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link to={routes.INDEX}>Home</Link>
-      </li>
-      <li>
-        <Link to={routes.ARTISTS}>Artists</Link>
-      </li>
-    </ul>
-  </nav>
+type Props = {
+  open: boolean,
+  classes: Object,
+  onClose: Function
+};
+
+const NavigationBase = ({ open, classes, onClose }: Props) => (
+  <Drawer open={open} onClose={onClose}>
+    <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
+      <div className={classes.list}>
+        <List>
+          <ListItem button component={Link} to={routes.INDEX}>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button component={Link} to={routes.ARTISTS}>
+            <ListItemText primary="Artists" />
+          </ListItem>
+        </List>
+      </div>
+    </div>
+  </Drawer>
 );
+
+const styles = {
+  list: {
+    width: 250
+  }
+};
+
+export const Navigation = withStyles(styles)(NavigationBase);
