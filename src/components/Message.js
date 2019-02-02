@@ -5,12 +5,6 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const styles = theme => ({
-  close: {
-    padding: theme.spacing.unit / 2
-  }
-});
-
 type Props = {
   message: string,
   classes: Object
@@ -62,5 +56,11 @@ export class MessageBase extends React.Component<Props, State> {
     );
   }
 }
+
+const styles = theme => ({
+  close: {
+    padding: theme.spacing.unit / 2
+  }
+});
 
 export const Message = withStyles(styles)(MessageBase);
