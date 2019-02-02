@@ -6,6 +6,7 @@ import { mount } from "enzyme";
 
 import { App } from "../App";
 import { TOKEN } from "../../test/fixtures";
+import { unsafeCast } from "../../utils";
 import * as routes from "../../routes";
 
 const cookies = new Cookies();
@@ -24,7 +25,7 @@ const mountAppWithRoute = route =>
         <App />
       </CookiesProvider>
     </MemoryRouter>
-  );
+  ).find(App);
 
 describe("App", () => {
   beforeEach(() => {
@@ -45,5 +46,23 @@ describe("App", () => {
     cookies.set("token", TOKEN);
     const wrapper = mountAppWithRoute(routes.ARTISTS);
     expect(wrapper).toContainMatchingElement("Artists");
+  });
+
+  describe("openNavigation", () => {
+    it("updates state", () => {
+      const wrapper = mountAppWithRoute(routes.INDEX);
+      const component = unsafeCast<App>(wrapper.instance());
+      component.openNavigation();
+      expect(wrapper).toHaveState({ navigationOpen: true });
+    });
+  });
+
+  describe("closeNavigation", () => {
+    it("updates state", () => {
+      const wrapper = mountAppWithRoute(routes.INDEX);
+      const component = unsafeCast<App>(wrapper.instance());
+      component.closeNavigation();
+      expect(wrapper).toHaveState({ navigationOpen: false });
+    });
   });
 });
