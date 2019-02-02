@@ -10,9 +10,6 @@ export const Navigation = () => (
         <Link to={routes.INDEX}>Home</Link>
       </li>
       <li>
-        <Link to={routes.SIGNIN}>Sign In</Link>
-      </li>
-      <li>
         <Link to={routes.ARTISTS}>Artists</Link>
       </li>
     </ul>
