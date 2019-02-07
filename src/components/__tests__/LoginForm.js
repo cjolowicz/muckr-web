@@ -1,20 +1,23 @@
 // @flow
 import React from "react";
 import { mount, shallow } from "enzyme";
+import { Cookies } from "react-cookie";
 
 import { LoginFormBase } from "../LoginForm";
 import * as user from "../../services/user";
 import { mock } from "../../test/utils";
 
-describe("LoginForm", () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
+const cookies = new Cookies();
 
+describe("LoginForm", () => {
   describe("on startup", () => {
     it("displays form", () => {
       const wrapper = shallow(
-        <LoginFormBase history={window.history} nextRoute="/" />
+        <LoginFormBase
+          cookies={cookies}
+          history={window.history}
+          nextRoute="/"
+        />
       );
       expect(wrapper).toContainMatchingElement("form");
     });
@@ -23,7 +26,11 @@ describe("LoginForm", () => {
   describe("on change", () => {
     it("updates state", () => {
       const wrapper = shallow(
-        <LoginFormBase history={window.history} nextRoute="/" />
+        <LoginFormBase
+          cookies={cookies}
+          history={window.history}
+          nextRoute="/"
+        />
       );
       const usernameField = wrapper.find("input[name='username']");
 
@@ -44,17 +51,17 @@ describe("LoginForm", () => {
     const promise = Promise.resolve();
 
     beforeAll(() => {
-      jest.spyOn(user, "login").mockReturnValue(promise);
+      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
     });
 
     afterAll(() => {
-      mock(user.login).mockRestore();
+      mock(user.fetchToken).mockRestore();
     });
 
     it("redirects", async () => {
       const historyMock = { push: jest.fn() };
       const wrapper = mount(
-        <LoginFormBase history={historyMock} nextRoute="/" />
+        <LoginFormBase cookies={cookies} history={historyMock} nextRoute="/" />
       );
 
       wrapper.simulate("submit", {
@@ -73,18 +80,22 @@ describe("LoginForm", () => {
     const promise = Promise.reject(error);
 
     beforeAll(() => {
-      jest.spyOn(user, "login").mockReturnValue(promise);
+      jest.spyOn(user, "fetchToken").mockReturnValue(promise);
     });
 
     afterAll(() => {
-      mock(user.login).mockRestore();
+      mock(user.fetchToken).mockRestore();
     });
 
     it("redirects", async () => {
       expect.assertions(2);
 
       const wrapper = mount(
-        <LoginFormBase history={window.history} nextRoute="/" />
+        <LoginFormBase
+          cookies={cookies}
+          history={window.history}
+          nextRoute="/"
+        />
       );
 
       wrapper.simulate("submit", {

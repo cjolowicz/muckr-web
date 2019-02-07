@@ -1,11 +1,14 @@
 // @flow
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
+import { Cookies, CookiesProvider } from "react-cookie";
 import { mount } from "enzyme";
 
 import { App } from "../App";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
+
+const cookies = new Cookies();
 
 const mountAppWithRoute = route =>
   mount(
@@ -17,11 +20,17 @@ const mountAppWithRoute = route =>
         }
       ]}
     >
-      <App />
+      <CookiesProvider cookies={cookies}>
+        <App />
+      </CookiesProvider>
     </MemoryRouter>
   );
 
 describe("App", () => {
+  beforeEach(() => {
+    cookies.remove("token");
+  });
+
   it("renders Index", () => {
     const wrapper = mountAppWithRoute(routes.INDEX);
     expect(wrapper).toContainMatchingElement("Index");
@@ -33,7 +42,7 @@ describe("App", () => {
   });
 
   it("renders Artists", () => {
-    localStorage.setItem("token", TOKEN);
+    cookies.set("token", TOKEN);
     const wrapper = mountAppWithRoute(routes.ARTISTS);
     expect(wrapper).toContainMatchingElement("Artists");
   });

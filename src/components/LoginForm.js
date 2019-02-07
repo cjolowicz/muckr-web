@@ -3,10 +3,12 @@ import React from "react";
 import type { ContextRouter } from "react-router";
 
 import { withRouter } from "react-router-dom";
+import { withCookies, Cookies } from "react-cookie";
 
-import { login } from "../services/user";
+import { fetchToken } from "../services/user";
 
 type Props = ContextRouter & {
+  cookies: Cookies,
   nextRoute: string
 };
 
@@ -31,13 +33,14 @@ export class LoginFormBase extends React.Component<Props, State> {
   handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const { history, nextRoute } = this.props;
+    const { history, nextRoute, cookies } = this.props;
     const { username, password } = this.state;
 
     this.setState({ isLoading: true });
 
     try {
-      await login(username, password);
+      const token = await fetchToken(username, password);
+      cookies.set("token", token);
       this.setState({ isLoading: false });
       history.push(nextRoute);
     } catch (error) {
@@ -73,4 +76,4 @@ export class LoginFormBase extends React.Component<Props, State> {
   }
 }
 
-export const LoginForm = withRouter(LoginFormBase);
+export const LoginForm = withRouter(withCookies(LoginFormBase));
