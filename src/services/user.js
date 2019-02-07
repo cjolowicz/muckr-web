@@ -12,8 +12,3 @@ export async function fetchToken(username: string, password: string) {
 
   return response.data.token;
 }
-
-export async function login(username: string, password: string) {
-  const token = await fetchToken(username, password);
-  localStorage.setItem("token", token);
-}
