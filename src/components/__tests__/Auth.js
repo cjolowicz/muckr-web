@@ -1,38 +1,61 @@
 // @flow
 import * as React from "react";
-import { shallow } from "enzyme";
+import { MemoryRouter, Route } from "react-router-dom";
+import { mount } from "enzyme";
+import { Cookies, CookiesProvider } from "react-cookie";
 
 import { withAuth, getDisplayName } from "../Auth";
 import { TOKEN } from "../../test/fixtures";
 
 type Props = { token: string };
 const Component = ({ token }: Props) => <p>{token}</p>;
-const Auth = withAuth(Component);
+const ComponentWithAuth = withAuth(Component);
+const Auth = () => <ComponentWithAuth />;
+const cookies = new Cookies();
 
 describe("withAuth", () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
   describe("without token", () => {
-    it("redirects", () => {
-      const wrapper = shallow(<Auth />);
-      expect(wrapper).toContainMatchingElement("Redirect");
+    beforeEach(() => {
+      cookies.remove("token");
+    });
+
+    it("redirects to /login", () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={["/"]}>
+          <CookiesProvider cookies={cookies}>
+            <Route path="/" exact component={Auth} />
+          </CookiesProvider>
+        </MemoryRouter>
+      );
+      const history = wrapper.find("Router").prop("history");
+      expect(history.location.pathname).toEqual("/login");
     });
   });
 
   describe("with token", () => {
     beforeEach(() => {
-      localStorage.setItem("token", TOKEN);
+      cookies.set("token", TOKEN);
     });
 
     it("renders component", () => {
-      const wrapper = shallow(<Auth />);
+      const wrapper = mount(
+        <MemoryRouter initialEntries={["/"]}>
+          <CookiesProvider cookies={cookies}>
+            <Route path="/" exact component={Auth} />
+          </CookiesProvider>
+        </MemoryRouter>
+      );
       expect(wrapper).toContainMatchingElement("Component");
     });
 
     it("passes token to component", () => {
-      const wrapper = shallow(<Auth />);
+      const wrapper = mount(
+        <MemoryRouter initialEntries={["/"]}>
+          <CookiesProvider cookies={cookies}>
+            <Route path="/" exact component={Auth} />
+          </CookiesProvider>
+        </MemoryRouter>
+      );
       const component = wrapper.find(Component);
       expect(component).toHaveProp({ token: TOKEN });
     });
