@@ -1,6 +1,7 @@
 // @flow
 import express from "express";
 import compression from "compression";
+import cookiesMiddleware from "universal-cookie-express";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
@@ -28,6 +29,7 @@ const app = express();
 
 app.use(compression());
 app.use(STATIC_PATH, express.static(WEBPACK_PATH));
+app.use(cookiesMiddleware());
 app.get("/*", (request, response: express$Response) => {
   const jsx = (
     <StaticRouter context={{}} location={request.url}>
