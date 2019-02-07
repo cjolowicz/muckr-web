@@ -5,6 +5,7 @@ import cookiesMiddleware from "universal-cookie-express";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
+import { CookiesProvider } from "react-cookie";
 
 import { App } from "../components/App";
 import {
@@ -33,7 +34,9 @@ app.use(cookiesMiddleware());
 app.get("/*", (request, response: express$Response) => {
   const jsx = (
     <StaticRouter context={{}} location={request.url}>
-      <App />
+      <CookiesProvider cookies={request.universalCookies}>
+        <App />
+      </CookiesProvider>
     </StaticRouter>
   );
   const html = generateHTML(jsx);
