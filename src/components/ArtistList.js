@@ -1,6 +1,11 @@
 // @flow
 import React from "react";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
+import { Message } from "./Message";
 import { fetchArtists } from "../services/artist";
 
 type Props = {
@@ -42,23 +47,25 @@ export class ArtistList extends React.Component<Props, State> {
     const { artists, error, isLoading } = this.state;
 
     if (error) {
-      return <p>{error.message}</p>;
+      return <Message message={error.message} />;
     }
 
     if (isLoading) {
-      return <p>Loading...</p>;
+      return <Typography>Loading...</Typography>;
     }
 
     if (!artists.length) {
-      return <p>No artists</p>;
+      return <Typography>No artists</Typography>;
     }
 
     return (
-      <ul>
+      <List>
         {artists.map(artist => (
-          <li key={artist.id}>{artist.name}</li>
+          <ListItem key={artist.id} button>
+            <ListItemText primary={artist.name} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
     );
   }
 }
