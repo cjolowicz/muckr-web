@@ -6,7 +6,7 @@ import { mount } from "enzyme";
 
 import { App } from "../App";
 import { TOKEN } from "../../test/fixtures";
-import { unsafeCast } from "../../utils";
+import { getInstance } from "../../test/utils";
 import * as routes from "../../routes";
 
 const cookies = new Cookies();
@@ -51,7 +51,7 @@ describe("App", () => {
   describe("openNavigation", () => {
     it("updates state", () => {
       const wrapper = mountAppWithRoute(routes.INDEX);
-      const component = unsafeCast<App>(wrapper.instance());
+      const component = getInstance<App>(wrapper);
       component.openNavigation();
       expect(wrapper).toHaveState({ navigationOpen: true });
     });
@@ -60,7 +60,7 @@ describe("App", () => {
   describe("closeNavigation", () => {
     it("updates state", () => {
       const wrapper = mountAppWithRoute(routes.INDEX);
-      const component = unsafeCast<App>(wrapper.instance());
+      const component = getInstance<App>(wrapper);
       component.closeNavigation();
       expect(wrapper).toHaveState({ navigationOpen: false });
     });

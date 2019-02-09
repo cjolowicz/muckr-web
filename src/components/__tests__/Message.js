@@ -3,7 +3,7 @@ import React from "react";
 import { mount, shallow } from "enzyme";
 
 import { MessageBase } from "../Message";
-import { unsafeCast } from "../../utils";
+import { getInstance } from "../../test/utils";
 
 const mockClasses = { close: "close" };
 
@@ -31,7 +31,7 @@ describe("Message", () => {
       const wrapper = shallow(
         <MessageBase message={message} classes={mockClasses} />
       );
-      const component = unsafeCast<MessageBase>(wrapper.instance());
+      const component = getInstance<MessageBase>(wrapper);
 
       component.handleClose();
 
@@ -42,7 +42,7 @@ describe("Message", () => {
       const wrapper = shallow(
         <MessageBase message={message} classes={mockClasses} />
       );
-      const component = unsafeCast<MessageBase>(wrapper.instance());
+      const component = getInstance<MessageBase>(wrapper);
 
       component.handleClose(undefined, "clickaway");
 
