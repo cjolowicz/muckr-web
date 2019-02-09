@@ -3,6 +3,7 @@ import React from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 import { Message } from "./Message";
@@ -46,26 +47,23 @@ export class ArtistList extends React.Component<Props, State> {
   render() {
     const { artists, error, isLoading } = this.state;
 
-    if (error) {
-      return <Message message={error.message} />;
-    }
-
-    if (isLoading) {
-      return <Typography>Loading...</Typography>;
-    }
-
-    if (!artists.length) {
-      return <Typography>No artists</Typography>;
-    }
-
     return (
-      <List>
-        {artists.map(artist => (
-          <ListItem key={artist.id} button>
-            <ListItemText primary={artist.name} />
-          </ListItem>
-        ))}
-      </List>
+      <main>
+        <Paper>
+          {isLoading ? <Typography>Loading...</Typography> : null}
+          {!isLoading && !artists.length ? (
+            <Typography>No artists</Typography>
+          ) : null}
+          <List>
+            {artists.map(artist => (
+              <ListItem key={artist.id} button>
+                <ListItemText primary={artist.name} />
+              </ListItem>
+            ))}
+          </List>
+        </Paper>
+        {error ? <Message message={error.message} /> : null}
+      </main>
     );
   }
 }
