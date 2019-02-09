@@ -5,7 +5,7 @@ import { Cookies } from "react-cookie";
 
 import { SignInBase } from "../SignIn";
 import * as user from "../../services/user";
-import { mock } from "../../test/utils";
+import { mock, getInstance } from "../../test/utils";
 import { unsafeCast } from "../../utils";
 
 const mockClasses = {
@@ -24,10 +24,6 @@ const createSignIn = history => (
     classes={mockClasses}
   />
 );
-
-function getInstance<T>(wrapper): T {
-  return unsafeCast<T>(wrapper.instance());
-}
 
 function mockEvent<T>(stub): SyntheticEvent<T> {
   return unsafeCast<SyntheticEvent<T>>(stub);
