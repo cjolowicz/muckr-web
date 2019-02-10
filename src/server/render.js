@@ -7,11 +7,11 @@ import { SheetsRegistry } from "jss";
 import { JssProvider } from "react-jss";
 import {
   MuiThemeProvider,
-  createMuiTheme,
   createGenerateClassName
 } from "@material-ui/core/styles";
 
 import { App } from "../components/App";
+import { theme } from "../theme";
 import { APP_ROOT, JSS_STYLE_ID, WEBPACK_LOCATION } from "../constants";
 
 const generatePage = (html, css) => `<!doctype html>
@@ -39,11 +39,6 @@ type Response = express$Response;
 export const render = (request: Request, response: Response) => {
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
-  const theme = createMuiTheme({
-    typography: {
-      useNextVariants: true
-    }
-  });
   const generateClassName = createGenerateClassName();
   const jsx = (
     <StaticRouter context={{}} location={request.url}>

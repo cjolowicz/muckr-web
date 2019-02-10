@@ -7,13 +7,13 @@ import { CookiesProvider } from "react-cookie";
 import { JssProvider } from "react-jss";
 import {
   MuiThemeProvider,
-  createMuiTheme,
   createGenerateClassName
 } from "@material-ui/core/styles";
 
 import { just } from "./utils";
 import { APP_ROOT, JSS_STYLE_ID } from "./constants";
 import { App } from "./components/App";
+import { theme } from "./theme";
 
 class Main extends React.Component<{}> {
   componentDidMount() {
@@ -28,11 +28,6 @@ class Main extends React.Component<{}> {
   }
 }
 
-const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true
-  }
-});
 const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
 const jsx = (
