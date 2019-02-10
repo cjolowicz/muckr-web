@@ -12,7 +12,6 @@
   "rules": {
     "prettier/prettier": "error",
     "compat/compat": "error",
-    "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { "props": false }],
     "react/jsx-filename-extension": ["off"],
     "react/jsx-one-expression-per-line": ["off"]
