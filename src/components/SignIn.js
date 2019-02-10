@@ -10,7 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { withRouter } from "react-router-dom";
 import { withCookies } from "react-cookie";
 
-import { Message } from "./Message";
+import Message from "./Message";
 import { fetchToken } from "../services/user";
 import type { $FetchError } from "../services/user";
 
@@ -138,4 +138,4 @@ const styles = theme => ({
   }
 });
 
-export const SignIn = withRouter(withStyles(styles)(withCookies(SignInBase)));
+export default withRouter(withStyles(styles)(withCookies(SignInBase)));

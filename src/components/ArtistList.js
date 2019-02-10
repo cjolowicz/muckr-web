@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import { Message } from "./Message";
+import Message from "./Message";
 import { fetchArtists } from "../services/artist";
 
 type Props = {
@@ -24,7 +24,7 @@ type State = {
   isLoading: boolean
 };
 
-export class ArtistList extends React.Component<Props, State> {
+export default class ArtistList extends React.Component<Props, State> {
   state = {
     artists: [],
     error: null,

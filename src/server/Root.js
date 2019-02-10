@@ -6,8 +6,8 @@ import { SheetsRegistry } from "jss";
 import { JssProvider } from "react-jss";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
-import { App } from "../components/App";
-import { theme } from "../theme";
+import App from "../components/App";
+import theme from "../theme";
 
 type Props = {
   location: string,
@@ -17,7 +17,7 @@ type Props = {
   generateClassName: Function
 };
 
-export const Root = ({
+const Root = ({
   location,
   cookies,
   sheetsRegistry,
@@ -37,3 +37,5 @@ export const Root = ({
     </CookiesProvider>
   </StaticRouter>
 );
+
+export default Root;

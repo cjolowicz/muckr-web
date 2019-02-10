@@ -6,7 +6,7 @@ type Props = {
   children: React.Node
 };
 
-export class RemoveElement extends React.Component<Props> {
+export default class RemoveElement extends React.Component<Props> {
   componentDidMount() {
     const { elementId } = this.props;
     const element = document.getElementById(elementId);

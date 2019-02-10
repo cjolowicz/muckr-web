@@ -11,7 +11,7 @@ export function getDisplayName<T>(Component: React.AbstractComponent<T>) {
 
 type Props = { cookies: Cookies };
 
-export function withAuth(
+export default function withAuth(
   Component: React.ComponentType<{ token: string }>
 ): React.ComponentType<{}> {
   const WithAuth = ({ cookies }: Props) => {

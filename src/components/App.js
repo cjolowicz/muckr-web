@@ -3,11 +3,11 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import { AppBar } from "./AppBar";
-import { Navigation } from "./Navigation";
-import { withAuth } from "./Auth";
-import { ArtistList } from "./ArtistList";
-import { SignIn } from "./SignIn";
+import AppBar from "./AppBar";
+import Navigation from "./Navigation";
+import withAuth from "./Auth";
+import ArtistList from "./ArtistList";
+import SignIn from "./SignIn";
 import * as routes from "../routes";
 
 const ArtistListWithAuth = withAuth(ArtistList);
@@ -27,7 +27,7 @@ type State = {
   navigationOpen: boolean
 };
 
-export class App extends React.Component<{}, State> {
+export default class App extends React.Component<{}, State> {
   state = { navigationOpen: false };
 
   openNavigation = () => this.setState({ navigationOpen: true });

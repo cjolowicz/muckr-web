@@ -51,4 +51,4 @@ const styles = {
   }
 };
 
-export const AppBar = withStyles(styles)(AppBarBase);
+export default withStyles(styles)(AppBarBase);

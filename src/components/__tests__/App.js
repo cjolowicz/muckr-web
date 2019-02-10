@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { Cookies, CookiesProvider } from "react-cookie";
 import { mount } from "enzyme";
 
-import { App } from "../App";
+import App from "../App";
 import { TOKEN } from "../../test/fixtures";
 import { getInstance } from "../../test/utils";
 import * as routes from "../../routes";

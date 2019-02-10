@@ -2,7 +2,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import { ArtistList } from "../ArtistList";
+import ArtistList from "../ArtistList";
 import * as artist from "../../services/artist";
 import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";

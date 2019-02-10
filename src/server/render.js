@@ -5,7 +5,7 @@ import { SheetsRegistry } from "jss";
 import { Cookies } from "react-cookie";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
-import { Root } from "./Root";
+import Root from "./Root";
 import { APP_ROOT, JSS_STYLE_ID, WEBPACK_LOCATION } from "../constants";
 
 const generatePage = (html, css) => `<!doctype html>
@@ -30,7 +30,7 @@ type Request = express$Request & {
 
 type Response = express$Response;
 
-export const render = (request: Request, response: Response) => {
+export default function render(request: Request, response: Response) {
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
   const generateClassName = createGenerateClassName();
@@ -46,4 +46,4 @@ export const render = (request: Request, response: Response) => {
   const css = sheetsRegistry.toString();
   const page = generatePage(html, css);
   return response.send(page);
-};
+}

@@ -38,4 +38,4 @@ const styles = {
   }
 };
 
-export const Navigation = withStyles(styles)(NavigationBase);
+export default withStyles(styles)(NavigationBase);

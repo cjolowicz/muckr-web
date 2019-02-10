@@ -63,4 +63,4 @@ const styles = theme => ({
   }
 });
 
-export const Message = withStyles(styles)(MessageBase);
+export default withStyles(styles)(MessageBase);

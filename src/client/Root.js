@@ -6,15 +6,15 @@ import { JssProvider } from "react-jss";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { JSS_STYLE_ID } from "../constants";
-import { App } from "../components/App";
-import { RemoveElement } from "../components/RemoveElement";
-import { theme } from "../theme";
+import App from "../components/App";
+import RemoveElement from "../components/RemoveElement";
+import theme from "../theme";
 
 type Props = {
   generateClassName: Function
 };
 
-export const Root = ({ generateClassName }: Props) => (
+const Root = ({ generateClassName }: Props) => (
   <BrowserRouter>
     <CookiesProvider>
       <JssProvider generateClassName={generateClassName}>
@@ -27,3 +27,5 @@ export const Root = ({ generateClassName }: Props) => (
     </CookiesProvider>
   </BrowserRouter>
 );
+
+export default Root;
