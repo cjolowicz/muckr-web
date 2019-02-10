@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core/styles";
 
 import { App } from "../components/App";
-import { APP_ROOT, WEBPACK_LOCATION } from "../constants";
+import { APP_ROOT, JSS_STYLE_ID, WEBPACK_LOCATION } from "../constants";
 
 const generatePage = (html, css) => `<!doctype html>
 <html>
@@ -22,7 +22,7 @@ const generatePage = (html, css) => `<!doctype html>
       name="viewport"
       content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
     >
-    <style id="jss-server-side">${css}</style>
+    <style id="${JSS_STYLE_ID}">${css}</style>
   </head>
   <body>
     <div id="${APP_ROOT}">${html}</div>

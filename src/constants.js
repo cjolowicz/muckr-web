@@ -6,6 +6,7 @@ export const NODE_ENV = fromMaybe("development", process.env.NODE_ENV);
 export const PORT = fromMaybe("8000", process.env.PORT);
 export const PRODUCTION = NODE_ENV === "production";
 export const APP_ROOT = "root";
+export const JSS_STYLE_ID = "jss-server-side";
 export const STATIC_PATH = "/static";
 export const WEBPACK_DIR = "dist";
 export const WEBPACK_FILE = "js/bundle.js";

@@ -12,12 +12,12 @@ import {
 } from "@material-ui/core/styles";
 
 import { just } from "./utils";
-import { APP_ROOT } from "./constants";
+import { APP_ROOT, JSS_STYLE_ID } from "./constants";
 import { App } from "./components/App";
 
 class Main extends React.Component<{}> {
   componentDidMount() {
-    const jss = document.getElementById("jss-server-side");
+    const jss = document.getElementById(JSS_STYLE_ID);
     if (jss && jss.parentNode) {
       jss.parentNode.removeChild(jss);
     }
