@@ -12,7 +12,7 @@ import {
 } from "./src/constants";
 
 export default {
-  entry: ["./src/client.js"],
+  entry: ["./src/client/index.js"],
   output: {
     filename: WEBPACK_FILE,
     path: path.resolve(__dirname, WEBPACK_DIR),

@@ -10,11 +10,11 @@ import {
   createGenerateClassName
 } from "@material-ui/core/styles";
 
-import { just } from "./utils";
-import { APP_ROOT, JSS_STYLE_ID } from "./constants";
-import { App } from "./components/App";
-import { RemoveElement } from "./components/RemoveElement";
-import { theme } from "./theme";
+import { just } from "../utils";
+import { APP_ROOT, JSS_STYLE_ID } from "../constants";
+import { App } from "../components/App";
+import { RemoveElement } from "../components/RemoveElement";
+import { theme } from "../theme";
 
 const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
