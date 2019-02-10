@@ -2,6 +2,7 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { SheetsRegistry } from "jss";
+import { Cookies } from "react-cookie";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
 import { Root } from "./Root";
@@ -24,7 +25,7 @@ const generatePage = (html, css) => `<!doctype html>
 </html>`;
 
 type Request = express$Request & {
-  universalCookies: Object
+  universalCookies: Cookies
 };
 
 type Response = express$Response;
