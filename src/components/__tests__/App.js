@@ -28,7 +28,7 @@ const mountAppWithRoute = route => {
     >
       <CookiesProvider cookies={cookies}>
         <Provider store={store}>
-          <App navigationOpen={false} closeNavigation={() => {}} />
+          <App />
         </Provider>
       </CookiesProvider>
     </MemoryRouter>

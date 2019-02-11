@@ -8,7 +8,7 @@ import { SheetsRegistry } from "jss";
 import { JssProvider } from "react-jss";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
-import App from "../containers/App";
+import App from "../components/App";
 import theme from "../theme";
 
 type Props = {
