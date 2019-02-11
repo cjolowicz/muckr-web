@@ -23,27 +23,19 @@ const Routes = () => (
   </Switch>
 );
 
-type State = {
-  navigationOpen: boolean
+type Props = {
+  navigationOpen: boolean,
+  openNavigation: Function,
+  closeNavigation: Function
 };
 
-export default class App extends React.Component<{}, State> {
-  state = { navigationOpen: false };
+const App = ({ navigationOpen, openNavigation, closeNavigation }: Props) => (
+  <>
+    <CssBaseline />
+    <AppBar onMenuClick={openNavigation} />
+    <Navigation onClose={closeNavigation} open={navigationOpen} />
+    <Routes />
+  </>
+);
 
-  openNavigation = () => this.setState({ navigationOpen: true });
-
-  closeNavigation = () => this.setState({ navigationOpen: false });
-
-  render() {
-    const { navigationOpen } = this.state;
-
-    return (
-      <>
-        <CssBaseline />
-        <AppBar onMenuClick={this.openNavigation} />
-        <Navigation onClose={this.closeNavigation} open={navigationOpen} />
-        <Routes />
-      </>
-    );
-  }
-}
+export default App;

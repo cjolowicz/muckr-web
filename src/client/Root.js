@@ -8,7 +8,7 @@ import { JssProvider } from "react-jss";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 
 import { JSS_STYLE_ID } from "../constants";
-import App from "../components/App";
+import App from "../containers/App";
 import RemoveElement from "../components/RemoveElement";
 import theme from "../theme";
 
