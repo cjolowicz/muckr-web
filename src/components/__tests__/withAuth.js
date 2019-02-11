@@ -4,7 +4,7 @@ import { MemoryRouter, Route } from "react-router-dom";
 import { mount } from "enzyme";
 import { Cookies, CookiesProvider } from "react-cookie";
 
-import withAuth, { getDisplayName } from "../Auth";
+import withAuth, { getDisplayName } from "../withAuth";
 import { TOKEN } from "../../test/fixtures";
 
 type Props = { token: string };
