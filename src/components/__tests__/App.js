@@ -1,17 +1,23 @@
 // @flow
 import React from "react";
+import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import { Cookies, CookiesProvider } from "react-cookie";
+import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
 
 import App from "../App";
+import rootReducer from "../../reducers";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
 
 const cookies = new Cookies();
 
-const mountAppWithRoute = route =>
-  mount(
+const mountAppWithRoute = route => {
+  const mockStore = configureStore([]);
+  const initialState = rootReducer(undefined, {});
+  const store = mockStore(initialState);
+  const wrapper = mount(
     <MemoryRouter
       initialEntries={[
         {
@@ -21,14 +27,15 @@ const mountAppWithRoute = route =>
       ]}
     >
       <CookiesProvider cookies={cookies}>
-        <App
-          navigationOpen={false}
-          openNavigation={() => {}}
-          closeNavigation={() => {}}
-        />
+        <Provider store={store}>
+          <App navigationOpen={false} closeNavigation={() => {}} />
+        </Provider>
       </CookiesProvider>
     </MemoryRouter>
-  ).find(App);
+  );
+
+  return wrapper.find(App);
+};
 
 describe("App", () => {
   beforeEach(() => {

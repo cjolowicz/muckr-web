@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import AppBar from "./AppBar";
+import AppBar from "../containers/AppBar";
 import Navigation from "./Navigation";
 import withAuth from "./withAuth";
 import ArtistList from "./ArtistList";
@@ -25,14 +25,13 @@ const Routes = () => (
 
 type Props = {
   navigationOpen: boolean,
-  openNavigation: Function,
   closeNavigation: Function
 };
 
-const App = ({ navigationOpen, openNavigation, closeNavigation }: Props) => (
+const App = ({ navigationOpen, closeNavigation }: Props) => (
   <>
     <CssBaseline />
-    <AppBar onMenuClick={openNavigation} />
+    <AppBar />
     <Navigation onClose={closeNavigation} open={navigationOpen} />
     <Routes />
   </>
