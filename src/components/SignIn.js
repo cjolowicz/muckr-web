@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
@@ -15,85 +15,74 @@ type Props = {
   token: ?string
 };
 
-type State = {
-  username: string,
-  password: string
-};
+type InputEvent = SyntheticInputEvent<HTMLInputElement>;
+type ButtonEvent = SyntheticInputEvent<HTMLButtonElement>;
 
-type InputEvent = SyntheticEvent<HTMLInputElement>;
-type ButtonEvent = SyntheticEvent<HTMLButtonElement>;
+export const PureSignIn = ({ nextRoute, classes, onSubmit, token }: Props) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-export class PureSignIn extends React.Component<Props, State> {
-  state = { username: "", password: "" };
+  if (token) {
+    return <Redirect to={nextRoute} />;
+  }
 
-  handleChange = ({ currentTarget: { name, value } }: InputEvent) => {
-    this.setState({ [name]: value });
+  const handleUsernameChange = (event: InputEvent) => {
+    setUsername(event.target.value);
   };
 
-  handleSubmit = (event: ButtonEvent) => {
+  const handlePasswordChange = (event: InputEvent) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event: ButtonEvent) => {
     event.preventDefault();
-
-    const { onSubmit } = this.props;
-    const { username, password } = this.state;
-
     onSubmit(username, password);
   };
 
-  render() {
-    const { token, nextRoute } = this.props;
-
-    if (token) {
-      return <Redirect to={nextRoute} />;
-    }
-
-    const { classes } = this.props;
-    const { username, password } = this.state;
-
-    return (
-      <main className={classes.main}>
-        <Paper className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Sign in to Muckr
-          </Typography>
-          <form className={classes.form} onSubmit={this.handleSubmit}>
-            <FormControl margin="normal" required fullWidth>
-              <Input
-                autoFocus
-                fullWidth
-                autoComplete="username"
-                name="username"
-                type="text"
-                value={username}
-                placeholder="Username"
-                onChange={this.handleChange}
-              />
-            </FormControl>
-            <FormControl margin="normal" required fullWidth>
-              <Input
-                fullWidth
-                autoComplete="current-password"
-                name="password"
-                type="password"
-                value={password}
-                placeholder="Password"
-                onChange={this.handleChange}
-              />
-            </FormControl>
-            <Button
-              className={classes.submit}
+  return (
+    <main className={classes.main}>
+      <Paper className={classes.paper}>
+        <Typography component="h1" variant="h5">
+          Sign in to Muckr
+        </Typography>
+        <form className={classes.form} onSubmit={handleSubmit}>
+          <FormControl margin="normal" required fullWidth>
+            <Input
+              autoFocus
               fullWidth
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Sign in
-            </Button>
-          </form>
-        </Paper>
-      </main>
-    );
-  }
-}
+              autoComplete="username"
+              name="username"
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={handleUsernameChange}
+            />
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
+            <Input
+              fullWidth
+              autoComplete="current-password"
+              name="password"
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={handlePasswordChange}
+            />
+          </FormControl>
+          <Button
+            className={classes.submit}
+            fullWidth
+            type="submit"
+            variant="contained"
+            color="primary"
+          >
+            Sign in
+          </Button>
+        </form>
+      </Paper>
+    </main>
+  );
+};
 
 const styles = theme => ({
   main: {
