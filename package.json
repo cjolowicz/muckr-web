@@ -102,6 +102,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "typeface-roboto": "^0.0.54",
     "universal-cookie-express": "^3.0.7"
   }
