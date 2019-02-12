@@ -6,6 +6,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2019-02-19
+### Added
+- Use [Redux](https://redux.js.org/) state management library.
+- Add dependencies:
+  - react-redux 6.0.0
+  - redux 4.0.1
+  - redux-logger 3.0.6
+  - redux-thunk 2.3.0
+  - universal-cookie 3.0.7
+- Add dev dependencies:
+  - @babel/plugin-proposal-object-rest-spread 7.3.2
+  - redux-mock-store 1.5.3
+
+### Changed
+- Split into pure components and stateful containers.
+- Split `FetchingArtistList` off `ArtistList`.
+- Replace `withAuth` by `PrivateRoute`.
+- Wrap `ArtistList` in `Paper`.
+- Move `Message` into `App`.
+- Use Redux enhancer to persist token to cookie.
+- Refactor:
+  - Use default exports.
+  - Add `ServerRoot` and `ClientRoot` components.
+  - Add `RemoveElement` component.
+  - Add `theme` module.
+  - Add various sub-modules to `server`.
+  - Various typing improvements.
+  - Rename `services` to `api`.
+  - Remove `Base` suffix from components.
+  - Use `Pure` prefix for exported components.
+- Upgrade dependencies:
+  - react 16.8.2
+  - react-dom 16.8.2
+- Upgrade dev dependencies:
+  - @babel/core 7.3.3
+  - @babel/plugin-proposal-class-properties 7.3.3
+  - enzyme 3.9.0
+  - eslint 5.14.1
+  - eslint-plugin-flowtype 3.4.2
+  - flow-bin 0.93.0
+  - react-test-renderer 16.8.2
+  - webpack 4.29.5
+
+### Removed
+- Drop `react-cookie` for `universal-cookie`.
+- Remove `withAuth` higher-order component.
+
 ## [0.6.1] - 2019-02-10
 ### Fixed
 - Fix missing stylesheet in server-side rendered page.
@@ -142,7 +189,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.6.1...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/cjolowicz/muckr-web/compare/v0.6.1...v0.7.0
 [0.6.1]: https://github.com/cjolowicz/muckr-web/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/cjolowicz/muckr-web/compare/v0.5.3...v0.6.0
 [0.5.3]: https://github.com/cjolowicz/muckr-web/compare/v0.5.2...v0.5.3
