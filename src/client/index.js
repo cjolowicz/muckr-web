@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import logger from "redux-logger";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
 import { just } from "../utils";
@@ -17,7 +18,7 @@ function loadState() {
   return state;
 }
 
-const enhancer = applyMiddleware(thunk);
+const enhancer = applyMiddleware(thunk, logger);
 const store = createStore(rootReducer, loadState(), enhancer);
 const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
