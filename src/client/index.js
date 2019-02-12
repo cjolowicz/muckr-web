@@ -2,7 +2,8 @@
 import "@babel/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
 import { just } from "../utils";
@@ -16,7 +17,8 @@ function loadState() {
   return state;
 }
 
-const store = createStore(rootReducer, loadState());
+const enhancer = applyMiddleware(thunk);
+const store = createStore(rootReducer, loadState(), enhancer);
 const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
 

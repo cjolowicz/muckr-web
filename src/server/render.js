@@ -1,7 +1,8 @@
 // @flow
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { SheetsRegistry } from "jss";
 import { Cookies } from "react-cookie";
 import { createGenerateClassName } from "@material-ui/core/styles";
@@ -22,7 +23,8 @@ function renderState(store) {
 }
 
 export default function render(request: Request, response: Response) {
-  const store = createStore(rootReducer);
+  const enhancer = applyMiddleware(thunk);
+  const store = createStore(rootReducer, enhancer);
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
   const generateClassName = createGenerateClassName();
