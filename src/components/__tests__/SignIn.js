@@ -1,12 +1,13 @@
 // @flow
 import React from "react";
+import { MemoryRouter, Switch, Route } from "react-router-dom";
 import { mount, shallow } from "enzyme";
-import { Cookies } from "react-cookie";
 
 import { SignInBase } from "../SignIn";
-import * as user from "../../services/user";
-import { mock, getInstance } from "../../test/utils";
+import { getInstance } from "../../test/utils";
+import { TOKEN } from "../../test/fixtures";
 import { unsafeCast } from "../../utils";
+import type { $FetchError } from "../../services/user";
 
 const mockClasses = {
   main: "main",
@@ -15,120 +16,156 @@ const mockClasses = {
   submit: "submit"
 };
 
-const cookies = new Cookies();
-
-const createSignIn = history => (
-  <SignInBase
-    cookies={cookies}
-    history={history || window.history}
-    classes={mockClasses}
-  />
-);
-
-function mockEvent<T>(stub): SyntheticEvent<T> {
-  return unsafeCast<SyntheticEvent<T>>(stub);
-}
-
-const mockFetchToken = promise => {
-  beforeAll(() => {
-    jest.spyOn(user, "fetchToken").mockReturnValue(promise);
-  });
-
-  afterAll(() => {
-    mock(user.fetchToken).mockRestore();
-  });
-
-  return promise;
-};
+const mockEvent = <T>(stub): SyntheticEvent<T> =>
+  unsafeCast<SyntheticEvent<T>>(stub);
 
 describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
-      const wrapper = shallow(createSignIn());
+      const wrapper = shallow(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+          error={null}
+        />
+      );
       expect(wrapper).toContainMatchingElement("main");
     });
   });
 
   describe("handleChange", () => {
     it("updates state", () => {
-      const wrapper = mount(createSignIn());
+      const wrapper = mount(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+          error={null}
+        />
+      );
+
       const component = getInstance<SignInBase>(wrapper);
-      const event = mockEvent<HTMLInputElement>({
-        currentTarget: {
-          name: "username",
-          value: "john"
-        }
-      });
 
       expect(wrapper).toHaveState({ username: "" });
 
-      component.handleChange(event);
+      component.handleChange(
+        mockEvent<HTMLInputElement>({
+          currentTarget: {
+            name: "username",
+            value: "john"
+          }
+        })
+      );
 
       expect(wrapper).toHaveState({ username: "john" });
     });
   });
 
   describe("handleSubmit", () => {
-    const event = mockEvent<HTMLButtonElement>({
-      preventDefault: () => {}
+    it("invokes onSubmit", async () => {
+      const onSubmit = jest.fn();
+
+      const wrapper = mount(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={onSubmit}
+          token={null}
+          error={null}
+        />
+      );
+      const component = getInstance<SignInBase>(wrapper);
+
+      component.handleChange(
+        mockEvent<HTMLInputElement>({
+          currentTarget: {
+            name: "username",
+            value: "john"
+          }
+        })
+      );
+
+      component.handleChange(
+        mockEvent<HTMLInputElement>({
+          currentTarget: {
+            name: "password",
+            value: "secret"
+          }
+        })
+      );
+
+      component.handleSubmit(
+        mockEvent<HTMLButtonElement>({
+          preventDefault: jest.fn()
+        })
+      );
+
+      expect(onSubmit).toHaveBeenLastCalledWith("john", "secret");
     });
+  });
 
-    describe("on success", () => {
-      const promise = mockFetchToken(Promise.resolve());
+  describe("on success", () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={["/login"]}>
+        <Switch>
+          <Route path="/login">
+            <SignInBase
+              nextRoute="/"
+              classes={mockClasses}
+              onSubmit={jest.fn()}
+              token={TOKEN}
+              error={null}
+            />
+          </Route>
+        </Switch>
+      </MemoryRouter>
+    );
 
-      it("redirects", async () => {
-        const mockHistory = { push: jest.fn() };
-        const wrapper = mount(createSignIn(mockHistory));
-        const component = getInstance<SignInBase>(wrapper);
+    it("redirects", async () => {
+      const history = wrapper.find("Router").prop("history");
+      expect(history.location.pathname).toEqual("/");
+    });
+  });
 
-        component.handleSubmit(event);
+  describe("on error", () => {
+    describe("HTTP 401", () => {
+      const error = unsafeCast<$FetchError>({ response: { status: 401 } });
+      const wrapper = mount(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+          error={error}
+        />
+      );
 
-        await promise;
-        expect(mockHistory.push).toHaveBeenLastCalledWith("/");
+      it("renders message", async () => {
+        expect(wrapper.text()).toEqual(
+          expect.stringContaining("Incorrect username or password")
+        );
       });
     });
 
-    describe("on HTTP 401", () => {
-      const error = { response: { status: 401 } };
-      const promise = mockFetchToken(Promise.reject(error));
-
-      it("saves error", async () => {
-        expect.assertions(2);
-
-        const wrapper = mount(createSignIn());
-        const component = getInstance<SignInBase>(wrapper);
-
-        component.handleSubmit(event);
-
-        expect(wrapper).toHaveState({ error: null });
-
-        try {
-          await promise;
-        } catch (unused) {
-          expect(wrapper).toHaveState({ error });
-        }
-      });
-    });
-
-    describe("on error", () => {
+    describe("unknown error", () => {
       const error = new Error("fail");
-      const promise = mockFetchToken(Promise.reject(error));
+      const wrapper = mount(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+          error={error}
+        />
+      );
 
-      it("saves error", async () => {
-        expect.assertions(2);
-
-        const wrapper = mount(createSignIn());
-        const component = getInstance<SignInBase>(wrapper);
-
-        component.handleSubmit(event);
-
-        expect(wrapper).toHaveState({ error: null });
-
-        try {
-          await promise;
-        } catch (unused) {
-          expect(wrapper).toHaveState({ error });
-        }
+      it("renders message", async () => {
+        expect(wrapper.text()).toEqual(
+          expect.stringContaining("unknown error")
+        );
       });
     });
   });

@@ -7,7 +7,7 @@ import AppBar from "../containers/AppBar";
 import Navigation from "../containers/Navigation";
 import withAuth from "./withAuth";
 import ArtistList from "./ArtistList";
-import SignIn from "./SignIn";
+import SignIn from "../containers/SignIn";
 import * as routes from "../routes";
 
 const ArtistListWithAuth = withAuth(ArtistList);
@@ -18,7 +18,7 @@ const Artists = () => <ArtistListWithAuth />;
 const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
-    <Route path={routes.SIGNIN} component={SignIn} />
+    <Route path={routes.SIGNIN} render={() => <SignIn nextRoute="/" />} />
     <Route path={routes.ARTISTS} component={Artists} />
   </Switch>
 );

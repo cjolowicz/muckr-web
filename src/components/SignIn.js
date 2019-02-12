@@ -1,32 +1,31 @@
 // @flow
 import React from "react";
-import type { ContextRouter } from "react-router";
+import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { withRouter } from "react-router-dom";
-import { withCookies } from "react-cookie";
 
 import Message from "./Message";
-import { fetchToken } from "../services/user";
 import type { $FetchError } from "../services/user";
 
-type Props = ContextRouter & {
-  nextRoute?: string,
-  classes: Object
+type Props = {
+  nextRoute: string,
+  classes: Object,
+  onSubmit: Function,
+  token: ?string,
+  error: ?$FetchError
 };
 
 type State = {
   username: string,
-  password: string,
-  error: ?$FetchError
+  password: string
 };
 
 export class SignInBase extends React.Component<Props, State> {
-  state = { username: "", password: "", error: null };
+  state = { username: "", password: "" };
 
   handleChange = ({
     currentTarget: { name, value }
@@ -34,26 +33,24 @@ export class SignInBase extends React.Component<Props, State> {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = async (event: SyntheticEvent<HTMLButtonElement>) => {
+  handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const { history, nextRoute, cookies } = this.props;
+    const { onSubmit } = this.props;
     const { username, password } = this.state;
 
-    this.setState({ error: null });
-
-    try {
-      const token = await fetchToken(username, password);
-      cookies.set("token", token);
-      history.push(nextRoute || "/");
-    } catch (error) {
-      this.setState({ error });
-    }
+    onSubmit(username, password);
   };
 
   render() {
-    const { classes } = this.props;
-    const { username, password, error } = this.state;
+    const { token, nextRoute } = this.props;
+
+    if (token) {
+      return <Redirect to={nextRoute} />;
+    }
+
+    const { error, classes } = this.props;
+    const { username, password } = this.state;
 
     let message = "";
 
@@ -138,4 +135,4 @@ const styles = theme => ({
   }
 });
 
-export default withRouter(withStyles(styles)(withCookies(SignInBase)));
+export default withStyles(styles)(SignInBase);
