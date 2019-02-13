@@ -5,21 +5,18 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import AppBar from "../containers/AppBar";
 import Navigation from "../containers/Navigation";
-import withAuth from "./withAuth";
-import ArtistList from "./ArtistList";
+import PrivateRoute from "../containers/PrivateRoute";
+import ArtistList from "../containers/ArtistList";
 import SignIn from "../containers/SignIn";
 import * as routes from "../routes";
 
-const ArtistListWithAuth = withAuth(ArtistList);
-
 const Index = () => <h2>Welcome</h2>;
-const Artists = () => <ArtistListWithAuth />;
 
 const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
     <Route path={routes.SIGNIN} render={() => <SignIn nextRoute="/" />} />
-    <Route path={routes.ARTISTS} component={Artists} />
+    <PrivateRoute path={routes.ARTISTS} component={ArtistList} />
   </Switch>
 );
 

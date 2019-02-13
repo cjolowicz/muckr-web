@@ -10,13 +10,14 @@ import App from "../App";
 import rootReducer from "../../reducers";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
+import { fetchTokenSuccess } from "../../actions/fetchToken";
 
 const cookies = new Cookies();
 
-const mountAppWithRoute = route => {
+const mountAppWithRoute = (route, initialAction = {}) => {
   const mockStore = configureStore([]);
-  const initialState = rootReducer(undefined, {});
-  const store = mockStore(initialState);
+  const state = rootReducer(undefined, initialAction);
+  const store = mockStore(state);
   const wrapper = mount(
     <MemoryRouter
       initialEntries={[
@@ -52,9 +53,8 @@ describe("App", () => {
     expect(wrapper).toContainMatchingElement("SignInBase");
   });
 
-  it("renders Artists", () => {
-    cookies.set("token", TOKEN);
-    const wrapper = mountAppWithRoute(routes.ARTISTS);
-    expect(wrapper).toContainMatchingElement("Artists");
+  it("renders ArtistList", () => {
+    const wrapper = mountAppWithRoute(routes.ARTISTS, fetchTokenSuccess(TOKEN));
+    expect(wrapper).toContainMatchingElement("ArtistList");
   });
 });
