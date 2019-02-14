@@ -8,13 +8,15 @@
     "prettier/flowtype",
     "prettier/react"
   ],
-  "plugins": ["prettier", "flowtype", "compat", "react"],
+  "plugins": ["prettier", "flowtype", "compat", "react", "react-hooks"],
   "rules": {
     "prettier/prettier": "error",
     "compat/compat": "error",
     "no-param-reassign": ["error", { "props": false }],
     "react/jsx-filename-extension": ["off"],
-    "react/jsx-one-expression-per-line": ["off"]
+    "react/jsx-one-expression-per-line": ["off"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "overrides": {
     "files": ["**/__tests__/**"],
