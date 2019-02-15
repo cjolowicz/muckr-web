@@ -1,10 +1,18 @@
 // @flow
-import rootReducer from "..";
+import rootReducer, { isNavigationOpen } from "..";
 
-describe("rootReducer", () => {
-  it("handles initial state", () => {
-    const stateBefore = undefined;
-    const stateAfter = rootReducer(stateBefore, {});
-    expect(stateAfter).not.toBeUndefined();
+describe("initial state", () => {
+  const state = rootReducer(undefined, {});
+
+  describe("rootReducer", () => {
+    it("returns defined state", () => {
+      expect(state).not.toBeUndefined();
+    });
+  });
+
+  describe("isNavigationOpen", () => {
+    it("is false", () => {
+      expect(isNavigationOpen(state)).toBe(false);
+    });
   });
 });
