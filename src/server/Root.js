@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import type { Store } from "redux";
+import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom";
 import { CookiesProvider, Cookies } from "react-cookie";
 import { SheetsRegistry } from "jss";
@@ -14,7 +16,8 @@ type Props = {
   cookies: Cookies,
   sheetsRegistry: SheetsRegistry,
   sheetsManager: Map<*, *>,
-  generateClassName: Function
+  generateClassName: Function,
+  store: Store<*, *>
 };
 
 const Root = ({
@@ -22,7 +25,8 @@ const Root = ({
   cookies,
   sheetsRegistry,
   sheetsManager,
-  generateClassName
+  generateClassName,
+  store
 }: Props) => (
   <StaticRouter context={{}} location={location}>
     <CookiesProvider cookies={cookies}>
@@ -31,7 +35,9 @@ const Root = ({
         generateClassName={generateClassName}
       >
         <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-          <App />
+          <Provider store={store}>
+            <App />
+          </Provider>
         </MuiThemeProvider>
       </JssProvider>
     </CookiesProvider>
