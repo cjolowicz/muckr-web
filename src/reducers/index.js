@@ -1,15 +1,23 @@
 // @flow
 import { combineReducers } from "redux";
 
+import message, * as fromMessage from "./message";
 import navigation, * as fromNavigation from "./navigation";
 import token, * as fromToken from "./token";
 import artists, * as fromArtists from "./artists";
 
 export type State = {
+  message: fromMessage.State,
   navigation: fromNavigation.State,
   token: fromToken.State,
   artists: fromArtists.State
 };
+
+export const isMessageOpen = (state: State) =>
+  fromMessage.isMessageOpen(state.message);
+
+export const getMessage = (state: State) =>
+  fromMessage.getMessage(state.message);
 
 export const isNavigationOpen = (state: State) =>
   fromNavigation.isNavigationOpen(state.navigation);
@@ -31,4 +39,4 @@ export const getArtists = (state: State) =>
 export const getArtistsError = (state: State) =>
   fromArtists.getArtistsError(state.artists);
 
-export default combineReducers({ navigation, token, artists });
+export default combineReducers({ message, navigation, token, artists });

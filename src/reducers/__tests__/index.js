@@ -1,5 +1,7 @@
 // @flow
 import rootReducer, {
+  isMessageOpen,
+  getMessage,
   isNavigationOpen,
   isFetchingToken,
   getToken,
@@ -15,6 +17,18 @@ describe("initial state", () => {
   describe("rootReducer", () => {
     it("returns defined state", () => {
       expect(state).not.toBeUndefined();
+    });
+  });
+
+  describe("isMessageOpen", () => {
+    it("is false", () => {
+      expect(isMessageOpen(state)).toBe(false);
+    });
+  });
+
+  describe("getMessage", () => {
+    it("is null", () => {
+      expect(getMessage(state)).toBeNull();
     });
   });
 
