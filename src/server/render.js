@@ -1,14 +1,15 @@
 // @flow
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { SheetsRegistry } from "jss";
-import { Cookies } from "react-cookie";
+import Cookies from "universal-cookie";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
 import Root from "./Root";
 import generatePage from "./generatePage";
+import persistToken from "../store/persistToken";
 import rootReducer from "../reducers";
 
 type Request = express$Request & {
@@ -23,8 +24,12 @@ function renderState(store) {
 }
 
 export default function render(request: Request, response: Response) {
-  const enhancer = applyMiddleware(thunk);
-  const store = createStore(rootReducer, enhancer);
+  const preloadedState = undefined;
+  const enhancer = compose(
+    applyMiddleware(thunk),
+    persistToken(request.universalCookies)
+  );
+  const store = createStore(rootReducer, preloadedState, enhancer);
   const sheetsRegistry = new SheetsRegistry();
   const sheetsManager = new Map();
   const generateClassName = createGenerateClassName();
