@@ -1,5 +1,10 @@
 // @flow
-import rootReducer, { isNavigationOpen } from "..";
+import rootReducer, {
+  isNavigationOpen,
+  isFetchingToken,
+  getToken,
+  getTokenError
+} from "..";
 
 describe("initial state", () => {
   const state = rootReducer(undefined, {});
@@ -13,6 +18,24 @@ describe("initial state", () => {
   describe("isNavigationOpen", () => {
     it("is false", () => {
       expect(isNavigationOpen(state)).toBe(false);
+    });
+  });
+
+  describe("isFetchingToken", () => {
+    it("is false", () => {
+      expect(isFetchingToken(state)).toBe(false);
+    });
+  });
+
+  describe("getToken", () => {
+    it("is null", () => {
+      expect(getToken(state)).toBeNull();
+    });
+  });
+
+  describe("getTokenError", () => {
+    it("is null", () => {
+      expect(getTokenError(state)).toBeNull();
     });
   });
 });
