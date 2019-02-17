@@ -10,7 +10,7 @@ import Message from "./Message";
 import type { Artist } from "../services/artist";
 
 export type Props = {
-  artists: Array<Artist>,
+  artists: ?Array<Artist>,
   error: ?Error,
   isLoading: boolean
 };
@@ -19,15 +19,16 @@ const ArtistList = ({ artists, error, isLoading }: Props) => (
   <main>
     <Paper>
       {isLoading ? <Typography>Loading...</Typography> : null}
-      {!isLoading && !artists.length ? (
+      {!(isLoading || (artists && artists.length)) ? (
         <Typography>No artists</Typography>
       ) : null}
       <List>
-        {artists.map(artist => (
-          <ListItem key={artist.id} button>
-            <ListItemText primary={artist.name} />
-          </ListItem>
-        ))}
+        {artists &&
+          artists.map(artist => (
+            <ListItem key={artist.id} button>
+              <ListItemText primary={artist.name} />
+            </ListItem>
+          ))}
       </List>
     </Paper>
     {error ? <Message message={error.message} /> : null}

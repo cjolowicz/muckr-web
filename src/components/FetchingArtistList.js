@@ -2,34 +2,35 @@
 import React from "react";
 
 import ArtistList from "./ArtistList";
-import { fetchArtists } from "../services/artist";
-import type { Props as State } from "./ArtistList";
+import type { Props as InnerProps } from "./ArtistList";
 
-type Props = {
-  token: string
+type Props = InnerProps & {
+  token: ?string,
+  fetchArtists: Function
 };
 
-export default class FetchingArtistList extends React.Component<Props, State> {
-  state = {
-    artists: [],
-    error: null,
-    isLoading: false
-  };
+export default class FetchingArtistList extends React.Component<Props> {
+  componentDidMount() {
+    this.fetchData();
+  }
 
-  async componentDidMount() {
-    this.setState({ isLoading: true });
-
+  componentDidUpdate({ token: previousToken }: Props) {
     const { token } = this.props;
 
-    try {
-      const artists = await fetchArtists(token);
-      this.setState({ artists, isLoading: false });
-    } catch (error) {
-      this.setState({ error, isLoading: false });
+    if (token !== previousToken) {
+      this.fetchData();
+    }
+  }
+
+  fetchData() {
+    const { fetchArtists, token } = this.props;
+
+    if (token) {
+      fetchArtists(token);
     }
   }
 
   render() {
-    return <ArtistList {...this.state} />;
+    return <ArtistList {...this.props} />;
   }
 }

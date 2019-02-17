@@ -3,71 +3,72 @@ import React from "react";
 import { mount } from "enzyme";
 
 import FetchingArtistList from "../FetchingArtistList";
-import * as artist from "../../services/artist";
-import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 
 describe("FetchingArtistList", () => {
-  beforeAll(() => {
-    jest.spyOn(artist, "fetchArtists");
-  });
-
-  afterAll(() => {
-    mock(artist.fetchArtists).mockRestore();
-  });
-
-  describe("on success", () => {
-    it("stores artists", async () => {
-      const artists = [{ id: 1, name: "Artist" }];
-      const promise = Promise.resolve(artists);
-
-      mock(artist.fetchArtists).mockReturnValue(promise);
-
-      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
-
-      expect(wrapper).toHaveState({ artists: [] });
-
-      await promise;
-
-      wrapper.update();
-      expect(wrapper).toHaveState({ artists });
-    });
-
-    it("renders message if no artists", async () => {
-      const promise = Promise.resolve([]);
-
-      mock(artist.fetchArtists).mockReturnValue(promise);
-
-      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
-
-      expect(wrapper.find("p")).toHaveText("Loading...");
-
-      await promise;
-
-      wrapper.update();
-      expect(wrapper.find("p")).toHaveText("No artists");
+  describe("without token", () => {
+    it("does not fetch artists", () => {
+      const fetchArtists = jest.fn();
+      mount(
+        <FetchingArtistList
+          artists={null}
+          isLoading={false}
+          error={null}
+          token={null}
+          fetchArtists={fetchArtists}
+        />
+      );
+      expect(fetchArtists).not.toHaveBeenCalled();
     });
   });
 
-  describe("on error", () => {
-    it("stores error", async () => {
-      const error = new Error("fail");
-      const promise = Promise.reject(error);
+  describe("with token", () => {
+    it("fetches artists", () => {
+      const fetchArtists = jest.fn();
+      mount(
+        <FetchingArtistList
+          artists={null}
+          isLoading={false}
+          error={null}
+          token={TOKEN}
+          fetchArtists={fetchArtists}
+        />
+      );
+      expect(fetchArtists).toHaveBeenCalled();
+    });
+  });
 
-      mock(artist.fetchArtists).mockReturnValue(promise);
+  describe("on token update", () => {
+    it("fetches artists", () => {
+      const fetchArtists = jest.fn();
+      const wrapper = mount(
+        <FetchingArtistList
+          artists={null}
+          isLoading={false}
+          error={null}
+          token={null}
+          fetchArtists={fetchArtists}
+        />
+      );
+      wrapper.setProps({ token: TOKEN });
+      expect(fetchArtists).toHaveBeenCalled();
+    });
+  });
 
-      expect.assertions(2);
-
-      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
-
-      expect(wrapper).toHaveState({ error: null });
-
-      try {
-        await promise;
-      } catch (unused) {
-        wrapper.update();
-        expect(wrapper).toHaveState({ error });
-      }
+  describe("on no-op update", () => {
+    it("fetches artists", () => {
+      const fetchArtists = jest.fn();
+      const wrapper = mount(
+        <FetchingArtistList
+          artists={null}
+          isLoading={false}
+          error={null}
+          token={null}
+          fetchArtists={fetchArtists}
+        />
+      );
+      wrapper.setProps({});
+      expect(fetchArtists).not.toHaveBeenCalled();
     });
   });
 });
