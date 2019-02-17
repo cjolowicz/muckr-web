@@ -2,7 +2,6 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import { Cookies, CookiesProvider } from "react-cookie";
 import configureStore from "redux-mock-store";
 import { mount } from "enzyme";
 
@@ -11,8 +10,6 @@ import rootReducer from "../../reducers";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
 import { fetchTokenSuccess } from "../../actions/fetchToken";
-
-const cookies = new Cookies();
 
 const mountAppWithRoute = (route, initialAction = {}) => {
   const mockStore = configureStore([]);
@@ -27,11 +24,9 @@ const mountAppWithRoute = (route, initialAction = {}) => {
         }
       ]}
     >
-      <CookiesProvider cookies={cookies}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </CookiesProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </MemoryRouter>
   );
 
@@ -39,10 +34,6 @@ const mountAppWithRoute = (route, initialAction = {}) => {
 };
 
 describe("App", () => {
-  beforeEach(() => {
-    cookies.remove("token");
-  });
-
   it("renders Index", () => {
     const wrapper = mountAppWithRoute(routes.INDEX);
     expect(wrapper).toContainMatchingElement("Index");

@@ -36,7 +36,6 @@ export default function render(request: Request, response: Response) {
   const html = renderToString(
     <Root
       location={request.url}
-      cookies={request.universalCookies}
       sheetsRegistry={sheetsRegistry}
       sheetsManager={sheetsManager}
       generateClassName={generateClassName}
