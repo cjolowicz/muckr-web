@@ -3,7 +3,10 @@ import rootReducer, {
   isNavigationOpen,
   isFetchingToken,
   getToken,
-  getTokenError
+  getTokenError,
+  isFetchingArtists,
+  getArtists,
+  getArtistsError
 } from "..";
 
 describe("initial state", () => {
@@ -36,6 +39,24 @@ describe("initial state", () => {
   describe("getTokenError", () => {
     it("is null", () => {
       expect(getTokenError(state)).toBeNull();
+    });
+  });
+
+  describe("isFetchingArtists", () => {
+    it("is false", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("getArtists", () => {
+    it("is null", () => {
+      expect(getArtists(state)).toBeNull();
+    });
+  });
+
+  describe("getArtistsError", () => {
+    it("is null", () => {
+      expect(getArtistsError(state)).toBeNull();
     });
   });
 });
