@@ -24,16 +24,17 @@ type State = {
   password: string
 };
 
+type InputEvent = SyntheticEvent<HTMLInputElement>;
+type ButtonEvent = SyntheticEvent<HTMLButtonElement>;
+
 export class SignInBase extends React.Component<Props, State> {
   state = { username: "", password: "" };
 
-  handleChange = ({
-    currentTarget: { name, value }
-  }: SyntheticEvent<HTMLInputElement>) => {
+  handleChange = ({ currentTarget: { name, value } }: InputEvent) => {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = (event: SyntheticEvent<HTMLButtonElement>) => {
+  handleSubmit = (event: ButtonEvent) => {
     event.preventDefault();
 
     const { onSubmit } = this.props;
