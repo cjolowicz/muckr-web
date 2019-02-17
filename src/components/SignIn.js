@@ -8,53 +8,25 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import Message from "./Message";
-import type { $FetchError } from "../services/user";
+import Message from "../containers/Message";
 
 type Props = {
   nextRoute: string,
   classes: Object,
   onSubmit: Function,
-  token: ?string,
-  error: ?$FetchError
+  token: ?string
 };
 
 type State = {
   username: string,
-  password: string,
-  messageOpen: boolean,
-  message: ?string
+  password: string
 };
 
 type InputEvent = SyntheticEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticEvent<HTMLButtonElement>;
 
-const formatErrorMessage = error =>
-  error.response && error.response.status === 401
-    ? "Incorrect username or password"
-    : "An unknown error occurred";
-
 export class SignInBase extends React.Component<Props, State> {
-  state = { username: "", password: "", messageOpen: false, message: null };
-
-  componentDidMount() {
-    const { error } = this.props;
-    this.handleError(error);
-  }
-
-  componentDidUpdate({ error: previousError }: Props) {
-    const { error } = this.props;
-
-    if (error !== previousError) {
-      this.handleError(error);
-    }
-  }
-
-  handleError = (error: ?$FetchError) => {
-    const messageOpen = !!error;
-    const message = error ? formatErrorMessage(error) : null;
-    this.setState({ messageOpen, message });
-  };
+  state = { username: "", password: "" };
 
   handleChange = ({ currentTarget: { name, value } }: InputEvent) => {
     this.setState({ [name]: value });
@@ -77,7 +49,7 @@ export class SignInBase extends React.Component<Props, State> {
     }
 
     const { classes } = this.props;
-    const { username, password, messageOpen, message } = this.state;
+    const { username, password } = this.state;
 
     return (
       <main className={classes.main}>
@@ -120,11 +92,7 @@ export class SignInBase extends React.Component<Props, State> {
             </Button>
           </form>
         </Paper>
-        <Message
-          open={messageOpen}
-          onClose={this.handleError}
-          message={message}
-        />
+        <Message />
       </main>
     );
   }

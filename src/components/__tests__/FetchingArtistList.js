@@ -1,22 +1,30 @@
 // @flow
 import React from "react";
-import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import { mount, shallow } from "enzyme";
 
 import FetchingArtistList from "../FetchingArtistList";
 import { TOKEN } from "../../test/fixtures";
+import rootReducer from "../../reducers";
+
+const mockStore = configureStore([]);
+const state = rootReducer(undefined, {});
+const store = mockStore(state);
 
 describe("FetchingArtistList", () => {
   describe("without token", () => {
     it("does not fetch artists", () => {
       const fetchArtists = jest.fn();
       mount(
-        <FetchingArtistList
-          artists={null}
-          isLoading={false}
-          error={null}
-          token={null}
-          fetchArtists={fetchArtists}
-        />
+        <Provider store={store}>
+          <FetchingArtistList
+            artists={null}
+            isLoading={false}
+            token={null}
+            fetchArtists={fetchArtists}
+          />
+        </Provider>
       );
       expect(fetchArtists).not.toHaveBeenCalled();
     });
@@ -26,13 +34,14 @@ describe("FetchingArtistList", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
       mount(
-        <FetchingArtistList
-          artists={null}
-          isLoading={false}
-          error={null}
-          token={TOKEN}
-          fetchArtists={fetchArtists}
-        />
+        <Provider store={store}>
+          <FetchingArtistList
+            artists={null}
+            isLoading={false}
+            token={TOKEN}
+            fetchArtists={fetchArtists}
+          />
+        </Provider>
       );
       expect(fetchArtists).toHaveBeenCalled();
     });
@@ -41,11 +50,10 @@ describe("FetchingArtistList", () => {
   describe("on token update", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
-      const wrapper = mount(
+      const wrapper = shallow(
         <FetchingArtistList
           artists={null}
           isLoading={false}
-          error={null}
           token={null}
           fetchArtists={fetchArtists}
         />
@@ -55,30 +63,13 @@ describe("FetchingArtistList", () => {
     });
   });
 
-  describe("on error update", () => {
-    it("sets message", () => {
-      const wrapper = mount(
-        <FetchingArtistList
-          artists={null}
-          isLoading={false}
-          error={null}
-          token={null}
-          fetchArtists={jest.fn()}
-        />
-      );
-      wrapper.setProps({ error: new Error("failure") });
-      expect(wrapper).toHaveState({ message: "failure" });
-    });
-  });
-
   describe("on no-op update", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
-      const wrapper = mount(
+      const wrapper = shallow(
         <FetchingArtistList
           artists={null}
           isLoading={false}
-          error={null}
           token={null}
           fetchArtists={fetchArtists}
         />

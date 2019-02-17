@@ -1,13 +1,19 @@
 // @flow
 import React from "react";
+import { Provider } from "react-redux";
 import { MemoryRouter, Switch, Route } from "react-router-dom";
+import configureStore from "redux-mock-store";
 import { mount, shallow } from "enzyme";
 
 import { SignInBase } from "../SignIn";
+import rootReducer from "../../reducers";
 import { getInstance } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 import { unsafeCast } from "../../utils";
-import type { $FetchError } from "../../services/user";
+
+const mockStore = configureStore([]);
+const state = rootReducer(undefined, {});
+const store = mockStore(state);
 
 const mockClasses = {
   main: "main",
@@ -22,14 +28,15 @@ const mockEvent = <T>(stub): SyntheticEvent<T> =>
 describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
-      const wrapper = shallow(
-        <SignInBase
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-          error={null}
-        />
+      const wrapper = mount(
+        <Provider store={store}>
+          <SignInBase
+            nextRoute="/"
+            classes={mockClasses}
+            onSubmit={jest.fn()}
+            token={null}
+          />
+        </Provider>
       );
       expect(wrapper).toContainMatchingElement("main");
     });
@@ -37,13 +44,12 @@ describe("SignIn", () => {
 
   describe("handleChange", () => {
     it("updates state", () => {
-      const wrapper = mount(
+      const wrapper = shallow(
         <SignInBase
           nextRoute="/"
           classes={mockClasses}
           onSubmit={jest.fn()}
           token={null}
-          error={null}
         />
       );
 
@@ -68,13 +74,12 @@ describe("SignIn", () => {
     it("invokes onSubmit", async () => {
       const onSubmit = jest.fn();
 
-      const wrapper = mount(
+      const wrapper = shallow(
         <SignInBase
           nextRoute="/"
           classes={mockClasses}
           onSubmit={onSubmit}
           token={null}
-          error={null}
         />
       );
       const component = getInstance<SignInBase>(wrapper);
@@ -109,80 +114,25 @@ describe("SignIn", () => {
 
   describe("on success", () => {
     const wrapper = mount(
-      <MemoryRouter initialEntries={["/login"]}>
-        <Switch>
-          <Route path="/login">
-            <SignInBase
-              nextRoute="/"
-              classes={mockClasses}
-              onSubmit={jest.fn()}
-              token={TOKEN}
-              error={null}
-            />
-          </Route>
-        </Switch>
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter initialEntries={["/login"]}>
+          <Switch>
+            <Route path="/login">
+              <SignInBase
+                nextRoute="/"
+                classes={mockClasses}
+                onSubmit={jest.fn()}
+                token={TOKEN}
+              />
+            </Route>
+          </Switch>
+        </MemoryRouter>
+      </Provider>
     );
 
     it("redirects", async () => {
       const history = wrapper.find("Router").prop("history");
       expect(history.location.pathname).toEqual("/");
-    });
-  });
-
-  describe("on error", () => {
-    describe("HTTP 401", () => {
-      const error = unsafeCast<$FetchError>({ response: { status: 401 } });
-      const wrapper = mount(
-        <SignInBase
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-          error={error}
-        />
-      );
-
-      it("renders message", async () => {
-        expect(wrapper.text()).toEqual(
-          expect.stringContaining("Incorrect username or password")
-        );
-      });
-    });
-
-    describe("unknown error", () => {
-      const error = new Error("fail");
-      const wrapper = mount(
-        <SignInBase
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-          error={error}
-        />
-      );
-
-      it("renders message", async () => {
-        expect(wrapper.text()).toEqual(
-          expect.stringContaining("unknown error")
-        );
-      });
-    });
-  });
-
-  describe("on error update", () => {
-    it("sets message", () => {
-      const wrapper = mount(
-        <SignInBase
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-          error={null}
-        />
-      );
-      wrapper.setProps({ error: new Error("failure") });
-      expect(wrapper).toHaveState({ message: "An unknown error occurred" });
     });
   });
 });

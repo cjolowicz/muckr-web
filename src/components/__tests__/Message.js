@@ -1,9 +1,8 @@
 // @flow
 import React from "react";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { MessageBase } from "../Message";
-import { getInstance } from "../../test/utils";
 
 const mockClasses = { close: "close" };
 
@@ -21,42 +20,6 @@ describe("Message", () => {
         />
       );
       expect(wrapper.text()).toEqual(message);
-    });
-  });
-
-  describe("on close", () => {
-    it("invokes onClose", () => {
-      const onClose = jest.fn();
-      const wrapper = shallow(
-        <MessageBase
-          open
-          onClose={onClose}
-          message={message}
-          classes={mockClasses}
-        />
-      );
-      const component = getInstance<MessageBase>(wrapper);
-
-      component.handleClose();
-
-      expect(onClose).toHaveBeenCalled();
-    });
-
-    it("ignores clickaway", () => {
-      const onClose = jest.fn();
-      const wrapper = shallow(
-        <MessageBase
-          open
-          onClose={onClose}
-          message={message}
-          classes={mockClasses}
-        />
-      );
-      const component = getInstance<MessageBase>(wrapper);
-
-      component.handleClose(undefined, "clickaway");
-
-      expect(onClose).not.toHaveBeenCalled();
     });
   });
 });
