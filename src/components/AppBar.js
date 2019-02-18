@@ -16,7 +16,7 @@ type Props = {
   onMenuClick: Function
 };
 
-const AppBarBase = ({ classes, onMenuClick }: Props) => (
+const AppBar = ({ classes, onMenuClick }: Props) => (
   <div className={classes.root}>
     <MUIAppBar position="static">
       <Toolbar>
@@ -51,4 +51,4 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(AppBarBase);
+export default withStyles(styles)(AppBar);
