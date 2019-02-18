@@ -40,9 +40,9 @@ describe("App", () => {
     expect(wrapper).toContainMatchingElement("Index");
   });
 
-  it("renders SignInBase", () => {
+  it("renders PureSignIn", () => {
     const wrapper = mountAppWithRoute(routes.SIGNIN);
-    expect(wrapper).toContainMatchingElement("SignInBase");
+    expect(wrapper).toContainMatchingElement("PureSignIn");
   });
 
   it("renders FetchingArtistList", () => {

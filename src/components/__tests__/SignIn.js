@@ -5,7 +5,7 @@ import { MemoryRouter, Switch, Route } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import { mount, shallow } from "enzyme";
 
-import { SignInBase } from "../SignIn";
+import { PureSignIn as SignIn } from "../SignIn";
 import rootReducer from "../../reducers";
 import { getInstance } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
@@ -30,7 +30,7 @@ describe("SignIn", () => {
     it("renders main", () => {
       const wrapper = mount(
         <Provider store={store}>
-          <SignInBase
+          <SignIn
             nextRoute="/"
             classes={mockClasses}
             onSubmit={jest.fn()}
@@ -45,7 +45,7 @@ describe("SignIn", () => {
   describe("handleChange", () => {
     it("updates state", () => {
       const wrapper = shallow(
-        <SignInBase
+        <SignIn
           nextRoute="/"
           classes={mockClasses}
           onSubmit={jest.fn()}
@@ -53,7 +53,7 @@ describe("SignIn", () => {
         />
       );
 
-      const component = getInstance<SignInBase>(wrapper);
+      const component = getInstance<SignIn>(wrapper);
 
       expect(wrapper).toHaveState({ username: "" });
 
@@ -75,14 +75,14 @@ describe("SignIn", () => {
       const onSubmit = jest.fn();
 
       const wrapper = shallow(
-        <SignInBase
+        <SignIn
           nextRoute="/"
           classes={mockClasses}
           onSubmit={onSubmit}
           token={null}
         />
       );
-      const component = getInstance<SignInBase>(wrapper);
+      const component = getInstance<SignIn>(wrapper);
 
       component.handleChange(
         mockEvent<HTMLInputElement>({
@@ -118,7 +118,7 @@ describe("SignIn", () => {
         <MemoryRouter initialEntries={["/login"]}>
           <Switch>
             <Route path="/login">
-              <SignInBase
+              <SignIn
                 nextRoute="/"
                 classes={mockClasses}
                 onSubmit={jest.fn()}

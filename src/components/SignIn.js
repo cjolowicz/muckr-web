@@ -25,7 +25,7 @@ type State = {
 type InputEvent = SyntheticEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticEvent<HTMLButtonElement>;
 
-export class SignInBase extends React.Component<Props, State> {
+export class PureSignIn extends React.Component<Props, State> {
   state = { username: "", password: "" };
 
   handleChange = ({ currentTarget: { name, value } }: InputEvent) => {
@@ -125,4 +125,4 @@ const styles = theme => ({
   }
 });
 
-export default withStyles(styles)(SignInBase);
+export default withStyles(styles)(PureSignIn);
