@@ -8,14 +8,10 @@ import Typography from "@material-ui/core/Typography";
 
 import Message from "./Message";
 import { fetchArtists } from "../services/artist";
+import type { Artist } from "../services/artist";
 
 type Props = {
   token: string
-};
-
-type Artist = {
-  id: number,
-  name: string
 };
 
 type State = {
