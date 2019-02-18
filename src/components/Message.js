@@ -12,7 +12,7 @@ type Props = {
   classes: Object
 };
 
-export const MessageBase = ({ open, onClose, message, classes }: Props) => (
+export const PureMessage = ({ open, onClose, message, classes }: Props) => (
   <Snackbar
     anchorOrigin={{
       vertical: "bottom",
@@ -41,4 +41,4 @@ const styles = theme => ({
   }
 });
 
-export default withStyles(styles)(MessageBase);
+export default withStyles(styles)(PureMessage);

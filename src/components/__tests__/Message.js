@@ -2,7 +2,7 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import { MessageBase } from "../Message";
+import { PureMessage as Message } from "../Message";
 
 const mockClasses = { close: "close" };
 
@@ -12,7 +12,7 @@ describe("Message", () => {
   describe("on startup", () => {
     it("renders message", () => {
       const wrapper = mount(
-        <MessageBase
+        <Message
           open
           onClose={jest.fn()}
           message={message}
