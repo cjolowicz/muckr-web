@@ -15,7 +15,7 @@ type Props = {
   onClose: Function
 };
 
-const NavigationBase = ({ open, classes, onClose }: Props) => (
+const Navigation = ({ open, classes, onClose }: Props) => (
   <Drawer open={open} onClose={onClose}>
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
@@ -38,4 +38,4 @@ const styles = {
   }
 };
 
-export default withStyles(styles)(NavigationBase);
+export default withStyles(styles)(Navigation);
