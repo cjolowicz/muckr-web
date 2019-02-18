@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "../containers/AppBar";
 import Navigation from "../containers/Navigation";
 import PrivateRoute from "../containers/PrivateRoute";
-import ArtistList from "../containers/ArtistList";
+import FetchingArtistList from "../containers/FetchingArtistList";
 import SignIn from "../containers/SignIn";
 import * as routes from "../routes";
 
@@ -16,7 +16,7 @@ const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
     <Route path={routes.SIGNIN} render={() => <SignIn nextRoute="/" />} />
-    <PrivateRoute path={routes.ARTISTS} component={ArtistList} />
+    <PrivateRoute path={routes.ARTISTS} component={FetchingArtistList} />
   </Switch>
 );
 

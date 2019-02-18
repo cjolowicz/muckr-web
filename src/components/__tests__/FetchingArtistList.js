@@ -2,12 +2,12 @@
 import React from "react";
 import { mount } from "enzyme";
 
-import ArtistList from "../ArtistList";
+import FetchingArtistList from "../FetchingArtistList";
 import * as artist from "../../services/artist";
 import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 
-describe("ArtistList", () => {
+describe("FetchingArtistList", () => {
   beforeAll(() => {
     jest.spyOn(artist, "fetchArtists");
   });
@@ -23,7 +23,7 @@ describe("ArtistList", () => {
 
       mock(artist.fetchArtists).mockReturnValue(promise);
 
-      const wrapper = mount(<ArtistList token={TOKEN} />);
+      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
 
       expect(wrapper).toHaveState({ artists: [] });
 
@@ -38,7 +38,7 @@ describe("ArtistList", () => {
 
       mock(artist.fetchArtists).mockReturnValue(promise);
 
-      const wrapper = mount(<ArtistList token={TOKEN} />);
+      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
 
       expect(wrapper.find("p")).toHaveText("Loading...");
 
@@ -58,7 +58,7 @@ describe("ArtistList", () => {
 
       expect.assertions(2);
 
-      const wrapper = mount(<ArtistList token={TOKEN} />);
+      const wrapper = mount(<FetchingArtistList token={TOKEN} />);
 
       expect(wrapper).toHaveState({ error: null });
 

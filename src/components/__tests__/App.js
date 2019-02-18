@@ -44,8 +44,8 @@ describe("App", () => {
     expect(wrapper).toContainMatchingElement("SignInBase");
   });
 
-  it("renders ArtistList", () => {
+  it("renders FetchingArtistList", () => {
     const wrapper = mountAppWithRoute(routes.ARTISTS, fetchTokenSuccess(TOKEN));
-    expect(wrapper).toContainMatchingElement("ArtistList");
+    expect(wrapper).toContainMatchingElement("FetchingArtistList");
   });
 });
