@@ -21,14 +21,40 @@ type Props = {
 
 type State = {
   username: string,
-  password: string
+  password: string,
+  messageOpen: boolean,
+  message: ?string
 };
 
 type InputEvent = SyntheticEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticEvent<HTMLButtonElement>;
 
+const formatErrorMessage = error =>
+  error.response && error.response.status === 401
+    ? "Incorrect username or password"
+    : "An unknown error occurred";
+
 export class SignInBase extends React.Component<Props, State> {
-  state = { username: "", password: "" };
+  state = { username: "", password: "", messageOpen: false, message: null };
+
+  componentDidMount() {
+    const { error } = this.props;
+    this.handleError(error);
+  }
+
+  componentDidUpdate({ error: previousError }: Props) {
+    const { error } = this.props;
+
+    if (error !== previousError) {
+      this.handleError(error);
+    }
+  }
+
+  handleError = (error: ?$FetchError) => {
+    const messageOpen = !!error;
+    const message = error ? formatErrorMessage(error) : null;
+    this.setState({ messageOpen, message });
+  };
 
   handleChange = ({ currentTarget: { name, value } }: InputEvent) => {
     this.setState({ [name]: value });
@@ -50,17 +76,8 @@ export class SignInBase extends React.Component<Props, State> {
       return <Redirect to={nextRoute} />;
     }
 
-    const { error, classes } = this.props;
-    const { username, password } = this.state;
-
-    let message = "";
-
-    if (error) {
-      message =
-        error.response && error.response.status === 401
-          ? "Incorrect username or password"
-          : "An unknown error occurred";
-    }
+    const { classes } = this.props;
+    const { username, password, messageOpen, message } = this.state;
 
     return (
       <main className={classes.main}>
@@ -103,7 +120,11 @@ export class SignInBase extends React.Component<Props, State> {
             </Button>
           </form>
         </Paper>
-        {message ? <Message message={message} /> : null}
+        <Message
+          open={messageOpen}
+          onClose={this.handleError}
+          message={message}
+        />
       </main>
     );
   }

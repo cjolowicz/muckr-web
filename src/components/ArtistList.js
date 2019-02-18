@@ -9,13 +9,21 @@ import Typography from "@material-ui/core/Typography";
 import Message from "./Message";
 import type { Artist } from "../services/artist";
 
-export type Props = {
+type Props = {
   artists: ?Array<Artist>,
-  error: ?Error,
-  isLoading: boolean
+  isLoading: boolean,
+  messageOpen: boolean,
+  onMessageClose: Function,
+  message: ?string
 };
 
-const ArtistList = ({ artists, error, isLoading }: Props) => (
+const ArtistList = ({
+  artists,
+  isLoading,
+  messageOpen,
+  onMessageClose,
+  message
+}: Props) => (
   <main>
     <Paper>
       {isLoading ? <Typography>Loading...</Typography> : null}
@@ -31,7 +39,7 @@ const ArtistList = ({ artists, error, isLoading }: Props) => (
           ))}
       </List>
     </Paper>
-    {error ? <Message message={error.message} /> : null}
+    <Message open={messageOpen} onClose={onMessageClose} message={message} />
   </main>
 );
 

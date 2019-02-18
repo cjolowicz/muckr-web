@@ -6,17 +6,13 @@ import CloseIcon from "@material-ui/icons/Close";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 type Props = {
+  open: boolean,
+  onClose: Function,
   message: string,
   classes: Object
 };
 
-type State = {
-  open: boolean
-};
-
-export class MessageBase extends React.Component<Props, State> {
-  state = { open: true };
-
+export class MessageBase extends React.Component<Props> {
   handleClose = (
     event: ?SyntheticEvent<HTMLButtonElement>,
     reason: ?string
@@ -25,12 +21,13 @@ export class MessageBase extends React.Component<Props, State> {
       return;
     }
 
-    this.setState({ open: false });
+    const { onClose } = this.props;
+
+    onClose();
   };
 
   render() {
-    const { message, classes } = this.props;
-    const { open } = this.state;
+    const { open, message, classes } = this.props;
 
     return (
       <Snackbar

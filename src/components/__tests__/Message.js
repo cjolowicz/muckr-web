@@ -13,40 +13,50 @@ describe("Message", () => {
   describe("on startup", () => {
     it("renders message", () => {
       const wrapper = mount(
-        <MessageBase message={message} classes={mockClasses} />
+        <MessageBase
+          open
+          onClose={jest.fn()}
+          message={message}
+          classes={mockClasses}
+        />
       );
       expect(wrapper.text()).toEqual(message);
-    });
-
-    it("is open", () => {
-      const wrapper = shallow(
-        <MessageBase message={message} classes={mockClasses} />
-      );
-      expect(wrapper).toHaveState({ open: true });
     });
   });
 
   describe("on close", () => {
-    it("is not open", () => {
+    it("invokes onClose", () => {
+      const onClose = jest.fn();
       const wrapper = shallow(
-        <MessageBase message={message} classes={mockClasses} />
+        <MessageBase
+          open
+          onClose={onClose}
+          message={message}
+          classes={mockClasses}
+        />
       );
       const component = getInstance<MessageBase>(wrapper);
 
       component.handleClose();
 
-      expect(wrapper).toHaveState({ open: false });
+      expect(onClose).toHaveBeenCalled();
     });
 
     it("ignores clickaway", () => {
+      const onClose = jest.fn();
       const wrapper = shallow(
-        <MessageBase message={message} classes={mockClasses} />
+        <MessageBase
+          open
+          onClose={onClose}
+          message={message}
+          classes={mockClasses}
+        />
       );
       const component = getInstance<MessageBase>(wrapper);
 
       component.handleClose(undefined, "clickaway");
 
-      expect(wrapper).toHaveState({ open: true });
+      expect(onClose).not.toHaveBeenCalled();
     });
   });
 });

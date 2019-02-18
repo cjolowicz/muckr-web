@@ -55,6 +55,22 @@ describe("FetchingArtistList", () => {
     });
   });
 
+  describe("on error update", () => {
+    it("sets message", () => {
+      const wrapper = mount(
+        <FetchingArtistList
+          artists={null}
+          isLoading={false}
+          error={null}
+          token={null}
+          fetchArtists={jest.fn()}
+        />
+      );
+      wrapper.setProps({ error: new Error("failure") });
+      expect(wrapper).toHaveState({ message: "failure" });
+    });
+  });
+
   describe("on no-op update", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();

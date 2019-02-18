@@ -2,25 +2,48 @@
 import React from "react";
 
 import ArtistList from "./ArtistList";
-import type { Props as InnerProps } from "./ArtistList";
+import type { Artist } from "../services/artist";
 
-type Props = InnerProps & {
+type Props = {
+  artists: ?Array<Artist>,
+  error: ?Error,
+  isLoading: boolean,
   token: ?string,
   fetchArtists: Function
 };
 
-export default class FetchingArtistList extends React.Component<Props> {
+type State = {
+  messageOpen: boolean,
+  message: ?string
+};
+
+export default class FetchingArtistList extends React.Component<Props, State> {
+  state = { messageOpen: false, message: null };
+
   componentDidMount() {
+    const { error } = this.props;
+
+    this.handleError(error);
     this.fetchData();
   }
 
-  componentDidUpdate({ token: previousToken }: Props) {
-    const { token } = this.props;
+  componentDidUpdate({ token: previousToken, error: previousError }: Props) {
+    const { token, error } = this.props;
+
+    if (error !== previousError) {
+      this.handleError(error);
+    }
 
     if (token !== previousToken) {
       this.fetchData();
     }
   }
+
+  handleError = (error: ?Error) => {
+    const messageOpen = !!error;
+    const message = error ? error.message : null;
+    this.setState({ messageOpen, message });
+  };
 
   fetchData() {
     const { fetchArtists, token } = this.props;
@@ -31,6 +54,12 @@ export default class FetchingArtistList extends React.Component<Props> {
   }
 
   render() {
-    return <ArtistList {...this.props} />;
+    return (
+      <ArtistList
+        {...this.props}
+        {...this.state}
+        onMessageClose={this.handleError}
+      />
+    );
   }
 }

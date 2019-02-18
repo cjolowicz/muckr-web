@@ -169,4 +169,20 @@ describe("SignIn", () => {
       });
     });
   });
+
+  describe("on error update", () => {
+    it("sets message", () => {
+      const wrapper = mount(
+        <SignInBase
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+          error={null}
+        />
+      );
+      wrapper.setProps({ error: new Error("failure") });
+      expect(wrapper).toHaveState({ message: "An unknown error occurred" });
+    });
+  });
 });
