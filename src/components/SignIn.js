@@ -8,8 +8,6 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import Message from "../containers/Message";
-
 type Props = {
   nextRoute: string,
   classes: Object,
@@ -92,7 +90,6 @@ export class PureSignIn extends React.Component<Props, State> {
             </Button>
           </form>
         </Paper>
-        <Message />
       </main>
     );
   }

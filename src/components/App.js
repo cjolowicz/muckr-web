@@ -8,6 +8,7 @@ import Navigation from "../containers/Navigation";
 import PrivateRoute from "../containers/PrivateRoute";
 import FetchingArtistList from "../containers/FetchingArtistList";
 import SignIn from "../containers/SignIn";
+import Message from "../containers/Message";
 import * as routes from "../routes";
 
 const Index = () => <h2>Welcome</h2>;
@@ -26,6 +27,7 @@ const App = () => (
     <AppBar />
     <Navigation />
     <Routes />
+    <Message />
   </>
 );
 

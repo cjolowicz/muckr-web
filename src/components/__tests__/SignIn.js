@@ -1,19 +1,12 @@
 // @flow
 import React from "react";
-import { Provider } from "react-redux";
 import { MemoryRouter, Switch, Route } from "react-router-dom";
-import configureStore from "redux-mock-store";
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import { PureSignIn as SignIn } from "../SignIn";
-import rootReducer from "../../reducers";
 import { getInstance } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 import { unsafeCast } from "../../utils";
-
-const mockStore = configureStore([]);
-const state = rootReducer(undefined, {});
-const store = mockStore(state);
 
 const mockClasses = {
   main: "main",
@@ -29,14 +22,12 @@ describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
       const wrapper = mount(
-        <Provider store={store}>
-          <SignIn
-            nextRoute="/"
-            classes={mockClasses}
-            onSubmit={jest.fn()}
-            token={null}
-          />
-        </Provider>
+        <SignIn
+          nextRoute="/"
+          classes={mockClasses}
+          onSubmit={jest.fn()}
+          token={null}
+        />
       );
       expect(wrapper).toContainMatchingElement("main");
     });
@@ -44,7 +35,7 @@ describe("SignIn", () => {
 
   describe("handleChange", () => {
     it("updates state", () => {
-      const wrapper = shallow(
+      const wrapper = mount(
         <SignIn
           nextRoute="/"
           classes={mockClasses}
@@ -74,7 +65,7 @@ describe("SignIn", () => {
     it("invokes onSubmit", async () => {
       const onSubmit = jest.fn();
 
-      const wrapper = shallow(
+      const wrapper = mount(
         <SignIn
           nextRoute="/"
           classes={mockClasses}
@@ -114,20 +105,18 @@ describe("SignIn", () => {
 
   describe("on success", () => {
     const wrapper = mount(
-      <Provider store={store}>
-        <MemoryRouter initialEntries={["/login"]}>
-          <Switch>
-            <Route path="/login">
-              <SignIn
-                nextRoute="/"
-                classes={mockClasses}
-                onSubmit={jest.fn()}
-                token={TOKEN}
-              />
-            </Route>
-          </Switch>
-        </MemoryRouter>
-      </Provider>
+      <MemoryRouter initialEntries={["/login"]}>
+        <Switch>
+          <Route path="/login">
+            <SignIn
+              nextRoute="/"
+              classes={mockClasses}
+              onSubmit={jest.fn()}
+              token={TOKEN}
+            />
+          </Route>
+        </Switch>
+      </MemoryRouter>
     );
 
     it("redirects", async () => {

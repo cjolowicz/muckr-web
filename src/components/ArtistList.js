@@ -6,7 +6,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import Message from "../containers/Message";
 import type { Artist } from "../api/artist";
 
 type Props = {
@@ -30,7 +29,6 @@ const ArtistList = ({ artists, isLoading }: Props) => (
           ))}
       </List>
     </Paper>
-    <Message />
   </main>
 );
 
