@@ -16,7 +16,7 @@ type Props = {
   store: Store<*, *>
 };
 
-const Root = ({ generateClassName, store }: Props) => (
+const ClientRoot = ({ generateClassName, store }: Props) => (
   <BrowserRouter>
     <JssProvider generateClassName={generateClassName}>
       <MuiThemeProvider theme={theme}>
@@ -30,4 +30,4 @@ const Root = ({ generateClassName, store }: Props) => (
   </BrowserRouter>
 );
 
-export default Root;
+export default ClientRoot;

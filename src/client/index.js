@@ -10,7 +10,7 @@ import { createGenerateClassName } from "@material-ui/core/styles";
 
 import { just } from "../utils";
 import { APP_ROOT } from "../constants";
-import Root from "./Root";
+import ClientRoot from "./ClientRoot";
 import persistToken from "../store/persistToken";
 import rootReducer from "../reducers";
 
@@ -32,6 +32,6 @@ const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
 
 ReactDOM.hydrate(
-  <Root generateClassName={generateClassName} store={store} />,
+  <ClientRoot generateClassName={generateClassName} store={store} />,
   root
 );
