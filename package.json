@@ -1,6 +1,6 @@
 {
   "name": "muckr-web",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Web app for muckr",
   "main": "src/server/index.js",
   "repository": "https://github.com/cjolowicz/muckr-web.git",
