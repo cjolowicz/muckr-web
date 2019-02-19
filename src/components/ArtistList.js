@@ -7,7 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 import Message from "../containers/Message";
-import type { Artist } from "../services/artist";
+import type { Artist } from "../api/artist";
 
 type Props = {
   artists: ?Array<Artist>,

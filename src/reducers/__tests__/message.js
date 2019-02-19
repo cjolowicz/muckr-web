@@ -2,7 +2,7 @@
 import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/fetchToken";
-import type { $FetchError } from "../../services/user";
+import type { $FetchError } from "../../api/user";
 import { unsafeCast } from "../../utils";
 
 describe("message", () => {

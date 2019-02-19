@@ -2,7 +2,7 @@
 import React from "react";
 
 import ArtistList from "./ArtistList";
-import type { Artist } from "../services/artist";
+import type { Artist } from "../api/artist";
 
 type Props = {
   artists: ?Array<Artist>,

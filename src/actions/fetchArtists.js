@@ -1,7 +1,7 @@
 // @flow
 import type { Dispatch } from "redux";
 
-import * as artist from "../services/artist";
+import * as artist from "../api/artist";
 
 export const FETCH_ARTISTS_REQUEST = "FETCH_ARTISTS_REQUEST";
 export const FETCH_ARTISTS_SUCCESS = "FETCH_ARTISTS_SUCCESS";

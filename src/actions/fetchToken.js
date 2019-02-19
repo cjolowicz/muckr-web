@@ -1,7 +1,7 @@
 // @flow
 import type { Dispatch } from "redux";
 
-import * as user from "../services/user";
+import * as user from "../api/user";
 
 export const FETCH_TOKEN_REQUEST = "FETCH_TOKEN_REQUEST";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";

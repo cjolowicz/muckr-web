@@ -8,7 +8,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../fetchArtists";
-import * as artist from "../../services/artist";
+import * as artist from "../../api/artist";
 import { mock } from "../../test/utils";
 import { TOKEN, ARTISTS } from "../../test/fixtures";
 

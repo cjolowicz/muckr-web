@@ -7,7 +7,7 @@ import {
   FETCH_TOKEN_FAILURE
 } from "../actions/fetchToken";
 
-import type { $FetchError } from "../services/user";
+import type { $FetchError } from "../api/user";
 
 function isFetching(state = false, action) {
   switch (action.type) {

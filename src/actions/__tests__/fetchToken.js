@@ -8,7 +8,7 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
 } from "../fetchToken";
-import * as user from "../../services/user";
+import * as user from "../../api/user";
 import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 

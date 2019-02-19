@@ -6,7 +6,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../actions/fetchArtists";
-import type { Artist } from "../services/artist";
+import type { Artist } from "../api/artist";
 
 function isFetching(state = false, action) {
   switch (action.type) {
