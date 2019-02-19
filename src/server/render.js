@@ -7,7 +7,7 @@ import { SheetsRegistry } from "jss";
 import Cookies from "universal-cookie";
 import { createGenerateClassName } from "@material-ui/core/styles";
 
-import Root from "./Root";
+import ServerRoot from "./ServerRoot";
 import generatePage from "./generatePage";
 import persistToken from "../store/persistToken";
 import rootReducer from "../reducers";
@@ -34,7 +34,7 @@ export default function render(request: Request, response: Response) {
   const sheetsManager = new Map();
   const generateClassName = createGenerateClassName();
   const html = renderToString(
-    <Root
+    <ServerRoot
       location={request.url}
       sheetsRegistry={sheetsRegistry}
       sheetsManager={sheetsManager}

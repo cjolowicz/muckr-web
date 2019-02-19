@@ -18,7 +18,7 @@ type Props = {
   store: Store<*, *>
 };
 
-const Root = ({
+const ServerRoot = ({
   location,
   sheetsRegistry,
   sheetsManager,
@@ -39,4 +39,4 @@ const Root = ({
   </StaticRouter>
 );
 
-export default Root;
+export default ServerRoot;
