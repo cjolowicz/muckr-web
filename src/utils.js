@@ -22,3 +22,21 @@ export function fromMaybe<T>(fallback: T, value: ?T): T {
 export function unsafeCast<T>(value: any): T {
   return (value: T);
 }
+
+export function jsonStringifyDedupe(object: Object, space: number) {
+  let cache = [];
+
+  const replacer = (key: any, value: any) => {
+    if (typeof value === "object" && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        return JSON.parse(JSON.stringify(value)); // dedupe
+      }
+
+      cache.push(value);
+    }
+
+    return value;
+  };
+
+  return JSON.stringify(object, replacer, space);
+}
