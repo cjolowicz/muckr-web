@@ -1,12 +1,12 @@
 // @flow
 import React from "react";
-import { MemoryRouter, Switch, Route } from "react-router-dom";
-import { mount } from "enzyme";
+import { Switch, Route, Router } from "react-router-dom";
+import { render, fireEvent, cleanup } from "react-testing-library";
+import { createMemoryHistory } from "history";
 
 import { PureSignIn as SignIn } from "../SignIn";
-import { getInstance } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
-import { unsafeCast } from "../../utils";
+import { just, unsafeCast } from "../../utils";
 
 const mockClasses = {
   main: "main",
@@ -15,113 +15,81 @@ const mockClasses = {
   submit: "submit"
 };
 
-const mockEvent = <T>(stub): SyntheticEvent<T> =>
-  unsafeCast<SyntheticEvent<T>>(stub);
+afterEach(cleanup);
+
+const onSubmit = jest.fn();
+
+afterEach(() => onSubmit.mockClear());
+
+const select = <T>(container, selector): T =>
+  unsafeCast<T>(just(container.querySelector(selector)));
 
 describe("SignIn", () => {
+  const setup = () => {
+    const { container } = render(
+      <SignIn
+        nextRoute="/"
+        classes={mockClasses}
+        onSubmit={onSubmit}
+        token={null}
+      />
+    );
+
+    return {
+      header: select<HTMLHeadingElement>(container, "h1"),
+      username: select<HTMLInputElement>(container, "input[name='username']"),
+      password: select<HTMLInputElement>(container, "input[name='password']"),
+      submit: select<HTMLButtonElement>(container, "button[type='submit']")
+    };
+  };
+
   describe("initially", () => {
     it("renders main", () => {
-      const wrapper = mount(
-        <SignIn
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-        />
-      );
-      expect(wrapper).toContainMatchingElement("main");
+      const { header } = setup();
+      expect(header.textContent).toBe("Sign in to Muckr");
     });
   });
 
-  describe("handleChange", () => {
+  describe("handleUsernameChange", () => {
     it("updates state", () => {
-      const wrapper = mount(
-        <SignIn
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={jest.fn()}
-          token={null}
-        />
-      );
-
-      const component = getInstance<SignIn>(wrapper);
-
-      expect(wrapper).toHaveState({ username: "" });
-
-      component.handleChange(
-        mockEvent<HTMLInputElement>({
-          currentTarget: {
-            name: "username",
-            value: "john"
-          }
-        })
-      );
-
-      expect(wrapper).toHaveState({ username: "john" });
+      const { username } = setup();
+      fireEvent.change(username, { target: { value: "john" } });
+      expect(username.value).toEqual("john");
     });
   });
 
   describe("handleSubmit", () => {
     it("invokes onSubmit", async () => {
-      const onSubmit = jest.fn();
+      const { username, password, submit } = setup();
 
-      const wrapper = mount(
-        <SignIn
-          nextRoute="/"
-          classes={mockClasses}
-          onSubmit={onSubmit}
-          token={null}
-        />
-      );
-      const component = getInstance<SignIn>(wrapper);
-
-      component.handleChange(
-        mockEvent<HTMLInputElement>({
-          currentTarget: {
-            name: "username",
-            value: "john"
-          }
-        })
-      );
-
-      component.handleChange(
-        mockEvent<HTMLInputElement>({
-          currentTarget: {
-            name: "password",
-            value: "secret"
-          }
-        })
-      );
-
-      component.handleSubmit(
-        mockEvent<HTMLButtonElement>({
-          preventDefault: jest.fn()
-        })
-      );
+      fireEvent.change(username, { target: { value: "john" } });
+      fireEvent.change(password, { target: { value: "secret" } });
+      fireEvent.click(submit);
 
       expect(onSubmit).toHaveBeenLastCalledWith("john", "secret");
     });
   });
+});
 
-  describe("on success", () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={["/login"]}>
+describe("with token", () => {
+  it("redirects", () => {
+    const history = createMemoryHistory({ initialEntries: ["/login"] });
+
+    render(
+      <Router history={history}>
         <Switch>
           <Route path="/login">
             <SignIn
               nextRoute="/"
               classes={mockClasses}
-              onSubmit={jest.fn()}
+              onSubmit={onSubmit}
               token={TOKEN}
             />
           </Route>
         </Switch>
-      </MemoryRouter>
+      </Router>
     );
 
-    it("redirects", async () => {
-      const history = wrapper.find("Router").prop("history");
-      expect(history.location.pathname).toEqual("/");
-    });
+    expect(history.location.pathname).toEqual("/");
   });
 });
