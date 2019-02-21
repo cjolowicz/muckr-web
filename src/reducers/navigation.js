@@ -1,12 +1,18 @@
 // @flow
 import { combineReducers } from "redux";
+
 import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "../actions/navigation";
+import type { Action } from "../actions";
 
 export type State = {
   open: boolean
 };
 
-function open(state = false, action) {
+export const initialState: State = {
+  open: false
+};
+
+function open(state = initialState.open, action: Action) {
   switch (action.type) {
     case OPEN_NAVIGATION:
       return true;
@@ -19,4 +25,4 @@ function open(state = false, action) {
 
 export const isNavigationOpen = (state: State) => state.open;
 
-export default combineReducers({ open });
+export default combineReducers<Object, Action>({ open });
