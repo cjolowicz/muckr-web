@@ -6,10 +6,22 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
 } from "../actions/fetchToken";
-
+import type { Action } from "../actions";
 import type { $FetchError } from "../api/user";
 
-function isFetching(state = false, action) {
+export type State = {
+  isFetching: boolean,
+  token: ?string,
+  error: ?$FetchError
+};
+
+export const initialState: State = {
+  isFetching: false,
+  token: null,
+  error: null
+};
+
+function isFetching(state = initialState.isFetching, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
       return true;
@@ -22,7 +34,7 @@ function isFetching(state = false, action) {
   }
 }
 
-function token(state = null, action) {
+function token(state = initialState.token, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
       return action.token;
@@ -33,7 +45,7 @@ function token(state = null, action) {
   }
 }
 
-function error(state = null, action) {
+function error(state = initialState.error, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
     case FETCH_TOKEN_SUCCESS:
@@ -45,16 +57,10 @@ function error(state = null, action) {
   }
 }
 
-export type State = {
-  isFetching: boolean,
-  token: ?string,
-  error: ?$FetchError
-};
-
 export const isFetchingToken = (state: State) => state.isFetching;
 
 export const getToken = (state: State) => state.token;
 
 export const getTokenError = (state: State) => state.error;
 
-export default combineReducers({ isFetching, token, error });
+export default combineReducers<Object, Action>({ isFetching, token, error });
