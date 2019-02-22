@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.1] - 2019-02-22
+### Changed
+- Add typings for Redux.
+- Update dependencies:
+  - react 16.8.3
+  - react-dom 16.8.3
+  - react-test-renderer 16.8.3
+  - react-redux 6.0.1
+- Update dev dependencies:
+  - coveralls 3.0.3
+  - webpack-dev-server 3.2.0
+
 ## [0.7.0] - 2019-02-19
 ### Added
 - Use [Redux](https://redux.js.org/) state management library.
