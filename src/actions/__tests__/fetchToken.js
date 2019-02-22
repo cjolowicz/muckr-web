@@ -2,6 +2,7 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
+import type { Dispatch } from "../fetchToken";
 import {
   fetchToken,
   FETCH_TOKEN_REQUEST,
@@ -9,6 +10,7 @@ import {
   FETCH_TOKEN_FAILURE
 } from "../fetchToken";
 import * as user from "../../api/user";
+import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
 
@@ -32,8 +34,9 @@ describe("fetchToken", () => {
 
     it("dispatches FETCH_TOKEN_REQUEST", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchToken("john", "secret"));
+      await dispatch(fetchToken("john", "secret"));
 
       const actions = store.getActions();
       const action = actions[0];
@@ -43,8 +46,9 @@ describe("fetchToken", () => {
 
     it("dispatches FETCH_TOKEN_SUCCESS", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchToken("john", "secret"));
+      await dispatch(fetchToken("john", "secret"));
       await promise;
 
       const actions = store.getActions();
@@ -62,8 +66,9 @@ describe("fetchToken", () => {
 
     it("dispatches FETCH_TOKEN_REQUEST", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchToken("john", "secret"));
+      await dispatch(fetchToken("john", "secret"));
 
       const actions = store.getActions();
       const action = actions[0];
@@ -73,8 +78,9 @@ describe("fetchToken", () => {
 
     it("dispatches FETCH_TOKEN_FAILURE", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchToken("john", "secret"));
+      await dispatch(fetchToken("john", "secret"));
 
       try {
         await promise;

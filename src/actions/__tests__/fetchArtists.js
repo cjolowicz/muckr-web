@@ -2,6 +2,7 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
+import type { Dispatch } from "../fetchArtists";
 import {
   fetchArtists,
   FETCH_ARTISTS_REQUEST,
@@ -9,6 +10,7 @@ import {
   FETCH_ARTISTS_FAILURE
 } from "../fetchArtists";
 import * as artist from "../../api/artist";
+import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";
 import { TOKEN, ARTISTS } from "../../test/fixtures";
 
@@ -32,8 +34,9 @@ describe("fetchArtists", () => {
 
     it("dispatches FETCH_ARTISTS_REQUEST", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchArtists(TOKEN));
+      await dispatch(fetchArtists(TOKEN));
 
       const actions = store.getActions();
       const action = actions[0];
@@ -43,8 +46,9 @@ describe("fetchArtists", () => {
 
     it("dispatches FETCH_ARTISTS_SUCCESS", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchArtists(TOKEN));
+      await dispatch(fetchArtists(TOKEN));
       await promise;
 
       const actions = store.getActions();
@@ -62,8 +66,9 @@ describe("fetchArtists", () => {
 
     it("dispatches FETCH_ARTISTS_REQUEST", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchArtists(TOKEN));
+      await dispatch(fetchArtists(TOKEN));
 
       const actions = store.getActions();
       const action = actions[0];
@@ -73,8 +78,9 @@ describe("fetchArtists", () => {
 
     it("dispatches FETCH_ARTISTS_FAILURE", async () => {
       const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
 
-      await store.dispatch(fetchArtists(TOKEN));
+      await dispatch(fetchArtists(TOKEN));
 
       try {
         await promise;
