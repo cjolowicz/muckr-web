@@ -3,8 +3,8 @@ import { createStore } from "redux";
 import configureStore from "redux-mock-store";
 import Cookies from "universal-cookie";
 
-import { loadToken, saveToken } from "../persistToken";
-import rootReducer, { initialState } from "../../reducers";
+import persistToken, { loadToken, saveToken } from "../persistToken";
+import rootReducer, { initialState, getToken } from "../../reducers";
 import {
   fetchTokenSuccess,
   FETCH_TOKEN_SUCCESS
@@ -94,6 +94,23 @@ describe("persistToken", () => {
       it("sets cookie", () => {
         const token = cookies.get("token");
         expect(token).toEqual(TOKEN);
+      });
+    });
+  });
+
+  describe("persistToken", () => {
+    const enhancer = persistToken(cookies);
+    let store;
+
+    describe("with cookie", () => {
+      beforeEach(() => {
+        cookies.set("token", TOKEN);
+        store = createStore(rootReducer, initialState, enhancer);
+      });
+
+      it("loads token", () => {
+        const state = store.getState();
+        expect(getToken(state)).toEqual(TOKEN);
       });
     });
   });
