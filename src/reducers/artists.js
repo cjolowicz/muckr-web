@@ -6,9 +6,22 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../actions/fetchArtists";
+import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
 
-function isFetching(state = false, action) {
+export type State = {
+  isFetching: boolean,
+  artists: ?Array<Artist>,
+  error: Error
+};
+
+export const initialState: State = {
+  isFetching: false,
+  artists: null,
+  error: null
+};
+
+function isFetching(state = initialState.isFetching, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
       return true;
@@ -21,7 +34,7 @@ function isFetching(state = false, action) {
   }
 }
 
-function artists(state = null, action) {
+function artists(state = initialState.artists, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return action.artists;
@@ -32,7 +45,7 @@ function artists(state = null, action) {
   }
 }
 
-function error(state = null, action) {
+function error(state = initialState.error, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case FETCH_ARTISTS_SUCCESS:
@@ -44,16 +57,10 @@ function error(state = null, action) {
   }
 }
 
-export type State = {
-  isFetching: boolean,
-  artists: ?Array<Artist>,
-  error: Error
-};
-
 export const isFetchingArtists = (state: State) => state.isFetching;
 
 export const getArtists = (state: State) => state.artists;
 
 export const getArtistsError = (state: State) => state.error;
 
-export default combineReducers({ isFetching, artists, error });
+export default combineReducers<Object, Action>({ isFetching, artists, error });
