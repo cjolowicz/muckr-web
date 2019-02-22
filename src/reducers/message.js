@@ -9,13 +9,19 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../actions/fetchArtists";
+import type { Action } from "../actions";
 
 export type State = {
   open: boolean,
   message: ?string
 };
 
-function open(state = false, action) {
+export const initialState: State = {
+  open: false,
+  message: null
+};
+
+function open(state = initialState.open, action) {
   switch (action.type) {
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
@@ -36,7 +42,7 @@ function formatErrorMessage(error) {
     : "An unknown error occurred";
 }
 
-function message(state = null, action) {
+function message(state = initialState.message, action) {
   switch (action.type) {
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
@@ -56,4 +62,4 @@ export const isMessageOpen = (state: State) => state.open;
 
 export const getMessage = (state: State) => state.message;
 
-export default combineReducers({ open, message });
+export default combineReducers<Object, Action>({ open, message });
