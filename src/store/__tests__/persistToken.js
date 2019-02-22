@@ -4,7 +4,7 @@ import configureStore from "redux-mock-store";
 import Cookies from "universal-cookie";
 
 import { loadToken, saveToken } from "../persistToken";
-import rootReducer from "../../reducers";
+import rootReducer, { initialState } from "../../reducers";
 import {
   fetchTokenSuccess,
   FETCH_TOKEN_SUCCESS
@@ -19,7 +19,7 @@ describe("persistToken", () => {
   describe("loadToken", () => {
     describe("without token", () => {
       beforeEach(() => {
-        store = mockStore();
+        store = mockStore(initialState);
         cookies.remove("token");
         loadToken(store, cookies);
       });
@@ -32,7 +32,7 @@ describe("persistToken", () => {
 
     describe("with token", () => {
       beforeEach(() => {
-        store = mockStore();
+        store = mockStore(initialState);
         cookies.set("token", TOKEN);
         loadToken(store, cookies);
       });
