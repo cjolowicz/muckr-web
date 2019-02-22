@@ -10,9 +10,10 @@ import rootReducer, {
   getArtists,
   getArtistsError
 } from "..";
+import { noop } from "../../actions/noop";
 
 describe("initial state", () => {
-  const state = rootReducer(undefined, {});
+  const state = rootReducer(undefined, noop());
 
   describe("rootReducer", () => {
     it("returns defined state", () => {

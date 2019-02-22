@@ -10,10 +10,11 @@ import {
   fetchArtistsSuccess,
   fetchArtistsFailure
 } from "../../actions/fetchArtists";
+import { noop } from "../../actions/noop";
 
 describe("artists", () => {
   describe("initially", () => {
-    const state = artists(undefined, {});
+    const state = artists(undefined, noop());
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);

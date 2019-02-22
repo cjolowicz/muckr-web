@@ -1,11 +1,12 @@
 // @flow
 import navigation, { isNavigationOpen } from "../navigation";
 import { openNavigation, closeNavigation } from "../../actions/navigation";
+import { noop } from "../../actions/noop";
 
 describe("navigation", () => {
   describe("initially", () => {
     it("is closed", () => {
-      const state = navigation(undefined, {});
+      const state = navigation(undefined, noop());
       expect(isNavigationOpen(state)).toBe(false);
     });
   });

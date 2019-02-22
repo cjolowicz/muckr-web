@@ -8,11 +8,12 @@ import { mount } from "enzyme";
 
 import App from "../App";
 import rootReducer from "../../reducers";
+import { noop } from "../../actions/noop";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
 import { fetchTokenSuccess } from "../../actions/fetchToken";
 
-const mountAppWithRoute = (route, initialAction = {}) => {
+const mountAppWithRoute = (route, initialAction = noop()) => {
   const mockStore = configureStore([thunk]);
   const state = rootReducer(undefined, initialAction);
   const store = mockStore(state);

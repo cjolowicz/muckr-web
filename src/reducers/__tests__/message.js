@@ -2,12 +2,13 @@
 import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/fetchToken";
+import { noop } from "../../actions/noop";
 import type { $FetchError } from "../../api/user";
 import { unsafeCast } from "../../utils";
 
 describe("message", () => {
   describe("initially", () => {
-    const state = reducer(undefined, {});
+    const state = reducer(undefined, noop());
 
     it("is closed", () => {
       expect(isMessageOpen(state)).toBe(false);
