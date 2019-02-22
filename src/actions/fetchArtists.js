@@ -1,5 +1,6 @@
 // @flow
 import * as artist from "../api/artist";
+import type { $FetchError } from "../api/user";
 
 export const FETCH_ARTISTS_REQUEST = "FETCH_ARTISTS_REQUEST";
 export const FETCH_ARTISTS_SUCCESS = "FETCH_ARTISTS_SUCCESS";
@@ -17,7 +18,7 @@ export type FetchArtistsSuccessAction = {
 
 export type FetchArtistsFailureAction = {
   type: typeof FETCH_ARTISTS_FAILURE,
-  error: Error
+  error: $FetchError
 };
 
 export type FetchArtistsAction =
@@ -40,7 +41,7 @@ export const fetchArtistsSuccess = (
 });
 
 export const fetchArtistsFailure = (
-  error: Error
+  error: $FetchError
 ): FetchArtistsFailureAction => ({
   type: FETCH_ARTISTS_FAILURE,
   error
