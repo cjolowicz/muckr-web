@@ -46,7 +46,13 @@ describe("persistToken", () => {
       it("dispatches FETCH_TOKEN_SUCCESS", () => {
         const [action] = store.getActions();
         expect(action.type).toEqual(FETCH_TOKEN_SUCCESS);
-        expect(action.token).toEqual(TOKEN);
+      });
+
+      it("dispatches an action with loaded token", () => {
+        const [action] = store.getActions();
+        if (action.type === FETCH_TOKEN_SUCCESS) {
+          expect(action.token).toEqual(TOKEN);
+        }
       });
     });
   });
