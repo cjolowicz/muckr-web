@@ -13,10 +13,11 @@ import { TOKEN } from "../../test/fixtures";
 
 describe("persistToken", () => {
   const cookies = new Cookies();
-  const mockStore = configureStore([]);
-  let store;
 
   describe("loadToken", () => {
+    const mockStore = configureStore([]);
+    let store;
+
     describe("without token", () => {
       beforeEach(() => {
         store = mockStore(initialState);
@@ -51,6 +52,8 @@ describe("persistToken", () => {
   });
 
   describe("saveToken", () => {
+    let store;
+
     beforeEach(() => {
       cookies.remove("token");
       store = createStore(rootReducer);
