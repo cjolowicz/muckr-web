@@ -5,7 +5,8 @@ import { noop } from "../../actions/noop";
 import {
   fetchTokenRequest,
   fetchTokenSuccess,
-  fetchTokenFailure
+  fetchTokenFailure,
+  clearToken
 } from "../../actions/token";
 
 describe("token", () => {
@@ -40,6 +41,10 @@ describe("token", () => {
     it("is not fetching", () => {
       expect(isFetchingToken(state)).toBe(false);
     });
+
+    it("sets token", () => {
+      expect(getToken(state)).toEqual(TOKEN);
+    });
   });
 
   describe("FETCH_TOKEN_FAILURE", () => {
@@ -48,6 +53,17 @@ describe("token", () => {
 
     it("is not fetching", () => {
       expect(isFetchingToken(state)).toBe(false);
+    });
+  });
+
+  describe("CLEAR_TOKEN", () => {
+    let state;
+    state = token(undefined, fetchTokenRequest("john", "secret"));
+    state = token(state, fetchTokenSuccess(TOKEN));
+    state = token(state, clearToken());
+
+    it("clears token", () => {
+      expect(getToken(state)).toBeNull();
     });
   });
 });

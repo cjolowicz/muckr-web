@@ -4,7 +4,8 @@ import { combineReducers } from "redux";
 import {
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
-  FETCH_TOKEN_FAILURE
+  FETCH_TOKEN_FAILURE,
+  CLEAR_TOKEN
 } from "../actions/token";
 import type { Action } from "../actions";
 import type { FetchError } from "../api/error";
@@ -39,6 +40,7 @@ function token(state = initialState.token, action: Action) {
     case FETCH_TOKEN_SUCCESS:
       return action.token;
     case FETCH_TOKEN_FAILURE:
+    case CLEAR_TOKEN:
       return null;
     default:
       return state;
