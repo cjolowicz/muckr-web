@@ -1,6 +1,6 @@
 // @flow
 import token, { isFetchingToken, getToken, getTokenError } from "../token";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN, GENERIC_ERROR } from "../../test/fixtures";
 import { noop } from "../../actions/noop";
 import {
   fetchTokenRequest,
@@ -44,7 +44,7 @@ describe("token", () => {
 
   describe("FETCH_TOKEN_FAILURE", () => {
     const stateBefore = token(undefined, fetchTokenRequest("john", "secret"));
-    const state = token(stateBefore, fetchTokenFailure(new Error("fail")));
+    const state = token(stateBefore, fetchTokenFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
       expect(isFetchingToken(state)).toBe(false);

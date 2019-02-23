@@ -3,8 +3,7 @@ import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/fetchToken";
 import { noop } from "../../actions/noop";
-import type { $FetchError } from "../../api/error";
-import { unsafeCast } from "../../utils";
+import { GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
 
 describe("message", () => {
   describe("initially", () => {
@@ -36,7 +35,7 @@ describe("message", () => {
 
       describe("fetchTokenFailure", () => {
         describe("unknown error", () => {
-          const action = fetchTokenFailure(new Error("failure"));
+          const action = fetchTokenFailure(GENERIC_ERROR);
           const state = reducer({ open, message }, action);
 
           it("is open", () => {
@@ -49,8 +48,7 @@ describe("message", () => {
         });
 
         describe("unauthorized", () => {
-          const error = unsafeCast<$FetchError>({ response: { status: 401 } });
-          const action = fetchTokenFailure(error);
+          const action = fetchTokenFailure(UNAUTHORIZED_ERROR);
           const state = reducer({ open, message }, action);
 
           it("is open", () => {

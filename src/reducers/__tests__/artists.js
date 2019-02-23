@@ -4,7 +4,7 @@ import artists, {
   getArtists,
   getArtistsError
 } from "../artists";
-import { TOKEN, ARTISTS } from "../../test/fixtures";
+import { TOKEN, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
 import {
   fetchArtistsRequest,
   fetchArtistsSuccess,
@@ -48,7 +48,7 @@ describe("artists", () => {
 
   describe("fetchArtistsFailure", () => {
     const stateBefore = artists(undefined, fetchArtistsRequest(TOKEN));
-    const state = artists(stateBefore, fetchArtistsFailure(new Error("fail")));
+    const state = artists(stateBefore, fetchArtistsFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);
