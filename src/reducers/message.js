@@ -7,7 +7,7 @@ import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../actions/token";
 import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
-} from "../actions/fetchArtists";
+} from "../actions/artist";
 import type { Action } from "../actions";
 
 export type State = {

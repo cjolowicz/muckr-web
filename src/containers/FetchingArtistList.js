@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 import FetchingArtistList from "../components/FetchingArtistList";
-import { fetchArtists } from "../actions/fetchArtists";
+import { fetchArtists } from "../actions/artist";
 import { getArtists, isFetchingArtists, getToken } from "../reducers";
 
 export default connect(

@@ -9,7 +9,7 @@ import {
   fetchArtistsRequest,
   fetchArtistsSuccess,
   fetchArtistsFailure
-} from "../../actions/fetchArtists";
+} from "../../actions/artist";
 import { noop } from "../../actions/noop";
 
 describe("artists", () => {

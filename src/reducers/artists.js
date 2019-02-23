@@ -5,7 +5,7 @@ import {
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
-} from "../actions/fetchArtists";
+} from "../actions/artist";
 import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
 import type { FetchError } from "../api/error";

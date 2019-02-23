@@ -2,13 +2,13 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../fetchArtists";
+import type { Dispatch } from "../artist";
 import {
   fetchArtists,
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
-} from "../fetchArtists";
+} from "../artist";
 import * as api from "../../api/artist";
 import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";
