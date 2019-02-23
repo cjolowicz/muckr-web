@@ -22,7 +22,7 @@ export type FetchTokenFailureAction = {
   error: FetchError
 };
 
-export type FetchTokenAction =
+export type TokenAction =
   | FetchTokenRequestAction
   | FetchTokenSuccessAction
   | FetchTokenFailureAction;
@@ -50,7 +50,7 @@ export const fetchTokenFailure = (
 
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
-export type Dispatch = (FetchTokenAction | ThunkAction) => any;
+export type Dispatch = (TokenAction | ThunkAction) => any;
 
 export const fetchToken = (username: string, password: string) => (
   dispatch: Dispatch
