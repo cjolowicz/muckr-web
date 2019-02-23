@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.7.2]
+## [0.7.2] - 2019-02-23
 ### Changed
 - Use [React Hooks](https://reactjs.org/docs/hooks-intro.html).
 - Use [react-testing-library](https://testing-library.com/react).
