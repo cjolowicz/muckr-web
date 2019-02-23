@@ -5,6 +5,7 @@ import type { FetchError } from "../api/error";
 export const FETCH_TOKEN_REQUEST = "FETCH_TOKEN_REQUEST";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";
 export const FETCH_TOKEN_FAILURE = "FETCH_TOKEN_FAILURE";
+export const CLEAR_TOKEN = "CLEAR_TOKEN";
 
 export type FetchTokenRequestAction = {
   type: typeof FETCH_TOKEN_REQUEST,
@@ -22,10 +23,15 @@ export type FetchTokenFailureAction = {
   error: FetchError
 };
 
+export type ClearTokenAction = {
+  type: typeof CLEAR_TOKEN
+};
+
 export type TokenAction =
   | FetchTokenRequestAction
   | FetchTokenSuccessAction
-  | FetchTokenFailureAction;
+  | FetchTokenFailureAction
+  | ClearTokenAction;
 
 export const fetchTokenRequest = (
   username: string,
@@ -64,3 +70,7 @@ export const fetchToken = (username: string, password: string) => (
       error => dispatch(fetchTokenFailure(error))
     );
 };
+
+export const clearToken = (): ClearTokenAction => ({
+  type: CLEAR_TOKEN
+});
