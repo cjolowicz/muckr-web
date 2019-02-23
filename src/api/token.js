@@ -1,10 +1,7 @@
 // @flow
 import axios from "axios";
-import type { $AxiosError } from "axios";
 
 import { API_URL } from "../constants";
-
-export type $FetchError = $AxiosError<{}> | Error;
 
 export function createTokenAuthHeader(token: string) {
   return { Authorization: `Bearer ${token}` };

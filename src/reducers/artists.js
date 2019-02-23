@@ -8,7 +8,7 @@ import {
 } from "../actions/fetchArtists";
 import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
-import type { $FetchError } from "../api/token";
+import type { $FetchError } from "../api/error";
 
 export type State = {
   isFetching: boolean,

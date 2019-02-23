@@ -7,7 +7,7 @@ import {
   FETCH_TOKEN_FAILURE
 } from "../actions/fetchToken";
 import type { Action } from "../actions";
-import type { $FetchError } from "../api/token";
+import type { $FetchError } from "../api/error";
 
 export type State = {
   isFetching: boolean,
