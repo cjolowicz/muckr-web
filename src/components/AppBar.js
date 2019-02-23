@@ -12,11 +12,13 @@ import MenuIcon from "@material-ui/icons/Menu";
 import * as routes from "../routes";
 
 type Props = {
+  token: ?string,
   classes: Object,
-  onMenuClick: Function
+  onMenuClick: Function,
+  clearToken: Function
 };
 
-const AppBar = ({ classes, onMenuClick }: Props) => (
+const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
   <div className={classes.root}>
     <MUIAppBar position="static">
       <Toolbar>
@@ -30,9 +32,15 @@ const AppBar = ({ classes, onMenuClick }: Props) => (
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Muckr
         </Typography>
-        <Button component={Link} to={routes.SIGNIN} color="inherit">
-          Sign In
-        </Button>
+        {token ? (
+          <Button onClick={clearToken} color="inherit">
+            Sign Out
+          </Button>
+        ) : (
+          <Button component={Link} to={routes.SIGNIN} color="inherit">
+            Sign In
+          </Button>
+        )}
       </Toolbar>
     </MUIAppBar>
   </div>
