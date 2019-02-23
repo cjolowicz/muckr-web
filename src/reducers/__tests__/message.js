@@ -1,7 +1,7 @@
 // @flow
 import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
-import { fetchTokenFailure } from "../../actions/fetchToken";
+import { fetchTokenFailure } from "../../actions/token";
 import { noop } from "../../actions/noop";
 import { GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
 

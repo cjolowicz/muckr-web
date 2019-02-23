@@ -2,7 +2,7 @@
 import type { Store, StoreCreator } from "redux";
 import Cookies from "universal-cookie";
 
-import { fetchTokenSuccess } from "../actions/fetchToken";
+import { fetchTokenSuccess } from "../actions/token";
 import { getToken } from "../reducers";
 import type { State } from "../reducers";
 import type { Action } from "../actions";

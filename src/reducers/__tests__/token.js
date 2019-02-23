@@ -6,7 +6,7 @@ import {
   fetchTokenRequest,
   fetchTokenSuccess,
   fetchTokenFailure
-} from "../../actions/fetchToken";
+} from "../../actions/token";
 
 describe("token", () => {
   describe("initially", () => {

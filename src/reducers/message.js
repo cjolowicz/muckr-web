@@ -3,10 +3,7 @@ import { combineReducers } from "redux";
 
 import { isUnauthorized } from "../api/error";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "../actions/message";
-import {
-  FETCH_TOKEN_SUCCESS,
-  FETCH_TOKEN_FAILURE
-} from "../actions/fetchToken";
+import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../actions/token";
 import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE

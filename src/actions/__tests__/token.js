@@ -2,13 +2,13 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../fetchToken";
+import type { Dispatch } from "../token";
 import {
   fetchToken,
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
-} from "../fetchToken";
+} from "../token";
 import * as api from "../../api/token";
 import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";

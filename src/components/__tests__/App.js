@@ -11,7 +11,7 @@ import rootReducer from "../../reducers";
 import { noop } from "../../actions/noop";
 import { TOKEN } from "../../test/fixtures";
 import * as routes from "../../routes";
-import { fetchTokenSuccess } from "../../actions/fetchToken";
+import { fetchTokenSuccess } from "../../actions/token";
 
 const mountAppWithRoute = (route, initialAction = noop()) => {
   const mockStore = configureStore([thunk]);

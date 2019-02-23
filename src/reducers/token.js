@@ -5,7 +5,7 @@ import {
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
-} from "../actions/fetchToken";
+} from "../actions/token";
 import type { Action } from "../actions";
 import type { FetchError } from "../api/error";
 

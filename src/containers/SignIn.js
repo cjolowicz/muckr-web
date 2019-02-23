@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 import SignIn from "../components/SignIn";
-import { fetchToken } from "../actions/fetchToken";
+import { fetchToken } from "../actions/token";
 import { getToken } from "../reducers";
 
 export default connect(
