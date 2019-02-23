@@ -1,5 +1,5 @@
 // @flow
-import * as artist from "../api/artist";
+import * as api from "../api/artist";
 import type { $FetchError } from "../api/token";
 
 export const FETCH_ARTISTS_REQUEST = "FETCH_ARTISTS_REQUEST";
@@ -13,7 +13,7 @@ export type FetchArtistsRequestAction = {
 
 export type FetchArtistsSuccessAction = {
   type: typeof FETCH_ARTISTS_SUCCESS,
-  artists: Array<artist.Artist>
+  artists: Array<api.Artist>
 };
 
 export type FetchArtistsFailureAction = {
@@ -34,7 +34,7 @@ export const fetchArtistsRequest = (
 });
 
 export const fetchArtistsSuccess = (
-  artists: Array<artist.Artist>
+  artists: Array<api.Artist>
 ): FetchArtistsSuccessAction => ({
   type: FETCH_ARTISTS_SUCCESS,
   artists
@@ -54,7 +54,7 @@ export type Dispatch = (FetchArtistsAction | ThunkAction) => any;
 export const fetchArtists = (token: string) => (dispatch: Dispatch) => {
   dispatch(fetchArtistsRequest(token));
 
-  return artist
+  return api
     .fetchArtists(token)
     .then(
       artists => dispatch(fetchArtistsSuccess(artists)),

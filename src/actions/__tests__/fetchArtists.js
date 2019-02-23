@@ -9,7 +9,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../fetchArtists";
-import * as artist from "../../api/artist";
+import * as api from "../../api/artist";
 import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";
 import { TOKEN, ARTISTS } from "../../test/fixtures";
@@ -18,11 +18,11 @@ const mockStore = configureStore([thunk]);
 
 const mockFetchArtists = promise => {
   beforeAll(() => {
-    jest.spyOn(artist, "fetchArtists").mockReturnValue(promise);
+    jest.spyOn(api, "fetchArtists").mockReturnValue(promise);
   });
 
   afterAll(() => {
-    mock(artist.fetchArtists).mockRestore();
+    mock(api.fetchArtists).mockRestore();
   });
 
   return promise;
