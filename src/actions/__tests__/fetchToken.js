@@ -9,7 +9,7 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
 } from "../fetchToken";
-import * as user from "../../api/user";
+import * as api from "../../api/token";
 import { unsafeCast } from "../../utils";
 import { mock } from "../../test/utils";
 import { TOKEN } from "../../test/fixtures";
@@ -18,11 +18,11 @@ const mockStore = configureStore([thunk]);
 
 const mockFetchToken = promise => {
   beforeAll(() => {
-    jest.spyOn(user, "fetchToken").mockReturnValue(promise);
+    jest.spyOn(api, "fetchToken").mockReturnValue(promise);
   });
 
   afterAll(() => {
-    mock(user.fetchToken).mockRestore();
+    mock(api.fetchToken).mockRestore();
   });
 
   return promise;

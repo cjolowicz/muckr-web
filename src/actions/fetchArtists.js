@@ -1,6 +1,6 @@
 // @flow
 import * as artist from "../api/artist";
-import type { $FetchError } from "../api/user";
+import type { $FetchError } from "../api/token";
 
 export const FETCH_ARTISTS_REQUEST = "FETCH_ARTISTS_REQUEST";
 export const FETCH_ARTISTS_SUCCESS = "FETCH_ARTISTS_SUCCESS";

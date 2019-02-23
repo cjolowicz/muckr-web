@@ -1,7 +1,7 @@
 // @flow
 import axios from "axios";
 import { API_URL } from "../constants";
-import { createTokenAuthHeader } from "./user";
+import { createTokenAuthHeader } from "./token";
 
 export type Artist = {
   id: number,

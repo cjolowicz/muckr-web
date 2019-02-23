@@ -3,7 +3,7 @@ import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/fetchToken";
 import { noop } from "../../actions/noop";
-import type { $FetchError } from "../../api/user";
+import type { $FetchError } from "../../api/token";
 import { unsafeCast } from "../../utils";
 
 describe("message", () => {

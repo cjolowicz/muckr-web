@@ -1,5 +1,5 @@
 // @flow
-import * as user from "../api/user";
+import * as api from "../api/token";
 
 export const FETCH_TOKEN_REQUEST = "FETCH_TOKEN_REQUEST";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";
@@ -18,7 +18,7 @@ export type FetchTokenSuccessAction = {
 
 export type FetchTokenFailureAction = {
   type: typeof FETCH_TOKEN_FAILURE,
-  error: user.$FetchError
+  error: api.$FetchError
 };
 
 export type FetchTokenAction =
@@ -41,7 +41,7 @@ export const fetchTokenSuccess = (token: string): FetchTokenSuccessAction => ({
 });
 
 export const fetchTokenFailure = (
-  error: user.$FetchError
+  error: api.$FetchError
 ): FetchTokenFailureAction => ({
   type: FETCH_TOKEN_FAILURE,
   error
@@ -56,7 +56,7 @@ export const fetchToken = (username: string, password: string) => (
 ) => {
   dispatch(fetchTokenRequest(username, password));
 
-  return user
+  return api
     .fetchToken(username, password)
     .then(
       token => dispatch(fetchTokenSuccess(token)),
