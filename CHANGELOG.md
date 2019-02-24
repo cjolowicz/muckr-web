@@ -6,6 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2019-02-25
+### Fixed
+- Fix redirect from /login to referrer.
+
+### Added
+- Add button for sign out.
+- Add dev dependencies:
+  - yarn-run-all 3.1.1
+
+### Changed
+- On authorization failure, redirect to /login and remove cookie.
+- Remove app bar from /login page.
+- Refactor:
+  - Rework package script API.
+  - Rename actions/fetchToken to actions/token.
+  - Rename actions/fetchArtists to actions/artist.
+  - Rename api/user to api/token.
+  - Add api/error.
+- Update dev dependencies:
+  - react-testing-library 6.0.0
+
 ## [0.7.2] - 2019-02-23
 ### Changed
 - Use [React Hooks](https://reactjs.org/docs/hooks-intro.html).
@@ -212,7 +233,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.7.2...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/cjolowicz/muckr-web/compare/v0.7.2...v0.8.0
 [0.7.2]: https://github.com/cjolowicz/muckr-web/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/cjolowicz/muckr-web/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/cjolowicz/muckr-web/compare/v0.6.1...v0.7.0
