@@ -3,6 +3,8 @@ import * as React from "react";
 import type { Location } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 
+import * as routes from "../routes";
+
 type Props = {
   component: React.ComponentType<*>,
   token: ?string
@@ -21,7 +23,7 @@ const PrivateRoute = ({ component: Component, token, ...rest }: Props) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/login",
+            pathname: routes.SIGNIN,
             state: { nextRoute: props.location }
           }}
         />
