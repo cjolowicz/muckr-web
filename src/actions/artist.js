@@ -21,7 +21,7 @@ export type FetchArtistsFailureAction = {
   error: FetchError
 };
 
-export type FetchArtistsAction =
+export type ArtistAction =
   | FetchArtistsRequestAction
   | FetchArtistsSuccessAction
   | FetchArtistsFailureAction;
@@ -49,7 +49,7 @@ export const fetchArtistsFailure = (
 
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
-export type Dispatch = (FetchArtistsAction | ThunkAction) => any;
+export type Dispatch = (ArtistAction | ThunkAction) => any;
 
 export const fetchArtists = (token: string) => (dispatch: Dispatch) => {
   dispatch(fetchArtistsRequest(token));
