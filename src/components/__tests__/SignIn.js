@@ -69,27 +69,27 @@ describe("SignIn", () => {
       expect(onSubmit).toHaveBeenLastCalledWith("john", "secret");
     });
   });
-});
 
-describe("with token", () => {
-  it("redirects", () => {
-    const history = createMemoryHistory({ initialEntries: ["/login"] });
+  describe("with token", () => {
+    it("redirects", () => {
+      const history = createMemoryHistory({ initialEntries: ["/login"] });
 
-    render(
-      <Router history={history}>
-        <Switch>
-          <Route path="/login">
-            <SignIn
-              referrer="/"
-              classes={mockClasses}
-              onSubmit={onSubmit}
-              token={TOKEN}
-            />
-          </Route>
-        </Switch>
-      </Router>
-    );
+      render(
+        <Router history={history}>
+          <Switch>
+            <Route path="/login">
+              <SignIn
+                referrer="/"
+                classes={mockClasses}
+                onSubmit={onSubmit}
+                token={TOKEN}
+              />
+            </Route>
+          </Switch>
+        </Router>
+      );
 
-    expect(history.location.pathname).toEqual("/");
+      expect(history.location.pathname).toEqual("/");
+    });
   });
 });
