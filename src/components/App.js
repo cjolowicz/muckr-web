@@ -16,7 +16,7 @@ const Index = () => <h2>Welcome</h2>;
 const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
-    <Route path={routes.SIGNIN} render={() => <SignIn referrer="/" />} />
+    <Route path={routes.SIGNIN} component={SignIn} />
     <PrivateRoute path={routes.ARTISTS} component={FetchingArtistList} />
   </Switch>
 );

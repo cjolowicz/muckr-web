@@ -1,5 +1,6 @@
 // @flow
 import React, { useState } from "react";
+import type { Location } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 type Props = {
-  referrer: string,
+  location: Location,
   classes: Object,
   onSubmit: Function,
   token: ?string
@@ -18,11 +19,12 @@ type Props = {
 type InputEvent = SyntheticInputEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticInputEvent<HTMLButtonElement>;
 
-export const PureSignIn = ({ referrer, classes, onSubmit, token }: Props) => {
+export const PureSignIn = ({ location, classes, onSubmit, token }: Props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   if (token) {
+    const { referrer } = location.state || { referrer: { pathname: "/" } };
     return <Redirect to={referrer} />;
   }
 

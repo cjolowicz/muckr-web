@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import type { Location } from "react-router-dom";
 import { Switch, Route, Router } from "react-router-dom";
 import { render, fireEvent, cleanup } from "react-testing-library";
 import { createMemoryHistory } from "history";
@@ -24,11 +25,18 @@ afterEach(() => onSubmit.mockClear());
 const select = <T>(container, selector): T =>
   unsafeCast<T>(just(container.querySelector(selector)));
 
+const withReferrer = pathname =>
+  unsafeCast<Location>({
+    state: { referrer: { pathname } }
+  });
+
+const withoutReferrer = unsafeCast<Location>({});
+
 describe("SignIn", () => {
   const setup = () => {
     const { container } = render(
       <SignIn
-        referrer="/"
+        location={withReferrer("/")}
         classes={mockClasses}
         onSubmit={onSubmit}
         token={null}
@@ -79,7 +87,30 @@ describe("SignIn", () => {
           <Switch>
             <Route path="/login">
               <SignIn
-                referrer="/"
+                location={withReferrer("/artists")}
+                classes={mockClasses}
+                onSubmit={onSubmit}
+                token={TOKEN}
+              />
+            </Route>
+          </Switch>
+        </Router>
+      );
+
+      expect(history.location.pathname).toEqual("/artists");
+    });
+  });
+
+  describe("with token but without referrer", () => {
+    it("redirects to /", () => {
+      const history = createMemoryHistory({ initialEntries: ["/login"] });
+
+      render(
+        <Router history={history}>
+          <Switch>
+            <Route path="/login">
+              <SignIn
+                location={withoutReferrer}
                 classes={mockClasses}
                 onSubmit={onSubmit}
                 token={TOKEN}
