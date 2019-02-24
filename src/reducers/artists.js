@@ -8,12 +8,12 @@ import {
 } from "../actions/fetchArtists";
 import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
-import type { $FetchError } from "../api/error";
+import type { FetchError } from "../api/error";
 
 export type State = {
   isFetching: boolean,
   artists: ?Array<Artist>,
-  error: ?$FetchError
+  error: ?FetchError
 };
 
 export const initialState: State = {
