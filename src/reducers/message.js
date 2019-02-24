@@ -1,5 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
+
+import { isUnauthorized } from "../api/error";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "../actions/message";
 import {
   FETCH_TOKEN_SUCCESS,
@@ -37,7 +39,7 @@ function open(state = initialState.open, action) {
 }
 
 function formatErrorMessage(error) {
-  return error.response && error.response.status === 401
+  return isUnauthorized(error)
     ? "Invalid username or password"
     : "An unknown error occurred";
 }
