@@ -21,10 +21,17 @@ export const saveToken = (store: Store<State, Action>, cookies: Cookies) => {
   store.subscribe(() => {
     const token = getToken(store.getState());
 
-    if (token !== previousToken) {
-      cookies.set("token", token);
-      previousToken = token;
+    if (token === previousToken) {
+      return;
     }
+
+    if (token) {
+      cookies.set("token", token);
+    } else {
+      cookies.remove("token");
+    }
+
+    previousToken = token;
   });
 };
 

@@ -5,7 +5,11 @@ import Cookies from "universal-cookie";
 
 import persistToken, { loadToken, saveToken } from "../persistToken";
 import rootReducer, { initialState, getToken } from "../../reducers";
-import { fetchTokenSuccess, FETCH_TOKEN_SUCCESS } from "../../actions/token";
+import {
+  fetchTokenSuccess,
+  clearToken,
+  FETCH_TOKEN_SUCCESS
+} from "../../actions/token";
 import { TOKEN } from "../../test/fixtures";
 
 const cookies = new Cookies();
@@ -90,6 +94,18 @@ describe("saveToken", () => {
     it("sets cookie", () => {
       const token = cookies.get("token");
       expect(token).toEqual(TOKEN);
+    });
+  });
+
+  describe("after token is cleared", () => {
+    beforeEach(() => {
+      store.dispatch(fetchTokenSuccess(TOKEN));
+      store.dispatch(clearToken());
+    });
+
+    it("removes cookie", () => {
+      const token = cookies.get("token");
+      expect(token).toBeUndefined();
     });
   });
 });
