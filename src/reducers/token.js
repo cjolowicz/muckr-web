@@ -7,7 +7,9 @@ import {
   FETCH_TOKEN_FAILURE,
   CLEAR_TOKEN
 } from "../actions/token";
+import { FETCH_ARTISTS_FAILURE } from "../actions/artist";
 import type { Action } from "../actions";
+import { isUnauthorized } from "../api/error";
 import type { FetchError } from "../api/error";
 
 export type State = {
@@ -42,6 +44,8 @@ function token(state = initialState.token, action: Action) {
     case FETCH_TOKEN_FAILURE:
     case CLEAR_TOKEN:
       return null;
+    case FETCH_ARTISTS_FAILURE:
+      return isUnauthorized(action.error) ? null : state;
     default:
       return state;
   }

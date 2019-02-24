@@ -1,7 +1,8 @@
 // @flow
 import token, { isFetchingToken, getToken, getTokenError } from "../token";
-import { TOKEN, GENERIC_ERROR } from "../../test/fixtures";
+import { TOKEN, GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
 import { noop } from "../../actions/noop";
+import { fetchArtistsFailure } from "../../actions/artist";
 import {
   fetchTokenRequest,
   fetchTokenSuccess,
@@ -64,6 +65,28 @@ describe("token", () => {
 
     it("clears token", () => {
       expect(getToken(state)).toBeNull();
+    });
+  });
+
+  describe("FETCH_ARTISTS_FAILURE", () => {
+    describe("authorization failure", () => {
+      let state;
+      state = token(state, fetchTokenSuccess(TOKEN));
+      state = token(state, fetchArtistsFailure(UNAUTHORIZED_ERROR));
+
+      it("clears token", () => {
+        expect(getToken(state)).toBeNull();
+      });
+    });
+
+    describe("generic error", () => {
+      let state;
+      state = token(state, fetchTokenSuccess(TOKEN));
+      state = token(state, fetchArtistsFailure(GENERIC_ERROR));
+
+      it("preserves token", () => {
+        expect(getToken(state)).toEqual(TOKEN);
+      });
     });
   });
 });
