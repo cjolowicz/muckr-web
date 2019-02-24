@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 type Props = {
-  nextRoute: string,
+  referrer: string,
   classes: Object,
   onSubmit: Function,
   token: ?string
@@ -18,12 +18,12 @@ type Props = {
 type InputEvent = SyntheticInputEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticInputEvent<HTMLButtonElement>;
 
-export const PureSignIn = ({ nextRoute, classes, onSubmit, token }: Props) => {
+export const PureSignIn = ({ referrer, classes, onSubmit, token }: Props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   if (token) {
-    return <Redirect to={nextRoute} />;
+    return <Redirect to={referrer} />;
   }
 
   const handleUsernameChange = (event: InputEvent) => {

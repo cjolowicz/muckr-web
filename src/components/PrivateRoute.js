@@ -24,7 +24,7 @@ const PrivateRoute = ({ component: Component, token, ...rest }: Props) => (
         <Redirect
           to={{
             pathname: routes.SIGNIN,
-            state: { nextRoute: props.location }
+            state: { referrer: props.location }
           }}
         />
       )

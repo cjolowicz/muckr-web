@@ -28,7 +28,7 @@ describe("SignIn", () => {
   const setup = () => {
     const { container } = render(
       <SignIn
-        nextRoute="/"
+        referrer="/"
         classes={mockClasses}
         onSubmit={onSubmit}
         token={null}
@@ -80,7 +80,7 @@ describe("with token", () => {
         <Switch>
           <Route path="/login">
             <SignIn
-              nextRoute="/"
+              referrer="/"
               classes={mockClasses}
               onSubmit={onSubmit}
               token={TOKEN}
