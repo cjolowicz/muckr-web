@@ -10,13 +10,13 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => (
-  <>
+  <div>
     <AppBar />
     <Navigation />
     <main>
       <Paper>{children}</Paper>
     </main>
-  </>
+  </div>
 );
 
 export default Layout;
