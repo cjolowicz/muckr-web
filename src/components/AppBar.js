@@ -19,7 +19,7 @@ type Props = {
 };
 
 const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
-  <MUIAppBar position="static">
+  <MUIAppBar position="static" className={classes.appBar}>
     <Toolbar>
       <IconButton
         onClick={onMenuClick}
@@ -44,7 +44,10 @@ const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
   </MUIAppBar>
 );
 
-const styles = {
+const styles = theme => ({
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1
+  },
   grow: {
     flexGrow: 1
   },
@@ -52,6 +55,6 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   }
-};
+});
 
 export default withStyles(styles)(AppBar);
