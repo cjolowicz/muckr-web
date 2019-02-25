@@ -15,7 +15,7 @@ const Layout = ({ children, classes }: Props) => (
   <div className={classes.root}>
     <AppBar />
     <Navigation />
-    <main>
+    <main className={classes.content}>
       <Paper>{children}</Paper>
     </main>
   </div>
@@ -24,6 +24,9 @@ const Layout = ({ children, classes }: Props) => (
 const styles = {
   root: {
     display: "flex"
+  },
+  content: {
+    flexGrow: 1
   }
 };
 
