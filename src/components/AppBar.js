@@ -28,7 +28,7 @@ const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
       >
         <MenuIcon />
       </IconButton>
-      <Typography variant="h6" color="inherit" className={classes.grow}>
+      <Typography variant="h6" color="inherit" className={classes.title}>
         Muckr
       </Typography>
       {token ? (
@@ -48,7 +48,7 @@ const styles = theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1
   },
-  grow: {
+  title: {
     flexGrow: 1
   },
   menuButton: {
