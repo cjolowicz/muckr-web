@@ -22,6 +22,7 @@ const Navigation = ({ open, classes, onClose }: Props) => (
     className={classes.drawer}
     classes={{ paper: classes.drawerPaper }}
   >
+    <div className={classes.toolbar} />
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
         <List>
@@ -37,7 +38,7 @@ const Navigation = ({ open, classes, onClose }: Props) => (
   </Drawer>
 );
 
-const styles = {
+const styles = theme => ({
   drawer: {
     width: 250,
     flexShrink: 0
@@ -45,9 +46,10 @@ const styles = {
   drawerPaper: {
     width: 250
   },
+  toolbar: theme.mixins.toolbar,
   list: {
     width: 250
   }
-};
+});
 
 export default withStyles(styles)(Navigation);
