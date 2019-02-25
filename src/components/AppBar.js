@@ -18,7 +18,13 @@ type Props = {
 const AppBar = ({ token, classes, clearToken }: Props) => (
   <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
-      <Typography variant="h6" color="inherit" className={classes.title}>
+      <Typography
+        variant="h6"
+        color="inherit"
+        className={classes.title}
+        component={Link}
+        to={routes.INDEX}
+      >
         Muckr
       </Typography>
       {token ? (
@@ -39,7 +45,8 @@ const styles = theme => ({
     zIndex: theme.zIndex.drawer + 1
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    textDecoration: "none"
   }
 });
 
