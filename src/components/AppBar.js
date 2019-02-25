@@ -1,24 +1,20 @@
 // @flow
 import React from "react";
-import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 import MUIAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import * as routes from "../routes";
+import AuthButton from "../containers/AuthButton";
 
 type Props = {
-  token: ?string,
   classes: Object,
-  onMenuClick: Function,
-  clearToken: Function
+  onMenuClick: Function
 };
 
-const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
+const AppBar = ({ classes, onMenuClick }: Props) => (
   <div className={classes.root}>
     <MUIAppBar position="static">
       <Toolbar>
@@ -32,15 +28,7 @@ const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Muckr
         </Typography>
-        {token ? (
-          <Button onClick={clearToken} color="inherit">
-            Sign Out
-          </Button>
-        ) : (
-          <Button component={Link} to={routes.SIGNIN} color="inherit">
-            Sign In
-          </Button>
-        )}
+        <AuthButton />
       </Toolbar>
     </MUIAppBar>
   </div>
