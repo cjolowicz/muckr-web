@@ -2,7 +2,6 @@
 import rootReducer, {
   isMessageOpen,
   getMessage,
-  isNavigationOpen,
   isFetchingToken,
   getToken,
   getTokenError,
@@ -30,12 +29,6 @@ describe("initial state", () => {
   describe("getMessage", () => {
     it("is null", () => {
       expect(getMessage(state)).toBeNull();
-    });
-  });
-
-  describe("isNavigationOpen", () => {
-    it("is false", () => {
-      expect(isNavigationOpen(state)).toBe(false);
     });
   });
 
