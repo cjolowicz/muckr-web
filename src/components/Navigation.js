@@ -20,9 +20,6 @@ const Navigation = ({ open, classes, onClose }: Props) => (
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
         <List>
-          <ListItem button component={Link} to={routes.INDEX}>
-            <ListItemText primary="Home" />
-          </ListItem>
           <ListItem button component={Link} to={routes.ARTISTS}>
             <ListItemText primary="Artists" />
           </ListItem>
