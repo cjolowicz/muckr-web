@@ -5,17 +5,15 @@ import { withStyles } from "@material-ui/core/styles";
 import MUIAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 
+import AuthButton from "../containers/AuthButton";
 import * as routes from "../routes";
 
 type Props = {
-  token: ?string,
-  classes: Object,
-  clearToken: Function
+  classes: Object
 };
 
-const AppBar = ({ token, classes, clearToken }: Props) => (
+const AppBar = ({ classes }: Props) => (
   <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
       <Typography
@@ -27,15 +25,7 @@ const AppBar = ({ token, classes, clearToken }: Props) => (
       >
         Muckr
       </Typography>
-      {token ? (
-        <Button onClick={clearToken} color="inherit">
-          Sign Out
-        </Button>
-      ) : (
-        <Button component={Link} to={routes.SIGNIN} color="inherit">
-          Sign In
-        </Button>
-      )}
+      <AuthButton />
     </Toolbar>
   </MUIAppBar>
 );
