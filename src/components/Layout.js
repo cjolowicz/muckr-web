@@ -16,6 +16,7 @@ const Layout = ({ children, classes }: Props) => (
     <AppBar />
     <Navigation />
     <main className={classes.main}>
+      <div className={classes.toolbar} />
       <Paper className={classes.paper}>{children}</Paper>
     </main>
   </>
@@ -29,7 +30,8 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2
-  }
+  },
+  toolbar: theme.mixins.toolbar
 });
 
 export default withStyles(styles)(Layout);
