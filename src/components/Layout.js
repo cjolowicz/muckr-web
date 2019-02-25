@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+import Paper from "@material-ui/core/Paper";
 
 import AppBar from "../containers/AppBar";
 import Navigation from "../containers/Navigation";
@@ -12,7 +13,9 @@ const Layout = ({ children }: Props) => (
   <>
     <AppBar />
     <Navigation />
-    {children}
+    <main>
+      <Paper>{children}</Paper>
+    </main>
   </>
 );
 
