@@ -20,18 +20,14 @@ const Navigation = ({ classes }: Props) => (
     classes={{ paper: classes.drawerPaper }}
   >
     <div className={classes.toolbar} />
-    <div tabIndex={0} role="button">
-      <div className={classes.list}>
-        <List>
-          <ListItem button component={Link} to={routes.INDEX}>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem button component={Link} to={routes.ARTISTS}>
-            <ListItemText primary="Artists" />
-          </ListItem>
-        </List>
-      </div>
-    </div>
+    <List>
+      <ListItem button component={Link} to={routes.INDEX}>
+        <ListItemText primary="Home" />
+      </ListItem>
+      <ListItem button component={Link} to={routes.ARTISTS}>
+        <ListItemText primary="Artists" />
+      </ListItem>
+    </List>
   </Drawer>
 );
 
@@ -43,10 +39,7 @@ const styles = theme => ({
   drawerPaper: {
     width: 250
   },
-  toolbar: theme.mixins.toolbar,
-  list: {
-    width: 250
-  }
+  toolbar: theme.mixins.toolbar
 });
 
 export default withStyles(styles)(Navigation);
