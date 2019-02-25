@@ -16,7 +16,12 @@ type Props = {
 };
 
 const Navigation = ({ open, classes, onClose }: Props) => (
-  <Drawer open={open} onClose={onClose}>
+  <Drawer
+    open={open}
+    onClose={onClose}
+    className={classes.drawer}
+    classes={{ paper: classes.drawerPaper }}
+  >
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
         <List>
@@ -33,6 +38,13 @@ const Navigation = ({ open, classes, onClose }: Props) => (
 );
 
 const styles = {
+  drawer: {
+    width: 250,
+    flexShrink: 0
+  },
+  drawerPaper: {
+    width: 250
+  },
   list: {
     width: 250
   }
