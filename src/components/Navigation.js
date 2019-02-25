@@ -10,21 +10,17 @@ import { Link } from "react-router-dom";
 import * as routes from "../routes";
 
 type Props = {
-  open: boolean,
-  classes: Object,
-  onClose: Function
+  classes: Object
 };
 
-const Navigation = ({ open, classes, onClose }: Props) => (
+const Navigation = ({ classes }: Props) => (
   <Drawer
     variant="permanent"
-    open={open}
-    onClose={onClose}
     className={classes.drawer}
     classes={{ paper: classes.drawerPaper }}
   >
     <div className={classes.toolbar} />
-    <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
+    <div tabIndex={0} role="button">
       <div className={classes.list}>
         <List>
           <ListItem button component={Link} to={routes.INDEX}>
