@@ -17,6 +17,7 @@ type Props = {
 
 const Navigation = ({ open, classes, onClose }: Props) => (
   <Drawer
+    variant="permanent"
     open={open}
     onClose={onClose}
     className={classes.drawer}
