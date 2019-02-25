@@ -2,6 +2,7 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
 
 import AppBar from "../containers/AppBar";
 import Navigation from "../containers/Navigation";
@@ -21,7 +22,7 @@ const Layout = ({ children }: { children: React.Node }) => (
 
 const Index = () => (
   <Layout>
-    <h2>Welcome</h2>
+    <Typography variant="h5">Welcome</Typography>
   </Layout>
 );
 
