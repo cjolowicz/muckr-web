@@ -19,7 +19,7 @@ type Props = {
 };
 
 const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
-  <MUIAppBar position="static" className={classes.appBar}>
+  <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
       <IconButton
         onClick={onMenuClick}
