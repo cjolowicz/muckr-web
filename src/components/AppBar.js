@@ -19,37 +19,32 @@ type Props = {
 };
 
 const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
-  <div className={classes.root}>
-    <MUIAppBar position="static">
-      <Toolbar>
-        <IconButton
-          onClick={onMenuClick}
-          className={classes.menuButton}
-          color="inherit"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" color="inherit" className={classes.grow}>
-          Muckr
-        </Typography>
-        {token ? (
-          <Button onClick={clearToken} color="inherit">
-            Sign Out
-          </Button>
-        ) : (
-          <Button component={Link} to={routes.SIGNIN} color="inherit">
-            Sign In
-          </Button>
-        )}
-      </Toolbar>
-    </MUIAppBar>
-  </div>
+  <MUIAppBar position="static">
+    <Toolbar>
+      <IconButton
+        onClick={onMenuClick}
+        className={classes.menuButton}
+        color="inherit"
+      >
+        <MenuIcon />
+      </IconButton>
+      <Typography variant="h6" color="inherit" className={classes.grow}>
+        Muckr
+      </Typography>
+      {token ? (
+        <Button onClick={clearToken} color="inherit">
+          Sign Out
+        </Button>
+      ) : (
+        <Button component={Link} to={routes.SIGNIN} color="inherit">
+          Sign In
+        </Button>
+      )}
+    </Toolbar>
+  </MUIAppBar>
 );
 
 const styles = {
-  root: {
-    flexGrow: 1
-  },
   grow: {
     flexGrow: 1
   },
