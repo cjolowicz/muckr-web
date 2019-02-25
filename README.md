@@ -18,6 +18,8 @@ This project has a [changelog](CHANGELOG.md).
 
 ## Script API
 
+| Script | Description |
+| --- | --- |
 | `yarn build` | Build the package |
 | `yarn build:babel` | Build the package (server only) |
 | `yarn build:webpack` | Build the package (client only) |
