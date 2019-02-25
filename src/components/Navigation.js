@@ -17,6 +17,7 @@ type Props = {
 
 const Navigation = ({ open, classes, onClose }: Props) => (
   <Drawer open={open} onClose={onClose}>
+    <div className={classes.toolbar} />
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
         <List>
@@ -29,10 +30,11 @@ const Navigation = ({ open, classes, onClose }: Props) => (
   </Drawer>
 );
 
-const styles = {
+const styles = theme => ({
+  toolbar: theme.mixins.toolbar,
   list: {
     width: 250
   }
-};
+});
 
 export default withStyles(styles)(Navigation);
