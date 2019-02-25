@@ -17,7 +17,7 @@ const AppBar = ({ classes }: Props) => (
     <MUIAppBar position="static">
       <Toolbar>
         <MenuButton className={classes.menuButton} />
-        <Typography variant="h6" color="inherit" className={classes.grow}>
+        <Typography variant="h6" color="inherit" className={classes.title}>
           Muckr
         </Typography>
         <AuthButton />
@@ -30,7 +30,7 @@ const styles = {
   root: {
     flexGrow: 1
   },
-  grow: {
+  title: {
     flexGrow: 1
   },
   menuButton: {
