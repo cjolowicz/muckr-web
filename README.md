@@ -23,9 +23,9 @@ This project has a [changelog](CHANGELOG.md).
 | `yarn build` | Build the package |
 | `yarn build:babel` | Build the package (server only) |
 | `yarn build:webpack` | Build the package (client only) |
-| `yarn start` | Start server |
-| `yarn start:dev` | Start server (for development) |
-| `yarn format` | Re-format source code (prettier) |
+| `yarn start` | Start the server |
+| `yarn start:dev` | Start the server (for development) |
+| `yarn format` | Re-format the source code |
 | `yarn test` | Invoke the test suite |
 | `yarn test:lint` | Invoke the test suite (lint only) |
 | `yarn test:flow` | Invoke the test suite (type-check only) |
