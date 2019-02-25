@@ -6,8 +6,6 @@ import MUIAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
 import * as routes from "../routes";
 
@@ -20,9 +18,6 @@ type Props = {
 const AppBar = ({ token, classes, clearToken }: Props) => (
   <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
-      <IconButton className={classes.menuButton} color="inherit">
-        <MenuIcon />
-      </IconButton>
       <Typography variant="h6" color="inherit" className={classes.title}>
         Muckr
       </Typography>
@@ -45,10 +40,6 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
   }
 });
 
