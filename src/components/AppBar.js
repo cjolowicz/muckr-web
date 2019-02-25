@@ -15,7 +15,7 @@ type Props = {
 };
 
 const AppBar = ({ classes }: Props) => (
-  <MUIAppBar position="static">
+  <MUIAppBar position="static" className={classes.appBar}>
     <Toolbar>
       <MenuButton className={classes.menuButton} />
       <Typography
@@ -32,7 +32,10 @@ const AppBar = ({ classes }: Props) => (
   </MUIAppBar>
 );
 
-const styles = {
+const styles = theme => ({
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1
+  },
   title: {
     flexGrow: 1,
     textDecoration: "none"
@@ -41,6 +44,6 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   }
-};
+});
 
 export default withStyles(styles)(AppBar);
