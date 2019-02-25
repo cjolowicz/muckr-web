@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
 
 import AppBar from "../containers/AppBar";
-import Navigation from "../containers/Navigation";
+import Navigation from "./Navigation";
 
 type Props = {
   children: React.Node,
