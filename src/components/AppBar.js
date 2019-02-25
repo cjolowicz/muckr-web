@@ -14,18 +14,13 @@ import * as routes from "../routes";
 type Props = {
   token: ?string,
   classes: Object,
-  onMenuClick: Function,
   clearToken: Function
 };
 
-const AppBar = ({ token, classes, onMenuClick, clearToken }: Props) => (
+const AppBar = ({ token, classes, clearToken }: Props) => (
   <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
-      <IconButton
-        onClick={onMenuClick}
-        className={classes.menuButton}
-        color="inherit"
-      >
+      <IconButton className={classes.menuButton} color="inherit">
         <MenuIcon />
       </IconButton>
       <Typography variant="h6" color="inherit" className={classes.title}>
