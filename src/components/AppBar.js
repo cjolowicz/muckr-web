@@ -15,7 +15,7 @@ type Props = {
 };
 
 const AppBar = ({ classes }: Props) => (
-  <MUIAppBar position="static" className={classes.appBar}>
+  <MUIAppBar position="fixed" className={classes.appBar}>
     <Toolbar>
       <MenuButton className={classes.menuButton} />
       <Typography
