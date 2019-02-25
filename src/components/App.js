@@ -2,6 +2,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
 
 import Layout from "./Layout";
 import PrivateRoute from "../containers/PrivateRoute";
@@ -13,7 +14,7 @@ import * as routes from "../routes";
 
 const Index = () => (
   <Layout>
-    <h2>Welcome</h2>
+    <Typography variant="h5">Welcome</Typography>
   </Layout>
 );
 
