@@ -13,23 +13,18 @@ type Props = {
 };
 
 const AppBar = ({ classes }: Props) => (
-  <div className={classes.root}>
-    <MUIAppBar position="static">
-      <Toolbar>
-        <MenuButton className={classes.menuButton} />
-        <Typography variant="h6" color="inherit" className={classes.title}>
-          Muckr
-        </Typography>
-        <AuthButton />
-      </Toolbar>
-    </MUIAppBar>
-  </div>
+  <MUIAppBar position="static">
+    <Toolbar>
+      <MenuButton className={classes.menuButton} />
+      <Typography variant="h6" color="inherit" className={classes.title}>
+        Muckr
+      </Typography>
+      <AuthButton />
+    </Toolbar>
+  </MUIAppBar>
 );
 
 const styles = {
-  root: {
-    flexGrow: 1
-  },
   title: {
     flexGrow: 1
   },
