@@ -21,9 +21,6 @@ const Navigation = ({ classes }: Props) => (
   >
     <div className={classes.toolbar} />
     <List>
-      <ListItem button component={Link} to={routes.INDEX}>
-        <ListItemText primary="Home" />
-      </ListItem>
       <ListItem button component={Link} to={routes.ARTISTS}>
         <ListItemText primary="Artists" />
       </ListItem>
