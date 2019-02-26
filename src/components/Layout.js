@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 
-import AppBar from "../containers/AppBar";
+import AppBar from "./AppBar";
 import Navigation from "../containers/Navigation";
 
 type Props = {
