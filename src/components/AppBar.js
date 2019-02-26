@@ -4,27 +4,19 @@ import { withStyles } from "@material-ui/core/styles";
 import MUIAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
+import MenuButton from "../containers/MenuButton";
 import AuthButton from "../containers/AuthButton";
 
 type Props = {
-  classes: Object,
-  onMenuClick: Function
+  classes: Object
 };
 
-const AppBar = ({ classes, onMenuClick }: Props) => (
+const AppBar = ({ classes }: Props) => (
   <div className={classes.root}>
     <MUIAppBar position="static">
       <Toolbar>
-        <IconButton
-          onClick={onMenuClick}
-          className={classes.menuButton}
-          color="inherit"
-        >
-          <MenuIcon />
-        </IconButton>
+        <MenuButton className={classes.menuButton} />
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Muckr
         </Typography>
