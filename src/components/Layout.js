@@ -16,7 +16,7 @@ const Layout = ({ children, classes }: Props) => (
     <AppBar />
     <Navigation />
     <main className={classes.main}>
-      <Paper>{children}</Paper>
+      <Paper className={classes.paper}>{children}</Paper>
     </main>
   </>
 );
@@ -24,6 +24,11 @@ const Layout = ({ children, classes }: Props) => (
 const styles = theme => ({
   main: {
     padding: theme.spacing.unit * 3
+  },
+  paper: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
   }
 });
 
