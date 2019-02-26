@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from "react";
+import React from "react";
 import type { Location } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
@@ -9,6 +9,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
+import useInputField from "../hooks/useInputField";
+
 type Props = {
   location: Location,
   classes: Object,
@@ -16,25 +18,16 @@ type Props = {
   token: ?string
 };
 
-type InputEvent = SyntheticInputEvent<HTMLInputElement>;
 type ButtonEvent = SyntheticInputEvent<HTMLButtonElement>;
 
 export const PureSignIn = ({ location, classes, onSubmit, token }: Props) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, handleUsernameChange] = useInputField();
+  const [password, handlePasswordChange] = useInputField();
 
   if (token) {
     const { referrer } = location.state || { referrer: { pathname: "/" } };
     return <Redirect to={referrer} />;
   }
-
-  const handleUsernameChange = (event: InputEvent) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event: InputEvent) => {
-    setPassword(event.target.value);
-  };
 
   const handleSubmit = (event: ButtonEvent) => {
     event.preventDefault();
