@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Navigation = ({ open, classes, onClose }: Props) => (
-  <Drawer open={open} onClose={onClose}>
+  <Drawer open={open} onClose={onClose} variant="persistent">
     <div className={classes.toolbar} />
     <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
       <div className={classes.list}>
