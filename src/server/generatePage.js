@@ -11,6 +11,7 @@ export default function generatePage(html: string, css: string, state: string) {
       content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
     >
     <style id="${JSS_STYLE_ID}">${css}</style>
+    <style>html, body, #${APP_ROOT} { height: 100% }</style>
   </head>
   <body>
     <div id="${APP_ROOT}">${html}</div>

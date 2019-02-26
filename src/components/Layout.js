@@ -24,17 +24,26 @@ const Layout = ({ children, classes }: Props) => (
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    height: "100%"
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3
+    padding: theme.spacing.unit * 3,
+    display: "flex",
+    flexDirection: "column",
+    height: "100%"
   },
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    flexGrow: 0
+  },
   paper: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    paddingBottom: theme.spacing.unit * 2,
+    flexGrow: 1,
+    height: "100%"
   }
 });
 
