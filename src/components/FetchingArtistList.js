@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, { useEffect } from "react";
 
 import ArtistList from "./ArtistList";
 import type { Artist } from "../api/artist";
@@ -11,28 +11,16 @@ type Props = {
   fetchArtists: Function
 };
 
-export default class FetchingArtistList extends React.Component<Props> {
-  componentDidMount() {
-    this.fetchData();
-  }
+const FetchingArtistList = (props: Props) => {
+  const { fetchArtists, token } = props;
 
-  componentDidUpdate({ token: previousToken }: Props) {
-    const { token } = this.props;
-
-    if (token !== previousToken) {
-      this.fetchData();
-    }
-  }
-
-  fetchData() {
-    const { fetchArtists, token } = this.props;
-
+  useEffect(() => {
     if (token) {
       fetchArtists(token);
     }
-  }
+  }, [token, fetchArtists]);
 
-  render() {
-    return <ArtistList {...this.props} />;
-  }
-}
+  return <ArtistList {...props} />;
+};
+
+export default FetchingArtistList;
