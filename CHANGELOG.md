@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.1] - 2019-03-04
+### Changed
+- Update dev dependencies:
+  - @babel/core 7.3.4
+  - @babel/preset-env 7.3.4
+  - @babel/plugin-proposal-class-properties 7.3.4
+  - @babel/plugin-proposal-object-rest-spread 7.3.4
+  - enzyme-adapter-react-16 1.10.0
+  - eslint 5.15.0
+  - eslint-config-prettier 4.1.0
+  - eslint-plugin-react-hooks 1.4.0
+  - webpack 4.29.6
+  - webpack-dev-server 3.2.1
+
 ## [0.8.0] - 2019-02-25
 ### Fixed
 - Fix redirect from /login to referrer.
@@ -233,7 +247,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.8.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.8.1...HEAD
+[0.8.1]: https://github.com/cjolowicz/muckr-web/compare/v0.8.0...0.8.1
 [0.8.0]: https://github.com/cjolowicz/muckr-web/compare/v0.7.2...v0.8.0
 [0.7.2]: https://github.com/cjolowicz/muckr-web/compare/v0.7.1...v0.7.2
 [0.7.1]: https://github.com/cjolowicz/muckr-web/compare/v0.7.0...v0.7.1
