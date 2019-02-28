@@ -1,4 +1,4 @@
-// flow-typed signature: 16bf9f9bec5ed6a5654840d5868122aa
+// flow-typed signature: 77d83e5047387e51621c12e15cf9cc24
 // flow-typed version: <<STUB>>/webpack-dev-server_v^3.1.14/flow_v0.93.0
 
 /**
@@ -23,10 +23,6 @@ declare module 'webpack-dev-server' {
  * needed.
  */
 declare module 'webpack-dev-server/bin/options' {
-  declare module.exports: any;
-}
-
-declare module 'webpack-dev-server/bin/utils' {
   declare module.exports: any;
 }
 
@@ -70,6 +66,10 @@ declare module 'webpack-dev-server/lib/utils/addEntries' {
   declare module.exports: any;
 }
 
+declare module 'webpack-dev-server/lib/utils/colors' {
+  declare module.exports: any;
+}
+
 declare module 'webpack-dev-server/lib/utils/createCertificate' {
   declare module.exports: any;
 }
@@ -86,12 +86,25 @@ declare module 'webpack-dev-server/lib/utils/createLogger' {
   declare module.exports: any;
 }
 
+declare module 'webpack-dev-server/lib/utils/defaultTo' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-dev-server/lib/utils/getVersions' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-dev-server/lib/utils/runBonjour' {
+  declare module.exports: any;
+}
+
+declare module 'webpack-dev-server/lib/utils/status' {
+  declare module.exports: any;
+}
+
 // Filename aliases
 declare module 'webpack-dev-server/bin/options.js' {
   declare module.exports: $Exports<'webpack-dev-server/bin/options'>;
-}
-declare module 'webpack-dev-server/bin/utils.js' {
-  declare module.exports: $Exports<'webpack-dev-server/bin/utils'>;
 }
 declare module 'webpack-dev-server/bin/webpack-dev-server.js' {
   declare module.exports: $Exports<'webpack-dev-server/bin/webpack-dev-server'>;
@@ -123,6 +136,9 @@ declare module 'webpack-dev-server/lib/Server.js' {
 declare module 'webpack-dev-server/lib/utils/addEntries.js' {
   declare module.exports: $Exports<'webpack-dev-server/lib/utils/addEntries'>;
 }
+declare module 'webpack-dev-server/lib/utils/colors.js' {
+  declare module.exports: $Exports<'webpack-dev-server/lib/utils/colors'>;
+}
 declare module 'webpack-dev-server/lib/utils/createCertificate.js' {
   declare module.exports: $Exports<'webpack-dev-server/lib/utils/createCertificate'>;
 }
@@ -134,4 +150,16 @@ declare module 'webpack-dev-server/lib/utils/createDomain.js' {
 }
 declare module 'webpack-dev-server/lib/utils/createLogger.js' {
   declare module.exports: $Exports<'webpack-dev-server/lib/utils/createLogger'>;
+}
+declare module 'webpack-dev-server/lib/utils/defaultTo.js' {
+  declare module.exports: $Exports<'webpack-dev-server/lib/utils/defaultTo'>;
+}
+declare module 'webpack-dev-server/lib/utils/getVersions.js' {
+  declare module.exports: $Exports<'webpack-dev-server/lib/utils/getVersions'>;
+}
+declare module 'webpack-dev-server/lib/utils/runBonjour.js' {
+  declare module.exports: $Exports<'webpack-dev-server/lib/utils/runBonjour'>;
+}
+declare module 'webpack-dev-server/lib/utils/status.js' {
+  declare module.exports: $Exports<'webpack-dev-server/lib/utils/status'>;
 }
