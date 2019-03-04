@@ -1,4 +1,4 @@
-// flow-typed signature: ae718139cbca46a6bbf509deccd9b48b
+// flow-typed signature: 96bb42383124fc6685e29638036a9660
 // flow-typed version: <<STUB>>/eslint_v^5.11.0/flow_v0.93.0
 
 /**
@@ -1083,6 +1083,10 @@ declare module 'eslint/lib/rules/prefer-const' {
 }
 
 declare module 'eslint/lib/rules/prefer-destructuring' {
+  declare module.exports: any;
+}
+
+declare module 'eslint/lib/rules/prefer-named-capture-group' {
   declare module.exports: any;
 }
 
@@ -2244,6 +2248,9 @@ declare module 'eslint/lib/rules/prefer-const.js' {
 }
 declare module 'eslint/lib/rules/prefer-destructuring.js' {
   declare module.exports: $Exports<'eslint/lib/rules/prefer-destructuring'>;
+}
+declare module 'eslint/lib/rules/prefer-named-capture-group.js' {
+  declare module.exports: $Exports<'eslint/lib/rules/prefer-named-capture-group'>;
 }
 declare module 'eslint/lib/rules/prefer-numeric-literals.js' {
   declare module.exports: $Exports<'eslint/lib/rules/prefer-numeric-literals'>;
