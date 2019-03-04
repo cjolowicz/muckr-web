@@ -6,17 +6,15 @@ type Props = {
   children: React.Node
 };
 
-export default class RemoveElement extends React.Component<Props> {
-  componentDidMount() {
-    const { elementId } = this.props;
+const RemoveElement = ({ elementId, children }: Props) => {
+  React.useEffect(() => {
     const element = document.getElementById(elementId);
     if (element && element.parentNode) {
       element.parentNode.removeChild(element);
     }
-  }
+  }, [elementId]);
 
-  render() {
-    const { children } = this.props;
-    return children;
-  }
-}
+  return children;
+};
+
+export default RemoveElement;
