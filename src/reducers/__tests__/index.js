@@ -6,6 +6,9 @@ import rootReducer, {
   isFetchingToken,
   getToken,
   getTokenError,
+  isCreatingUser,
+  getUser,
+  getUserError,
   isFetchingArtists,
   getArtists,
   getArtistsError
@@ -54,6 +57,24 @@ describe("initial state", () => {
   describe("getTokenError", () => {
     it("is null", () => {
       expect(getTokenError(state)).toBeNull();
+    });
+  });
+
+  describe("isCreatingUser", () => {
+    it("is false", () => {
+      expect(isCreatingUser(state)).toBe(false);
+    });
+  });
+
+  describe("getUser", () => {
+    it("is null", () => {
+      expect(getUser(state)).toBeNull();
+    });
+  });
+
+  describe("getUserError", () => {
+    it("is null", () => {
+      expect(getUserError(state)).toBeNull();
     });
   });
 

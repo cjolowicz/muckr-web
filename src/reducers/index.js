@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import message, * as fromMessage from "./message";
 import navigation, * as fromNavigation from "./navigation";
 import token, * as fromToken from "./token";
+import user, * as fromUser from "./user";
 import artists, * as fromArtists from "./artists";
 import type { Action } from "../actions";
 
@@ -11,6 +12,7 @@ export type State = {
   message: fromMessage.State,
   navigation: fromNavigation.State,
   token: fromToken.State,
+  user: fromUser.State,
   artists: fromArtists.State
 };
 
@@ -18,6 +20,7 @@ export const initialState: State = {
   message: fromMessage.initialState,
   navigation: fromNavigation.initialState,
   token: fromToken.initialState,
+  user: fromUser.initialState,
   artists: fromArtists.initialState
 };
 
@@ -38,6 +41,13 @@ export const getToken = (state: State) => fromToken.getToken(state.token);
 export const getTokenError = (state: State) =>
   fromToken.getTokenError(state.token);
 
+export const isCreatingUser = (state: State) =>
+  fromUser.isCreatingUser(state.user);
+
+export const getUser = (state: State) => fromUser.getUser(state.user);
+
+export const getUserError = (state: State) => fromUser.getUserError(state.user);
+
 export const isFetchingArtists = (state: State) =>
   fromArtists.isFetchingArtists(state.artists);
 
@@ -51,5 +61,6 @@ export default combineReducers<Object, Action>({
   message,
   navigation,
   token,
+  user,
   artists
 });
