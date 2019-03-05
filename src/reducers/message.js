@@ -1,7 +1,6 @@
 // @flow
 import { combineReducers } from "redux";
 
-import { isUnauthorized } from "../api/error";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "../actions/message";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../actions/token";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../actions/user";
@@ -38,10 +37,22 @@ function open(state = initialState.open, action) {
   }
 }
 
-function formatErrorMessage(error) {
-  return isUnauthorized(error)
-    ? "Invalid username or password"
-    : "An unknown error occurred";
+function formatFailedAction(actionType) {
+  switch (actionType) {
+    case CREATE_USER_FAILURE:
+      return "Cannot create user";
+    case FETCH_TOKEN_FAILURE:
+      return "Cannot log in";
+    case FETCH_ARTISTS_FAILURE:
+      return "Cannot load artists";
+    default:
+      return "";
+  }
+}
+
+export function formatErrorMessage(actionType: string, errorMessage: string) {
+  const prefix = formatFailedAction(actionType);
+  return prefix ? `${prefix}: ${errorMessage}` : errorMessage;
 }
 
 function message(state = initialState.message, action) {
@@ -49,7 +60,7 @@ function message(state = initialState.message, action) {
     case CREATE_USER_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
-      return formatErrorMessage(action.error);
+      return formatErrorMessage(action.type, action.error.message);
     case OPEN_MESSAGE:
       return action.message;
     case CREATE_USER_SUCCESS:
