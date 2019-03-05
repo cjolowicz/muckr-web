@@ -2,8 +2,9 @@
 import reducer, { isMessageOpen, getMessage } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/token";
+import { createUserSuccess, createUserFailure } from "../../actions/user";
 import { noop } from "../../actions/noop";
-import { GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
+import { USER, GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
 
 describe("message", () => {
   describe("initially", () => {
@@ -58,6 +59,32 @@ describe("message", () => {
           it("has login error message", () => {
             expect(getMessage(state)).toEqual("Invalid username or password");
           });
+        });
+      });
+
+      describe("createUserFailure", () => {
+        const action = createUserFailure(GENERIC_ERROR);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has generic error message", () => {
+          expect(getMessage(state)).toEqual("An unknown error occurred");
+        });
+      });
+
+      describe("createUserSuccess", () => {
+        const action = createUserSuccess(USER);
+        const state = reducer({ open, message }, action);
+
+        it("is closed", () => {
+          expect(isMessageOpen(state)).toBe(false);
+        });
+
+        it("has no message", () => {
+          expect(getMessage(state)).toBeNull();
         });
       });
 

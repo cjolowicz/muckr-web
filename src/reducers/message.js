@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { isUnauthorized } from "../api/error";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "../actions/message";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../actions/token";
+import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../actions/user";
 import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
@@ -22,10 +23,12 @@ export const initialState: State = {
 
 function open(state = initialState.open, action) {
   switch (action.type) {
+    case CREATE_USER_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
     case OPEN_MESSAGE:
       return true;
+    case CREATE_USER_SUCCESS:
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:
@@ -43,11 +46,13 @@ function formatErrorMessage(error) {
 
 function message(state = initialState.message, action) {
   switch (action.type) {
+    case CREATE_USER_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
       return formatErrorMessage(action.error);
     case OPEN_MESSAGE:
       return action.message;
+    case CREATE_USER_SUCCESS:
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:
