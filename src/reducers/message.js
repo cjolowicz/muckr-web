@@ -27,8 +27,8 @@ function open(state = initialState.open, action) {
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
     case OPEN_MESSAGE:
-      return true;
     case CREATE_USER_SUCCESS:
+      return true;
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:
@@ -53,6 +53,7 @@ function message(state = initialState.message, action) {
     case OPEN_MESSAGE:
       return action.message;
     case CREATE_USER_SUCCESS:
+      return "Account created";
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:

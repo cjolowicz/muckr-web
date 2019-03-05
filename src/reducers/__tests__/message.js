@@ -79,12 +79,12 @@ describe("message", () => {
         const action = createUserSuccess(USER);
         const state = reducer({ open, message }, action);
 
-        it("is closed", () => {
-          expect(isMessageOpen(state)).toBe(false);
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
         });
 
-        it("has no message", () => {
-          expect(getMessage(state)).toBeNull();
+        it("has success message", () => {
+          expect(getMessage(state)).toEqual("Account created");
         });
       });
 
