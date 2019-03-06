@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import PrivateRoute from "../containers/PrivateRoute";
 import FetchingArtistList from "../containers/FetchingArtistList";
 import SignIn from "../containers/SignIn";
+import SignUp from "../containers/SignUp";
 import Message from "../containers/Message";
 import * as routes from "../routes";
 
@@ -27,6 +28,7 @@ const Routes = () => (
   <Switch>
     <Route path={routes.INDEX} exact component={Index} />
     <Route path={routes.SIGNIN} component={SignIn} />
+    <Route path={routes.SIGNUP} component={SignUp} />
     <PrivateRoute path={routes.ARTISTS} component={Artists} />
   </Switch>
 );
