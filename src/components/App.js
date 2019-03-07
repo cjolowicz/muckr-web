@@ -3,20 +3,13 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Layout, { Header } from "./Layout";
+import Layout from "./Layout";
 import PrivateRoute from "../containers/PrivateRoute";
 import FetchingArtistList from "../containers/FetchingArtistList";
+import Index from "./Index";
 import SignIn from "../containers/SignIn";
-import SignUp from "../containers/SignUp";
 import Message from "../containers/Message";
 import * as routes from "../routes";
-
-const Index = () => (
-  <>
-    <Header />
-    <SignUp />
-  </>
-);
 
 const Artists = () => (
   <Layout>
