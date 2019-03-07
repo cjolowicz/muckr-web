@@ -16,7 +16,12 @@ const AuthButton = ({ token, clearToken }: Props) =>
       Sign Out
     </Button>
   ) : (
-    <Button component={Link} to={routes.SIGNIN} color="inherit">
+    <Button
+      component={Link}
+      to={routes.SIGNIN}
+      color="inherit"
+      variant="outlined"
+    >
       Sign In
     </Button>
   );
