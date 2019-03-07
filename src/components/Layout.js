@@ -11,10 +11,16 @@ type Props = {
   classes: Object
 };
 
-const Layout = ({ children, classes }: Props) => (
+export const Header = () => (
   <>
     <AppBar />
     <Navigation />
+  </>
+);
+
+const Layout = ({ children, classes }: Props) => (
+  <>
+    <Header />
     <main className={classes.main}>
       <Paper className={classes.paper}>{children}</Paper>
     </main>
