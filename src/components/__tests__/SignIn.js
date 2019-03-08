@@ -25,25 +25,36 @@ afterEach(() => onSubmit.mockClear());
 const select = <T>(container, selector): T =>
   unsafeCast<T>(just(container.querySelector(selector)));
 
-const withReferrer = pathname =>
-  unsafeCast<Location>({
-    state: { referrer: { pathname } }
-  });
-
-const withoutReferrer = unsafeCast<Location>({});
-
 describe("SignIn", () => {
-  const setup = () => {
-    const { container } = render(
-      <SignIn
-        location={withReferrer("/")}
-        classes={mockClasses}
-        onSubmit={onSubmit}
-        token={null}
-      />
+  const setupWithTokenAndReferrer = (token, pathname) => {
+    const history = createMemoryHistory({ initialEntries: ["/login"] });
+    const location = unsafeCast<Location>(
+      pathname ? { state: { referrer: { pathname } } } : {}
     );
 
+    const { container } = render(
+      <Router history={history}>
+        <Switch>
+          <Route path="/login">
+            <SignIn
+              location={location}
+              classes={mockClasses}
+              onSubmit={onSubmit}
+              token={token}
+            />
+          </Route>
+        </Switch>
+      </Router>
+    );
+
+    return { container, history };
+  };
+
+  const setup = () => {
+    const { container, history } = setupWithTokenAndReferrer(null, null);
+
     return {
+      history,
       header: select<HTMLHeadingElement>(container, "h1"),
       username: select<HTMLInputElement>(container, "input[name='username']"),
       password: select<HTMLInputElement>(container, "input[name='password']"),
@@ -80,46 +91,14 @@ describe("SignIn", () => {
 
   describe("with token", () => {
     it("redirects", () => {
-      const history = createMemoryHistory({ initialEntries: ["/login"] });
-
-      render(
-        <Router history={history}>
-          <Switch>
-            <Route path="/login">
-              <SignIn
-                location={withReferrer("/artists")}
-                classes={mockClasses}
-                onSubmit={onSubmit}
-                token={TOKEN}
-              />
-            </Route>
-          </Switch>
-        </Router>
-      );
-
+      const { history } = setupWithTokenAndReferrer(TOKEN, "/artists");
       expect(history.location.pathname).toEqual("/artists");
     });
   });
 
   describe("with token but without referrer", () => {
     it("redirects to /", () => {
-      const history = createMemoryHistory({ initialEntries: ["/login"] });
-
-      render(
-        <Router history={history}>
-          <Switch>
-            <Route path="/login">
-              <SignIn
-                location={withoutReferrer}
-                classes={mockClasses}
-                onSubmit={onSubmit}
-                token={TOKEN}
-              />
-            </Route>
-          </Switch>
-        </Router>
-      );
-
+      const { history } = setupWithTokenAndReferrer(TOKEN, null);
       expect(history.location.pathname).toEqual("/");
     });
   });

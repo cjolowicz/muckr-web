@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import type { Location } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import useInputField from "../hooks/useInputField";
+import * as routes from "../routes";
 
 type Props = {
   location: Location,
@@ -73,6 +74,13 @@ export const PureSignIn = ({ location, classes, onSubmit, token }: Props) => {
           >
             Sign in
           </Button>
+          <Typography
+            component={Link}
+            to={routes.INDEX}
+            className={classes.signup}
+          >
+            Create an account
+          </Typography>
         </form>
       </Paper>
     </main>
@@ -103,6 +111,10 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing.unit * 3
+  },
+  signup: {
+    marginTop: theme.spacing.unit * 3,
+    textAlign: "center"
   }
 });
 
