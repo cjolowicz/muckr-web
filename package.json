@@ -85,7 +85,7 @@
     "react-testing-library": "^6.0.0",
     "redux-mock-store": "^1.5.3",
     "style-loader": "^0.23.1",
-    "supertest": "^3.3.0",
+    "supertest": "^4.0.0",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14",
