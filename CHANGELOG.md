@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Update dependencies:
+  - react 16.8.4
+  - react-dom 16.8.4
+  - react-test-renderer 16.8.4
+- Update dev dependencies:
+  - babel-jest 24.3.1
+  - css-loader 2.1.1
+  - eslint 5.15.1
+  - eslint-plugin-react-hooks 1.5.0
+  - jest 24.3.1
+  - jest-environment-enzyme 7.0.2
+  - jest-enzyme 7.0.2
 
 ## [0.8.1] - 2019-03-04
 ### Changed
