@@ -12,7 +12,8 @@ describe("createUser", () => {
   });
 
   it("returns user", async () => {
-    const user = await createUser("jane", "secret");
+    const { username } = USER;
+    const user = await createUser(username, "secret");
     expect(user).toEqual(USER);
   });
 });
