@@ -1,8 +1,8 @@
 // @flow
 import axios from "axios";
 
-import { fetchArtists } from "../artist";
-import { TOKEN } from "../../test/fixtures";
+import { fetchArtists, createArtist } from "../artist";
+import { TOKEN, ARTIST } from "../../test/fixtures";
 
 describe("fetchArtists", () => {
   const artist = { id: 1, name: "Artist" };
@@ -17,5 +17,19 @@ describe("fetchArtists", () => {
   it("returns array of artists", async () => {
     const artists = await fetchArtists(TOKEN);
     expect(artists).toEqual([artist]);
+  });
+});
+
+describe("createArtist", () => {
+  const promise = Promise.resolve({ data: ARTIST });
+
+  beforeAll(() => {
+    jest.spyOn(axios, "post").mockReturnValue(promise);
+  });
+
+  it("returns artist", async () => {
+    const { name } = ARTIST;
+    const artist = await createArtist(TOKEN, name);
+    expect(artist).toEqual(ARTIST);
   });
 });
