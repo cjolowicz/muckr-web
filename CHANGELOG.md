@@ -5,7 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.9.0] - 2019-03-10
+### Added
+- Add button for sign up.
+
 ### Changed
+- UI cleanup.
 - Update dependencies:
   - react 16.8.4
   - react-dom 16.8.4
@@ -260,7 +266,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.8.1...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.9.0...HEAD
+[0.9.0]: https://github.com/cjolowicz/muckr-web/compare/v0.8.1...0.9.0
 [0.8.1]: https://github.com/cjolowicz/muckr-web/compare/v0.8.0...0.8.1
 [0.8.0]: https://github.com/cjolowicz/muckr-web/compare/v0.7.2...v0.8.0
 [0.7.2]: https://github.com/cjolowicz/muckr-web/compare/v0.7.1...v0.7.2
