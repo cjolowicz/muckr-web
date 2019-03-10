@@ -11,16 +11,17 @@ export const USER = {
   username: "jane"
 };
 
-export const ARTISTS = [
-  {
-    id: 1,
-    name: "Jane Doe"
-  },
-  {
-    id: 2,
-    name: "John Doe"
-  }
-];
+export const ARTIST = {
+  id: 1,
+  name: "Jane Doe"
+};
+
+export const OTHER_ARTIST = {
+  id: 2,
+  name: "John Doe"
+};
+
+export const ARTISTS = [ARTIST, OTHER_ARTIST];
 
 export const GENERIC_ERROR = unsafeCast<FetchError>(new Error("failure"));
 
