@@ -6,10 +6,14 @@ import reducer, {
 } from "../message";
 import { openMessage, closeMessage } from "../../actions/message";
 import { fetchTokenFailure } from "../../actions/token";
-import { fetchArtistsFailure } from "../../actions/artist";
+import {
+  createArtistSuccess,
+  createArtistFailure,
+  fetchArtistsFailure
+} from "../../actions/artist";
 import { createUserSuccess, createUserFailure } from "../../actions/user";
 import { NOOP, noop } from "../../actions/noop";
-import { USER, GENERIC_ERROR } from "../../test/fixtures";
+import { ARTIST, USER, GENERIC_ERROR } from "../../test/fixtures";
 
 describe("formatErrorMessage", () => {
   describe("unknown action", () => {
@@ -86,6 +90,32 @@ describe("message", () => {
 
         it("has error message", () => {
           expect(getMessage(state)).toEqual("Cannot load artists: failure");
+        });
+      });
+
+      describe("createArtistFailure", () => {
+        const action = createArtistFailure(GENERIC_ERROR);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has error message", () => {
+          expect(getMessage(state)).toEqual("Cannot create artist: failure");
+        });
+      });
+
+      describe("createArtistSuccess", () => {
+        const action = createArtistSuccess(ARTIST);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has success message", () => {
+          expect(getMessage(state)).toEqual("Artist created");
         });
       });
 
