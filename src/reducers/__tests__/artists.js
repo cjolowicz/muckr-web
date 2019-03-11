@@ -4,8 +4,10 @@ import artists, {
   getArtists,
   getArtistsError
 } from "../artists";
-import { TOKEN, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
+import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
 import {
+  createArtistRequest,
+  createArtistSuccess,
   fetchArtistsRequest,
   fetchArtistsSuccess,
   fetchArtistsFailure
@@ -49,6 +51,25 @@ describe("artists", () => {
   describe("fetchArtistsFailure", () => {
     const stateBefore = artists(undefined, fetchArtistsRequest(TOKEN));
     const state = artists(stateBefore, fetchArtistsFailure(GENERIC_ERROR));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("createArtistSuccess", () => {
+    const { name } = ARTIST;
+    const stateBefore = artists(undefined, createArtistRequest(TOKEN, name));
+    const state = artists(stateBefore, createArtistSuccess(ARTIST));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("createArtistSuccess after fetch", () => {
+    const stateBefore = artists(undefined, fetchArtistsSuccess([]));
+    const state = artists(stateBefore, createArtistSuccess(ARTIST));
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);
