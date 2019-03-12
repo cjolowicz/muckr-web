@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 import type { Artist } from "../api/artist";
 
-type Props = {
+export type Props = {
   artists: ?Array<Artist>,
   isLoading: boolean
 };

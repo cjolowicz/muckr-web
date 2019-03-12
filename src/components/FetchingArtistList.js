@@ -2,11 +2,9 @@
 import React, { useEffect } from "react";
 
 import ArtistList from "./ArtistList";
-import type { Artist } from "../api/artist";
+import type { Props as BaseProps } from "./ArtistList";
 
-type Props = {
-  artists: ?Array<Artist>,
-  isLoading: boolean,
+type Props = BaseProps & {
   token: ?string,
   fetchArtists: Function
 };
@@ -20,7 +18,7 @@ const FetchingArtistList = (props: Props) => {
     }
   }, [token, fetchArtists]);
 
-  return <ArtistList {...props} />;
+  return <ArtistList {...(props: BaseProps)} />;
 };
 
 export default FetchingArtistList;
