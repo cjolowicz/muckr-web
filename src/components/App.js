@@ -17,18 +17,14 @@ const Artists = () => (
   </Layout>
 );
 
-const Routes = () => (
-  <Switch>
-    <Route path={routes.INDEX} exact component={Index} />
-    <Route path={routes.SIGNIN} component={SignIn} />
-    <PrivateRoute path={routes.ARTISTS} component={Artists} />
-  </Switch>
-);
-
 const App = () => (
   <>
     <CssBaseline />
-    <Routes />
+    <Switch>
+      <Route path={routes.INDEX} exact component={Index} />
+      <Route path={routes.SIGNIN} component={SignIn} />
+      <PrivateRoute path={routes.ARTISTS} component={Artists} />
+    </Switch>
     <Message />
   </>
 );
