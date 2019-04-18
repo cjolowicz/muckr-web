@@ -1,7 +1,8 @@
 // @flow
 import { just, fromMaybe } from "./utils";
 
-export const API_URL = just(process.env.API_URL);
+export const API_URL =
+  typeof window === "undefined" ? just(process.env.API_URL) : window.API_URL;
 export const NODE_ENV = fromMaybe("development", process.env.NODE_ENV);
 export const PORT = fromMaybe("8000", process.env.PORT);
 export const PRODUCTION = NODE_ENV === "production";
