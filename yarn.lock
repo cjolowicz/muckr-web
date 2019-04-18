@@ -9383,10 +9383,10 @@ unique-string@^1.0.0:
   dependencies:
     crypto-random-string "^1.0.0"
 
-universal-cookie-express@^3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.0.7.tgz#7654f95cd593c342cb742cf50bc3a0148b910b99"
-  integrity sha512-Nq4TxRR8gOQEGeVyqIHXvVRVVGi90n3nO1rL6MJOtUQlof0gx0lkKtM/Y0URbms8w3jizmV1omMuRG2dGLe2iw==
+universal-cookie-express@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/universal-cookie-express/-/universal-cookie-express-3.1.0.tgz#f85d04dcd655444ee50f1c1980ac9b6521624681"
+  integrity sha512-F3hMX6V1fBwBd85VlKCScG0zz1SVg2ZpZhX9dHT9QjFxeRxUgbHdz0dTjDGJ14GG7p2isCQe7qgXnZ8Nn90r0A==
   dependencies:
     universal-cookie "^3.0.7"
 
