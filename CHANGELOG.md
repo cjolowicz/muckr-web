@@ -6,6 +6,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.1] - 2019-04-18
+### Changed
+- Update dependencies:
+  - @babel/cli 7.4.3
+  - @babel/core 7.4.3
+  - @babel/plugin-proposal-class-properties 7.4.0
+  - @babel/plugin-proposal-object-rest-spread 7.4.3
+  - @babel/polyfill 7.4.3
+  - @babel/preset-env 7.4.3
+  - @material-ui/core 3.9.3
+  - compression 1.7.4
+  - history 4.9.0
+  - react 16.8.6
+  - react-dom 16.8.6
+  - react-redux 7.0.2
+  - react-router-dom 5.0.0
+  - universal-cookie 3.1.0
+  - universal-cookie-express 3.1.0
+- Update dev dependencies:
+  - babel-jest 24.7.1
+  - enzyme-adapter-react-16 1.12.1
+  - eslint 5.16.0
+  - eslint-plugin-compat 3.1.1
+  - eslint-plugin-flowtype 3.6.1
+  - eslint-plugin-import 2.17.2
+  - eslint-plugin-react-hooks 1.6.0
+  - flow-bin 0.97.0
+  - jest 24.7.1
+  - nodemon 1.18.11
+  - prettier 1.17.0
+  - react-test-renderer 16.8.6
+  - react-testing-library 6.1.2
+  - supertest 4.0.2
+  - webpack 4.30.0
+  - webpack-cli 3.3.0
+  - webpack-dev-server 3.3.1
+ 
 ## [0.9.0] - 2019-03-10
 ### Added
 - Add button for sign up.
