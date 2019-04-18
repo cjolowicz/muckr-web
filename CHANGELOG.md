@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - @babel/preset-env 7.4.3
   - @material-ui/core 3.9.3
   - compression 1.7.4
+  - dotenv 7.0.0
   - history 4.9.0
   - react 16.8.6
   - react-dom 16.8.6
