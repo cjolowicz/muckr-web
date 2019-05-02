@@ -1,8 +1,5 @@
 // @flow
 import path from "path";
-import "dotenv/config";
-// eslint-disable-next-line no-unused-vars
-import Dotenv from "dotenv-webpack";
 
 export default (env: Object) => ({
   entry: ["./src/client/index.js"],
