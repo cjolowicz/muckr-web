@@ -17,7 +17,7 @@
     "coverage:submit": "coveralls < coverage/lcov.info",
     "build": "run-s -y build:*",
     "build:babel": "babel --delete-dir-on-start src --out-dir lib --ignore '**/__tests__'",
-    "build:webpack": "webpack -p --progress",
+    "build:webpack": "webpack -p --env.production --progress",
     "heroku-postbuild": "yarn run build",
     "start": "node lib/server",
     "start:dev": "run-p -y start:dev:*",

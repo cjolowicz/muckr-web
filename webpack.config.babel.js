@@ -1,22 +1,15 @@
 // @flow
 import path from "path";
 import "dotenv/config";
+// eslint-disable-next-line no-unused-vars
 import Dotenv from "dotenv-webpack";
 
-import {
-  PRODUCTION,
-  WEBPACK_FILE,
-  WEBPACK_DIR,
-  WEBPACK_PUBLIC_PATH,
-  WEBPACK_PORT
-} from "./src/constants";
-
-export default {
+export default (env: Object) => ({
   entry: ["./src/client/index.js"],
   output: {
-    filename: WEBPACK_FILE,
-    path: path.resolve(__dirname, WEBPACK_DIR),
-    publicPath: WEBPACK_PUBLIC_PATH
+    filename: "js/bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: env.production ? "/static" : "http://localhost:7000/dist"
   },
   module: {
     rules: [
@@ -31,14 +24,9 @@ export default {
       }
     ]
   },
-  plugins: [
-    new Dotenv({
-      systemvars: true
-    })
-  ],
-  devtool: PRODUCTION ? "source-map" : "eval",
+  devtool: env.production ? "source-map" : "eval",
   devServer: {
-    port: WEBPACK_PORT
+    port: 7000
   },
-  mode: PRODUCTION ? "production" : "development"
-};
+  mode: env.production ? "production" : "development"
+});
