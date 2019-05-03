@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  muckr-web-nginx:
+    build: ./nginx
+    ports:
+      - 8000:80
+  muckr-web:
+    build: .
+    environment:
+      NODE_ENV: production
+      API_URL: http://localhost:9000
+      INTERNAL_API_URL: http://web-service-nginx
+    networks:
+      - servicenet
+      - default
+networks:
+  servicenet:
+    external: true
+    name: muckr-service_default
