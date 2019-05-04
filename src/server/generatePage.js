@@ -1,10 +1,6 @@
 // @flow
-import {
-  APP_ROOT,
-  API_URL,
-  JSS_STYLE_ID,
-  WEBPACK_LOCATION
-} from "../constants";
+import { APP_ROOT, API_URL, JSS_STYLE_ID } from "../constants";
+import { WEBPACK_LOCATION } from "./constants";
 
 export default function generatePage(html: string, css: string, state: string) {
   return `<!doctype html>

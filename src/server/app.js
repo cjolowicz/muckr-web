@@ -4,7 +4,7 @@ import compression from "compression";
 import cookiesMiddleware from "universal-cookie-express";
 
 import render from "./render";
-import { STATIC_PATH, WEBPACK_DIR } from "../constants";
+import { STATIC_PATH, WEBPACK_DIR } from "./constants";
 
 const app = express();
 

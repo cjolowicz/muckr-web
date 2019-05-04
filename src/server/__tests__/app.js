@@ -5,7 +5,7 @@
 import request from "supertest";
 
 import app from "../app";
-import { WEBPACK_LOCATION } from "../../constants";
+import { WEBPACK_LOCATION } from "../constants";
 
 describe("GET /", () => {
   it("responds with status 200", async () => {

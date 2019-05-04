@@ -2,7 +2,7 @@
 import "dotenv/config";
 
 // eslint-disable-next-line import/named
-import { PORT, NODE_ENV } from "../constants";
+import { PORT, NODE_ENV } from "./constants";
 import app from "./app";
 
 app.listen(PORT, () => {
