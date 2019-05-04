@@ -8,7 +8,7 @@ export const WEBPACK_DIR = "dist";
 
 const WEBPACK_FILE = "js/bundle.js";
 const WEBPACK_URL = "http://localhost:7000/dist";
-
-export const WEBPACK_PUBLIC_PATH =
+const WEBPACK_PUBLIC_PATH =
   NODE_ENV === "production" ? STATIC_PATH : WEBPACK_URL;
+
 export const WEBPACK_LOCATION = `${WEBPACK_PUBLIC_PATH}/${WEBPACK_FILE}`;

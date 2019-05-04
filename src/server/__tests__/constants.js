@@ -1,6 +1,6 @@
 // @flow
 /* eslint-disable global-require */
-describe("WEBPACK_PUBLIC_PATH", () => {
+describe("WEBPACK_LOCATION", () => {
   const ENV = process.env;
 
   beforeEach(() => {
@@ -14,16 +14,16 @@ describe("WEBPACK_PUBLIC_PATH", () => {
   describe("in production", () => {
     it("should start with /", () => {
       process.env.NODE_ENV = "production";
-      const { WEBPACK_PUBLIC_PATH } = require("../constants");
-      expect(WEBPACK_PUBLIC_PATH).toMatch(/^\//);
+      const { WEBPACK_LOCATION } = require("../constants");
+      expect(WEBPACK_LOCATION).toMatch(/^\//);
     });
   });
 
   describe("in development", () => {
     it("should contain localhost", () => {
       process.env.NODE_ENV = "development";
-      const { WEBPACK_PUBLIC_PATH } = require("../constants");
-      expect(WEBPACK_PUBLIC_PATH).toEqual(expect.stringContaining("localhost"));
+      const { WEBPACK_LOCATION } = require("../constants");
+      expect(WEBPACK_LOCATION).toEqual(expect.stringContaining("localhost"));
     });
   });
 });
