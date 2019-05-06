@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2019-05-08
+### Added
+- Add Dockerfile.
+- Add Docker Compose file.
+- Add `INTERNAL_API_URL` setting.
+
+### Changed
+- Use server environment for API_URL.
+- Do not use dotenv for webpack configuration.
+- Refactor webpack configuration.
+- Separate server-only constants.
+
 ## [0.9.2] - 2019-05-08
 ### Changed
 - Update dependencies:
@@ -328,7 +340,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...HEAD
+[0.10.0]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...v0.10.0
 [0.9.2]: https://github.com/cjolowicz/muckr-web/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/cjolowicz/muckr-web/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/cjolowicz/muckr-web/compare/v0.8.1...v0.9.0
