@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.2] - 2019-05-08
+### Changed
+- Update dependencies:
+  - @babel/polyfill 7.4.4
+  - dotenv 8.0.0
+  - react-redux 7.0.3
+  - universal-cookie 4.0.0
+  - universal-cookie-express 4.0.0
+- Update dev dependencies:
+  - @babel/cli 7.4.4
+  - @babel/core 7.4.4
+  - @babel/plugin-proposal-class-properties 7.4.4
+  - @babel/plugin-proposal-object-rest-spread 7.4.4
+  - @babel/preset-env 7.4.4
+  - babel-jest 24.8.0
+  - eslint-config-prettier 4.2.0
+  - eslint-plugin-flowtype 3.8.1
+  - eslint-plugin-react 7.13.0
+  - flow-bin 0.98.1
+  - jest 24.8.0
+  - nodemon 1.19.0
+  - react-testing-library 7.0.0
+  - webpack-cli 3.3.2
+
 ## [0.9.1] - 2019-04-18
 ### Changed
 - Update dependencies:
@@ -304,7 +328,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.9.1...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...HEAD
+[0.9.2]: https://github.com/cjolowicz/muckr-web/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/cjolowicz/muckr-web/compare/v0.9.0...v0.9.1
 [0.9.0]: https://github.com/cjolowicz/muckr-web/compare/v0.8.1...v0.9.0
 [0.8.1]: https://github.com/cjolowicz/muckr-web/compare/v0.8.0...v0.8.1
