@@ -76,7 +76,7 @@
     "flow-bin": "^0.97.0",
     "flow-typed": "^2.5.1",
     "history": "^4.9.0",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
     "nodemon": "^1.18.11",
