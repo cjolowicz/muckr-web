@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 // @flow
 import request from "supertest";
 
