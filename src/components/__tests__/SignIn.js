@@ -2,7 +2,7 @@
 import React from "react";
 import type { Location } from "react-router-dom";
 import { Switch, Route, Router } from "react-router-dom";
-import { render, fireEvent, cleanup } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import { createMemoryHistory } from "history";
 
 import { PureSignIn as SignIn } from "../SignIn";
@@ -15,8 +15,6 @@ const mockClasses = {
   form: "form",
   submit: "submit"
 };
-
-afterEach(cleanup);
 
 const onSubmit = jest.fn();
 

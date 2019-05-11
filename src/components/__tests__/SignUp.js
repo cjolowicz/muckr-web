@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { Switch, Route, Router } from "react-router-dom";
-import { render, fireEvent, cleanup } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import { createMemoryHistory } from "history";
 
 import { PureSignUp as SignUp, styles } from "../SignUp";
@@ -15,8 +15,6 @@ const mockClasses = {
   form: "form",
   submit: "submit"
 };
-
-afterEach(cleanup);
 
 const onSubmit = jest.fn();
 
