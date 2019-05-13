@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2019-05-13
+### Added
+- Add dialog for creating artists.
+
+### Changed
+- Remove placeholder message in artist list.
+- Update dev dependencies:
+  - babel-loader 8.0.6
+  - enzyme-adapter-react-16 1.13.0
+  - eslint-plugin-flowtype 3.8.2
+  - eslint-plugin-prettier 3.1.0
+  - prettier 1.17.1
+  - webpack 4.31.0
+
 ## [0.10.0] - 2019-05-08
 ### Added
 - Add Dockerfile.
@@ -340,7 +354,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...v0.10.0
 [0.9.2]: https://github.com/cjolowicz/muckr-web/compare/v0.9.1...v0.9.2
 [0.9.1]: https://github.com/cjolowicz/muckr-web/compare/v0.9.0...v0.9.1
