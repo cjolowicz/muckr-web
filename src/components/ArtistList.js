@@ -15,9 +15,6 @@ type Props = {
 const ArtistList = ({ artists, isLoading }: Props) => (
   <>
     {isLoading ? <Typography>Loading...</Typography> : null}
-    {!(isLoading || (artists && artists.length)) ? (
-      <Typography>No artists</Typography>
-    ) : null}
     <List>
       {artists &&
         artists.map(artist => (

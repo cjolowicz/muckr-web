@@ -18,12 +18,5 @@ describe("ArtistList", () => {
       const { getByText } = render(<ArtistList artists={ARTISTS} isLoading />);
       expect(getByText("Loading...")).not.toBeNull();
     });
-
-    it("renders message if no artists", () => {
-      const { getByText } = render(
-        <ArtistList artists={null} isLoading={false} />
-      );
-      expect(getByText("No artists")).not.toBeNull();
-    });
   });
 });
