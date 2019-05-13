@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 import FetchingArtistList from "../components/FetchingArtistList";
-import { fetchArtists } from "../actions/artist";
+import { fetchArtists, createArtist } from "../actions/artist";
 import { getArtists, isFetchingArtists, getToken } from "../reducers";
 
 export default connect(
@@ -11,5 +11,5 @@ export default connect(
     isLoading: isFetchingArtists(state),
     token: getToken(state)
   }),
-  { fetchArtists }
+  { fetchArtists, createArtist }
 )(FetchingArtistList);

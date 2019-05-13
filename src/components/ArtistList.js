@@ -6,13 +6,16 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
 import type { Artist } from "../api/artist";
+import CreateArtistDialog from "./CreateArtistDialog";
 
 export type Props = {
+  token: ?string,
   artists: ?Array<Artist>,
-  isLoading: boolean
+  isLoading: boolean,
+  createArtist: Function
 };
 
-const ArtistList = ({ artists, isLoading }: Props) => (
+const ArtistList = ({ token, artists, isLoading, createArtist }: Props) => (
   <>
     {isLoading ? <Typography>Loading...</Typography> : null}
     <List>
@@ -23,6 +26,7 @@ const ArtistList = ({ artists, isLoading }: Props) => (
           </ListItem>
         ))}
     </List>
+    <CreateArtistDialog token={token} createArtist={createArtist} />
   </>
 );
 

@@ -10,6 +10,7 @@ describe("FetchingArtistList", () => {
   describe("without token", () => {
     it("does not fetch artists", () => {
       const fetchArtists = jest.fn();
+      const createArtist = jest.fn();
       act(() => {
         mount(
           <FetchingArtistList
@@ -17,6 +18,7 @@ describe("FetchingArtistList", () => {
             isLoading={false}
             token={null}
             fetchArtists={fetchArtists}
+            createArtist={createArtist}
           />
         );
       });
@@ -27,6 +29,7 @@ describe("FetchingArtistList", () => {
   describe("with token", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
+      const createArtist = jest.fn();
       act(() => {
         mount(
           <FetchingArtistList
@@ -34,6 +37,7 @@ describe("FetchingArtistList", () => {
             isLoading={false}
             token={TOKEN}
             fetchArtists={fetchArtists}
+            createArtist={createArtist}
           />
         );
       });
@@ -44,6 +48,7 @@ describe("FetchingArtistList", () => {
   describe("on token update", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
+      const createArtist = jest.fn();
       act(() => {
         const wrapper = mount(
           <FetchingArtistList
@@ -51,6 +56,7 @@ describe("FetchingArtistList", () => {
             isLoading={false}
             token={null}
             fetchArtists={fetchArtists}
+            createArtist={createArtist}
           />
         );
         wrapper.setProps({ token: TOKEN });
@@ -62,6 +68,7 @@ describe("FetchingArtistList", () => {
   describe("on no-op update", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
+      const createArtist = jest.fn();
       act(() => {
         const wrapper = mount(
           <FetchingArtistList
@@ -69,6 +76,7 @@ describe("FetchingArtistList", () => {
             isLoading={false}
             token={null}
             fetchArtists={fetchArtists}
+            createArtist={createArtist}
           />
         );
         wrapper.setProps({});
