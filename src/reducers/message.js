@@ -7,6 +7,8 @@ import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../actions/user";
 import {
   CREATE_ARTIST_SUCCESS,
   CREATE_ARTIST_FAILURE,
+  REMOVE_ARTIST_SUCCESS,
+  REMOVE_ARTIST_FAILURE,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../actions/artist";
@@ -26,11 +28,13 @@ function open(state = initialState.open, action) {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
+    case REMOVE_ARTIST_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
     case OPEN_MESSAGE:
     case CREATE_USER_SUCCESS:
     case CREATE_ARTIST_SUCCESS:
+    case REMOVE_ARTIST_SUCCESS:
       return true;
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
@@ -47,6 +51,8 @@ function formatFailedAction(actionType) {
       return "Cannot create user";
     case CREATE_ARTIST_FAILURE:
       return "Cannot create artist";
+    case REMOVE_ARTIST_FAILURE:
+      return "Cannot remove artist";
     case FETCH_TOKEN_FAILURE:
       return "Cannot log in";
     case FETCH_ARTISTS_FAILURE:
@@ -65,6 +71,7 @@ function message(state = initialState.message, action) {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
+    case REMOVE_ARTIST_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
       return formatErrorMessage(action.type, action.error.message);
@@ -74,6 +81,8 @@ function message(state = initialState.message, action) {
       return "Account created";
     case CREATE_ARTIST_SUCCESS:
       return "Artist created";
+    case REMOVE_ARTIST_SUCCESS:
+      return "Artist removed";
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:
