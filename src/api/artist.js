@@ -27,3 +27,9 @@ export async function createArtist(token: string, name: string) {
 
   return response.data;
 }
+
+export async function removeArtist(token: string, id: number) {
+  await axios.delete(`${API_URL}/artists/${id}`, {
+    headers: createTokenAuthHeader(token)
+  });
+}
