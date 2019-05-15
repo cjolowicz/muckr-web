@@ -17,7 +17,8 @@ export type Props = {
   token: ?string,
   artists: ?Array<Artist>,
   isLoading: boolean,
-  createArtist: Function
+  createArtist: Function,
+  removeArtist: Function
 };
 
 const ArtistList = ({
@@ -25,7 +26,8 @@ const ArtistList = ({
   token,
   artists,
   isLoading,
-  createArtist
+  createArtist,
+  removeArtist
 }: Props) => (
   <>
     {isLoading ? <Typography>Loading...</Typography> : null}
@@ -43,6 +45,7 @@ const ArtistList = ({
                 aria-label="Delete"
                 title="Delete"
                 className={classes.delete}
+                onClick={() => removeArtist(token, artist.id)}
               >
                 <DeleteIcon />
               </IconButton>

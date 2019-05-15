@@ -10,6 +10,7 @@ describe("FetchingArtistList", () => {
     it("does not fetch artists", () => {
       const fetchArtists = jest.fn();
       const createArtist = jest.fn();
+      const removeArtist = jest.fn();
       render(
         <FetchingArtistList
           classes={{}}
@@ -18,6 +19,7 @@ describe("FetchingArtistList", () => {
           token={null}
           fetchArtists={fetchArtists}
           createArtist={createArtist}
+          removeArtist={removeArtist}
         />
       );
       expect(fetchArtists).not.toHaveBeenCalled();
@@ -28,6 +30,7 @@ describe("FetchingArtistList", () => {
     it("fetches artists", () => {
       const fetchArtists = jest.fn();
       const createArtist = jest.fn();
+      const removeArtist = jest.fn();
       render(
         <FetchingArtistList
           classes={{}}
@@ -36,6 +39,7 @@ describe("FetchingArtistList", () => {
           token={TOKEN}
           fetchArtists={fetchArtists}
           createArtist={createArtist}
+          removeArtist={removeArtist}
         />
       );
       expect(fetchArtists).toHaveBeenCalled();
