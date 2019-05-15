@@ -7,7 +7,10 @@ import {
   FETCH_ARTISTS_FAILURE,
   CREATE_ARTIST_REQUEST,
   CREATE_ARTIST_SUCCESS,
-  CREATE_ARTIST_FAILURE
+  CREATE_ARTIST_FAILURE,
+  REMOVE_ARTIST_REQUEST,
+  REMOVE_ARTIST_SUCCESS,
+  REMOVE_ARTIST_FAILURE
 } from "../actions/artist";
 import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
@@ -29,12 +32,15 @@ function isFetching(state = initialState.isFetching, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case CREATE_ARTIST_REQUEST:
+    case REMOVE_ARTIST_REQUEST:
       return true;
     case FETCH_ARTISTS_SUCCESS:
     case CREATE_ARTIST_SUCCESS:
+    case REMOVE_ARTIST_SUCCESS:
       return false;
     case FETCH_ARTISTS_FAILURE:
     case CREATE_ARTIST_FAILURE:
+    case REMOVE_ARTIST_FAILURE:
       return false;
     default:
       return state;
@@ -47,6 +53,10 @@ function artists(state = initialState.artists, action: Action) {
       return action.artists;
     case CREATE_ARTIST_SUCCESS:
       return state == null ? [action.artist] : [...state, action.artist];
+    case REMOVE_ARTIST_SUCCESS: {
+      const { id } = action;
+      return state == null ? null : state.filter(artist => artist.id !== id);
+    }
     case FETCH_ARTISTS_FAILURE:
       return null;
     default:
@@ -60,9 +70,12 @@ function error(state = initialState.error, action: Action) {
     case FETCH_ARTISTS_SUCCESS:
     case CREATE_ARTIST_REQUEST:
     case CREATE_ARTIST_SUCCESS:
+    case REMOVE_ARTIST_REQUEST:
+    case REMOVE_ARTIST_SUCCESS:
       return null;
     case FETCH_ARTISTS_FAILURE:
     case CREATE_ARTIST_FAILURE:
+    case REMOVE_ARTIST_FAILURE:
       return action.error;
     default:
       return state;
