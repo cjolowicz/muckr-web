@@ -22,7 +22,7 @@
     "start": "node lib/server",
     "start:dev": "run-p -y start:dev:*",
     "start:dev:nodemon": "nodemon --ignore lib --ignore dist --exec babel-node .",
-    "start:dev:webpack": "webpack-dev-server"
+    "start:dev:webpack": "webpack-dev-server --env.production=false"
   },
   "browserslist": [
     "last 1 version",
