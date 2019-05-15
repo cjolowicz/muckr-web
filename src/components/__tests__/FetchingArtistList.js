@@ -12,6 +12,7 @@ describe("FetchingArtistList", () => {
       const createArtist = jest.fn();
       render(
         <FetchingArtistList
+          classes={{}}
           artists={null}
           isLoading={false}
           token={null}
@@ -29,6 +30,7 @@ describe("FetchingArtistList", () => {
       const createArtist = jest.fn();
       render(
         <FetchingArtistList
+          classes={{}}
           artists={null}
           isLoading={false}
           token={TOKEN}
