@@ -1,9 +1,17 @@
 // @flow
 import React from "react";
-import { render } from "react-testing-library";
+import { fireEvent, render, within } from "react-testing-library";
 
 import FetchingArtistList from "../FetchingArtistList";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
+
+const findParentByTagName = (element, tagName) => {
+  let current = element;
+  while (current.tagName !== tagName && current.parentElement) {
+    current = current.parentElement;
+  }
+  return current;
+};
 
 describe("FetchingArtistList", () => {
   describe("without token", () => {
@@ -43,6 +51,30 @@ describe("FetchingArtistList", () => {
         />
       );
       expect(fetchArtists).toHaveBeenCalled();
+    });
+  });
+
+  describe("on delete", () => {
+    it("removes the artist", () => {
+      const fetchArtists = jest.fn();
+      const createArtist = jest.fn();
+      const removeArtist = jest.fn();
+      const { getByText } = render(
+        <FetchingArtistList
+          classes={{}}
+          artists={ARTISTS}
+          isLoading={false}
+          token={TOKEN}
+          fetchArtists={fetchArtists}
+          createArtist={createArtist}
+          removeArtist={removeArtist}
+        />
+      );
+      const artistNode = getByText(ARTIST.name);
+      const listItem = findParentByTagName(artistNode, "LI");
+      const deleteButton = within(listItem).getByTitle("Delete");
+      fireEvent.click(deleteButton);
+      expect(removeArtist).toHaveBeenCalled();
     });
   });
 });
