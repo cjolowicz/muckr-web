@@ -1,7 +1,7 @@
 // @flow
 import axios from "axios";
 
-import { fetchArtists, createArtist } from "../artist";
+import { fetchArtists, createArtist, removeArtist } from "../artist";
 import { TOKEN, ARTIST } from "../../test/fixtures";
 
 describe("fetchArtists", () => {
@@ -31,5 +31,18 @@ describe("createArtist", () => {
     const { name } = ARTIST;
     const artist = await createArtist(TOKEN, name);
     expect(artist).toEqual(ARTIST);
+  });
+});
+
+describe("removeArtist", () => {
+  const promise = Promise.resolve({});
+
+  beforeAll(() => {
+    jest.spyOn(axios, "delete").mockReturnValue(promise);
+  });
+
+  it("succeeds", async () => {
+    const { id } = ARTIST;
+    await removeArtist(TOKEN, id);
   });
 });
