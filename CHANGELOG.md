@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2019-05-17
+### Added
+- Add button to remove artists.
+
+### Fixed
+- Fix missing --env option for webpack-dev-server.
+
+### Changed
+- Update dependencies:
+  - express 4.17.0
+- Update dev dependencies:
+  - flow-typed 2.5.2
+  - eslint-plugin-flowtype 3.9.0
+  - eslint-config-prettier 4.3.0
+
 ## [0.11.0] - 2019-05-13
 ### Added
 - Add dialog for creating artists.
@@ -354,7 +369,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/cjolowicz/muckr-web/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...v0.10.0
 [0.9.2]: https://github.com/cjolowicz/muckr-web/compare/v0.9.1...v0.9.2
