@@ -6,12 +6,16 @@ import type { Dispatch } from "../artist";
 import {
   fetchArtists,
   createArtist,
+  removeArtist,
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE,
   CREATE_ARTIST_REQUEST,
   CREATE_ARTIST_SUCCESS,
-  CREATE_ARTIST_FAILURE
+  CREATE_ARTIST_FAILURE,
+  REMOVE_ARTIST_REQUEST,
+  REMOVE_ARTIST_SUCCESS,
+  REMOVE_ARTIST_FAILURE
 } from "../artist";
 import * as api from "../../api/artist";
 import { unsafeCast } from "../../utils";
@@ -39,6 +43,18 @@ const mockCreateArtist = promise => {
 
   afterAll(() => {
     mock(api.createArtist).mockRestore();
+  });
+
+  return promise;
+};
+
+const mockRemoveArtist = promise => {
+  beforeAll(() => {
+    jest.spyOn(api, "removeArtist").mockReturnValue(promise);
+  });
+
+  afterAll(() => {
+    mock(api.removeArtist).mockRestore();
   });
 
   return promise;
@@ -176,6 +192,74 @@ describe("createArtist", () => {
       const action = actions[1];
 
       expect(action.type).toEqual(CREATE_ARTIST_FAILURE);
+    });
+  });
+});
+
+describe("removeArtist", () => {
+  describe("on success", () => {
+    const promise = mockRemoveArtist(Promise.resolve({}));
+
+    it("dispatches REMOVE_ARTIST_REQUEST", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(removeArtist(TOKEN, ARTIST.id));
+
+      const actions = store.getActions();
+      const action = actions[0];
+
+      expect(action.type).toEqual(REMOVE_ARTIST_REQUEST);
+    });
+
+    it("dispatches REMOVE_ARTIST_SUCCESS", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(removeArtist(TOKEN, ARTIST.id));
+      await promise;
+
+      const actions = store.getActions();
+      const action = actions[1];
+
+      expect(action.type).toEqual(REMOVE_ARTIST_SUCCESS);
+    });
+  });
+
+  describe("on error", () => {
+    expect.assertions(1);
+
+    const error = Error("fail");
+    const promise = mockRemoveArtist(Promise.reject(error));
+
+    it("dispatches REMOVE_ARTIST_REQUEST", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(removeArtist(TOKEN, ARTIST.id));
+
+      const actions = store.getActions();
+      const action = actions[0];
+
+      expect(action.type).toEqual(REMOVE_ARTIST_REQUEST);
+    });
+
+    it("dispatches REMOVE_ARTIST_FAILURE", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(removeArtist(TOKEN, ARTIST.id));
+
+      try {
+        await promise;
+      } catch (unused) {
+        // ignore
+      }
+
+      const actions = store.getActions();
+      const action = actions[1];
+
+      expect(action.type).toEqual(REMOVE_ARTIST_FAILURE);
     });
   });
 });
