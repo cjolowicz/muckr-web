@@ -9,6 +9,8 @@ import { fetchTokenFailure } from "../../actions/token";
 import {
   createArtistSuccess,
   createArtistFailure,
+  removeArtistSuccess,
+  removeArtistFailure,
   fetchArtistsFailure
 } from "../../actions/artist";
 import { createUserSuccess, createUserFailure } from "../../actions/user";
@@ -116,6 +118,33 @@ describe("message", () => {
 
         it("has success message", () => {
           expect(getMessage(state)).toEqual("Artist created");
+        });
+      });
+
+      describe("removeArtistFailure", () => {
+        const action = removeArtistFailure(GENERIC_ERROR);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has error message", () => {
+          expect(getMessage(state)).toEqual("Cannot remove artist: failure");
+        });
+      });
+
+      describe("removeArtistSuccess", () => {
+        const { id } = ARTIST;
+        const action = removeArtistSuccess(id);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has success message", () => {
+          expect(getMessage(state)).toEqual("Artist removed");
         });
       });
 
