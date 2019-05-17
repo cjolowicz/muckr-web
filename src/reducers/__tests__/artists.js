@@ -8,6 +8,9 @@ import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
 import {
   createArtistRequest,
   createArtistSuccess,
+  removeArtistRequest,
+  removeArtistSuccess,
+  removeArtistFailure,
   fetchArtistsRequest,
   fetchArtistsSuccess,
   fetchArtistsFailure
@@ -70,6 +73,36 @@ describe("artists", () => {
   describe("createArtistSuccess after fetch", () => {
     const stateBefore = artists(undefined, fetchArtistsSuccess([]));
     const state = artists(stateBefore, createArtistSuccess(ARTIST));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("removeArtistSuccess", () => {
+    const { id } = ARTIST;
+    const stateBefore = artists(undefined, removeArtistRequest(TOKEN, id));
+    const state = artists(stateBefore, removeArtistSuccess(id));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("removeArtistSuccess after fetch", () => {
+    const { id } = ARTIST;
+    const stateBefore = artists(undefined, fetchArtistsSuccess([]));
+    const state = artists(stateBefore, removeArtistSuccess(id));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("removeArtistFailure", () => {
+    const { id } = ARTIST;
+    const stateBefore = artists(undefined, removeArtistRequest(TOKEN, id));
+    const state = artists(stateBefore, removeArtistFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);
