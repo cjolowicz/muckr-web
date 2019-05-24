@@ -11,6 +11,9 @@ export const CREATE_ARTIST_FAILURE = "CREATE_ARTIST_FAILURE";
 export const REMOVE_ARTIST_REQUEST = "REMOVE_ARTIST_REQUEST";
 export const REMOVE_ARTIST_SUCCESS = "REMOVE_ARTIST_SUCCESS";
 export const REMOVE_ARTIST_FAILURE = "REMOVE_ARTIST_FAILURE";
+export const UPDATE_ARTIST_REQUEST = "UPDATE_ARTIST_REQUEST";
+export const UPDATE_ARTIST_SUCCESS = "UPDATE_ARTIST_SUCCESS";
+export const UPDATE_ARTIST_FAILURE = "UPDATE_ARTIST_FAILURE";
 
 export type FetchArtistsRequestAction = {
   type: typeof FETCH_ARTISTS_REQUEST,
@@ -59,6 +62,22 @@ export type RemoveArtistFailureAction = {
   error: FetchError
 };
 
+export type UpdateArtistRequestAction = {
+  type: typeof UPDATE_ARTIST_REQUEST,
+  token: string,
+  artist: api.Artist
+};
+
+export type UpdateArtistSuccessAction = {
+  type: typeof UPDATE_ARTIST_SUCCESS,
+  artist: api.Artist
+};
+
+export type UpdateArtistFailureAction = {
+  type: typeof UPDATE_ARTIST_FAILURE,
+  error: FetchError
+};
+
 export type ArtistAction =
   | FetchArtistsRequestAction
   | FetchArtistsSuccessAction
@@ -68,7 +87,10 @@ export type ArtistAction =
   | CreateArtistFailureAction
   | RemoveArtistRequestAction
   | RemoveArtistSuccessAction
-  | RemoveArtistFailureAction;
+  | RemoveArtistFailureAction
+  | UpdateArtistRequestAction
+  | UpdateArtistSuccessAction
+  | UpdateArtistFailureAction;
 
 export const fetchArtistsRequest = (
   token: string
@@ -135,6 +157,29 @@ export const removeArtistFailure = (
   error
 });
 
+export const updateArtistRequest = (
+  token: string,
+  artist: api.Artist
+): UpdateArtistRequestAction => ({
+  type: UPDATE_ARTIST_REQUEST,
+  token,
+  artist
+});
+
+export const updateArtistSuccess = (
+  artist: api.Artist
+): UpdateArtistSuccessAction => ({
+  type: UPDATE_ARTIST_SUCCESS,
+  artist
+});
+
+export const updateArtistFailure = (
+  error: FetchError
+): UpdateArtistFailureAction => ({
+  type: UPDATE_ARTIST_FAILURE,
+  error
+});
+
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
 export type Dispatch = (ArtistAction | ThunkAction) => any;
@@ -173,5 +218,18 @@ export const removeArtist = (token: string, id: number) => (
     .then(
       () => dispatch(removeArtistSuccess(id)),
       error => dispatch(removeArtistFailure(error))
+    );
+};
+
+export const updateArtist = (token: string, artist: api.Artist) => (
+  dispatch: Dispatch
+) => {
+  dispatch(updateArtistRequest(token, artist));
+
+  return api
+    .updateArtist(token, artist)
+    .then(
+      () => dispatch(updateArtistSuccess(artist)),
+      error => dispatch(updateArtistFailure(error))
     );
 };
