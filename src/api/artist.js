@@ -33,3 +33,15 @@ export async function removeArtist(token: string, id: number) {
     headers: createTokenAuthHeader(token)
   });
 }
+
+export async function updateArtist(token: string, { id, name }: Artist) {
+  const response = await axios.put(
+    `${API_URL}/artists/${id}`,
+    { name },
+    {
+      headers: createTokenAuthHeader(token)
+    }
+  );
+
+  return response.data;
+}
