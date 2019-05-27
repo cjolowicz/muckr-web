@@ -11,6 +11,8 @@ import {
   createArtistFailure,
   removeArtistSuccess,
   removeArtistFailure,
+  updateArtistSuccess,
+  updateArtistFailure,
   fetchArtistsFailure
 } from "../../actions/artist";
 import { createUserSuccess, createUserFailure } from "../../actions/user";
@@ -145,6 +147,32 @@ describe("message", () => {
 
         it("has success message", () => {
           expect(getMessage(state)).toEqual("Artist removed");
+        });
+      });
+
+      describe("updateArtistFailure", () => {
+        const action = updateArtistFailure(GENERIC_ERROR);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has error message", () => {
+          expect(getMessage(state)).toEqual("Cannot update artist: failure");
+        });
+      });
+
+      describe("updateArtistSuccess", () => {
+        const action = updateArtistSuccess(ARTIST);
+        const state = reducer({ open, message }, action);
+
+        it("is open", () => {
+          expect(isMessageOpen(state)).toBe(true);
+        });
+
+        it("has success message", () => {
+          expect(getMessage(state)).toEqual("Artist updated");
         });
       });
 
