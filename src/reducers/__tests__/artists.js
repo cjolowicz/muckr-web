@@ -11,6 +11,9 @@ import {
   removeArtistRequest,
   removeArtistSuccess,
   removeArtistFailure,
+  updateArtistRequest,
+  updateArtistSuccess,
+  updateArtistFailure,
   fetchArtistsRequest,
   fetchArtistsSuccess,
   fetchArtistsFailure
@@ -103,6 +106,33 @@ describe("artists", () => {
     const { id } = ARTIST;
     const stateBefore = artists(undefined, removeArtistRequest(TOKEN, id));
     const state = artists(stateBefore, removeArtistFailure(GENERIC_ERROR));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("updateArtistSuccess", () => {
+    const stateBefore = artists(undefined, updateArtistRequest(TOKEN, ARTIST));
+    const state = artists(stateBefore, updateArtistSuccess(ARTIST));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("updateArtistSuccess after fetch", () => {
+    const stateBefore = artists(undefined, fetchArtistsSuccess(ARTISTS));
+    const state = artists(stateBefore, updateArtistSuccess(ARTIST));
+
+    it("is not fetching", () => {
+      expect(isFetchingArtists(state)).toBe(false);
+    });
+  });
+
+  describe("updateArtistFailure", () => {
+    const stateBefore = artists(undefined, updateArtistRequest(TOKEN, ARTIST));
+    const state = artists(stateBefore, updateArtistFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);
