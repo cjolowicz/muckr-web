@@ -7,6 +7,7 @@ import {
   fetchArtists,
   createArtist,
   removeArtist,
+  updateArtist,
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE,
@@ -15,7 +16,10 @@ import {
   CREATE_ARTIST_FAILURE,
   REMOVE_ARTIST_REQUEST,
   REMOVE_ARTIST_SUCCESS,
-  REMOVE_ARTIST_FAILURE
+  REMOVE_ARTIST_FAILURE,
+  UPDATE_ARTIST_REQUEST,
+  UPDATE_ARTIST_SUCCESS,
+  UPDATE_ARTIST_FAILURE
 } from "../artist";
 import * as api from "../../api/artist";
 import { unsafeCast } from "../../utils";
@@ -55,6 +59,18 @@ const mockRemoveArtist = promise => {
 
   afterAll(() => {
     mock(api.removeArtist).mockRestore();
+  });
+
+  return promise;
+};
+
+const mockUpdateArtist = promise => {
+  beforeAll(() => {
+    jest.spyOn(api, "updateArtist").mockReturnValue(promise);
+  });
+
+  afterAll(() => {
+    mock(api.updateArtist).mockRestore();
   });
 
   return promise;
@@ -260,6 +276,74 @@ describe("removeArtist", () => {
       const action = actions[1];
 
       expect(action.type).toEqual(REMOVE_ARTIST_FAILURE);
+    });
+  });
+});
+
+describe("updateArtist", () => {
+  describe("on success", () => {
+    const promise = mockUpdateArtist(Promise.resolve(ARTIST));
+
+    it("dispatches UPDATE_ARTIST_REQUEST", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(updateArtist(TOKEN, ARTIST));
+
+      const actions = store.getActions();
+      const action = actions[0];
+
+      expect(action.type).toEqual(UPDATE_ARTIST_REQUEST);
+    });
+
+    it("dispatches UPDATE_ARTIST_SUCCESS", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(updateArtist(TOKEN, ARTIST));
+      await promise;
+
+      const actions = store.getActions();
+      const action = actions[1];
+
+      expect(action.type).toEqual(UPDATE_ARTIST_SUCCESS);
+    });
+  });
+
+  describe("on error", () => {
+    expect.assertions(1);
+
+    const error = Error("fail");
+    const promise = mockUpdateArtist(Promise.reject(error));
+
+    it("dispatches UPDATE_ARTIST_REQUEST", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(updateArtist(TOKEN, ARTIST));
+
+      const actions = store.getActions();
+      const action = actions[0];
+
+      expect(action.type).toEqual(UPDATE_ARTIST_REQUEST);
+    });
+
+    it("dispatches UPDATE_ARTIST_FAILURE", async () => {
+      const store = mockStore({});
+      const dispatch = unsafeCast<Dispatch>(store.dispatch);
+
+      await dispatch(updateArtist(TOKEN, ARTIST));
+
+      try {
+        await promise;
+      } catch (unused) {
+        // ignore
+      }
+
+      const actions = store.getActions();
+      const action = actions[1];
+
+      expect(action.type).toEqual(UPDATE_ARTIST_FAILURE);
     });
   });
 });
