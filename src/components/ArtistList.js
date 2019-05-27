@@ -1,6 +1,7 @@
 // @flow
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -11,6 +12,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 import type { Artist } from "../api/artist";
 import CreateArtistDialog from "./CreateArtistDialog";
+import UpdateArtistDialog from "../containers/UpdateArtistDialog";
 
 export type Props = {
   classes: Object,
@@ -18,7 +20,8 @@ export type Props = {
   artists: ?Array<Artist>,
   isLoading: boolean,
   createArtist: Function,
-  removeArtist: Function
+  removeArtist: Function,
+  openDialog: Function
 };
 
 const ArtistList = ({
@@ -27,7 +30,8 @@ const ArtistList = ({
   artists,
   isLoading,
   createArtist,
-  removeArtist
+  removeArtist,
+  openDialog
 }: Props) => (
   <>
     {isLoading ? <Typography>Loading...</Typography> : null}
@@ -42,6 +46,14 @@ const ArtistList = ({
             <ListItemText primary={artist.name} />
             <ListItemSecondaryAction>
               <IconButton
+                aria-label="Edit"
+                title="Edit"
+                className={classes.delete}
+                onClick={() => openDialog(artist)}
+              >
+                <EditIcon />
+              </IconButton>
+              <IconButton
                 aria-label="Delete"
                 title="Delete"
                 className={classes.delete}
@@ -54,6 +66,7 @@ const ArtistList = ({
         ))}
     </List>
     <CreateArtistDialog token={token} createArtist={createArtist} />
+    <UpdateArtistDialog />
   </>
 );
 
