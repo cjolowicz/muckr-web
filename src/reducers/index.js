@@ -1,6 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
+import dialog, * as fromDialog from "./dialog";
 import message, * as fromMessage from "./message";
 import navigation, * as fromNavigation from "./navigation";
 import token, * as fromToken from "./token";
@@ -9,6 +10,7 @@ import artists, * as fromArtists from "./artists";
 import type { Action } from "../actions";
 
 export type State = {
+  dialog: fromDialog.State,
   message: fromMessage.State,
   navigation: fromNavigation.State,
   token: fromToken.State,
@@ -17,12 +19,19 @@ export type State = {
 };
 
 export const initialState: State = {
+  dialog: fromDialog.initialState,
   message: fromMessage.initialState,
   navigation: fromNavigation.initialState,
   token: fromToken.initialState,
   user: fromUser.initialState,
   artists: fromArtists.initialState
 };
+
+export const isDialogOpen = (state: State) =>
+  fromDialog.isDialogOpen(state.dialog);
+
+export const getDialogArtist = (state: State) =>
+  fromDialog.getDialogArtist(state.dialog);
 
 export const isMessageOpen = (state: State) =>
   fromMessage.isMessageOpen(state.message);
@@ -58,6 +67,7 @@ export const getArtistsError = (state: State) =>
   fromArtists.getArtistsError(state.artists);
 
 export default combineReducers<Object, Action>({
+  dialog,
   message,
   navigation,
   token,
