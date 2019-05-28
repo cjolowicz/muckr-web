@@ -1,4 +1,4 @@
-// flow-typed signature: 5890037ec48c7c9d352e7883873ed010
+// flow-typed signature: fe3723ede071af9780ce232b1698ff7c
 // flow-typed version: <<STUB>>/eslint-plugin-flowtype_v^3.9.0/flow_v0.98.1
 
 /**
@@ -131,6 +131,10 @@ declare module 'eslint-plugin-flowtype/dist/rules/requireExactType' {
 }
 
 declare module 'eslint-plugin-flowtype/dist/rules/requireParameterType' {
+  declare module.exports: any;
+}
+
+declare module 'eslint-plugin-flowtype/dist/rules/requireReadonlyReactProps' {
   declare module.exports: any;
 }
 
@@ -358,6 +362,9 @@ declare module 'eslint-plugin-flowtype/dist/rules/requireExactType.js' {
 }
 declare module 'eslint-plugin-flowtype/dist/rules/requireParameterType.js' {
   declare module.exports: $Exports<'eslint-plugin-flowtype/dist/rules/requireParameterType'>;
+}
+declare module 'eslint-plugin-flowtype/dist/rules/requireReadonlyReactProps.js' {
+  declare module.exports: $Exports<'eslint-plugin-flowtype/dist/rules/requireReadonlyReactProps'>;
 }
 declare module 'eslint-plugin-flowtype/dist/rules/requireReturnType.js' {
   declare module.exports: $Exports<'eslint-plugin-flowtype/dist/rules/requireReturnType'>;
