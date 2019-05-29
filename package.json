@@ -79,7 +79,7 @@
     "jest": "^24.8.0",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
-    "nodemon": "^1.19.0",
+    "nodemon": "^1.19.1",
     "prettier": "1.17.1",
     "react-test-renderer": "^16.8.6",
     "react-testing-library": "^7.0.0",
