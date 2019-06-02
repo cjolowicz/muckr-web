@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { fireEvent, render, within } from "react-testing-library";
+import { fireEvent, render, within } from "@testing-library/react";
 
 import FetchingArtistList from "../FetchingArtistList";
 import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";

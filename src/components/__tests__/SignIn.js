@@ -2,7 +2,7 @@
 import React from "react";
 import type { Location } from "react-router-dom";
 import { Switch, Route, Router } from "react-router-dom";
-import { render, fireEvent } from "react-testing-library";
+import { render, fireEvent } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 
 import { PureSignIn as SignIn } from "../SignIn";

@@ -5,7 +5,7 @@ import {
   fireEvent,
   waitForElement,
   within
-} from "react-testing-library";
+} from "@testing-library/react";
 
 import CreateArtistDialog from "../CreateArtistDialog";
 import { TOKEN } from "../../test/fixtures";
