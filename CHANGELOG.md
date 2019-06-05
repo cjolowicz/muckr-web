@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.1] - 2019-06-05
+### Changed
+- Update dependencies:
+  - handlebars 4.1.2 ([security advisory](https://www.npmjs.com/advisories/755))
+- Update dev dependencies:
+  - webpack-dev-server 3.6.0
+
 ## [0.13.0] - 2019-06-05
 ### Added
 - Add button to edit artists.
@@ -397,7 +404,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.13.1...HEAD
+[0.13.1]: https://github.com/cjolowicz/muckr-web/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/cjolowicz/muckr-web/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/cjolowicz/muckr-web/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...v0.11.0
