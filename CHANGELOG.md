@@ -6,6 +6,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2019-06-05
+### Added
+- Add button to edit artists.
+- Add dev dependency:
+  - @testing-library/react 8.0.1
+
+### Changed
+- Update dependencies:
+  - axios 0.19.0
+  - express 4.17.1
+  - react-router-dom 5.0.1
+- Update dev dependencies:
+  - @babel/core 7.4.5
+  - @babel/node 7.4.5
+  - @babel/preset-env 7.4.5
+  - enzyme 3.10.0
+  - enzyme-adapter-react-16 1.14.0
+  - eslint-plugin-flowtype 3.9.1
+  - eslint-plugin-import 2.17.3
+  - flow-bin 0.100.0
+  - nodemon 1.19.1
+  - webpack 4.33.0
+  - webpack-dev-server 3.5.1
+
+### Removed
+- Remove dev dependency:
+  - react-testing-library (renamed to @testing-library/react)
+
 ## [0.12.0] - 2019-05-17
 ### Added
 - Add button to remove artists.
@@ -369,7 +397,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.13.0...HEAD
+[0.13.0]: https://github.com/cjolowicz/muckr-web/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/cjolowicz/muckr-web/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/cjolowicz/muckr-web/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/cjolowicz/muckr-web/compare/v0.9.2...v0.10.0
