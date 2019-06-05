@@ -5,9 +5,12 @@ import { fireEvent, render, within } from "@testing-library/react";
 import FetchingArtistList from "../FetchingArtistList";
 import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
 
-const findParentByTagName = (element, tagName) => {
+const findParentByTagName = (element: HTMLElement, tagName) => {
   let current = element;
-  while (current.tagName !== tagName && current.parentElement) {
+  while (
+    current.tagName !== tagName &&
+    current.parentElement instanceof HTMLElement
+  ) {
     current = current.parentElement;
   }
   return current;
