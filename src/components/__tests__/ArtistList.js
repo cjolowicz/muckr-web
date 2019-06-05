@@ -1,11 +1,11 @@
 // @flow
 import React from "react";
 import { Provider } from "react-redux";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import configureStore from "redux-mock-store";
 
 import ArtistList from "../ArtistList";
-import { ARTISTS, TOKEN } from "../../test/fixtures";
+import { ARTISTS, ARTIST, TOKEN } from "../../test/fixtures";
 import rootReducer from "../../reducers";
 import { noop } from "../../actions/noop";
 
@@ -43,6 +43,27 @@ describe("ArtistList", () => {
         </Provider>
       );
       expect(getByText("Loading...")).not.toBeNull();
+    });
+  });
+
+  describe("on edit", () => {
+    it("opens dialog", () => {
+      const openDialog = jest.fn();
+      const { getByTitle } = render(
+        <Provider store={store}>
+          <ArtistList
+            artists={[ARTIST]}
+            createArtist={jest.fn()}
+            isLoading={false}
+            token={TOKEN}
+            openDialog={openDialog}
+          />
+        </Provider>
+      );
+
+      const editButton = getByTitle("Edit");
+      fireEvent.click(editButton);
+      expect(openDialog).toHaveBeenCalledWith(ARTIST);
     });
   });
 });
