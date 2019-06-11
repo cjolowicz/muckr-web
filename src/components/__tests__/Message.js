@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { mount } from "enzyme";
+import { render } from "@testing-library/react";
 
 import { PureMessage as Message } from "../Message";
 
@@ -11,7 +11,7 @@ describe("Message", () => {
 
   describe("on startup", () => {
     it("renders message", () => {
-      const wrapper = mount(
+      const { queryByText } = render(
         <Message
           open
           onClose={jest.fn()}
@@ -19,7 +19,7 @@ describe("Message", () => {
           classes={mockClasses}
         />
       );
-      expect(wrapper.text()).toEqual(message);
+      expect(queryByText(message)).not.toBeNull();
     });
   });
 });
