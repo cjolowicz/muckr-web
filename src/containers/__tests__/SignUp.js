@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { mount } from "enzyme";
+import { render } from "@testing-library/react";
 
 import SignUp from "../SignUp";
 import rootReducer from "../../reducers";
@@ -22,22 +22,15 @@ describe("SignUp", () => {
     const mockStore = configureStore([thunk]);
     const state = rootReducer(undefined, noop());
     const store = mockStore(state);
-    const wrapper = mount(
-      <MemoryRouter
-        initialEntries={[
-          {
-            pathname: "/join",
-            key: "test"
-          }
-        ]}
-      >
+    const routerEntry = { pathname: "/join", key: "test" };
+    const { queryByText } = render(
+      <MemoryRouter initialEntries={[routerEntry]}>
         <Provider store={store}>
           <SignUp classes={classes} />
         </Provider>
       </MemoryRouter>
     );
 
-    const component = wrapper.find(SignUp);
-    expect(component).toHaveLength(1);
+    expect(queryByText("Sign up for Muckr")).not.toBeNull();
   });
 });
