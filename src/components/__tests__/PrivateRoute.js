@@ -1,50 +1,46 @@
 // @flow
 import * as React from "react";
-import { MemoryRouter, Switch } from "react-router-dom";
-import { mount } from "enzyme";
+import { Router, Switch } from "react-router-dom";
+import { createMemoryHistory } from "history";
+import { render } from "@testing-library/react";
 
 import PrivateRoute from "../PrivateRoute";
 import { TOKEN } from "../../test/fixtures";
 
 describe("PrivateRoute", () => {
-  const Component = () => <div>Lorem Ipsum Dolor</div>;
-  const mountPrivateRoute = props =>
-    mount(
-      <MemoryRouter initialEntries={["/private"]}>
+  const renderPrivateRoute = props => {
+    const Component = () => <div>Lorem Ipsum Dolor</div>;
+    const history = createMemoryHistory({ initialEntries: ["/private"] });
+    const result = render(
+      <Router history={history}>
         <Switch>
           <PrivateRoute path="/private" component={Component} {...props} />
         </Switch>
-      </MemoryRouter>
+      </Router>
     );
-
-  let wrapper;
+    return { ...result, history };
+  };
 
   describe("without token", () => {
-    beforeEach(() => {
-      wrapper = mountPrivateRoute({ token: null });
-    });
-
     it("does not render component", () => {
-      expect(wrapper.find(Component)).toHaveLength(0);
+      const { queryByText } = renderPrivateRoute({ token: null });
+      expect(queryByText("Lorem Ipsum Dolor")).toBeNull();
     });
 
-    it("redirects to /login", () => {
-      const history = wrapper.find("Router").prop("history");
+    it("redirects to /login", async () => {
+      const { history } = renderPrivateRoute({ token: null });
       expect(history.location.pathname).toEqual("/login");
     });
   });
 
   describe("with token", () => {
-    beforeEach(() => {
-      wrapper = mountPrivateRoute({ token: TOKEN });
-    });
-
     it("renders component", () => {
-      expect(wrapper.find(Component)).toHaveLength(1);
+      const { queryByText } = renderPrivateRoute({ token: TOKEN });
+      expect(queryByText("Lorem Ipsum Dolor")).not.toBeNull();
     });
 
     it("does not redirect", () => {
-      const history = wrapper.find("Router").prop("history");
+      const { history } = renderPrivateRoute({ token: TOKEN });
       expect(history.location.pathname).toEqual("/private");
     });
   });
