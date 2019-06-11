@@ -1,53 +1,57 @@
 // @flow
 import React from "react";
 import { Provider } from "react-redux";
+import { render } from "@testing-library/react";
+
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { mount } from "enzyme";
 
 import App from "../App";
 import rootReducer from "../../reducers";
 import { noop } from "../../actions/noop";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
 import * as routes from "../../routes";
 import { fetchTokenSuccess } from "../../actions/token";
+import { fetchArtistsSuccess } from "../../actions/artist";
 
-const mountAppWithRoute = (route, initialAction = noop()) => {
+const renderAppWithRoute = (route, actions = []) => {
+  const state = (actions.length ? actions : [noop()]).reduce(
+    rootReducer,
+    undefined
+  );
   const mockStore = configureStore([thunk]);
-  const state = rootReducer(undefined, initialAction);
   const store = mockStore(state);
-  const wrapper = mount(
-    <MemoryRouter
-      initialEntries={[
-        {
-          pathname: route,
-          key: "test"
-        }
-      ]}
-    >
+  const routerEntry = { pathname: route, key: "test" };
+
+  return render(
+    <MemoryRouter initialEntries={[routerEntry]}>
       <Provider store={store}>
         <App />
       </Provider>
     </MemoryRouter>
   );
-
-  return wrapper.find(App);
 };
 
 describe("App", () => {
-  it("renders Index", () => {
-    const wrapper = mountAppWithRoute(routes.INDEX);
-    expect(wrapper).toContainMatchingElement("Index");
+  it("renders welcome page", () => {
+    const { queryByText } = renderAppWithRoute(routes.INDEX, [
+      fetchTokenSuccess(TOKEN)
+    ]);
+    expect(queryByText("Welcome")).not.toBeNull();
   });
 
-  it("renders PureSignIn", () => {
-    const wrapper = mountAppWithRoute(routes.SIGNIN);
-    expect(wrapper).toContainMatchingElement("PureSignIn");
+  it("renders sign in box", () => {
+    const { queryByText } = renderAppWithRoute(routes.SIGNIN);
+    expect(queryByText("Sign in to Muckr")).not.toBeNull();
   });
 
-  it("renders FetchingArtistList", () => {
-    const wrapper = mountAppWithRoute(routes.ARTISTS, fetchTokenSuccess(TOKEN));
-    expect(wrapper).toContainMatchingElement("FetchingArtistList");
+  it("renders artist list", () => {
+    const { name } = ARTIST;
+    const { queryByText } = renderAppWithRoute(routes.ARTISTS, [
+      fetchTokenSuccess(TOKEN),
+      fetchArtistsSuccess(ARTISTS)
+    ]);
+    expect(queryByText(name)).not.toBeNull();
   });
 });
