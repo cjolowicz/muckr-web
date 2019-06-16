@@ -65,7 +65,7 @@ export const isFetchingArtists = (state: State) =>
   fromArtists.isFetchingArtists(state.artists);
 
 export const getArtists = (state: State) =>
-  getItemsById(state.entities.artists, state.artists.allIds);
+  getItemsById(state.entities.artists, state.artists.ids);
 
 export const getArtistsError = (state: State) =>
   fromArtists.getArtistsError(state.artists);

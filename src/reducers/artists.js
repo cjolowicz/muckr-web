@@ -20,13 +20,13 @@ import type { FetchError } from "../api/error";
 
 export type State = {
   isFetching: boolean,
-  allIds: Array<number>,
+  ids: Array<number>,
   error: ?FetchError
 };
 
 export const initialState: State = {
   isFetching: false,
-  allIds: [],
+  ids: [],
   error: null
 };
 
@@ -52,7 +52,7 @@ function isFetching(state = initialState.isFetching, action: Action) {
   }
 }
 
-function allIds(state = initialState.allIds, action: Action) {
+function ids(state = initialState.ids, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return action.artists.map(({ id }) => id);
@@ -92,6 +92,6 @@ export const getArtistsError = (state: State) => state.error;
 
 export default combineReducers<Object, Action>({
   isFetching,
-  allIds,
+  ids,
   error
 });
