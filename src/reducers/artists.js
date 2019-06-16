@@ -18,16 +18,19 @@ import {
 import type { Action } from "../actions";
 import type { Artist } from "../api/artist";
 import type { FetchError } from "../api/error";
+import { addById, getItemsById, indexById, removeById } from "../utils";
 
 export type State = {
   isFetching: boolean,
-  artists: Array<Artist>,
+  byId: { [number]: Artist },
+  allIds: Array<number>,
   error: ?FetchError
 };
 
 export const initialState: State = {
   isFetching: false,
-  artists: [],
+  byId: {},
+  allIds: [],
   error: null
 };
 
@@ -53,20 +56,29 @@ function isFetching(state = initialState.isFetching, action: Action) {
   }
 }
 
-function artists(state = initialState.artists, action: Action) {
+function byId(state = initialState.byId, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
-      return action.artists;
+      return indexById(action.artists);
     case CREATE_ARTIST_SUCCESS:
-      return [...state, action.artist];
-    case REMOVE_ARTIST_SUCCESS: {
-      const { id } = action;
-      return state.filter(artist => artist.id !== id);
-    }
-    case UPDATE_ARTIST_SUCCESS: {
-      const { artist } = action;
-      return state.map(a => (a.id === artist.id ? artist : a));
-    }
+      return addById(state, action.artist);
+    case REMOVE_ARTIST_SUCCESS:
+      return removeById(state, action.id);
+    case UPDATE_ARTIST_SUCCESS:
+      return addById(state, action.artist);
+    default:
+      return state;
+  }
+}
+
+function allIds(state = initialState.allIds, action: Action) {
+  switch (action.type) {
+    case FETCH_ARTISTS_SUCCESS:
+      return action.artists.map(({ id }) => id);
+    case CREATE_ARTIST_SUCCESS:
+      return [...state, action.artist.id];
+    case REMOVE_ARTIST_SUCCESS:
+      return state.filter(id => id !== action.id);
     default:
       return state;
   }
@@ -95,8 +107,14 @@ function error(state = initialState.error, action: Action) {
 
 export const isFetchingArtists = (state: State) => state.isFetching;
 
-export const getArtists = (state: State) => state.artists;
+export const getArtists = (state: State) =>
+  getItemsById(state.byId, state.allIds);
 
 export const getArtistsError = (state: State) => state.error;
 
-export default combineReducers<Object, Action>({ isFetching, artists, error });
+export default combineReducers<Object, Action>({
+  isFetching,
+  byId,
+  allIds,
+  error
+});
