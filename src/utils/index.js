@@ -1,6 +1,6 @@
 // @flow
-import just from "./just";
 import fromMaybe from "./fromMaybe";
+import just from "./just";
 import unsafeCast from "./unsafeCast";
 
-export { just, fromMaybe, unsafeCast };
+export { fromMaybe, just, unsafeCast };
