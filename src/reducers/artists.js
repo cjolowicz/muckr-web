@@ -67,8 +67,6 @@ function artists(state = initialState.artists, action: Action) {
       const { artist } = action;
       return state.map(a => (a.id === artist.id ? artist : a));
     }
-    case FETCH_ARTISTS_FAILURE:
-      return [];
     default:
       return state;
   }
