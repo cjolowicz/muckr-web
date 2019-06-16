@@ -17,7 +17,7 @@ import UpdateArtistDialog from "../containers/UpdateArtistDialog";
 export type Props = {
   classes: Object,
   token: ?string,
-  artists: ?Array<Artist>,
+  artists: Array<Artist>,
   isLoading: boolean,
   createArtist: Function,
   removeArtist: Function,
@@ -36,34 +36,29 @@ const ArtistList = ({
   <>
     {isLoading ? <Typography>Loading...</Typography> : null}
     <List>
-      {artists &&
-        artists.map(artist => (
-          <ListItem
-            key={artist.id}
-            button
-            classes={{ container: classes.item }}
-          >
-            <ListItemText primary={artist.name} />
-            <ListItemSecondaryAction>
-              <IconButton
-                aria-label="Edit"
-                title="Edit"
-                className={classes.delete}
-                onClick={() => openDialog(artist)}
-              >
-                <EditIcon />
-              </IconButton>
-              <IconButton
-                aria-label="Delete"
-                title="Delete"
-                className={classes.delete}
-                onClick={() => removeArtist(token, artist.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
+      {artists.map(artist => (
+        <ListItem key={artist.id} button classes={{ container: classes.item }}>
+          <ListItemText primary={artist.name} />
+          <ListItemSecondaryAction>
+            <IconButton
+              aria-label="Edit"
+              title="Edit"
+              className={classes.delete}
+              onClick={() => openDialog(artist)}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton
+              aria-label="Delete"
+              title="Delete"
+              className={classes.delete}
+              onClick={() => removeArtist(token, artist.id)}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+      ))}
     </List>
     <CreateArtistDialog token={token} createArtist={createArtist} />
     <UpdateArtistDialog />

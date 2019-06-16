@@ -29,7 +29,7 @@ describe("artists", () => {
     });
 
     it("has no artists", () => {
-      expect(getArtists(state)).toBe(null);
+      expect(getArtists(state)).toHaveLength(0);
     });
 
     it("has no error", () => {

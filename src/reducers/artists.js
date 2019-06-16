@@ -21,13 +21,13 @@ import type { FetchError } from "../api/error";
 
 export type State = {
   isFetching: boolean,
-  artists: ?Array<Artist>,
+  artists: Array<Artist>,
   error: ?FetchError
 };
 
 export const initialState: State = {
   isFetching: false,
-  artists: null,
+  artists: [],
   error: null
 };
 
@@ -58,19 +58,17 @@ function artists(state = initialState.artists, action: Action) {
     case FETCH_ARTISTS_SUCCESS:
       return action.artists;
     case CREATE_ARTIST_SUCCESS:
-      return state == null ? [action.artist] : [...state, action.artist];
+      return [...state, action.artist];
     case REMOVE_ARTIST_SUCCESS: {
       const { id } = action;
-      return state == null ? null : state.filter(artist => artist.id !== id);
+      return state.filter(artist => artist.id !== id);
     }
     case UPDATE_ARTIST_SUCCESS: {
       const { artist } = action;
-      return state == null
-        ? [artist]
-        : state.map(a => (a.id === artist.id ? artist : a));
+      return state.map(a => (a.id === artist.id ? artist : a));
     }
     case FETCH_ARTISTS_FAILURE:
-      return null;
+      return [];
     default:
       return state;
   }

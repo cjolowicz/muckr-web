@@ -86,7 +86,7 @@ describe("initial state", () => {
 
   describe("getArtists", () => {
     it("is null", () => {
-      expect(getArtists(state)).toBeNull();
+      expect(getArtists(state)).toHaveLength(0);
     });
   });
 

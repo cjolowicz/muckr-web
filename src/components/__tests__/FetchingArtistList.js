@@ -35,7 +35,7 @@ describe("FetchingArtistList", () => {
         <Provider store={store}>
           <FetchingArtistList
             classes={{}}
-            artists={null}
+            artists={[]}
             isLoading={false}
             token={null}
             fetchArtists={fetchArtists}
@@ -59,7 +59,7 @@ describe("FetchingArtistList", () => {
         <Provider store={store}>
           <FetchingArtistList
             classes={{}}
-            artists={null}
+            artists={[]}
             isLoading={false}
             token={TOKEN}
             fetchArtists={fetchArtists}
