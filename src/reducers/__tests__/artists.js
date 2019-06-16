@@ -1,9 +1,5 @@
 // @flow
-import artists, {
-  isFetchingArtists,
-  getArtists,
-  getArtistsError
-} from "../artists";
+import artists, { isFetchingArtists, getArtistsError } from "../artists";
 import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
 import {
   createArtistRequest,
@@ -26,10 +22,6 @@ describe("artists", () => {
 
     it("is not fetching", () => {
       expect(isFetchingArtists(state)).toBe(false);
-    });
-
-    it("has no artists", () => {
-      expect(getArtists(state)).toHaveLength(0);
     });
 
     it("has no error", () => {

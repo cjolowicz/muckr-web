@@ -9,6 +9,7 @@ import user, * as fromUser from "./user";
 import artists, * as fromArtists from "./artists";
 import entities, * as fromEntities from "./entities";
 import type { Action } from "../actions";
+import { getItemsById } from "../utils";
 
 export type State = {
   dialog: fromDialog.State,
@@ -64,7 +65,7 @@ export const isFetchingArtists = (state: State) =>
   fromArtists.isFetchingArtists(state.artists);
 
 export const getArtists = (state: State) =>
-  fromArtists.getArtists(state.artists);
+  getItemsById(state.entities.artists, state.artists.allIds);
 
 export const getArtistsError = (state: State) =>
   fromArtists.getArtistsError(state.artists);

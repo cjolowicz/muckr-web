@@ -16,20 +16,16 @@ import {
   UPDATE_ARTIST_FAILURE
 } from "../actions/artist";
 import type { Action } from "../actions";
-import type { Artist } from "../api/artist";
 import type { FetchError } from "../api/error";
-import { addById, getItemsById, indexById, removeById } from "../utils";
 
 export type State = {
   isFetching: boolean,
-  byId: { [number]: Artist },
   allIds: Array<number>,
   error: ?FetchError
 };
 
 export const initialState: State = {
   isFetching: false,
-  byId: {},
   allIds: [],
   error: null
 };
@@ -51,21 +47,6 @@ function isFetching(state = initialState.isFetching, action: Action) {
     case REMOVE_ARTIST_FAILURE:
     case UPDATE_ARTIST_FAILURE:
       return false;
-    default:
-      return state;
-  }
-}
-
-function byId(state = initialState.byId, action: Action) {
-  switch (action.type) {
-    case FETCH_ARTISTS_SUCCESS:
-      return indexById(action.artists);
-    case CREATE_ARTIST_SUCCESS:
-      return addById(state, action.artist);
-    case REMOVE_ARTIST_SUCCESS:
-      return removeById(state, action.id);
-    case UPDATE_ARTIST_SUCCESS:
-      return addById(state, action.artist);
     default:
       return state;
   }
@@ -107,14 +88,10 @@ function error(state = initialState.error, action: Action) {
 
 export const isFetchingArtists = (state: State) => state.isFetching;
 
-export const getArtists = (state: State) =>
-  getItemsById(state.byId, state.allIds);
-
 export const getArtistsError = (state: State) => state.error;
 
 export default combineReducers<Object, Action>({
   isFetching,
-  byId,
   allIds,
   error
 });
