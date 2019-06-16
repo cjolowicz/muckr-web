@@ -1,9 +1,6 @@
 // @flow
 import just from "./just";
 import fromMaybe from "./fromMaybe";
+import unsafeCast from "./unsafeCast";
 
-export { just, fromMaybe };
-
-export function unsafeCast<T>(value: any): T {
-  return (value: T);
-}
+export { just, fromMaybe, unsafeCast };
