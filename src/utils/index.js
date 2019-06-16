@@ -1,15 +1,7 @@
 // @flow
-export function just<T>(value: ?T): T {
-  if (value === undefined) {
-    throw new Error("value is undefined");
-  }
+import just from "./just";
 
-  if (value === null) {
-    throw new Error("value is null");
-  }
-
-  return value;
-}
+export { just };
 
 export function fromMaybe<T>(fallback: T, value: ?T): T {
   if (value == null) {
