@@ -7,6 +7,7 @@ import navigation, * as fromNavigation from "./navigation";
 import token, * as fromToken from "./token";
 import user, * as fromUser from "./user";
 import artists, * as fromArtists from "./artists";
+import entities, * as fromEntities from "./entities";
 import type { Action } from "../actions";
 
 export type State = {
@@ -15,7 +16,8 @@ export type State = {
   navigation: fromNavigation.State,
   token: fromToken.State,
   user: fromUser.State,
-  artists: fromArtists.State
+  artists: fromArtists.State,
+  entities: fromEntities.State
 };
 
 export const initialState: State = {
@@ -24,7 +26,8 @@ export const initialState: State = {
   navigation: fromNavigation.initialState,
   token: fromToken.initialState,
   user: fromUser.initialState,
-  artists: fromArtists.initialState
+  artists: fromArtists.initialState,
+  entities: fromEntities.initialState
 };
 
 export const isDialogOpen = (state: State) =>
@@ -72,5 +75,6 @@ export default combineReducers<Object, Action>({
   navigation,
   token,
   user,
-  artists
+  artists,
+  entities
 });
