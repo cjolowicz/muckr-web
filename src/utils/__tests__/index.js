@@ -1,5 +1,5 @@
 // @flow
-import { just, fromMaybe, unsafeCast } from "../utils";
+import { just, fromMaybe, unsafeCast } from "..";
 
 describe("just", () => {
   test.each([[undefined], [null]])("throws if undefined or null", arg => {
