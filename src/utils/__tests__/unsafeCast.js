@@ -1,5 +1,5 @@
 // @flow
-import { unsafeCast } from "..";
+import unsafeCast from "../unsafeCast";
 
 describe("unsafeCast", () => {
   test.each([[1, "foo", null]])("returns value", arg => {
