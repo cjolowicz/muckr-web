@@ -1,15 +1,8 @@
 // @flow
 import just from "./just";
+import fromMaybe from "./fromMaybe";
 
-export { just };
-
-export function fromMaybe<T>(fallback: T, value: ?T): T {
-  if (value == null) {
-    return fallback;
-  }
-
-  return value;
-}
+export { just, fromMaybe };
 
 export function unsafeCast<T>(value: any): T {
   return (value: T);
