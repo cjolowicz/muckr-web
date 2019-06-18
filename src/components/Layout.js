@@ -29,12 +29,12 @@ const Layout = ({ children, classes }: Props) => (
 
 const styles = theme => ({
   main: {
-    padding: theme.spacing.unit * 3
+    padding: theme.spacing(3)
   },
   paper: {
     ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   }
 });
 

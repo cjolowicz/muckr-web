@@ -25,7 +25,7 @@ describe("styles", () => {
 
   it("uses theme", () => {
     const { main } = classes;
-    expect(main.marginLeft).toEqual(theme.spacing.unit * 3);
+    expect(main.marginLeft).toEqual(theme.spacing(3));
   });
 });
 
