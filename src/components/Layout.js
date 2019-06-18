@@ -1,14 +1,13 @@
 // @flow
 import * as React from "react";
 import Paper from "@material-ui/core/Paper";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/styles";
 
 import AppBar from "./AppBar";
 import Navigation from "../containers/Navigation";
 
 type Props = {
-  children: React.Node,
-  classes: Object
+  children: React.Node
 };
 
 export const Header = () => (
@@ -18,16 +17,7 @@ export const Header = () => (
   </>
 );
 
-const Layout = ({ children, classes }: Props) => (
-  <>
-    <Header />
-    <main className={classes.main}>
-      <Paper className={classes.paper}>{children}</Paper>
-    </main>
-  </>
-);
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   main: {
     padding: theme.spacing(3)
   },
@@ -36,6 +26,18 @@ const styles = theme => ({
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2)
   }
-});
+}));
 
-export default withStyles(styles)(Layout);
+const Layout = ({ children }: Props) => {
+  const classes = useStyles();
+  return (
+    <>
+      <Header />
+      <main className={classes.main}>
+        <Paper className={classes.paper}>{children}</Paper>
+      </main>
+    </>
+  );
+};
+
+export default Layout;

@@ -2,7 +2,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
-
+import { ThemeProvider } from "@material-ui/styles";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -14,6 +14,7 @@ import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
 import * as routes from "../../routes";
 import { fetchTokenSuccess } from "../../actions/token";
 import { fetchArtistsSuccess } from "../../actions/artist";
+import theme from "../../theme";
 
 const renderAppWithRoute = (route, actions = []) => {
   const state = (actions.length ? actions : [noop()]).reduce(
@@ -26,9 +27,11 @@ const renderAppWithRoute = (route, actions = []) => {
 
   return render(
     <MemoryRouter initialEntries={[routerEntry]}>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
     </MemoryRouter>
   );
 };
