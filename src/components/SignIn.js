@@ -7,21 +7,51 @@ import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/styles";
 
 import useInputField from "../hooks/useInputField";
 import * as routes from "../routes";
 
 type Props = {
   location: Location,
-  classes: Object,
   onSubmit: Function,
   token: ?string
 };
 
 type ButtonEvent = SyntheticInputEvent<HTMLButtonElement>;
 
-export const PureSignIn = ({ location, classes, onSubmit, token }: Props) => {
+const useStyles = makeStyles(theme => ({
+  main: {
+    width: "auto",
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(400 + theme.spacing(3 * 2))]: {
+      width: 400,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`
+  },
+  form: {
+    marginTop: theme.spacing(1)
+  },
+  submit: {
+    marginTop: theme.spacing(3)
+  },
+  signup: {
+    marginTop: theme.spacing(3),
+    textAlign: "center"
+  }
+}));
+
+const SignIn = ({ location, onSubmit, token }: Props) => {
+  const classes = useStyles();
   const [username, handleUsernameChange] = useInputField();
   const [password, handlePasswordChange] = useInputField();
 
@@ -87,34 +117,4 @@ export const PureSignIn = ({ location, classes, onSubmit, token }: Props) => {
   );
 };
 
-const styles = theme => ({
-  main: {
-    width: "auto",
-    marginLeft: theme.spacing(3),
-    marginRight: theme.spacing(3),
-    [theme.breakpoints.up(400 + theme.spacing(3 * 2))]: {
-      width: 400,
-      marginLeft: "auto",
-      marginRight: "auto"
-    }
-  },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`
-  },
-  form: {
-    marginTop: theme.spacing(1)
-  },
-  submit: {
-    marginTop: theme.spacing(3)
-  },
-  signup: {
-    marginTop: theme.spacing(3),
-    textAlign: "center"
-  }
-});
-
-export default withStyles(styles)(PureSignIn);
+export default SignIn;
