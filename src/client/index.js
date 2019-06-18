@@ -6,7 +6,6 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import Cookies from "universal-cookie";
-import { createGenerateClassName } from "@material-ui/core/styles";
 
 import { just } from "../utils";
 import { APP_ROOT } from "../constants";
@@ -28,10 +27,6 @@ const enhancer = compose(
   persistToken(cookies)
 );
 const store = createStore(rootReducer, preloadedState, enhancer);
-const generateClassName = createGenerateClassName();
 const root = just(document.querySelector(`#${APP_ROOT}`));
 
-ReactDOM.hydrate(
-  <ClientRoot generateClassName={generateClassName} store={store} />,
-  root
-);
+ReactDOM.hydrate(<ClientRoot store={store} />, root);
