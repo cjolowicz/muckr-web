@@ -1,38 +1,16 @@
 // @flow
 import React from "react";
 import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
 import MUIAppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/styles";
 
 import MenuButton from "../containers/MenuButton";
 import AuthButton from "../containers/AuthButton";
 import * as routes from "../routes";
 
-type Props = {
-  classes: Object
-};
-
-const AppBar = ({ classes }: Props) => (
-  <MUIAppBar position="static">
-    <Toolbar>
-      <MenuButton className={classes.menuButton} />
-      <Typography
-        variant="h6"
-        color="inherit"
-        className={classes.title}
-        component={Link}
-        to={routes.INDEX}
-      >
-        Muckr
-      </Typography>
-      <AuthButton />
-    </Toolbar>
-  </MUIAppBar>
-);
-
-const styles = {
+const useStyles = makeStyles({
   title: {
     flexGrow: 1,
     textDecoration: "none"
@@ -41,6 +19,27 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   }
+});
+
+const AppBar = () => {
+  const classes = useStyles();
+  return (
+    <MUIAppBar position="static">
+      <Toolbar>
+        <MenuButton className={classes.menuButton} />
+        <Typography
+          variant="h6"
+          color="inherit"
+          className={classes.title}
+          component={Link}
+          to={routes.INDEX}
+        >
+          Muckr
+        </Typography>
+        <AuthButton />
+      </Toolbar>
+    </MUIAppBar>
+  );
 };
 
-export default withStyles(styles)(AppBar);
+export default AppBar;
