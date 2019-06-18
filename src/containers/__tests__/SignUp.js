@@ -4,18 +4,13 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
+import { ThemeProvider } from "@material-ui/styles";
 import { render } from "@testing-library/react";
 
 import SignUp from "../SignUp";
 import rootReducer from "../../reducers";
 import { noop } from "../../actions/noop";
-
-const classes = {
-  main: "test",
-  paper: "test",
-  form: "test",
-  submit: "test"
-};
+import theme from "../../theme";
 
 describe("SignUp", () => {
   it("renders", () => {
@@ -25,9 +20,11 @@ describe("SignUp", () => {
     const routerEntry = { pathname: "/join", key: "test" };
     const { queryByText } = render(
       <MemoryRouter initialEntries={[routerEntry]}>
-        <Provider store={store}>
-          <SignUp classes={classes} />
-        </Provider>
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <SignUp />
+          </Provider>
+        </ThemeProvider>
       </MemoryRouter>
     );
 

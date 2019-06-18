@@ -3,31 +3,16 @@ import React from "react";
 import { Switch, Route, Router } from "react-router-dom";
 import { render, fireEvent } from "@testing-library/react";
 import { createMemoryHistory } from "history";
+import { ThemeProvider } from "@material-ui/styles";
 
-import { PureSignUp as SignUp, styles } from "../SignUp";
+import SignUp from "../SignUp";
 import theme from "../../theme";
 import { just, unsafeCast } from "../../utils";
 import { USER } from "../../test/fixtures";
 
-const mockClasses = {
-  main: "main",
-  paper: "paper",
-  form: "form",
-  submit: "submit"
-};
-
 const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
-
-describe("styles", () => {
-  const classes = styles(theme);
-
-  it("uses theme", () => {
-    const { main } = classes;
-    expect(main.marginLeft).toEqual(theme.spacing(3));
-  });
-});
 
 const select = <T>(container, selector): T =>
   unsafeCast<T>(just(container.querySelector(selector)));
@@ -35,7 +20,9 @@ const select = <T>(container, selector): T =>
 describe("SignUp", () => {
   const setup = () => {
     const { container } = render(
-      <SignUp classes={mockClasses} onSubmit={onSubmit} user={null} />
+      <ThemeProvider theme={theme}>
+        <SignUp onSubmit={onSubmit} user={null} />
+      </ThemeProvider>
     );
 
     return {
@@ -87,11 +74,13 @@ describe("SignUp", () => {
 
       render(
         <Router history={history}>
-          <Switch>
-            <Route path="/join">
-              <SignUp classes={mockClasses} onSubmit={onSubmit} user={USER} />
-            </Route>
-          </Switch>
+          <ThemeProvider theme={theme}>
+            <Switch>
+              <Route path="/join">
+                <SignUp onSubmit={onSubmit} user={USER} />
+              </Route>
+            </Switch>
+          </ThemeProvider>
         </Router>
       );
 
