@@ -3,9 +3,8 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import { SheetsRegistry } from "jss";
 import Cookies from "universal-cookie";
-import { createGenerateClassName } from "@material-ui/core/styles";
+import { ServerStyleSheets } from "@material-ui/styles";
 
 import ServerRoot from "./ServerRoot";
 import generatePage from "./generatePage";
@@ -30,19 +29,11 @@ export default function render(request: Request, response: Response) {
     persistToken(request.universalCookies)
   );
   const store = createStore(rootReducer, preloadedState, enhancer);
-  const sheetsRegistry = new SheetsRegistry();
-  const sheetsManager = new Map();
-  const generateClassName = createGenerateClassName();
+  const sheets = new ServerStyleSheets();
   const html = renderToString(
-    <ServerRoot
-      location={request.url}
-      sheetsRegistry={sheetsRegistry}
-      sheetsManager={sheetsManager}
-      generateClassName={generateClassName}
-      store={store}
-    />
+    sheets.collect(<ServerRoot location={request.url} store={store} />)
   );
-  const css = sheetsRegistry.toString();
+  const css = sheets.toString();
   const state = renderState(store);
   const page = generatePage(html, css, state);
   return response.send(page);
