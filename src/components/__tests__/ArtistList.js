@@ -22,6 +22,8 @@ describe("ArtistList", () => {
           <ArtistList
             artists={ARTISTS}
             createArtist={createArtist}
+            removeArtist={jest.fn()}
+            openDialog={jest.fn()}
             isLoading={false}
             token={TOKEN}
           />
@@ -37,6 +39,8 @@ describe("ArtistList", () => {
           <ArtistList
             artists={ARTISTS}
             createArtist={createArtist}
+            removeArtist={jest.fn()}
+            openDialog={jest.fn()}
             isLoading
             token={TOKEN}
           />
@@ -54,6 +58,7 @@ describe("ArtistList", () => {
           <ArtistList
             artists={[ARTIST]}
             createArtist={jest.fn()}
+            removeArtist={jest.fn()}
             isLoading={false}
             token={TOKEN}
             openDialog={openDialog}

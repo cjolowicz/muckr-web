@@ -8,14 +8,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Typography from "@material-ui/core/Typography";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/styles";
 
 import type { Artist } from "../api/artist";
 import CreateArtistDialog from "./CreateArtistDialog";
 import UpdateArtistDialog from "../containers/UpdateArtistDialog";
 
 export type Props = {
-  classes: Object,
   token: ?string,
   artists: Array<Artist>,
   isLoading: boolean,
@@ -24,48 +23,7 @@ export type Props = {
   openDialog: Function
 };
 
-const ArtistList = ({
-  classes,
-  token,
-  artists,
-  isLoading,
-  createArtist,
-  removeArtist,
-  openDialog
-}: Props) => (
-  <>
-    {isLoading ? <Typography>Loading...</Typography> : null}
-    <List>
-      {artists.map(artist => (
-        <ListItem key={artist.id} button classes={{ container: classes.item }}>
-          <ListItemText primary={artist.name} />
-          <ListItemSecondaryAction>
-            <IconButton
-              aria-label="Edit"
-              title="Edit"
-              className={classes.delete}
-              onClick={() => openDialog(artist)}
-            >
-              <EditIcon />
-            </IconButton>
-            <IconButton
-              aria-label="Delete"
-              title="Delete"
-              className={classes.delete}
-              onClick={() => removeArtist(token, artist.id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-    </List>
-    <CreateArtistDialog token={token} createArtist={createArtist} />
-    <UpdateArtistDialog />
-  </>
-);
-
-const styles = {
+const useStyles = makeStyles({
   delete: {},
   item: {
     "& $delete": {
@@ -75,6 +33,53 @@ const styles = {
       visibility: "visible"
     }
   }
+});
+
+const ArtistList = ({
+  token,
+  artists,
+  isLoading,
+  createArtist,
+  removeArtist,
+  openDialog
+}: Props) => {
+  const classes = useStyles();
+  return (
+    <>
+      {isLoading ? <Typography>Loading...</Typography> : null}
+      <List>
+        {artists.map(artist => (
+          <ListItem
+            key={artist.id}
+            button
+            classes={{ container: classes.item }}
+          >
+            <ListItemText primary={artist.name} />
+            <ListItemSecondaryAction>
+              <IconButton
+                aria-label="Edit"
+                title="Edit"
+                className={classes.delete}
+                onClick={() => openDialog(artist)}
+              >
+                <EditIcon />
+              </IconButton>
+              <IconButton
+                aria-label="Delete"
+                title="Delete"
+                className={classes.delete}
+                onClick={() => removeArtist(token, artist.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        ))}
+      </List>
+      <CreateArtistDialog token={token} createArtist={createArtist} />
+      <UpdateArtistDialog />
+    </>
+  );
 };
 
-export default withStyles(styles)(ArtistList);
+export default ArtistList;
