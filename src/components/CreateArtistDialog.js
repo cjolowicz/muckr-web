@@ -8,17 +8,28 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Fab from "@material-ui/core/Fab";
 import TextField from "@material-ui/core/TextField";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/styles";
 
 import useInputField from "../hooks/useInputField";
 
 type Props = {
   createArtist: Function,
-  token: string,
-  classes: Object
+  token: string
 };
 
-const CreateArtistDialog = ({ createArtist, token, classes }: Props) => {
+const useStyles = makeStyles({
+  fab: {
+    margin: 0,
+    top: "auto",
+    right: 20,
+    bottom: 20,
+    left: "auto",
+    position: "fixed"
+  }
+});
+
+const CreateArtistDialog = ({ createArtist, token }: Props) => {
+  const classes = useStyles();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [name, handleNameChange] = useInputField();
   const openDialog = () => setIsDialogOpen(true);
@@ -65,15 +76,4 @@ const CreateArtistDialog = ({ createArtist, token, classes }: Props) => {
   );
 };
 
-const styles = {
-  fab: {
-    margin: 0,
-    top: "auto",
-    right: 20,
-    bottom: 20,
-    left: "auto",
-    position: "fixed"
-  }
-};
-
-export default withStyles(styles)(CreateArtistDialog);
+export default CreateArtistDialog;

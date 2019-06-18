@@ -11,18 +11,10 @@ import CreateArtistDialog from "../CreateArtistDialog";
 import { TOKEN } from "../../test/fixtures";
 
 describe("CreateArtistDialog", () => {
-  const classes = {
-    fab: ""
-  };
-
   const renderDialog = () => {
     const createArtist = jest.fn();
     const result = render(
-      <CreateArtistDialog
-        createArtist={createArtist}
-        token={TOKEN}
-        classes={classes}
-      />
+      <CreateArtistDialog createArtist={createArtist} token={TOKEN} />
     );
     return { createArtist, ...result };
   };
@@ -54,11 +46,7 @@ describe("CreateArtistDialog", () => {
     it("does nothing without token", async () => {
       const createArtist = jest.fn();
       const { getByTitle, getByTestId } = render(
-        <CreateArtistDialog
-          createArtist={createArtist}
-          token={null}
-          classes={classes}
-        />
+        <CreateArtistDialog createArtist={createArtist} token={null} />
       );
       fireEvent.click(getByTitle("Add"));
       const addDialog = await waitForElement(() => getByTestId("dialog"));
