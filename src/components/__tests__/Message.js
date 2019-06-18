@@ -1,10 +1,10 @@
 // @flow
 import React from "react";
+import { ThemeProvider } from "@material-ui/styles";
 import { render } from "@testing-library/react";
 
-import { PureMessage as Message } from "../Message";
-
-const mockClasses = { close: "close" };
+import Message from "../Message";
+import theme from "../../theme";
 
 describe("Message", () => {
   const message = "lorem ipsum dolor";
@@ -12,12 +12,9 @@ describe("Message", () => {
   describe("on startup", () => {
     it("renders message", () => {
       const { queryByText } = render(
-        <Message
-          open
-          onClose={jest.fn()}
-          message={message}
-          classes={mockClasses}
-        />
+        <ThemeProvider theme={theme}>
+          <Message open onClose={jest.fn()} message={message} />
+        </ThemeProvider>
       );
       expect(queryByText(message)).not.toBeNull();
     });

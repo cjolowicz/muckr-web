@@ -3,42 +3,44 @@ import React from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { makeStyles } from "@material-ui/styles";
 
 type Props = {
   open: boolean,
   onClose: Function,
-  message: ?string,
-  classes: Object
+  message: ?string
 };
 
-export const PureMessage = ({ open, onClose, message, classes }: Props) => (
-  <Snackbar
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "left"
-    }}
-    open={open}
-    message={message}
-    autoHideDuration={6000}
-    onClose={onClose}
-    action={[
-      <IconButton
-        key="close"
-        color="inherit"
-        className={classes.close}
-        onClick={onClose}
-      >
-        <CloseIcon />
-      </IconButton>
-    ]}
-  />
-);
-
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   close: {
     padding: theme.spacing(0.5)
   }
-});
+}));
 
-export default withStyles(styles)(PureMessage);
+const Message = ({ open, onClose, message }: Props) => {
+  const classes = useStyles();
+  return (
+    <Snackbar
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left"
+      }}
+      open={open}
+      message={message}
+      autoHideDuration={6000}
+      onClose={onClose}
+      action={[
+        <IconButton
+          key="close"
+          color="inherit"
+          className={classes.close}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </IconButton>
+      ]}
+    />
+  );
+};
+
+export default Message;
