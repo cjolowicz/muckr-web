@@ -14,7 +14,7 @@ import useInputField from "../hooks/useInputField";
 
 type Props = {
   createArtist: Function,
-  token: string
+  token: ?string
 };
 
 const useStyles = makeStyles({
