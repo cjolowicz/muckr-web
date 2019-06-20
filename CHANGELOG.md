@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2019-06-20
+### Fixed
+- Fix stale name field in create artist dialog.
+
+### Added
+- Add dependencies:
+  - @material-ui/styles 4.1.1
+
+### Changed
+- Update dependencies:
+  - @material-ui/core 4.1.1
+  - @material-ui/icons 4.2.0
+ 
+### Removed
+- Remove dependencies:
+  - jss
+  - react-jss
+
 ## [0.14.0] - 2019-06-18
 ### Changed
 - Normalize state shape.
@@ -432,7 +450,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.14.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.15.0...HEAD
+[0.15.0]: https://github.com/cjolowicz/muckr-web/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/cjolowicz/muckr-web/compare/v0.13.1...v0.14.0
 [0.13.1]: https://github.com/cjolowicz/muckr-web/compare/v0.13.0...v0.13.1
 [0.13.0]: https://github.com/cjolowicz/muckr-web/compare/v0.12.0...v0.13.0
