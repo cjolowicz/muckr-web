@@ -33,6 +33,18 @@ describe("CreateArtistDialog", () => {
     });
   });
 
+  describe("on name change", () => {
+    it("updates field", async () => {
+      const { getByTitle, getByTestId } = renderDialog();
+      fireEvent.click(getByTitle("Add"));
+      const dialog = await waitForElement(() => getByTestId("dialog"));
+      const input = within(dialog).getByLabelText("Name");
+      const value = "Lorem Ipsum";
+      fireEvent.change(input, { target: { value } });
+      expect(input.value).toEqual(value);
+    });
+  });
+
   describe("on submit", () => {
     it("creates artist", async () => {
       const { createArtist, getByTitle, getByTestId } = renderDialog();
