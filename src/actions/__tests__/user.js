@@ -11,7 +11,7 @@ import {
 } from "../user";
 import * as api from "../../api/user";
 import { unsafeCast } from "../../utils";
-import { mock } from "../../test/utils";
+import mock from "../../test/mock";
 import { USER } from "../../test/fixtures";
 
 const mockStore = configureStore([thunk]);
