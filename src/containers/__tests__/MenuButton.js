@@ -1,23 +1,11 @@
 // @flow
 import React from "react";
-import { Provider } from "react-redux";
-import { render } from "@testing-library/react";
-import configureStore from "redux-mock-store";
 
 import MenuButton from "../MenuButton";
-import rootReducer from "../../reducers";
-import { noop } from "../../actions/noop";
+import render from "../../test/render";
 
 describe("MenuButton", () => {
   it("renders", () => {
-    const mockStore = configureStore([]);
-    const state = rootReducer(undefined, noop());
-    const store = mockStore(state);
-
-    render(
-      <Provider store={store}>
-        <MenuButton />
-      </Provider>
-    );
+    render(<MenuButton />);
   });
 });
