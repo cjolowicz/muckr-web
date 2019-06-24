@@ -58,7 +58,9 @@ const SignIn = ({ location, onSubmit, token }: Props) => {
   const [password, handlePasswordChange] = useInputField();
 
   if (token) {
-    const { referrer } = location.state || { referrer: { pathname: "/" } };
+    const { referrer } = location.state || {
+      referrer: { pathname: routes.INDEX }
+    };
     return <Redirect to={referrer} />;
   }
 
