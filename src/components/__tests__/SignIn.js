@@ -1,15 +1,13 @@
 // @flow
 import React from "react";
 import type { Location } from "react-router-dom";
-import { Switch, Route, Router } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/styles";
-import { render, fireEvent } from "@testing-library/react";
-import { createMemoryHistory } from "history";
+import { Switch, Route } from "react-router-dom";
+import { fireEvent } from "@testing-library/react";
 
 import SignIn from "../SignIn";
-import theme from "../../theme";
 import { TOKEN } from "../../test/fixtures";
 import { just, unsafeCast } from "../../utils";
+import render from "../../test/render";
 
 const onSubmit = jest.fn();
 
@@ -20,24 +18,18 @@ const select = <T>(container, selector): T =>
 
 describe("SignIn", () => {
   const setupWithTokenAndReferrer = (token, pathname) => {
-    const history = createMemoryHistory({ initialEntries: ["/login"] });
     const location = unsafeCast<Location>(
       pathname ? { state: { referrer: { pathname } } } : {}
     );
 
-    const { container } = render(
-      <Router history={history}>
-        <ThemeProvider theme={theme}>
-          <Switch>
-            <Route path="/login">
-              <SignIn location={location} onSubmit={onSubmit} token={token} />
-            </Route>
-          </Switch>
-        </ThemeProvider>
-      </Router>
+    return render(
+      <Switch>
+        <Route path="/login">
+          <SignIn location={location} onSubmit={onSubmit} token={token} />
+        </Route>
+      </Switch>,
+      { route: "/login" }
     );
-
-    return { container, history };
   };
 
   const setup = () => {
