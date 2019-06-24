@@ -13,7 +13,7 @@ const onSubmit = jest.fn();
 afterEach(() => onSubmit.mockClear());
 
 describe("SignUp", () => {
-  const setup = () => {
+  const renderSignUp = () => {
     const { container } = render(<SignUp onSubmit={onSubmit} user={null} />);
 
     return {
@@ -26,14 +26,14 @@ describe("SignUp", () => {
 
   describe("initially", () => {
     it("renders title", () => {
-      const { header } = setup();
+      const { header } = renderSignUp();
       expect(header && header.textContent).toBe("Sign up for Muckr");
     });
   });
 
   describe("handleUsernameChange", () => {
     it("updates state", () => {
-      const { username } = setup();
+      const { username } = renderSignUp();
       fireEvent.change(username, { target: { value: "john" } });
       expect(username && username.value).toEqual("john");
     });
@@ -41,7 +41,7 @@ describe("SignUp", () => {
 
   describe("handlePasswordChange", () => {
     it("updates state", () => {
-      const { password } = setup();
+      const { password } = renderSignUp();
       fireEvent.change(password, { target: { value: "secret" } });
       expect(password && password.value).toEqual("secret");
     });
@@ -49,7 +49,7 @@ describe("SignUp", () => {
 
   describe("handleSubmit", () => {
     it("invokes onSubmit", async () => {
-      const { username, password, submit } = setup();
+      const { username, password, submit } = renderSignUp();
 
       fireEvent.change(username, { target: { value: "john" } });
       fireEvent.change(password, { target: { value: "secret" } });
