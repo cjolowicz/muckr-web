@@ -14,9 +14,9 @@ const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
 
-const renderSignIn = ({ token, pathname }) => {
+const renderSignIn = ({ token, referrer }) => {
   const location = unsafeCast<Location>(
-    pathname ? { state: { referrer: { pathname } } } : {}
+    referrer ? { state: { referrer: { pathname: referrer } } } : {}
   );
 
   const utils = render(
@@ -42,14 +42,14 @@ const renderSignIn = ({ token, pathname }) => {
 describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
-      const { header } = renderSignIn({ token: null, pathname: null });
+      const { header } = renderSignIn({ token: null, referrer: null });
       expect(header && header.textContent).toBe("Sign in to Muckr");
     });
   });
 
   describe("handleUsernameChange", () => {
     it("updates state", () => {
-      const { username } = renderSignIn({ token: null, pathname: null });
+      const { username } = renderSignIn({ token: null, referrer: null });
       fireEvent.change(username, { target: { value: "john" } });
       expect(username && username.value).toEqual("john");
     });
@@ -59,7 +59,7 @@ describe("SignIn", () => {
     it("invokes onSubmit", async () => {
       const { username, password, submit } = renderSignIn({
         token: null,
-        pathname: null
+        referrer: null
       });
 
       fireEvent.change(username, { target: { value: "john" } });
@@ -72,14 +72,14 @@ describe("SignIn", () => {
 
   describe("with token", () => {
     it("redirects", () => {
-      const { history } = renderSignIn({ token: TOKEN, pathname: "/artists" });
+      const { history } = renderSignIn({ token: TOKEN, referrer: "/artists" });
       expect(history.location.pathname).toEqual("/artists");
     });
   });
 
   describe("with token but without referrer", () => {
     it("redirects to /", () => {
-      const { history } = renderSignIn({ token: TOKEN, pathname: null });
+      const { history } = renderSignIn({ token: TOKEN, referrer: null });
       expect(history.location.pathname).toEqual("/");
     });
   });
