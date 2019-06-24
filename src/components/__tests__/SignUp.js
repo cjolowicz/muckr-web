@@ -5,15 +5,12 @@ import { fireEvent } from "@testing-library/react";
 
 import SignUp from "../SignUp";
 import render from "../../test/render";
-import { just, unsafeCast } from "../../utils";
 import { USER } from "../../test/fixtures";
+import select from "../../test/select";
 
 const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
-
-const select = <T>(container, selector): T =>
-  unsafeCast<T>(just(container.querySelector(selector)));
 
 describe("SignUp", () => {
   const setup = () => {
@@ -30,7 +27,7 @@ describe("SignUp", () => {
   describe("initially", () => {
     it("renders title", () => {
       const { header } = setup();
-      expect(header.textContent).toBe("Sign up for Muckr");
+      expect(header && header.textContent).toBe("Sign up for Muckr");
     });
   });
 
@@ -38,7 +35,7 @@ describe("SignUp", () => {
     it("updates state", () => {
       const { username } = setup();
       fireEvent.change(username, { target: { value: "john" } });
-      expect(username.value).toEqual("john");
+      expect(username && username.value).toEqual("john");
     });
   });
 
@@ -46,7 +43,7 @@ describe("SignUp", () => {
     it("updates state", () => {
       const { password } = setup();
       fireEvent.change(password, { target: { value: "secret" } });
-      expect(password.value).toEqual("secret");
+      expect(password && password.value).toEqual("secret");
     });
   });
 
