@@ -1,24 +1,20 @@
 // @flow
 import * as React from "react";
-import { Router, Switch } from "react-router-dom";
-import { createMemoryHistory } from "history";
-import { render } from "@testing-library/react";
+import { Switch } from "react-router-dom";
 
 import PrivateRoute from "../PrivateRoute";
+import render from "../../test/render";
 import { TOKEN } from "../../test/fixtures";
 
 describe("PrivateRoute", () => {
   const renderPrivateRoute = props => {
     const Component = () => <div>Lorem Ipsum Dolor</div>;
-    const history = createMemoryHistory({ initialEntries: ["/private"] });
-    const result = render(
-      <Router history={history}>
-        <Switch>
-          <PrivateRoute path="/private" component={Component} {...props} />
-        </Switch>
-      </Router>
+    return render(
+      <Switch>
+        <PrivateRoute path="/private" component={Component} {...props} />
+      </Switch>,
+      { route: "/private" }
     );
-    return { ...result, history };
   };
 
   describe("without token", () => {
