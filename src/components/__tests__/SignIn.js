@@ -6,15 +6,13 @@ import { fireEvent } from "@testing-library/react";
 
 import SignIn from "../SignIn";
 import { TOKEN } from "../../test/fixtures";
-import { just, unsafeCast } from "../../utils";
+import { unsafeCast } from "../../utils";
 import render from "../../test/render";
+import select from "../../test/select";
 
 const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
-
-const select = <T>(container, selector): T =>
-  unsafeCast<T>(just(container.querySelector(selector)));
 
 describe("SignIn", () => {
   const setupWithTokenAndReferrer = (token, pathname) => {
@@ -47,7 +45,7 @@ describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
       const { header } = setup();
-      expect(header.textContent).toBe("Sign in to Muckr");
+      expect(header && header.textContent).toBe("Sign in to Muckr");
     });
   });
 
@@ -55,7 +53,7 @@ describe("SignIn", () => {
     it("updates state", () => {
       const { username } = setup();
       fireEvent.change(username, { target: { value: "john" } });
-      expect(username.value).toEqual("john");
+      expect(username && username.value).toEqual("john");
     });
   });
 
