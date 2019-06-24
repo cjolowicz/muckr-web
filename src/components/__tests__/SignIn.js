@@ -14,32 +14,32 @@ const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
 
-describe("SignIn", () => {
-  const renderSignIn = ({ token, pathname }) => {
-    const location = unsafeCast<Location>(
-      pathname ? { state: { referrer: { pathname } } } : {}
-    );
+const renderSignIn = ({ token, pathname }) => {
+  const location = unsafeCast<Location>(
+    pathname ? { state: { referrer: { pathname } } } : {}
+  );
 
-    const utils = render(
-      <Switch>
-        <Route path="/login">
-          <SignIn location={location} onSubmit={onSubmit} token={token} />
-        </Route>
-      </Switch>,
-      { route: "/login" }
-    );
+  const utils = render(
+    <Switch>
+      <Route path="/login">
+        <SignIn location={location} onSubmit={onSubmit} token={token} />
+      </Route>
+    </Switch>,
+    { route: "/login" }
+  );
 
-    const { container } = utils;
+  const { container } = utils;
 
-    return {
-      ...utils,
-      header: select<HTMLHeadingElement>(container, "h1"),
-      username: select<HTMLInputElement>(container, "input[name='username']"),
-      password: select<HTMLInputElement>(container, "input[name='password']"),
-      submit: select<HTMLButtonElement>(container, "button[type='submit']")
-    };
+  return {
+    ...utils,
+    header: select<HTMLHeadingElement>(container, "h1"),
+    username: select<HTMLInputElement>(container, "input[name='username']"),
+    password: select<HTMLInputElement>(container, "input[name='password']"),
+    submit: select<HTMLButtonElement>(container, "button[type='submit']")
   };
+};
 
+describe("SignIn", () => {
   describe("initially", () => {
     it("renders main", () => {
       const { header } = renderSignIn({ token: null, pathname: null });
