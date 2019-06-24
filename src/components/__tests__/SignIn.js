@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
 import SignIn from "../SignIn";
+import * as routes from "../../routes";
 import { TOKEN } from "../../test/fixtures";
 import { unsafeCast } from "../../utils";
 import render from "../../test/render";
@@ -21,11 +22,11 @@ const renderSignIn = ({ token, referrer }) => {
 
   const utils = render(
     <Switch>
-      <Route path="/login">
+      <Route path={routes.SIGNIN}>
         <SignIn location={location} onSubmit={onSubmit} token={token} />
       </Route>
     </Switch>,
-    { route: "/login" }
+    { route: routes.SIGNIN }
   );
 
   const { container } = utils;
@@ -71,16 +72,19 @@ describe("SignIn", () => {
   });
 
   describe("with token", () => {
-    it("redirects", () => {
-      const { history } = renderSignIn({ token: TOKEN, referrer: "/artists" });
-      expect(history.location.pathname).toEqual("/artists");
+    it("redirects to the referrer", () => {
+      const { history } = renderSignIn({
+        token: TOKEN,
+        referrer: routes.ARTISTS
+      });
+      expect(history.location.pathname).toEqual(routes.ARTISTS);
     });
   });
 
   describe("with token but without referrer", () => {
-    it("redirects to /", () => {
+    it("redirects to the index route", () => {
       const { history } = renderSignIn({ token: TOKEN, referrer: null });
-      expect(history.location.pathname).toEqual("/");
+      expect(history.location.pathname).toEqual(routes.INDEX);
     });
   });
 });

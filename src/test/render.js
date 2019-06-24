@@ -9,6 +9,7 @@ import thunk from "redux-thunk";
 import { render } from "@testing-library/react";
 
 import { noop } from "../actions/noop";
+import * as routes from "../routes";
 import rootReducer from "../reducers";
 import theme from "../theme";
 import type { Action } from "../actions";
@@ -29,7 +30,7 @@ const render$ = (
   const store = mockStore(state);
 
   const history = createMemoryHistory({
-    initialEntries: [{ pathname: route || "/", key: "test" }]
+    initialEntries: [{ pathname: route || routes.INDEX, key: "test" }]
   });
 
   const utils = render(

@@ -3,6 +3,7 @@ import * as React from "react";
 import { Switch } from "react-router-dom";
 
 import PrivateRoute from "../PrivateRoute";
+import * as routes from "../../routes";
 import render from "../../test/render";
 import { TOKEN } from "../../test/fixtures";
 
@@ -23,9 +24,9 @@ describe("PrivateRoute", () => {
       expect(queryByText("Lorem Ipsum Dolor")).toBeNull();
     });
 
-    it("redirects to /login", async () => {
+    it("redirects to the sign in route", async () => {
       const { history } = renderPrivateRoute({ token: null });
-      expect(history.location.pathname).toEqual("/login");
+      expect(history.location.pathname).toEqual(routes.SIGNIN);
     });
   });
 

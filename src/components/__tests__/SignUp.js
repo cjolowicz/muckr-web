@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
 import SignUp from "../SignUp";
+import * as routes from "../../routes";
 import render from "../../test/render";
 import { USER } from "../../test/fixtures";
 import select from "../../test/select";
@@ -82,9 +83,9 @@ describe("SignUp", () => {
   });
 
   describe("on success", () => {
-    it("redirects to /login", () => {
+    it("redirects to the sign in route", () => {
       const { history } = renderSignUp({ user: USER });
-      expect(history.location.pathname).toEqual("/login");
+      expect(history.location.pathname).toEqual(routes.SIGNIN);
     });
   });
 });
