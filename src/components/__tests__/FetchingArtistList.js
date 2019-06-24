@@ -22,7 +22,6 @@ const renderFetchingArtistList = ({ token, artists }) => {
   const removeArtist = jest.fn();
   const utils = render(
     <FetchingArtistList
-      classes={{}}
       artists={artists}
       isLoading={false}
       token={token}
