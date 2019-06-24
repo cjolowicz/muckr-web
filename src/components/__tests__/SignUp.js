@@ -12,18 +12,18 @@ const onSubmit = jest.fn();
 
 afterEach(() => onSubmit.mockClear());
 
-describe("SignUp", () => {
-  const renderSignUp = () => {
-    const { container } = render(<SignUp onSubmit={onSubmit} user={null} />);
+const renderSignUp = () => {
+  const { container } = render(<SignUp onSubmit={onSubmit} user={null} />);
 
-    return {
-      header: select<HTMLHeadingElement>(container, "h1"),
-      username: select<HTMLInputElement>(container, "input[name='username']"),
-      password: select<HTMLInputElement>(container, "input[name='password']"),
-      submit: select<HTMLButtonElement>(container, "button[type='submit']")
-    };
+  return {
+    header: select<HTMLHeadingElement>(container, "h1"),
+    username: select<HTMLInputElement>(container, "input[name='username']"),
+    password: select<HTMLInputElement>(container, "input[name='password']"),
+    submit: select<HTMLButtonElement>(container, "button[type='submit']")
   };
+};
 
+describe("SignUp", () => {
   describe("initially", () => {
     it("renders title", () => {
       const { header } = renderSignUp();
