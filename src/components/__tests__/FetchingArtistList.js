@@ -17,69 +17,51 @@ const findParentByTagName = (element: HTMLElement, tagName) => {
   return current;
 };
 
+const renderFetchingArtistList = ({ token, artists }) => {
+  const fetchArtists = jest.fn();
+  const removeArtist = jest.fn();
+  const utils = render(
+    <FetchingArtistList
+      classes={{}}
+      artists={artists}
+      isLoading={false}
+      token={token}
+      fetchArtists={fetchArtists}
+      createArtist={jest.fn()}
+      removeArtist={removeArtist}
+      openDialog={jest.fn()}
+    />
+  );
+  return { ...utils, fetchArtists, removeArtist };
+};
+
 describe("FetchingArtistList", () => {
   describe("without token", () => {
     it("does not fetch artists", () => {
-      const fetchArtists = jest.fn();
-      const createArtist = jest.fn();
-      const removeArtist = jest.fn();
-      const openDialog = jest.fn();
-      render(
-        <FetchingArtistList
-          classes={{}}
-          artists={[]}
-          isLoading={false}
-          token={null}
-          fetchArtists={fetchArtists}
-          createArtist={createArtist}
-          removeArtist={removeArtist}
-          openDialog={openDialog}
-        />
-      );
+      const { fetchArtists } = renderFetchingArtistList({
+        token: null,
+        artists: []
+      });
       expect(fetchArtists).not.toHaveBeenCalled();
     });
   });
 
   describe("with token", () => {
     it("fetches artists", () => {
-      const fetchArtists = jest.fn();
-      const createArtist = jest.fn();
-      const removeArtist = jest.fn();
-      const openDialog = jest.fn();
-      render(
-        <FetchingArtistList
-          classes={{}}
-          artists={[]}
-          isLoading={false}
-          token={TOKEN}
-          fetchArtists={fetchArtists}
-          createArtist={createArtist}
-          removeArtist={removeArtist}
-          openDialog={openDialog}
-        />
-      );
+      const { fetchArtists } = renderFetchingArtistList({
+        artists: [],
+        token: TOKEN
+      });
       expect(fetchArtists).toHaveBeenCalled();
     });
   });
 
   describe("on delete", () => {
     it("removes the artist", () => {
-      const fetchArtists = jest.fn();
-      const createArtist = jest.fn();
-      const removeArtist = jest.fn();
-      const openDialog = jest.fn();
-      const { getByText } = render(
-        <FetchingArtistList
-          classes={{}}
-          artists={ARTISTS}
-          isLoading={false}
-          token={TOKEN}
-          fetchArtists={fetchArtists}
-          createArtist={createArtist}
-          removeArtist={removeArtist}
-          openDialog={openDialog}
-        />
-      );
+      const { getByText, removeArtist } = renderFetchingArtistList({
+        artists: ARTISTS,
+        token: TOKEN
+      });
       const artistNode = getByText(ARTIST.name);
       const listItem = findParentByTagName(artistNode, "LI");
       const deleteButton = within(listItem).getByTitle("Delete");
