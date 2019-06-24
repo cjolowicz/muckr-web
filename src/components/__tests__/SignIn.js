@@ -15,12 +15,12 @@ const onSubmit = jest.fn();
 afterEach(() => onSubmit.mockClear());
 
 describe("SignIn", () => {
-  const setupWithTokenAndReferrer = (token, pathname) => {
+  const setup = ({ token, pathname }) => {
     const location = unsafeCast<Location>(
       pathname ? { state: { referrer: { pathname } } } : {}
     );
 
-    return render(
+    const utils = render(
       <Switch>
         <Route path="/login">
           <SignIn location={location} onSubmit={onSubmit} token={token} />
@@ -28,13 +28,11 @@ describe("SignIn", () => {
       </Switch>,
       { route: "/login" }
     );
-  };
 
-  const setup = () => {
-    const { container, history } = setupWithTokenAndReferrer(null, null);
+    const { container } = utils;
 
     return {
-      history,
+      ...utils,
       header: select<HTMLHeadingElement>(container, "h1"),
       username: select<HTMLInputElement>(container, "input[name='username']"),
       password: select<HTMLInputElement>(container, "input[name='password']"),
@@ -44,14 +42,14 @@ describe("SignIn", () => {
 
   describe("initially", () => {
     it("renders main", () => {
-      const { header } = setup();
+      const { header } = setup({ token: null, pathname: null });
       expect(header && header.textContent).toBe("Sign in to Muckr");
     });
   });
 
   describe("handleUsernameChange", () => {
     it("updates state", () => {
-      const { username } = setup();
+      const { username } = setup({ token: null, pathname: null });
       fireEvent.change(username, { target: { value: "john" } });
       expect(username && username.value).toEqual("john");
     });
@@ -59,7 +57,10 @@ describe("SignIn", () => {
 
   describe("handleSubmit", () => {
     it("invokes onSubmit", async () => {
-      const { username, password, submit } = setup();
+      const { username, password, submit } = setup({
+        token: null,
+        pathname: null
+      });
 
       fireEvent.change(username, { target: { value: "john" } });
       fireEvent.change(password, { target: { value: "secret" } });
@@ -71,14 +72,14 @@ describe("SignIn", () => {
 
   describe("with token", () => {
     it("redirects", () => {
-      const { history } = setupWithTokenAndReferrer(TOKEN, "/artists");
+      const { history } = setup({ token: TOKEN, pathname: "/artists" });
       expect(history.location.pathname).toEqual("/artists");
     });
   });
 
   describe("with token but without referrer", () => {
     it("redirects to /", () => {
-      const { history } = setupWithTokenAndReferrer(TOKEN, null);
+      const { history } = setup({ token: TOKEN, pathname: null });
       expect(history.location.pathname).toEqual("/");
     });
   });
