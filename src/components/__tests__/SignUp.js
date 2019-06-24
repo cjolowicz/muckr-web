@@ -1,12 +1,10 @@
 // @flow
 import React from "react";
-import { Switch, Route, Router } from "react-router-dom";
-import { render, fireEvent } from "@testing-library/react";
-import { createMemoryHistory } from "history";
-import { ThemeProvider } from "@material-ui/styles";
+import { Switch, Route } from "react-router-dom";
+import { fireEvent } from "@testing-library/react";
 
 import SignUp from "../SignUp";
-import theme from "../../theme";
+import render from "../../test/render";
 import { just, unsafeCast } from "../../utils";
 import { USER } from "../../test/fixtures";
 
@@ -19,11 +17,7 @@ const select = <T>(container, selector): T =>
 
 describe("SignUp", () => {
   const setup = () => {
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <SignUp onSubmit={onSubmit} user={null} />
-      </ThemeProvider>
-    );
+    const { container } = render(<SignUp onSubmit={onSubmit} user={null} />);
 
     return {
       header: select<HTMLHeadingElement>(container, "h1"),
@@ -70,18 +64,13 @@ describe("SignUp", () => {
 
   describe("on success", () => {
     it("redirects to /login", () => {
-      const history = createMemoryHistory({ initialEntries: ["/join"] });
-
-      render(
-        <Router history={history}>
-          <ThemeProvider theme={theme}>
-            <Switch>
-              <Route path="/join">
-                <SignUp onSubmit={onSubmit} user={USER} />
-              </Route>
-            </Switch>
-          </ThemeProvider>
-        </Router>
+      const { history } = render(
+        <Switch>
+          <Route path="/join">
+            <SignUp onSubmit={onSubmit} user={USER} />
+          </Route>
+        </Switch>,
+        { route: "/join" }
       );
 
       expect(history.location.pathname).toEqual("/login");
