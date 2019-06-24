@@ -1,10 +1,8 @@
 // @flow
 import React from "react";
-import { ThemeProvider } from "@material-ui/styles";
-import { render } from "@testing-library/react";
 
 import Message from "../Message";
-import theme from "../../theme";
+import render from "../../test/render";
 
 describe("Message", () => {
   const message = "lorem ipsum dolor";
@@ -12,9 +10,7 @@ describe("Message", () => {
   describe("on startup", () => {
     it("renders message", () => {
       const { queryByText } = render(
-        <ThemeProvider theme={theme}>
-          <Message open onClose={jest.fn()} message={message} />
-        </ThemeProvider>
+        <Message open onClose={jest.fn()} message={message} />
       );
       expect(queryByText(message)).not.toBeNull();
     });
