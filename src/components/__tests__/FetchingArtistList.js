@@ -1,13 +1,10 @@
 // @flow
 import React from "react";
-import { Provider } from "react-redux";
-import { fireEvent, render, within } from "@testing-library/react";
-import configureStore from "redux-mock-store";
+import { fireEvent, within } from "@testing-library/react";
 
 import FetchingArtistList from "../FetchingArtistList";
 import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
-import rootReducer from "../../reducers";
-import { noop } from "../../actions/noop";
+import render from "../../test/render";
 
 const findParentByTagName = (element: HTMLElement, tagName) => {
   let current = element;
@@ -21,10 +18,6 @@ const findParentByTagName = (element: HTMLElement, tagName) => {
 };
 
 describe("FetchingArtistList", () => {
-  const mockStore = configureStore([]);
-  const state = rootReducer(undefined, noop());
-  const store = mockStore(state);
-
   describe("without token", () => {
     it("does not fetch artists", () => {
       const fetchArtists = jest.fn();
@@ -32,18 +25,16 @@ describe("FetchingArtistList", () => {
       const removeArtist = jest.fn();
       const openDialog = jest.fn();
       render(
-        <Provider store={store}>
-          <FetchingArtistList
-            classes={{}}
-            artists={[]}
-            isLoading={false}
-            token={null}
-            fetchArtists={fetchArtists}
-            createArtist={createArtist}
-            removeArtist={removeArtist}
-            openDialog={openDialog}
-          />
-        </Provider>
+        <FetchingArtistList
+          classes={{}}
+          artists={[]}
+          isLoading={false}
+          token={null}
+          fetchArtists={fetchArtists}
+          createArtist={createArtist}
+          removeArtist={removeArtist}
+          openDialog={openDialog}
+        />
       );
       expect(fetchArtists).not.toHaveBeenCalled();
     });
@@ -56,18 +47,16 @@ describe("FetchingArtistList", () => {
       const removeArtist = jest.fn();
       const openDialog = jest.fn();
       render(
-        <Provider store={store}>
-          <FetchingArtistList
-            classes={{}}
-            artists={[]}
-            isLoading={false}
-            token={TOKEN}
-            fetchArtists={fetchArtists}
-            createArtist={createArtist}
-            removeArtist={removeArtist}
-            openDialog={openDialog}
-          />
-        </Provider>
+        <FetchingArtistList
+          classes={{}}
+          artists={[]}
+          isLoading={false}
+          token={TOKEN}
+          fetchArtists={fetchArtists}
+          createArtist={createArtist}
+          removeArtist={removeArtist}
+          openDialog={openDialog}
+        />
       );
       expect(fetchArtists).toHaveBeenCalled();
     });
@@ -80,18 +69,16 @@ describe("FetchingArtistList", () => {
       const removeArtist = jest.fn();
       const openDialog = jest.fn();
       const { getByText } = render(
-        <Provider store={store}>
-          <FetchingArtistList
-            classes={{}}
-            artists={ARTISTS}
-            isLoading={false}
-            token={TOKEN}
-            fetchArtists={fetchArtists}
-            createArtist={createArtist}
-            removeArtist={removeArtist}
-            openDialog={openDialog}
-          />
-        </Provider>
+        <FetchingArtistList
+          classes={{}}
+          artists={ARTISTS}
+          isLoading={false}
+          token={TOKEN}
+          fetchArtists={fetchArtists}
+          createArtist={createArtist}
+          removeArtist={removeArtist}
+          openDialog={openDialog}
+        />
       );
       const artistNode = getByText(ARTIST.name);
       const listItem = findParentByTagName(artistNode, "LI");
