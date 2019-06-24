@@ -6,17 +6,17 @@ import PrivateRoute from "../PrivateRoute";
 import render from "../../test/render";
 import { TOKEN } from "../../test/fixtures";
 
-describe("PrivateRoute", () => {
-  const renderPrivateRoute = props => {
-    const Component = () => <div>Lorem Ipsum Dolor</div>;
-    return render(
-      <Switch>
-        <PrivateRoute path="/private" component={Component} {...props} />
-      </Switch>,
-      { route: "/private" }
-    );
-  };
+const renderPrivateRoute = ({ token }) => {
+  const Component = () => <div>Lorem Ipsum Dolor</div>;
+  return render(
+    <Switch>
+      <PrivateRoute path="/private" component={Component} token={token} />
+    </Switch>,
+    { route: "/private" }
+  );
+};
 
+describe("PrivateRoute", () => {
   describe("without token", () => {
     it("does not render component", () => {
       const { queryByText } = renderPrivateRoute({ token: null });
