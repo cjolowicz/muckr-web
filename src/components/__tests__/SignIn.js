@@ -15,7 +15,7 @@ const onSubmit = jest.fn();
 afterEach(() => onSubmit.mockClear());
 
 describe("SignIn", () => {
-  const setup = ({ token, pathname }) => {
+  const renderSignIn = ({ token, pathname }) => {
     const location = unsafeCast<Location>(
       pathname ? { state: { referrer: { pathname } } } : {}
     );
@@ -42,14 +42,14 @@ describe("SignIn", () => {
 
   describe("initially", () => {
     it("renders main", () => {
-      const { header } = setup({ token: null, pathname: null });
+      const { header } = renderSignIn({ token: null, pathname: null });
       expect(header && header.textContent).toBe("Sign in to Muckr");
     });
   });
 
   describe("handleUsernameChange", () => {
     it("updates state", () => {
-      const { username } = setup({ token: null, pathname: null });
+      const { username } = renderSignIn({ token: null, pathname: null });
       fireEvent.change(username, { target: { value: "john" } });
       expect(username && username.value).toEqual("john");
     });
@@ -57,7 +57,7 @@ describe("SignIn", () => {
 
   describe("handleSubmit", () => {
     it("invokes onSubmit", async () => {
-      const { username, password, submit } = setup({
+      const { username, password, submit } = renderSignIn({
         token: null,
         pathname: null
       });
@@ -72,14 +72,14 @@ describe("SignIn", () => {
 
   describe("with token", () => {
     it("redirects", () => {
-      const { history } = setup({ token: TOKEN, pathname: "/artists" });
+      const { history } = renderSignIn({ token: TOKEN, pathname: "/artists" });
       expect(history.location.pathname).toEqual("/artists");
     });
   });
 
   describe("with token but without referrer", () => {
     it("redirects to /", () => {
-      const { history } = setup({ token: TOKEN, pathname: null });
+      const { history } = renderSignIn({ token: TOKEN, pathname: null });
       expect(history.location.pathname).toEqual("/");
     });
   });
