@@ -18,12 +18,14 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
-  "overrides": {
-    "files": ["**/__tests__/**"],
-    "rules": {
-      "compat/compat": "off"
+  "overrides": [
+    {
+      "files": ["**/__tests__/**"],
+      "rules": {
+        "compat/compat": "off"
+      }
     }
-  },
+  ],
   "env": {
     "browser": true,
     "jest": true
