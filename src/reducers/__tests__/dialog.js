@@ -1,6 +1,15 @@
 // @flow
-import reducer, { isDialogOpen, getDialogArtist } from "../dialog";
-import { openDialog, updateDialog, closeDialog } from "../../actions/dialog";
+import reducer, {
+  getDialogArtist,
+  isCreateDialogOpen,
+  isUpdateDialogOpen
+} from "../dialog";
+import {
+  openUpdateDialog,
+  updateDialog,
+  closeDialog,
+  openCreateDialog
+} from "../../actions/dialog";
 import { noop } from "../../actions/noop";
 import { ARTIST } from "../../test/fixtures";
 
@@ -9,7 +18,7 @@ describe("dialog", () => {
 
   describe("initial state", () => {
     it("is closed", () => {
-      expect(isDialogOpen(initialState)).toBe(false);
+      expect(isUpdateDialogOpen(initialState)).toBe(false);
     });
 
     it("has no artist", () => {
@@ -17,12 +26,12 @@ describe("dialog", () => {
     });
   });
 
-  describe("openDialog", () => {
-    const action = openDialog(ARTIST);
+  describe("openUpdateDialog", () => {
+    const action = openUpdateDialog(ARTIST);
     const state = reducer(initialState, action);
 
     it("is open", () => {
-      expect(isDialogOpen(state)).toBe(true);
+      expect(isUpdateDialogOpen(state)).toBe(true);
     });
 
     it("has artist", () => {
@@ -32,11 +41,11 @@ describe("dialog", () => {
 
   describe("updateDialog", () => {
     const action = updateDialog("foo");
-    const stateBefore = reducer(undefined, openDialog(ARTIST));
+    const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
     const state = reducer(stateBefore, action);
 
     it("is open", () => {
-      expect(isDialogOpen(state)).toBe(true);
+      expect(isUpdateDialogOpen(state)).toBe(true);
     });
 
     it("has updated artist", () => {
@@ -51,7 +60,7 @@ describe("dialog", () => {
     const state = reducer(initialState, action);
 
     it("is closed", () => {
-      expect(isDialogOpen(state)).toBe(false);
+      expect(isUpdateDialogOpen(state)).toBe(false);
     });
 
     it("has no artist", () => {
@@ -61,15 +70,24 @@ describe("dialog", () => {
 
   describe("closeDialog", () => {
     const action = closeDialog();
-    const stateBefore = reducer(undefined, openDialog(ARTIST));
+    const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
     const state = reducer(stateBefore, action);
 
     it("is closed", () => {
-      expect(isDialogOpen(state)).toBe(false);
+      expect(isUpdateDialogOpen(state)).toBe(false);
     });
 
     it("has no artist", () => {
       expect(getDialogArtist(state)).toBeNull();
+    });
+  });
+
+  describe("openCreateDialog", () => {
+    const action = openCreateDialog();
+    const state = reducer(initialState, action);
+
+    it("is open", () => {
+      expect(isCreateDialogOpen(state)).toBe(true);
     });
   });
 });

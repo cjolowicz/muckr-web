@@ -10,34 +10,45 @@ import {
 import CreateArtistDialog from "../CreateArtistDialog";
 import { TOKEN } from "../../test/fixtures";
 
-const renderCreateArtistDialog = ({ token }) => {
+const renderCreateArtistDialog = ({ open, token }) => {
+  const openDialog = jest.fn();
   const createArtist = jest.fn();
   const result = render(
-    <CreateArtistDialog createArtist={createArtist} token={token} />
+    <CreateArtistDialog
+      open={open}
+      openDialog={openDialog}
+      closeDialog={jest.fn()}
+      createArtist={createArtist}
+      token={token}
+    />
   );
-  return { createArtist, ...result };
+  return { ...result, createArtist, openDialog };
 };
 
 describe("CreateArtistDialog", () => {
   describe("initially", () => {
     it("has button", () => {
-      const { getByTitle } = renderCreateArtistDialog({ token: TOKEN });
+      const { getByTitle } = renderCreateArtistDialog({
+        open: false,
+        token: TOKEN
+      });
       expect(getByTitle("Add")).not.toBeNull();
     });
 
     it("opens when button is clicked", async () => {
-      const { getByTitle, getByLabelText } = renderCreateArtistDialog({
+      const { getByTitle, openDialog } = renderCreateArtistDialog({
+        open: false,
         token: TOKEN
       });
       fireEvent.click(getByTitle("Add"));
-      const nameField = await waitForElement(() => getByLabelText("Name"));
-      expect(nameField).not.toBeNull();
+      expect(openDialog).toHaveBeenCalled();
     });
   });
 
   describe("on name change", () => {
     it("updates field", async () => {
       const { getByTitle, getByTestId } = renderCreateArtistDialog({
+        open: true,
         token: TOKEN
       });
       fireEvent.click(getByTitle("Add"));
@@ -55,7 +66,7 @@ describe("CreateArtistDialog", () => {
         createArtist,
         getByTitle,
         getByTestId
-      } = renderCreateArtistDialog({ token: TOKEN });
+      } = renderCreateArtistDialog({ open: true, token: TOKEN });
       fireEvent.click(getByTitle("Add"));
       const addDialog = await waitForElement(() => getByTestId("dialog"));
       const addDialogButton = within(addDialog).getByText("Add");
@@ -68,7 +79,7 @@ describe("CreateArtistDialog", () => {
         createArtist,
         getByTitle,
         getByTestId
-      } = renderCreateArtistDialog({ token: null });
+      } = renderCreateArtistDialog({ open: true, token: null });
       fireEvent.click(getByTitle("Add"));
       const addDialog = await waitForElement(() => getByTestId("dialog"));
       const addDialogButton = within(addDialog).getByText("Add");

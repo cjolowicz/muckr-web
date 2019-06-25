@@ -31,8 +31,11 @@ export const initialState: State = {
   entities: fromEntities.initialState
 };
 
-export const isDialogOpen = (state: State) =>
-  fromDialog.isDialogOpen(state.dialog);
+export const isCreateDialogOpen = (state: State) =>
+  fromDialog.isCreateDialogOpen(state.dialog);
+
+export const isUpdateDialogOpen = (state: State) =>
+  fromDialog.isUpdateDialogOpen(state.dialog);
 
 export const getDialogArtist = (state: State) =>
   fromDialog.getDialogArtist(state.dialog);

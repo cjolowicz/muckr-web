@@ -1,5 +1,7 @@
 // @flow
 import rootReducer, {
+  isCreateDialogOpen,
+  isUpdateDialogOpen,
   getDialogArtist,
   isMessageOpen,
   getMessage,
@@ -22,6 +24,18 @@ describe("initial state", () => {
   describe("rootReducer", () => {
     it("returns defined state", () => {
       expect(state).not.toBeUndefined();
+    });
+  });
+
+  describe("isCreateDialogOpen", () => {
+    it("is false", () => {
+      expect(isCreateDialogOpen(state)).toBe(false);
+    });
+  });
+
+  describe("isUpdateDialogOpen", () => {
+    it("is false", () => {
+      expect(isUpdateDialogOpen(state)).toBe(false);
     });
   });
 

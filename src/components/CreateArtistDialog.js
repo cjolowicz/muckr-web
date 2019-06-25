@@ -11,6 +11,9 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/styles";
 
 type Props = {
+  open: boolean,
+  openDialog: Function,
+  closeDialog: Function,
   createArtist: Function,
   token: ?string
 };
@@ -28,18 +31,18 @@ const useStyles = makeStyles({
 
 type InputEvent = SyntheticInputEvent<HTMLInputElement>;
 
-const CreateArtistDialog = ({ createArtist, token }: Props) => {
+const CreateArtistDialog = ({
+  open,
+  openDialog,
+  closeDialog,
+  createArtist,
+  token
+}: Props) => {
   const classes = useStyles();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [name, setName] = useState("");
   const handleNameChange = (event: InputEvent) => {
     setName(event.target.value);
   };
-  const openDialog = () => {
-    setName("");
-    setIsDialogOpen(true);
-  };
-  const closeDialog = () => setIsDialogOpen(false);
   const handleSubmit = () => {
     if (token) {
       createArtist(token, name);
@@ -56,7 +59,7 @@ const CreateArtistDialog = ({ createArtist, token }: Props) => {
       >
         <AddIcon />
       </Fab>
-      <Dialog data-testid="dialog" open={isDialogOpen} onClose={closeDialog}>
+      <Dialog data-testid="dialog" open={open} onClose={closeDialog}>
         <DialogTitle>Add artist</DialogTitle>
         <DialogContent>
           <TextField

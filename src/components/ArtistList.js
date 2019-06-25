@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
 import type { Artist } from "../api/artist";
-import CreateArtistDialog from "./CreateArtistDialog";
+import CreateArtistDialog from "../containers/CreateArtistDialog";
 import UpdateArtistDialog from "../containers/UpdateArtistDialog";
 
 export type Props = {
@@ -20,7 +20,7 @@ export type Props = {
   isLoading: boolean,
   createArtist: Function,
   removeArtist: Function,
-  openDialog: Function
+  openUpdateDialog: Function
 };
 
 const useStyles = makeStyles({
@@ -41,7 +41,7 @@ const ArtistList = ({
   isLoading,
   createArtist,
   removeArtist,
-  openDialog
+  openUpdateDialog
 }: Props) => {
   const classes = useStyles();
   return (
@@ -60,7 +60,7 @@ const ArtistList = ({
                 aria-label="Edit"
                 title="Edit"
                 className={classes.delete}
-                onClick={() => openDialog(artist)}
+                onClick={() => openUpdateDialog(artist)}
               >
                 <EditIcon />
               </IconButton>

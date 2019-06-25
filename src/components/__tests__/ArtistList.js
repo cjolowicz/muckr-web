@@ -7,18 +7,18 @@ import render from "../../test/render";
 import { ARTISTS, ARTIST, TOKEN } from "../../test/fixtures";
 
 const renderArtistList = ({ artists, isLoading }) => {
-  const openDialog = jest.fn();
+  const openUpdateDialog = jest.fn();
   const utils = render(
     <ArtistList
       artists={artists}
       createArtist={jest.fn()}
       removeArtist={jest.fn()}
-      openDialog={openDialog}
+      openUpdateDialog={openUpdateDialog}
       isLoading={isLoading}
       token={TOKEN}
     />
   );
-  return { ...utils, openDialog };
+  return { ...utils, openUpdateDialog };
 };
 
 describe("ArtistList", () => {
@@ -42,14 +42,14 @@ describe("ArtistList", () => {
 
   describe("on edit", () => {
     it("opens dialog", () => {
-      const { getByTitle, openDialog } = renderArtistList({
+      const { getByTitle, openUpdateDialog } = renderArtistList({
         artists: [ARTIST],
         isLoading: false
       });
 
       const editButton = getByTitle("Edit");
       fireEvent.click(editButton);
-      expect(openDialog).toHaveBeenCalledWith(ARTIST);
+      expect(openUpdateDialog).toHaveBeenCalledWith(ARTIST);
     });
   });
 });
