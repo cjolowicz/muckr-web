@@ -1,5 +1,6 @@
 // @flow
 import reducer, {
+  NO_ARTIST,
   getDialogArtist,
   isCreateDialogOpen,
   isUpdateDialogOpen
@@ -22,7 +23,7 @@ describe("dialog", () => {
     });
 
     it("has no artist", () => {
-      expect(getDialogArtist(initialState)).toBeNull();
+      expect(getDialogArtist(initialState)).toEqual(NO_ARTIST);
     });
   });
 
@@ -55,19 +56,6 @@ describe("dialog", () => {
     });
   });
 
-  describe("updateDialog when closed", () => {
-    const action = updateDialog("foo");
-    const state = reducer(initialState, action);
-
-    it("is closed", () => {
-      expect(isUpdateDialogOpen(state)).toBe(false);
-    });
-
-    it("has no artist", () => {
-      expect(getDialogArtist(state)).toBeNull();
-    });
-  });
-
   describe("closeDialog", () => {
     const action = closeDialog();
     const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
@@ -78,7 +66,7 @@ describe("dialog", () => {
     });
 
     it("has no artist", () => {
-      expect(getDialogArtist(state)).toBeNull();
+      expect(getDialogArtist(state)).toEqual(NO_ARTIST);
     });
   });
 

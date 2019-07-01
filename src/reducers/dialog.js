@@ -17,12 +17,17 @@ export type DialogType = typeof DIALOG_TYPE_CREATE | typeof DIALOG_TYPE_UPDATE;
 
 export type State = {
   open: ?DialogType,
-  artist: ?Artist
+  artist: Artist
+};
+
+export const NO_ARTIST = {
+  id: -1,
+  name: ""
 };
 
 export const initialState: State = {
   open: null,
-  artist: null
+  artist: NO_ARTIST
 };
 
 function open(state = initialState.open, action) {
@@ -45,8 +50,10 @@ function artist(state = initialState.artist, action) {
       return initialState.artist;
     case OPEN_UPDATE_DIALOG:
       return action.artist;
-    case UPDATE_DIALOG:
-      return state == null ? null : { ...state, name: action.name };
+    case UPDATE_DIALOG: {
+      const { name } = action;
+      return { ...state, name };
+    }
     default:
       return state;
   }

@@ -16,6 +16,7 @@ import rootReducer, {
   getArtists,
   getArtistsError
 } from "..";
+import { NO_ARTIST } from "../dialog";
 import { noop } from "../../actions/noop";
 
 describe("initial state", () => {
@@ -41,7 +42,7 @@ describe("initial state", () => {
 
   describe("getDialogArtist", () => {
     it("returns no artist", () => {
-      expect(getDialogArtist(state)).toBeNull();
+      expect(getDialogArtist(state)).toEqual(NO_ARTIST);
     });
   });
 

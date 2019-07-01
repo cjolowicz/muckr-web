@@ -15,7 +15,7 @@ type Props = {
   closeDialog: Function,
   updateArtist: Function,
   token: ?string,
-  artist: ?Artist
+  artist: Artist
 };
 
 const UpdateArtistDialog = ({
@@ -27,9 +27,8 @@ const UpdateArtistDialog = ({
   artist
 }: Props) => {
   const handleSubmit = () => {
-    if (token && artist) {
-      const { id, name } = artist;
-      updateArtist(token, { id, name });
+    if (token) {
+      updateArtist(token, artist);
     }
     closeDialog();
   };
