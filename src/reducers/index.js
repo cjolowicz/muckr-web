@@ -40,6 +40,9 @@ export const isUpdateDialogOpen = (state: State) =>
 export const getDialogArtist = (state: State) =>
   fromDialog.getDialogArtist(state.dialog);
 
+export const getDialogType = (state: State) =>
+  fromDialog.getDialogType(state.dialog);
+
 export const isMessageOpen = (state: State) =>
   fromMessage.isMessageOpen(state.message);
 

@@ -58,6 +58,8 @@ export const isCreateDialogOpen = (state: State) =>
 export const isUpdateDialogOpen = (state: State) =>
   state.open === DIALOG_TYPE_UPDATE;
 
+export const getDialogType = (state: State) => state.open;
+
 export const getDialogArtist = (state: State) => state.artist;
 
 export default combineReducers<Object, Action>({ open, artist });
