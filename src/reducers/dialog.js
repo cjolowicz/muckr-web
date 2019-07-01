@@ -16,35 +16,23 @@ export const DIALOG_TYPE_UPDATE = "DIALOG_TYPE_UPDATE";
 export type DialogType = typeof DIALOG_TYPE_CREATE | typeof DIALOG_TYPE_UPDATE;
 
 export type State = {
-  open: boolean,
-  dialogType: DialogType,
+  open: ?DialogType,
   artist: ?Artist
 };
 
 export const initialState: State = {
-  open: false,
-  dialogType: DIALOG_TYPE_CREATE,
+  open: null,
   artist: null
 };
 
 function open(state = initialState.open, action) {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
-    case OPEN_UPDATE_DIALOG:
-      return true;
-    case CLOSE_DIALOG:
-      return false;
-    default:
-      return state;
-  }
-}
-
-function dialogType(state = initialState.dialogType, action) {
-  switch (action.type) {
-    case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
     case OPEN_UPDATE_DIALOG:
       return DIALOG_TYPE_UPDATE;
+    case CLOSE_DIALOG:
+      return initialState.open;
     default:
       return state;
   }
@@ -65,11 +53,11 @@ function artist(state = initialState.artist, action) {
 }
 
 export const isCreateDialogOpen = (state: State) =>
-  state.open && state.dialogType === DIALOG_TYPE_CREATE;
+  state.open === DIALOG_TYPE_CREATE;
 
 export const isUpdateDialogOpen = (state: State) =>
-  state.open && state.dialogType === DIALOG_TYPE_UPDATE;
+  state.open === DIALOG_TYPE_UPDATE;
 
 export const getDialogArtist = (state: State) => state.artist;
 
-export default combineReducers<Object, Action>({ open, dialogType, artist });
+export default combineReducers<Object, Action>({ open, artist });
