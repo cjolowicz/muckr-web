@@ -13,14 +13,12 @@ import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 
 import type { Artist } from "../api/artist";
-import CreateArtistDialog from "../containers/CreateArtistDialog";
-import UpdateArtistDialog from "../containers/UpdateArtistDialog";
+import ArtistDialog from "../containers/ArtistDialog";
 
 export type Props = {
   token: ?string,
   artists: Array<Artist>,
   isLoading: boolean,
-  createArtist: Function,
   removeArtist: Function,
   openCreateDialog: Function,
   openUpdateDialog: Function
@@ -50,7 +48,6 @@ const ArtistList = ({
   token,
   artists,
   isLoading,
-  createArtist,
   removeArtist,
   openCreateDialog,
   openUpdateDialog
@@ -96,8 +93,7 @@ const ArtistList = ({
       >
         <AddIcon />
       </Fab>
-      <CreateArtistDialog token={token} createArtist={createArtist} />
-      <UpdateArtistDialog />
+      <ArtistDialog />
     </>
   );
 };
