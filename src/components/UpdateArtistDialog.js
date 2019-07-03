@@ -26,12 +26,16 @@ const UpdateArtistDialog = ({
   token,
   artist
 }: Props) => {
+  const handleChange = event =>
+    updateDialog({ ...artist, name: event.target.value });
+
   const handleSubmit = () => {
     if (token) {
       updateArtist(token, artist);
     }
     closeDialog();
   };
+
   return (
     <Dialog data-testid="dialog" open={open} onClose={closeDialog}>
       <DialogTitle>Update artist</DialogTitle>
@@ -42,7 +46,7 @@ const UpdateArtistDialog = ({
           id="name"
           label="Name"
           value={artist ? artist.name : ""}
-          onChange={event => updateDialog(event.target.value)}
+          onChange={handleChange}
           fullWidth
         />
       </DialogContent>

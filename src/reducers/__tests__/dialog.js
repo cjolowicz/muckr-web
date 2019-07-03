@@ -41,7 +41,8 @@ describe("dialog", () => {
   });
 
   describe("updateDialog", () => {
-    const action = updateDialog("foo");
+    const artist = { ...ARTIST, name: "foo" };
+    const action = updateDialog(artist);
     const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
     const state = reducer(stateBefore, action);
 
@@ -50,9 +51,7 @@ describe("dialog", () => {
     });
 
     it("has updated artist", () => {
-      const { id } = ARTIST;
-      const { name } = action;
-      expect(getDialogArtist(state)).toEqual({ id, name });
+      expect(getDialogArtist(state)).toEqual(artist);
     });
   });
 

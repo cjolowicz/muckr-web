@@ -29,8 +29,9 @@ describe("UpdateArtistDialog", () => {
         token: TOKEN
       });
       const textField = getByLabelText("Name");
-      fireEvent.change(textField, { target: { value: "x" } });
-      expect(updateDialog).toHaveBeenCalledWith("x");
+      const artist = { ...ARTIST, name: "x" };
+      fireEvent.change(textField, { target: { value: artist.name } });
+      expect(updateDialog).toHaveBeenCalledWith(artist);
     });
   });
 

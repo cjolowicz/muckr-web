@@ -17,7 +17,7 @@ export type OpenUpdateDialogAction = {
 
 export type UpdateDialogAction = {
   type: typeof UPDATE_DIALOG,
-  name: string
+  artist: Artist
 };
 
 export type CloseDialogAction = {
@@ -39,9 +39,9 @@ export const openUpdateDialog = (artist: Artist): OpenUpdateDialogAction => ({
   artist
 });
 
-export const updateDialog = (name: string): UpdateDialogAction => ({
+export const updateDialog = (artist: Artist): UpdateDialogAction => ({
   type: UPDATE_DIALOG,
-  name
+  artist
 });
 
 export const closeDialog = (): CloseDialogAction => ({

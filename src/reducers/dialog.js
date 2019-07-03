@@ -49,11 +49,8 @@ function artist(state = initialState.artist, action) {
     case CLOSE_DIALOG:
       return initialState.artist;
     case OPEN_UPDATE_DIALOG:
+    case UPDATE_DIALOG:
       return action.artist;
-    case UPDATE_DIALOG: {
-      const { name } = action;
-      return { ...state, name };
-    }
     default:
       return state;
   }
