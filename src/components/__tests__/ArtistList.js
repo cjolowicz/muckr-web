@@ -13,6 +13,7 @@ const renderArtistList = ({ artists, isLoading }) => {
       artists={artists}
       createArtist={jest.fn()}
       removeArtist={jest.fn()}
+      openCreateDialog={jest.fn()}
       openUpdateDialog={openUpdateDialog}
       isLoading={isLoading}
       token={TOKEN}

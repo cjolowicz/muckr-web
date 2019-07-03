@@ -28,6 +28,7 @@ const renderFetchingArtistList = ({ token, artists }) => {
       fetchArtists={fetchArtists}
       createArtist={jest.fn()}
       removeArtist={removeArtist}
+      openCreateDialog={jest.fn()}
       openUpdateDialog={jest.fn()}
     />
   );

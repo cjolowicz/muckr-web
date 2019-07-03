@@ -9,6 +9,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
 
 import type { Artist } from "../api/artist";
 import CreateArtistDialog from "../containers/CreateArtistDialog";
@@ -20,6 +22,7 @@ export type Props = {
   isLoading: boolean,
   createArtist: Function,
   removeArtist: Function,
+  openCreateDialog: Function,
   openUpdateDialog: Function
 };
 
@@ -32,6 +35,14 @@ const useStyles = makeStyles({
     "&:hover $delete": {
       visibility: "visible"
     }
+  },
+  fab: {
+    margin: 0,
+    top: "auto",
+    right: 20,
+    bottom: 20,
+    left: "auto",
+    position: "fixed"
   }
 });
 
@@ -41,6 +52,7 @@ const ArtistList = ({
   isLoading,
   createArtist,
   removeArtist,
+  openCreateDialog,
   openUpdateDialog
 }: Props) => {
   const classes = useStyles();
@@ -76,6 +88,14 @@ const ArtistList = ({
           </ListItem>
         ))}
       </List>
+      <Fab
+        title="Add"
+        color="primary"
+        onClick={openCreateDialog}
+        className={classes.fab}
+      >
+        <AddIcon />
+      </Fab>
       <CreateArtistDialog token={token} createArtist={createArtist} />
       <UpdateArtistDialog />
     </>
