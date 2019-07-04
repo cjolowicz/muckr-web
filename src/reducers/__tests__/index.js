@@ -1,5 +1,6 @@
 // @flow
 import rootReducer, {
+  getDialogArtist,
   isMessageOpen,
   getMessage,
   isNavigationOpen,
@@ -21,6 +22,12 @@ describe("initial state", () => {
   describe("rootReducer", () => {
     it("returns defined state", () => {
       expect(state).not.toBeUndefined();
+    });
+  });
+
+  describe("getDialogArtist", () => {
+    it("returns no artist", () => {
+      expect(getDialogArtist(state)).toBeNull();
     });
   });
 
