@@ -1,7 +1,8 @@
 // @flow
 import React from "react";
 import type { Location } from "react-router-dom";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect, Link as RouterLink } from "react-router-dom";
+import Link from "@material-ui/core/Link";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
@@ -46,7 +47,8 @@ const useStyles = makeStyles(theme => ({
   },
   signup: {
     marginTop: theme.spacing(3),
-    textAlign: "center"
+    textAlign: "center",
+    display: "block"
   }
 }));
 
@@ -104,13 +106,13 @@ const SignIn = ({ location, onSubmit, token }: Props) => {
           >
             Sign in
           </Button>
-          <Typography
-            component={Link}
+          <Link
+            component={RouterLink}
             to={routes.INDEX}
             className={classes.signup}
           >
             Create an account
-          </Typography>
+          </Link>
         </form>
       </Paper>
     </main>
