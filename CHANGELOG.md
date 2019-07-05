@@ -6,6 +6,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.1] - 2019-07-05
+### Fixed
+- [SignIn] Fix style of sign up link.
+- [eslint] Fix invalid overrides property.
+
+### Changed
+- Update dependencies:
+  - @material-ui/core 4.1.2
+  - @material-ui/icons 4.2.1
+  - @material-ui/styles 4.1.2
+  - universal-cookie 4.0.1
+  - universal-cookie-express 4.0.1
+- Update dev dependencies:
+  - @babel/cli 7.5.0
+  - @babel/core 7.5.0
+  - @babel/node 7.5.0
+  - @babel/plugin-proposal-class-properties 7.5.0
+  - @babel/plugin-proposal-object-rest-spread 7.5.0
+  - @babel/preset-env 7.5.0
+  - @testing-library/react 8.0.4
+  - eslint 6.0.1
+  - eslint-config-airbnb 17.1.1
+  - eslint-config-prettier 6.0.0
+  - eslint-plugin-compat 3.2.0
+  - eslint-plugin-flowtype 3.11.1
+  - eslint-plugin-import 2.18.0
+  - eslint-plugin-jsx-a11y 6.2.3
+  - eslint-plugin-react 7.14.2
+  - eslint-plugin-react-hooks 1.6.1
+  - flow-bin 0.102.0
+  - webpack 4.35.2
+  - webpack-cli 3.3.5
+  - webpack-dev-server 3.7.2
+
 ## [0.15.0] - 2019-06-20
 ### Fixed
 - Fix stale name field in create artist dialog.
@@ -450,7 +484,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.15.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.15.1...HEAD
+[0.15.1]: https://github.com/cjolowicz/muckr-web/compare/v0.15.0...v0.15.1
 [0.15.0]: https://github.com/cjolowicz/muckr-web/compare/v0.14.0...v0.15.0
 [0.14.0]: https://github.com/cjolowicz/muckr-web/compare/v0.13.1...v0.14.0
 [0.13.1]: https://github.com/cjolowicz/muckr-web/compare/v0.13.0...v0.13.1
