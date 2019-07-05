@@ -53,13 +53,12 @@ function dialogType(state = initialState.dialogType, action) {
 function artist(state = initialState.artist, action) {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
+    case CLOSE_DIALOG:
       return initialState.artist;
     case OPEN_UPDATE_DIALOG:
       return action.artist;
     case UPDATE_DIALOG:
       return state == null ? null : { ...state, name: action.name };
-    case CLOSE_DIALOG:
-      return null;
     default:
       return state;
   }
