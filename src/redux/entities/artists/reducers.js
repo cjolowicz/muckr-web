@@ -9,7 +9,7 @@ import {
 import type { Action } from "../../types";
 import { addById, indexById, removeById } from "../../../utils";
 
-export default function artists(state: types.State = {}, action: Action) {
+const artists = (state: types.State = {}, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return indexById(action.payload.artists);
@@ -26,4 +26,6 @@ export default function artists(state: types.State = {}, action: Action) {
     default:
       return state;
   }
-}
+};
+
+export default artists;
