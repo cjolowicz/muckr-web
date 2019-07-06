@@ -1,5 +1,5 @@
 // @flow
-import artists from "../artists";
+import artists from "../reducers";
 import {
   fetchArtistsSuccess,
   createArtistSuccess,
