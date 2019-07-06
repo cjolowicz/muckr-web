@@ -14,7 +14,7 @@ import {
   UPDATE_ARTIST_REQUEST,
   UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE
-} from "./actions";
+} from "./constants";
 import type { Action } from "../actions";
 import type { FetchError } from "../../api/error";
 

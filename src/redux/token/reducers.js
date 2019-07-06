@@ -7,7 +7,7 @@ import {
   FETCH_TOKEN_FAILURE,
   CLEAR_TOKEN
 } from "./actions";
-import { FETCH_ARTISTS_FAILURE } from "../artist/actions";
+import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action } from "../actions";
 import { isUnauthorized } from "../../api/error";
 import type { FetchError } from "../../api/error";

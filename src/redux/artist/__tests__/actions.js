@@ -2,12 +2,14 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../actions";
+import type { Dispatch } from "../types";
 import {
   fetchArtists,
   createArtist,
   removeArtist,
-  updateArtist,
+  updateArtist
+} from "../actions";
+import {
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE,
@@ -20,7 +22,7 @@ import {
   UPDATE_ARTIST_REQUEST,
   UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE
-} from "../actions";
+} from "../constants";
 import * as api from "../../../api/artist";
 import { unsafeCast } from "../../../utils";
 import mock from "../../../test/mock";

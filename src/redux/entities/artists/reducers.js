@@ -4,7 +4,7 @@ import {
   CREATE_ARTIST_SUCCESS,
   REMOVE_ARTIST_SUCCESS,
   UPDATE_ARTIST_SUCCESS
-} from "../../artist/actions";
+} from "../../artist/constants";
 import type { Action } from "../../actions";
 import type { Artist } from "../../../api/artist";
 import { addById, indexById, removeById } from "../../../utils";
