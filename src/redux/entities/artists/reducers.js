@@ -1,4 +1,5 @@
 // @flow
+import * as types from "./types";
 import {
   FETCH_ARTISTS_SUCCESS,
   CREATE_ARTIST_SUCCESS,
@@ -6,14 +7,14 @@ import {
   UPDATE_ARTIST_SUCCESS
 } from "../../artist/constants";
 import type { Action } from "../../actions";
-import type { Artist } from "../../../api/artist";
 import { addById, indexById, removeById } from "../../../utils";
 
-export type State = { [number]: Artist };
+export const initialState: types.State = {};
 
-export const initialState: State = {};
-
-export default function artists(state: State = initialState, action: Action) {
+export default function artists(
+  state: types.State = initialState,
+  action: Action
+) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return indexById(action.payload.artists);
