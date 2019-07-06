@@ -2,14 +2,9 @@
 import { combineReducers } from "redux";
 
 import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "./constants";
-import type { State } from "./types";
 import type { Action } from "../types";
 
-export const initialState: State = {
-  open: false
-};
-
-function open(state = initialState.open, action: Action) {
+function open(state = false, action: Action) {
   switch (action.type) {
     case OPEN_NAVIGATION:
       return true;
