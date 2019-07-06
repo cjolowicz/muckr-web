@@ -13,7 +13,7 @@ export type CloseMessageAction = {
   payload: {}
 };
 
-export type MessageAction = OpenMessageAction | CloseMessageAction;
+export type Action = OpenMessageAction | CloseMessageAction;
 
 export type State = {
   open: boolean,
