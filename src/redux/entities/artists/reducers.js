@@ -1,15 +1,15 @@
 // @flow
-import * as types from "./types";
 import {
   FETCH_ARTISTS_SUCCESS,
   CREATE_ARTIST_SUCCESS,
   REMOVE_ARTIST_SUCCESS,
   UPDATE_ARTIST_SUCCESS
 } from "../../artist/constants";
+import type { State } from "./types";
 import type { Action } from "../../types";
 import { addById, indexById, removeById } from "../../../utils";
 
-const artists = (state: types.State = {}, action: Action) => {
+const artists = (state: State = {}, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return indexById(action.payload.artists);
