@@ -3,6 +3,7 @@ import { combineReducers } from "redux";
 
 import dialog, * as fromDialog from "./dialog/reducers";
 import * as dialogTypes from "./dialog/types";
+import * as dialogSelectors from "./dialog/selectors";
 import message, * as fromMessage from "./message/reducers";
 import navigation, * as fromNavigation from "./navigation/reducers";
 import token, * as fromToken from "./token/reducers";
@@ -35,16 +36,16 @@ export const initialState: State = {
 };
 
 export const isCreateDialogOpen = (state: State) =>
-  fromDialog.isCreateDialogOpen(state.dialog);
+  dialogSelectors.isCreateDialogOpen(state.dialog);
 
 export const isUpdateDialogOpen = (state: State) =>
-  fromDialog.isUpdateDialogOpen(state.dialog);
+  dialogSelectors.isUpdateDialogOpen(state.dialog);
 
 export const getDialogArtist = (state: State) =>
-  fromDialog.getDialogArtist(state.dialog);
+  dialogSelectors.getDialogArtist(state.dialog);
 
 export const getDialogType = (state: State) =>
-  fromDialog.getDialogType(state.dialog);
+  dialogSelectors.getDialogType(state.dialog);
 
 export const isMessageOpen = (state: State) =>
   fromMessage.isMessageOpen(state.message);

@@ -1,10 +1,10 @@
 // @flow
-import reducer, {
-  NO_ARTIST,
+import reducer, { NO_ARTIST } from "../reducers";
+import {
   getDialogArtist,
   isCreateDialogOpen,
   isUpdateDialogOpen
-} from "../reducers";
+} from "../selectors";
 import {
   openUpdateDialog,
   updateDialog,

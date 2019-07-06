@@ -48,14 +48,4 @@ function artist(state = initialState.artist, action) {
   }
 }
 
-export const isCreateDialogOpen = (state: types.State) =>
-  state.open === DIALOG_TYPE_CREATE;
-
-export const isUpdateDialogOpen = (state: types.State) =>
-  state.open === DIALOG_TYPE_UPDATE;
-
-export const getDialogType = (state: types.State) => state.open;
-
-export const getDialogArtist = (state: types.State) => state.artist;
-
 export default combineReducers<Object, Action>({ open, artist });
