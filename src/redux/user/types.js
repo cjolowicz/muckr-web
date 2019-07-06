@@ -25,11 +25,11 @@ export type CreateUserFailureAction = {
   }
 };
 
-export type UserAction =
+export type Action =
   | CreateUserRequestAction
   | CreateUserSuccessAction
   | CreateUserFailureAction;
 
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
-export type Dispatch = (UserAction | ThunkAction) => any;
+export type Dispatch = (Action | ThunkAction) => any;

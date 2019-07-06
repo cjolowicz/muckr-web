@@ -5,7 +5,7 @@ import * as navigation from "./navigation/types";
 import * as noop from "./noop/types";
 import * as token from "./token/types";
 import * as artist from "./artist/types";
-import type { UserAction } from "./user/types";
+import * as user from "./user/types";
 
 export type Action =
   | noop.Action
@@ -14,4 +14,4 @@ export type Action =
   | navigation.Action
   | token.Action
   | artist.Action
-  | UserAction;
+  | user.Action;
