@@ -96,7 +96,7 @@ export type UpdateArtistFailureAction = {
   }
 };
 
-export type ArtistAction =
+export type Action =
   | FetchArtistsRequestAction
   | FetchArtistsSuccessAction
   | FetchArtistsFailureAction
@@ -112,4 +112,4 @@ export type ArtistAction =
 
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
-export type Dispatch = (ArtistAction | ThunkAction) => any;
+export type Dispatch = (Action | ThunkAction) => any;
