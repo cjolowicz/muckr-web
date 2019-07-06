@@ -7,7 +7,7 @@ import navigation, * as fromNavigation from "../navigation/reducers";
 import token, * as fromToken from "../token/reducers";
 import user, * as fromUser from "../user/reducers";
 import artists, * as fromArtists from "../artist/reducers";
-import entities, * as fromEntities from "./entities";
+import entities, * as fromEntities from "../entities/reducers";
 import type { Action } from "../actions";
 import { getItemsById } from "../../utils";
 
