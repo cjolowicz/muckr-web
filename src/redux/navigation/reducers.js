@@ -20,6 +20,4 @@ function open(state = initialState.open, action: Action) {
   }
 }
 
-export const isNavigationOpen = (state: State) => state.open;
-
 export default combineReducers<Object, Action>({ open });

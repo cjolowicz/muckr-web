@@ -9,6 +9,7 @@ import * as messageTypes from "./message/types";
 import * as messageSelectors from "./message/selectors";
 import navigation, * as fromNavigation from "./navigation/reducers";
 import * as navigationTypes from "./navigation/types";
+import * as navigationSelectors from "./navigation/selectors";
 import token, * as fromToken from "./token/reducers";
 import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
@@ -58,7 +59,7 @@ export const getMessage = (state: State) =>
   messageSelectors.getMessage(state.message);
 
 export const isNavigationOpen = (state: State) =>
-  fromNavigation.isNavigationOpen(state.navigation);
+  navigationSelectors.isNavigationOpen(state.navigation);
 
 export const isFetchingToken = (state: State) =>
   fromToken.isFetchingToken(state.token);

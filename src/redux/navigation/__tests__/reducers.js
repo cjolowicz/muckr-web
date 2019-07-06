@@ -1,5 +1,6 @@
 // @flow
-import navigation, { isNavigationOpen } from "../reducers";
+import navigation from "../reducers";
+import { isNavigationOpen } from "../selectors";
 import { openNavigation, closeNavigation } from "../actions";
 import { noop } from "../../noop/actions";
 
