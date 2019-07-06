@@ -8,6 +8,7 @@ import token, * as fromToken from "./token/reducers";
 import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
+import * as artistTypes from "./artist/types";
 import type { Action } from "./actions";
 import { getItemsById } from "../utils";
 
@@ -17,7 +18,7 @@ export type State = {
   navigation: fromNavigation.State,
   token: fromToken.State,
   user: fromUser.State,
-  artists: fromArtists.State,
+  artists: artistTypes.State,
   entities: fromEntities.State
 };
 

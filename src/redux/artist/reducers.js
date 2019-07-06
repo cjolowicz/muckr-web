@@ -16,13 +16,7 @@ import {
   UPDATE_ARTIST_FAILURE
 } from "./constants";
 import type { Action } from "../actions";
-import type { FetchError } from "../../api/error";
-
-export type State = {
-  isFetching: boolean,
-  ids: Array<number>,
-  error: ?FetchError
-};
+import type { State } from "./types";
 
 export const initialState: State = {
   isFetching: false,

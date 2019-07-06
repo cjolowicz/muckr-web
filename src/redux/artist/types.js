@@ -3,6 +3,12 @@ import * as api from "../../api/artist";
 import * as constants from "./constants";
 import type { FetchError } from "../../api/error";
 
+export type State = {
+  isFetching: boolean,
+  ids: Array<number>,
+  error: ?FetchError
+};
+
 export type FetchArtistsRequestAction = {
   type: typeof constants.FETCH_ARTISTS_REQUEST,
   payload: {
