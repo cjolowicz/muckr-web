@@ -37,7 +37,7 @@ function isCreating(state = initialState.isCreating, action: Action) {
 function user(state = initialState.user, action: Action) {
   switch (action.type) {
     case CREATE_USER_SUCCESS:
-      return action.user;
+      return action.payload.user;
     case CREATE_USER_FAILURE:
       return null;
     default:
@@ -51,7 +51,7 @@ function error(state = initialState.error, action: Action) {
     case CREATE_USER_SUCCESS:
       return null;
     case CREATE_USER_FAILURE:
-      return action.error;
+      return action.payload.error;
     default:
       return state;
   }

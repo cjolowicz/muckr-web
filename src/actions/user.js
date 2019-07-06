@@ -8,18 +8,24 @@ export const CREATE_USER_FAILURE = "CREATE_USER_FAILURE";
 
 export type CreateUserRequestAction = {
   type: typeof CREATE_USER_REQUEST,
-  username: string,
-  password: string
+  payload: {
+    username: string,
+    password: string
+  }
 };
 
 export type CreateUserSuccessAction = {
   type: typeof CREATE_USER_SUCCESS,
-  user: api.User
+  payload: {
+    user: api.User
+  }
 };
 
 export type CreateUserFailureAction = {
   type: typeof CREATE_USER_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type UserAction =
@@ -32,20 +38,19 @@ export const createUserRequest = (
   password: string
 ): CreateUserRequestAction => ({
   type: CREATE_USER_REQUEST,
-  username,
-  password
+  payload: { username, password }
 });
 
 export const createUserSuccess = (user: api.User): CreateUserSuccessAction => ({
   type: CREATE_USER_SUCCESS,
-  user
+  payload: { user }
 });
 
 export const createUserFailure = (
   error: FetchError
 ): CreateUserFailureAction => ({
   type: CREATE_USER_FAILURE,
-  error
+  payload: { error }
 });
 
 // eslint-disable-next-line no-use-before-define
