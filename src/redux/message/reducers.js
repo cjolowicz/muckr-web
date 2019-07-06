@@ -14,7 +14,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../artist/constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 const open = (state = false, action) => {
   switch (action.type) {
@@ -94,4 +94,4 @@ const message = (state = null, action) => {
   }
 };
 
-export default combineReducers<Object, Action>({ open, message });
+export default combineReducers<State, Action>({ open, message });
