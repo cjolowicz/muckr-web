@@ -11,6 +11,7 @@ import navigation, * as fromNavigation from "./navigation/reducers";
 import * as navigationTypes from "./navigation/types";
 import * as navigationSelectors from "./navigation/selectors";
 import token, * as fromToken from "./token/reducers";
+import * as tokenTypes from "./token/types";
 import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
@@ -24,7 +25,7 @@ export type State = {
   dialog: dialogTypes.State,
   message: messageTypes.State,
   navigation: navigationTypes.State,
-  token: fromToken.State,
+  token: tokenTypes.State,
   user: fromUser.State,
   artists: artistTypes.State,
   entities: entitiesTypes.State

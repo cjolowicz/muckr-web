@@ -1,6 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
+import type { State } from "./types";
 import {
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
@@ -10,13 +11,6 @@ import {
 import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action } from "../actions";
 import { isUnauthorized } from "../../api/error";
-import type { FetchError } from "../../api/error";
-
-export type State = {
-  isFetching: boolean,
-  token: ?string,
-  error: ?FetchError
-};
 
 export const initialState: State = {
   isFetching: false,
