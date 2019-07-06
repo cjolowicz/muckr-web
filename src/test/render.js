@@ -8,7 +8,7 @@ import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { render } from "@testing-library/react";
 
-import { noop } from "../redux/actions/noop";
+import { noop } from "../redux/noop/actions";
 import * as routes from "../routes";
 import rootReducer from "../redux/reducers";
 import theme from "../theme";

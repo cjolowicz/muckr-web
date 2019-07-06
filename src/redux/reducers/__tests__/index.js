@@ -17,7 +17,7 @@ import rootReducer, {
   getArtistsError
 } from "..";
 import { NO_ARTIST } from "../../dialog/reducers";
-import { noop } from "../../actions/noop";
+import { noop } from "../../noop/actions";
 
 describe("initial state", () => {
   const state = rootReducer(undefined, noop());

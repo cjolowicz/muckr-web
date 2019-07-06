@@ -1,7 +1,7 @@
 // @flow
 import navigation, { isNavigationOpen } from "../reducers";
 import { openNavigation, closeNavigation } from "../actions";
-import { noop } from "../../actions/noop";
+import { noop } from "../../noop/actions";
 
 describe("navigation", () => {
   describe("initially", () => {

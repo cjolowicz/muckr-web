@@ -16,7 +16,7 @@ import {
   fetchArtistsFailure
 } from "../../artist/actions";
 import { createUserSuccess, createUserFailure } from "../../actions/user";
-import { NOOP, noop } from "../../actions/noop";
+import { NOOP, noop } from "../../noop/actions";
 import { ARTIST, USER, GENERIC_ERROR } from "../../../test/fixtures";
 
 describe("formatErrorMessage", () => {

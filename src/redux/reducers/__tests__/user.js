@@ -1,7 +1,7 @@
 // @flow
 import user, { isCreatingUser, getUser, getUserError } from "../user";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
-import { noop } from "../../actions/noop";
+import { noop } from "../../noop/actions";
 import {
   createUserRequest,
   createUserSuccess,

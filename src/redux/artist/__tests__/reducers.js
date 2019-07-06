@@ -14,7 +14,7 @@ import {
   fetchArtistsSuccess,
   fetchArtistsFailure
 } from "../actions";
-import { noop } from "../../actions/noop";
+import { noop } from "../../noop/actions";
 
 describe("artists", () => {
   describe("initially", () => {

@@ -11,7 +11,7 @@ import {
   closeDialog,
   openCreateDialog
 } from "../actions";
-import { noop } from "../../actions/noop";
+import { noop } from "../../noop/actions";
 import { ARTIST } from "../../../test/fixtures";
 
 describe("dialog", () => {
