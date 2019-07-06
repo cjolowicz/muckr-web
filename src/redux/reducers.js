@@ -2,6 +2,7 @@
 import { combineReducers } from "redux";
 
 import dialog, * as fromDialog from "./dialog/reducers";
+import * as dialogTypes from "./dialog/types";
 import message, * as fromMessage from "./message/reducers";
 import navigation, * as fromNavigation from "./navigation/reducers";
 import token, * as fromToken from "./token/reducers";
@@ -14,7 +15,7 @@ import type { Action } from "./actions";
 import { getItemsById } from "../utils";
 
 export type State = {
-  dialog: fromDialog.State,
+  dialog: dialogTypes.State,
   message: fromMessage.State,
   navigation: fromNavigation.State,
   token: fromToken.State,

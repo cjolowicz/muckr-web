@@ -9,22 +9,15 @@ import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
 } from "./constants";
+import * as types from "./types";
 import type { Action } from "../actions";
-import type { Artist } from "../../api/artist";
-
-export type DialogType = typeof DIALOG_TYPE_CREATE | typeof DIALOG_TYPE_UPDATE;
-
-export type State = {
-  open: ?DialogType,
-  artist: Artist
-};
 
 export const NO_ARTIST = {
   id: -1,
   name: ""
 };
 
-export const initialState: State = {
+export const initialState: types.State = {
   open: null,
   artist: NO_ARTIST
 };
@@ -55,14 +48,14 @@ function artist(state = initialState.artist, action) {
   }
 }
 
-export const isCreateDialogOpen = (state: State) =>
+export const isCreateDialogOpen = (state: types.State) =>
   state.open === DIALOG_TYPE_CREATE;
 
-export const isUpdateDialogOpen = (state: State) =>
+export const isUpdateDialogOpen = (state: types.State) =>
   state.open === DIALOG_TYPE_UPDATE;
 
-export const getDialogType = (state: State) => state.open;
+export const getDialogType = (state: types.State) => state.open;
 
-export const getDialogArtist = (state: State) => state.artist;
+export const getDialogArtist = (state: types.State) => state.artist;
 
 export default combineReducers<Object, Action>({ open, artist });

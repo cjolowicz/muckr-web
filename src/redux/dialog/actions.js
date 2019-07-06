@@ -1,53 +1,26 @@
 // @flow
 import * as constants from "./constants";
+import * as types from "./types";
 import type { Artist } from "../../api/artist";
 
-export type OpenCreateDialogAction = {
-  type: typeof constants.OPEN_CREATE_DIALOG,
-  payload: {}
-};
-
-export type OpenUpdateDialogAction = {
-  type: typeof constants.OPEN_UPDATE_DIALOG,
-  payload: {
-    artist: Artist
-  }
-};
-
-export type UpdateDialogAction = {
-  type: typeof constants.UPDATE_DIALOG,
-  payload: {
-    artist: Artist
-  }
-};
-
-export type CloseDialogAction = {
-  type: typeof constants.CLOSE_DIALOG,
-  payload: {}
-};
-
-export type DialogAction =
-  | OpenCreateDialogAction
-  | OpenUpdateDialogAction
-  | UpdateDialogAction
-  | CloseDialogAction;
-
-export const openCreateDialog = (): OpenCreateDialogAction => ({
+export const openCreateDialog = (): types.OpenCreateDialogAction => ({
   type: constants.OPEN_CREATE_DIALOG,
   payload: {}
 });
 
-export const openUpdateDialog = (artist: Artist): OpenUpdateDialogAction => ({
+export const openUpdateDialog = (
+  artist: Artist
+): types.OpenUpdateDialogAction => ({
   type: constants.OPEN_UPDATE_DIALOG,
   payload: { artist }
 });
 
-export const updateDialog = (artist: Artist): UpdateDialogAction => ({
+export const updateDialog = (artist: Artist): types.UpdateDialogAction => ({
   type: constants.UPDATE_DIALOG,
   payload: { artist }
 });
 
-export const closeDialog = (): CloseDialogAction => ({
+export const closeDialog = (): types.CloseDialogAction => ({
   type: constants.CLOSE_DIALOG,
   payload: {}
 });
