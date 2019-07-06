@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 
 import type { State } from "./types";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./constants";
-import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/actions";
+import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/constants";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../user/actions";
 import {
   CREATE_ARTIST_SUCCESS,

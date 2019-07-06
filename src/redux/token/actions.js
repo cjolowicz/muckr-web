@@ -1,14 +1,10 @@
 // @flow
+import * as constants from "./constants";
 import * as api from "../../api/token";
 import type { FetchError } from "../../api/error";
 
-export const FETCH_TOKEN_REQUEST = "FETCH_TOKEN_REQUEST";
-export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";
-export const FETCH_TOKEN_FAILURE = "FETCH_TOKEN_FAILURE";
-export const CLEAR_TOKEN = "CLEAR_TOKEN";
-
 export type FetchTokenRequestAction = {
-  type: typeof FETCH_TOKEN_REQUEST,
+  type: typeof constants.FETCH_TOKEN_REQUEST,
   payload: {
     username: string,
     password: string
@@ -16,21 +12,21 @@ export type FetchTokenRequestAction = {
 };
 
 export type FetchTokenSuccessAction = {
-  type: typeof FETCH_TOKEN_SUCCESS,
+  type: typeof constants.FETCH_TOKEN_SUCCESS,
   payload: {
     token: string
   }
 };
 
 export type FetchTokenFailureAction = {
-  type: typeof FETCH_TOKEN_FAILURE,
+  type: typeof constants.FETCH_TOKEN_FAILURE,
   payload: {
     error: FetchError
   }
 };
 
 export type ClearTokenAction = {
-  type: typeof CLEAR_TOKEN,
+  type: typeof constants.CLEAR_TOKEN,
   payload: {}
 };
 
@@ -44,19 +40,19 @@ export const fetchTokenRequest = (
   username: string,
   password: string
 ): FetchTokenRequestAction => ({
-  type: FETCH_TOKEN_REQUEST,
+  type: constants.FETCH_TOKEN_REQUEST,
   payload: { username, password }
 });
 
 export const fetchTokenSuccess = (token: string): FetchTokenSuccessAction => ({
-  type: FETCH_TOKEN_SUCCESS,
+  type: constants.FETCH_TOKEN_SUCCESS,
   payload: { token }
 });
 
 export const fetchTokenFailure = (
   error: FetchError
 ): FetchTokenFailureAction => ({
-  type: FETCH_TOKEN_FAILURE,
+  type: constants.FETCH_TOKEN_FAILURE,
   payload: { error }
 });
 
@@ -78,6 +74,6 @@ export const fetchToken = (username: string, password: string) => (
 };
 
 export const clearToken = (): ClearTokenAction => ({
-  type: CLEAR_TOKEN,
+  type: constants.CLEAR_TOKEN,
   payload: {}
 });

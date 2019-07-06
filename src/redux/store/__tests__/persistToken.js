@@ -5,11 +5,8 @@ import Cookies from "universal-cookie";
 
 import persistToken, { loadToken, saveToken } from "../persistToken";
 import rootReducer, { initialState, getToken } from "../../reducers";
-import {
-  fetchTokenSuccess,
-  clearToken,
-  FETCH_TOKEN_SUCCESS
-} from "../../token/actions";
+import { FETCH_TOKEN_SUCCESS } from "../../token/constants";
+import { fetchTokenSuccess, clearToken } from "../../token/actions";
 import { TOKEN } from "../../../test/fixtures";
 
 const cookies = new Cookies();
