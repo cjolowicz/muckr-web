@@ -51,10 +51,4 @@ function error(state = initialState.error, action: Action) {
   }
 }
 
-export const isCreatingUser = (state: State) => state.isCreating;
-
-export const getUser = (state: State) => state.user;
-
-export const getUserError = (state: State) => state.error;
-
 export default combineReducers<Object, Action>({ isCreating, user, error });

@@ -15,6 +15,7 @@ import * as tokenTypes from "./token/types";
 import * as tokenSelectors from "./token/selectors";
 import user, * as fromUser from "./user/reducers";
 import * as userTypes from "./user/types";
+import * as userSelectors from "./user/selectors";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
 import * as entitiesTypes from "./entities/types";
@@ -73,11 +74,12 @@ export const getTokenError = (state: State) =>
   tokenSelectors.getTokenError(state.token);
 
 export const isCreatingUser = (state: State) =>
-  fromUser.isCreatingUser(state.user);
+  userSelectors.isCreatingUser(state.user);
 
-export const getUser = (state: State) => fromUser.getUser(state.user);
+export const getUser = (state: State) => userSelectors.getUser(state.user);
 
-export const getUserError = (state: State) => fromUser.getUserError(state.user);
+export const getUserError = (state: State) =>
+  userSelectors.getUserError(state.user);
 
 export const isFetchingArtists = (state: State) =>
   artistSelectors.isFetchingArtists(state.artists);

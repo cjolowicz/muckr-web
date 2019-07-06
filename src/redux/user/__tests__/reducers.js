@@ -1,5 +1,6 @@
 // @flow
-import user, { isCreatingUser, getUser, getUserError } from "../reducers";
+import user from "../reducers";
+import { isCreatingUser, getUser, getUserError } from "../selectors";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
 import { noop } from "../../noop/actions";
 import {
