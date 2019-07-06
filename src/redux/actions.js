@@ -3,7 +3,7 @@ import * as dialog from "./dialog/types";
 import * as message from "./message/types";
 import * as navigation from "./navigation/types";
 import * as noop from "./noop/types";
-import type { TokenAction } from "./token/types";
+import * as token from "./token/types";
 import * as artist from "./artist/types";
 import type { UserAction } from "./user/actions";
 
@@ -12,6 +12,6 @@ export type Action =
   | dialog.Action
   | message.Action
   | navigation.Action
-  | TokenAction
+  | token.Action
   | artist.Action
   | UserAction;

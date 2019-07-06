@@ -29,7 +29,7 @@ export type ClearTokenAction = {
   payload: {}
 };
 
-export type TokenAction =
+export type Action =
   | FetchTokenRequestAction
   | FetchTokenSuccessAction
   | FetchTokenFailureAction
@@ -37,4 +37,4 @@ export type TokenAction =
 
 // eslint-disable-next-line no-use-before-define
 type ThunkAction = Dispatch => any;
-export type Dispatch = (TokenAction | ThunkAction) => any;
+export type Dispatch = (Action | ThunkAction) => any;
