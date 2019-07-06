@@ -11,7 +11,7 @@ export type CloseNavigationAction = {
   payload: {}
 };
 
-export type NavigationAction = OpenNavigationAction | CloseNavigationAction;
+export type Action = OpenNavigationAction | CloseNavigationAction;
 
 export type State = {
   open: boolean
