@@ -26,7 +26,7 @@ export type CloseDialogAction = {
   payload: {}
 };
 
-export type DialogAction =
+export type Action =
   | OpenCreateDialogAction
   | OpenUpdateDialogAction
   | UpdateDialogAction
