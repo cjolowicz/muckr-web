@@ -1,6 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
+import type { State } from "./types";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./constants";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/actions";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../user/actions";
@@ -15,11 +16,6 @@ import {
   FETCH_ARTISTS_FAILURE
 } from "../artist/constants";
 import type { Action } from "../actions";
-
-export type State = {
-  open: boolean,
-  message: ?string
-};
 
 export const initialState: State = {
   open: false,

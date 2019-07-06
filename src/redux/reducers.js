@@ -5,6 +5,7 @@ import dialog, * as fromDialog from "./dialog/reducers";
 import * as dialogTypes from "./dialog/types";
 import * as dialogSelectors from "./dialog/selectors";
 import message, * as fromMessage from "./message/reducers";
+import * as messageTypes from "./message/types";
 import navigation, * as fromNavigation from "./navigation/reducers";
 import token, * as fromToken from "./token/reducers";
 import user, * as fromUser from "./user/reducers";
@@ -18,7 +19,7 @@ import { getItemsById } from "../utils";
 
 export type State = {
   dialog: dialogTypes.State,
-  message: fromMessage.State,
+  message: messageTypes.State,
   navigation: fromNavigation.State,
   token: fromToken.State,
   user: fromUser.State,
