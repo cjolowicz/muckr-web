@@ -2,7 +2,7 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../actions";
+import type { Dispatch } from "../types";
 import {
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,

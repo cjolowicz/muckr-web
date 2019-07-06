@@ -3,7 +3,7 @@ import * as dialog from "./dialog/types";
 import * as message from "./message/types";
 import * as navigation from "./navigation/types";
 import * as noop from "./noop/types";
-import type { TokenAction } from "./token/actions";
+import type { TokenAction } from "./token/types";
 import * as artist from "./artist/types";
 import type { UserAction } from "./user/actions";
 
