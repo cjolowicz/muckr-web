@@ -1,13 +1,9 @@
 // @flow
 import * as constants from "./constants";
-
-export type NoopAction = {
-  type: typeof constants.NOOP,
-  payload: {}
-};
+import * as types from "./types";
 
 // eslint-disable-next-line import/prefer-default-export
-export const noop = (): NoopAction => ({
+export const noop = (): types.NoopAction => ({
   type: constants.NOOP,
   payload: {}
 });
