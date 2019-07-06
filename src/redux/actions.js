@@ -5,6 +5,7 @@ import type { NavigationAction } from "./navigation/actions";
 import type { NoopAction } from "./noop/actions";
 import type { TokenAction } from "./token/actions";
 import type { ArtistAction } from "./artist/actions";
+import type { UserAction } from "./user/actions";
 
 export type Action =
   | NoopAction
@@ -12,4 +13,5 @@ export type Action =
   | MessageAction
   | NavigationAction
   | TokenAction
-  | ArtistAction;
+  | ArtistAction
+  | UserAction;
