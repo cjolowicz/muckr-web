@@ -8,7 +8,7 @@ import {
   createArtist,
   removeArtist,
   updateArtist
-} from "../actions";
+} from "../operations";
 import {
   FETCH_ARTISTS_REQUEST,
   FETCH_ARTISTS_SUCCESS,

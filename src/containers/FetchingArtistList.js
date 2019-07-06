@@ -6,7 +6,7 @@ import {
   fetchArtists,
   createArtist,
   removeArtist
-} from "../redux/artist/actions";
+} from "../redux/artist/operations";
 import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
 import { getArtists, isFetchingArtists, getToken } from "../redux/reducers";
 
