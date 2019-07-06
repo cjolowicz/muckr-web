@@ -16,16 +16,16 @@ export const initialState: State = {};
 export default function artists(state: State = initialState, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
-      return indexById(action.artists);
+      return indexById(action.payload.artists);
 
     case CREATE_ARTIST_SUCCESS:
-      return addById(state, action.artist);
+      return addById(state, action.payload.artist);
 
     case REMOVE_ARTIST_SUCCESS:
-      return removeById(state, action.id);
+      return removeById(state, action.payload.id);
 
     case UPDATE_ARTIST_SUCCESS:
-      return addById(state, action.artist);
+      return addById(state, action.payload.artist);
 
     default:
       return state;

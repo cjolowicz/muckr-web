@@ -17,65 +17,89 @@ export const UPDATE_ARTIST_FAILURE = "UPDATE_ARTIST_FAILURE";
 
 export type FetchArtistsRequestAction = {
   type: typeof FETCH_ARTISTS_REQUEST,
-  token: string
+  payload: {
+    token: string
+  }
 };
 
 export type FetchArtistsSuccessAction = {
   type: typeof FETCH_ARTISTS_SUCCESS,
-  artists: Array<api.Artist>
+  payload: {
+    artists: Array<api.Artist>
+  }
 };
 
 export type FetchArtistsFailureAction = {
   type: typeof FETCH_ARTISTS_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type CreateArtistRequestAction = {
   type: typeof CREATE_ARTIST_REQUEST,
-  token: string,
-  name: string
+  payload: {
+    token: string,
+    name: string
+  }
 };
 
 export type CreateArtistSuccessAction = {
   type: typeof CREATE_ARTIST_SUCCESS,
-  artist: api.Artist
+  payload: {
+    artist: api.Artist
+  }
 };
 
 export type CreateArtistFailureAction = {
   type: typeof CREATE_ARTIST_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type RemoveArtistRequestAction = {
   type: typeof REMOVE_ARTIST_REQUEST,
-  token: string,
-  id: number
+  payload: {
+    token: string,
+    id: number
+  }
 };
 
 export type RemoveArtistSuccessAction = {
   type: typeof REMOVE_ARTIST_SUCCESS,
-  id: number
+  payload: {
+    id: number
+  }
 };
 
 export type RemoveArtistFailureAction = {
   type: typeof REMOVE_ARTIST_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type UpdateArtistRequestAction = {
   type: typeof UPDATE_ARTIST_REQUEST,
-  token: string,
-  artist: api.Artist
+  payload: {
+    token: string,
+    artist: api.Artist
+  }
 };
 
 export type UpdateArtistSuccessAction = {
   type: typeof UPDATE_ARTIST_SUCCESS,
-  artist: api.Artist
+  payload: {
+    artist: api.Artist
+  }
 };
 
 export type UpdateArtistFailureAction = {
   type: typeof UPDATE_ARTIST_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type ArtistAction =
@@ -96,21 +120,21 @@ export const fetchArtistsRequest = (
   token: string
 ): FetchArtistsRequestAction => ({
   type: FETCH_ARTISTS_REQUEST,
-  token
+  payload: { token }
 });
 
 export const fetchArtistsSuccess = (
   artists: Array<api.Artist>
 ): FetchArtistsSuccessAction => ({
   type: FETCH_ARTISTS_SUCCESS,
-  artists
+  payload: { artists }
 });
 
 export const fetchArtistsFailure = (
   error: FetchError
 ): FetchArtistsFailureAction => ({
   type: FETCH_ARTISTS_FAILURE,
-  error
+  payload: { error }
 });
 
 export const createArtistRequest = (
@@ -118,22 +142,21 @@ export const createArtistRequest = (
   name: string
 ): CreateArtistRequestAction => ({
   type: CREATE_ARTIST_REQUEST,
-  token,
-  name
+  payload: { token, name }
 });
 
 export const createArtistSuccess = (
   artist: api.Artist
 ): CreateArtistSuccessAction => ({
   type: CREATE_ARTIST_SUCCESS,
-  artist
+  payload: { artist }
 });
 
 export const createArtistFailure = (
   error: FetchError
 ): CreateArtistFailureAction => ({
   type: CREATE_ARTIST_FAILURE,
-  error
+  payload: { error }
 });
 
 export const removeArtistRequest = (
@@ -141,20 +164,19 @@ export const removeArtistRequest = (
   id: number
 ): RemoveArtistRequestAction => ({
   type: REMOVE_ARTIST_REQUEST,
-  token,
-  id
+  payload: { token, id }
 });
 
 export const removeArtistSuccess = (id: number): RemoveArtistSuccessAction => ({
   type: REMOVE_ARTIST_SUCCESS,
-  id
+  payload: { id }
 });
 
 export const removeArtistFailure = (
   error: FetchError
 ): RemoveArtistFailureAction => ({
   type: REMOVE_ARTIST_FAILURE,
-  error
+  payload: { error }
 });
 
 export const updateArtistRequest = (
@@ -162,22 +184,21 @@ export const updateArtistRequest = (
   artist: api.Artist
 ): UpdateArtistRequestAction => ({
   type: UPDATE_ARTIST_REQUEST,
-  token,
-  artist
+  payload: { token, artist }
 });
 
 export const updateArtistSuccess = (
   artist: api.Artist
 ): UpdateArtistSuccessAction => ({
   type: UPDATE_ARTIST_SUCCESS,
-  artist
+  payload: { artist }
 });
 
 export const updateArtistFailure = (
   error: FetchError
 ): UpdateArtistFailureAction => ({
   type: UPDATE_ARTIST_FAILURE,
-  error
+  payload: { error }
 });
 
 // eslint-disable-next-line no-use-before-define

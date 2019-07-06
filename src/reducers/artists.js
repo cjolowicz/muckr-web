@@ -55,11 +55,11 @@ function isFetching(state = initialState.isFetching, action: Action) {
 function ids(state = initialState.ids, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
-      return action.artists.map(({ id }) => id);
+      return action.payload.artists.map(({ id }) => id);
     case CREATE_ARTIST_SUCCESS:
-      return [...state, action.artist.id];
+      return [...state, action.payload.artist.id];
     case REMOVE_ARTIST_SUCCESS:
-      return state.filter(id => id !== action.id);
+      return state.filter(id => id !== action.payload.id);
     default:
       return state;
   }
@@ -80,7 +80,7 @@ function error(state = initialState.error, action: Action) {
     case CREATE_ARTIST_FAILURE:
     case REMOVE_ARTIST_FAILURE:
     case UPDATE_ARTIST_FAILURE:
-      return action.error;
+      return action.payload.error;
     default:
       return state;
   }
