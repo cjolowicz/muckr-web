@@ -6,6 +6,7 @@ import * as dialogTypes from "./dialog/types";
 import * as dialogSelectors from "./dialog/selectors";
 import message, * as fromMessage from "./message/reducers";
 import * as messageTypes from "./message/types";
+import * as messageSelectors from "./message/selectors";
 import navigation, * as fromNavigation from "./navigation/reducers";
 import token, * as fromToken from "./token/reducers";
 import user, * as fromUser from "./user/reducers";
@@ -50,10 +51,10 @@ export const getDialogType = (state: State) =>
   dialogSelectors.getDialogType(state.dialog);
 
 export const isMessageOpen = (state: State) =>
-  fromMessage.isMessageOpen(state.message);
+  messageSelectors.isMessageOpen(state.message);
 
 export const getMessage = (state: State) =>
-  fromMessage.getMessage(state.message);
+  messageSelectors.getMessage(state.message);
 
 export const isNavigationOpen = (state: State) =>
   fromNavigation.isNavigationOpen(state.navigation);

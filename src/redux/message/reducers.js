@@ -97,8 +97,4 @@ function message(state = initialState.message, action) {
   }
 }
 
-export const isMessageOpen = (state: State) => state.open;
-
-export const getMessage = (state: State) => state.message;
-
 export default combineReducers<Object, Action>({ open, message });

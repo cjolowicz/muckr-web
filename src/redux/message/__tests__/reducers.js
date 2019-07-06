@@ -1,9 +1,6 @@
 // @flow
-import reducer, {
-  isMessageOpen,
-  getMessage,
-  formatErrorMessage
-} from "../reducers";
+import reducer, { formatErrorMessage } from "../reducers";
+import { isMessageOpen, getMessage } from "../selectors";
 import { openMessage, closeMessage } from "../actions";
 import { fetchTokenFailure } from "../../token/actions";
 import {
