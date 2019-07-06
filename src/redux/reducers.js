@@ -8,9 +8,9 @@ import token from "./token/reducers";
 import user from "./user/reducers";
 import entities from "./entities/reducers";
 import artists from "./artist/reducers";
-import type { Action } from "./types";
+import type { Action, State } from "./types";
 
-export default combineReducers<Object, Action>({
+export default combineReducers<State, Action>({
   dialog,
   message,
   navigation,
