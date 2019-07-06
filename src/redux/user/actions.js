@@ -1,61 +1,33 @@
 // @flow
 import * as constants from "./constants";
+import * as types from "./types";
 import * as api from "../../api/user";
 import type { FetchError } from "../../api/error";
-
-export type CreateUserRequestAction = {
-  type: typeof constants.CREATE_USER_REQUEST,
-  payload: {
-    username: string,
-    password: string
-  }
-};
-
-export type CreateUserSuccessAction = {
-  type: typeof constants.CREATE_USER_SUCCESS,
-  payload: {
-    user: api.User
-  }
-};
-
-export type CreateUserFailureAction = {
-  type: typeof constants.CREATE_USER_FAILURE,
-  payload: {
-    error: FetchError
-  }
-};
-
-export type UserAction =
-  | CreateUserRequestAction
-  | CreateUserSuccessAction
-  | CreateUserFailureAction;
 
 export const createUserRequest = (
   username: string,
   password: string
-): CreateUserRequestAction => ({
+): types.CreateUserRequestAction => ({
   type: constants.CREATE_USER_REQUEST,
   payload: { username, password }
 });
 
-export const createUserSuccess = (user: api.User): CreateUserSuccessAction => ({
+export const createUserSuccess = (
+  user: api.User
+): types.CreateUserSuccessAction => ({
   type: constants.CREATE_USER_SUCCESS,
   payload: { user }
 });
 
 export const createUserFailure = (
   error: FetchError
-): CreateUserFailureAction => ({
+): types.CreateUserFailureAction => ({
   type: constants.CREATE_USER_FAILURE,
   payload: { error }
 });
 
-// eslint-disable-next-line no-use-before-define
-type ThunkAction = Dispatch => any;
-export type Dispatch = (UserAction | ThunkAction) => any;
-
 export const createUser = (username: string, password: string) => (
-  dispatch: Dispatch
+  dispatch: types.Dispatch
 ) => {
   dispatch(createUserRequest(username, password));
 
