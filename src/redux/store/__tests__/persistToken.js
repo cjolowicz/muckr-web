@@ -4,13 +4,15 @@ import configureStore from "redux-mock-store";
 import Cookies from "universal-cookie";
 
 import persistToken, { loadToken, saveToken } from "../persistToken";
-import rootReducer, { initialState } from "../../reducers";
+import rootReducer from "../../reducers";
+import { noop } from "../../noop/actions";
 import { getToken } from "../../selectors";
 import { FETCH_TOKEN_SUCCESS } from "../../token/constants";
 import { fetchTokenSuccess, clearToken } from "../../token/actions";
 import { TOKEN } from "../../../test/fixtures";
 
 const cookies = new Cookies();
+const initialState = rootReducer(undefined, noop());
 
 describe("loadToken", () => {
   const mockStore = configureStore([]);
