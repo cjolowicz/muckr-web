@@ -2,7 +2,7 @@
 import { combineReducers } from "redux";
 
 import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "./constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 const open = (state = false, action: Action) => {
   switch (action.type) {
@@ -15,4 +15,4 @@ const open = (state = false, action: Action) => {
   }
 };
 
-export default combineReducers<Object, Action>({ open });
+export default combineReducers<State, Action>({ open });
