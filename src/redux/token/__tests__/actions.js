@@ -8,7 +8,7 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
 } from "../constants";
-import { fetchToken } from "../actions";
+import { fetchToken } from "../operations";
 import * as api from "../../../api/token";
 import { unsafeCast } from "../../../utils";
 import mock from "../../../test/mock";
