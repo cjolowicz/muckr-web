@@ -1,6 +1,6 @@
 // @flow
 import type { DialogAction } from "../dialog/actions";
-import type { MessageAction } from "./message";
+import type { MessageAction } from "../message/actions";
 import type { NavigationAction } from "./navigation";
 import type { NoopAction } from "./noop";
 import type { TokenAction } from "./token";

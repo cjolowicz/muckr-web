@@ -3,8 +3,8 @@ import reducer, {
   isMessageOpen,
   getMessage,
   formatErrorMessage
-} from "../message";
-import { openMessage, closeMessage } from "../../actions/message";
+} from "../reducers";
+import { openMessage, closeMessage } from "../actions";
 import { fetchTokenFailure } from "../../actions/token";
 import {
   createArtistSuccess,

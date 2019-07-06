@@ -2,7 +2,7 @@
 import { combineReducers } from "redux";
 
 import dialog, * as fromDialog from "../dialog/reducers";
-import message, * as fromMessage from "./message";
+import message, * as fromMessage from "../message/reducers";
 import navigation, * as fromNavigation from "./navigation";
 import token, * as fromToken from "./token";
 import user, * as fromUser from "./user";

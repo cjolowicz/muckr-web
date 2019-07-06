@@ -1,7 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
-import { OPEN_MESSAGE, CLOSE_MESSAGE } from "../actions/message";
+import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./actions";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../actions/token";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../actions/user";
 import {
