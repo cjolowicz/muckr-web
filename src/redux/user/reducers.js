@@ -6,7 +6,7 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
 } from "./constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 const isCreating = (state = false, action: Action) => {
   switch (action.type) {
@@ -44,4 +44,4 @@ const error = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<Object, Action>({ isCreating, user, error });
+export default combineReducers<State, Action>({ isCreating, user, error });
