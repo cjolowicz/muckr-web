@@ -8,7 +8,7 @@ import {
   removeArtist
 } from "../redux/artist/operations";
 import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
-import { getArtists, isFetchingArtists, getToken } from "../redux/reducers";
+import { getArtists, isFetchingArtists, getToken } from "../redux/selectors";
 
 export default connect(
   state => ({

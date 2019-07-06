@@ -1,5 +1,6 @@
 // @flow
-import rootReducer, {
+import rootReducer from "../reducers";
+import {
   isCreateDialogOpen,
   isUpdateDialogOpen,
   getDialogArtist,
@@ -15,7 +16,7 @@ import rootReducer, {
   isFetchingArtists,
   getArtists,
   getArtistsError
-} from "../reducers";
+} from "../selectors";
 import { NO_ARTIST } from "../dialog/reducers";
 import { noop } from "../noop/actions";
 

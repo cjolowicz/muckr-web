@@ -3,7 +3,7 @@ import type { Store, StoreCreator } from "redux";
 import Cookies from "universal-cookie";
 
 import { fetchTokenSuccess } from "../token/actions";
-import { getToken } from "../reducers";
+import { getToken } from "../selectors";
 import type { Action, State } from "../types";
 
 export const loadToken = (store: Store<State, Action>, cookies: Cookies) => {
