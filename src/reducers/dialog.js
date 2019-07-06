@@ -50,7 +50,7 @@ function artist(state = initialState.artist, action) {
       return initialState.artist;
     case OPEN_UPDATE_DIALOG:
     case UPDATE_DIALOG:
-      return action.artist;
+      return action.payload.artist;
     default:
       return state;
   }

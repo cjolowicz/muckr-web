@@ -7,21 +7,27 @@ export const UPDATE_DIALOG = "UPDATE_DIALOG";
 export const CLOSE_DIALOG = "CLOSE_DIALOG";
 
 export type OpenCreateDialogAction = {
-  type: typeof OPEN_CREATE_DIALOG
+  type: typeof OPEN_CREATE_DIALOG,
+  payload: {}
 };
 
 export type OpenUpdateDialogAction = {
   type: typeof OPEN_UPDATE_DIALOG,
-  artist: Artist
+  payload: {
+    artist: Artist
+  }
 };
 
 export type UpdateDialogAction = {
   type: typeof UPDATE_DIALOG,
-  artist: Artist
+  payload: {
+    artist: Artist
+  }
 };
 
 export type CloseDialogAction = {
-  type: typeof CLOSE_DIALOG
+  type: typeof CLOSE_DIALOG,
+  payload: {}
 };
 
 export type DialogAction =
@@ -31,19 +37,21 @@ export type DialogAction =
   | CloseDialogAction;
 
 export const openCreateDialog = (): OpenCreateDialogAction => ({
-  type: OPEN_CREATE_DIALOG
+  type: OPEN_CREATE_DIALOG,
+  payload: {}
 });
 
 export const openUpdateDialog = (artist: Artist): OpenUpdateDialogAction => ({
   type: OPEN_UPDATE_DIALOG,
-  artist
+  payload: { artist }
 });
 
 export const updateDialog = (artist: Artist): UpdateDialogAction => ({
   type: UPDATE_DIALOG,
-  artist
+  payload: { artist }
 });
 
 export const closeDialog = (): CloseDialogAction => ({
-  type: CLOSE_DIALOG
+  type: CLOSE_DIALOG,
+  payload: {}
 });
