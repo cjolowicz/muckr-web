@@ -11,7 +11,7 @@ import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action } from "../types";
 import { isUnauthorized } from "../../api/error";
 
-function isFetching(state = false, action: Action) {
+const isFetching = (state = false, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
       return true;
@@ -22,9 +22,9 @@ function isFetching(state = false, action: Action) {
     default:
       return state;
   }
-}
+};
 
-function token(state = null, action: Action) {
+const token = (state = null, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
       return action.payload.token;
@@ -36,9 +36,9 @@ function token(state = null, action: Action) {
     default:
       return state;
   }
-}
+};
 
-function error(state = null, action: Action) {
+const error = (state = null, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
     case FETCH_TOKEN_SUCCESS:
@@ -48,6 +48,6 @@ function error(state = null, action: Action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers<Object, Action>({ isFetching, token, error });
