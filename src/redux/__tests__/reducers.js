@@ -15,9 +15,9 @@ import rootReducer, {
   isFetchingArtists,
   getArtists,
   getArtistsError
-} from "..";
-import { NO_ARTIST } from "../../dialog/reducers";
-import { noop } from "../../noop/actions";
+} from "../reducers";
+import { NO_ARTIST } from "../dialog/reducers";
+import { noop } from "../noop/actions";
 
 describe("initial state", () => {
   const state = rootReducer(undefined, noop());
