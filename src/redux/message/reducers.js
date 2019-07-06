@@ -16,7 +16,7 @@ import {
 } from "../artist/constants";
 import type { Action } from "../types";
 
-function open(state = false, action) {
+const open = (state = false, action) => {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
@@ -37,9 +37,9 @@ function open(state = false, action) {
     default:
       return state;
   }
-}
+};
 
-function formatFailedAction(actionType) {
+const formatFailedAction = actionType => {
   switch (actionType) {
     case CREATE_USER_FAILURE:
       return "Cannot create user";
@@ -56,14 +56,17 @@ function formatFailedAction(actionType) {
     default:
       return "";
   }
-}
+};
 
-export function formatErrorMessage(actionType: string, errorMessage: string) {
+export const formatErrorMessage = (
+  actionType: string,
+  errorMessage: string
+) => {
   const prefix = formatFailedAction(actionType);
   return prefix ? `${prefix}: ${errorMessage}` : errorMessage;
-}
+};
 
-function message(state = null, action) {
+const message = (state = null, action) => {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
@@ -89,6 +92,6 @@ function message(state = null, action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers<Object, Action>({ open, message });
