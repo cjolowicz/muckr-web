@@ -16,15 +16,8 @@ import {
   UPDATE_ARTIST_FAILURE
 } from "./constants";
 import type { Action } from "../types";
-import type { State } from "./types";
 
-export const initialState: State = {
-  isFetching: false,
-  ids: [],
-  error: null
-};
-
-function isFetching(state = initialState.isFetching, action: Action) {
+function isFetching(state = false, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case CREATE_ARTIST_REQUEST:
@@ -46,7 +39,7 @@ function isFetching(state = initialState.isFetching, action: Action) {
   }
 }
 
-function ids(state = initialState.ids, action: Action) {
+function ids(state = [], action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return action.payload.artists.map(({ id }) => id);
@@ -59,7 +52,7 @@ function ids(state = initialState.ids, action: Action) {
   }
 }
 
-function error(state = initialState.error, action: Action) {
+function error(state = null, action: Action) {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case FETCH_ARTISTS_SUCCESS:
