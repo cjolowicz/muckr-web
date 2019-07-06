@@ -80,10 +80,6 @@ function error(state = initialState.error, action: Action) {
   }
 }
 
-export const isFetchingArtists = (state: State) => state.isFetching;
-
-export const getArtistsError = (state: State) => state.error;
-
 export default combineReducers<Object, Action>({
   isFetching,
   ids,

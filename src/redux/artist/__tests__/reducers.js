@@ -1,5 +1,6 @@
 // @flow
-import artists, { isFetchingArtists, getArtistsError } from "../reducers";
+import artists from "../reducers";
+import { isFetchingArtists, getArtistsError } from "../selectors";
 import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
 import {
   createArtistRequest,

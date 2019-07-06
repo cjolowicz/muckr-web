@@ -9,6 +9,7 @@ import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
 import * as artistTypes from "./artist/types";
+import * as artistSelectors from "./artist/selectors";
 import type { Action } from "./actions";
 import { getItemsById } from "../utils";
 
@@ -69,13 +70,13 @@ export const getUser = (state: State) => fromUser.getUser(state.user);
 export const getUserError = (state: State) => fromUser.getUserError(state.user);
 
 export const isFetchingArtists = (state: State) =>
-  fromArtists.isFetchingArtists(state.artists);
+  artistSelectors.isFetchingArtists(state.artists);
 
 export const getArtists = (state: State) =>
   getItemsById(state.entities.artists, state.artists.ids);
 
 export const getArtistsError = (state: State) =>
-  fromArtists.getArtistsError(state.artists);
+  artistSelectors.getArtistsError(state.artists);
 
 export default combineReducers<Object, Action>({
   dialog,
