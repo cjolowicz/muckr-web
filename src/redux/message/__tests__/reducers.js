@@ -13,7 +13,8 @@ import {
   fetchArtistsFailure
 } from "../../artist/actions";
 import { createUserSuccess, createUserFailure } from "../../user/actions";
-import { NOOP, noop } from "../../noop/actions";
+import { NOOP } from "../../noop/constants";
+import { noop } from "../../noop/actions";
 import { ARTIST, USER, GENERIC_ERROR } from "../../../test/fixtures";
 
 describe("formatErrorMessage", () => {
