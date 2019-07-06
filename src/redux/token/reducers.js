@@ -1,7 +1,6 @@
 // @flow
 import { combineReducers } from "redux";
 
-import type { State } from "./types";
 import {
   FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
@@ -12,13 +11,7 @@ import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action } from "../types";
 import { isUnauthorized } from "../../api/error";
 
-export const initialState: State = {
-  isFetching: false,
-  token: null,
-  error: null
-};
-
-function isFetching(state = initialState.isFetching, action: Action) {
+function isFetching(state = false, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
       return true;
@@ -31,7 +24,7 @@ function isFetching(state = initialState.isFetching, action: Action) {
   }
 }
 
-function token(state = initialState.token, action: Action) {
+function token(state = null, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
       return action.payload.token;
@@ -45,7 +38,7 @@ function token(state = initialState.token, action: Action) {
   }
 }
 
-function error(state = initialState.error, action: Action) {
+function error(state = null, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_REQUEST:
     case FETCH_TOKEN_SUCCESS:
