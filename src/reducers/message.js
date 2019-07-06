@@ -81,9 +81,9 @@ function message(state = initialState.message, action) {
     case UPDATE_ARTIST_FAILURE:
     case FETCH_TOKEN_FAILURE:
     case FETCH_ARTISTS_FAILURE:
-      return formatErrorMessage(action.type, action.error.message);
+      return formatErrorMessage(action.type, action.payload.error.message);
     case OPEN_MESSAGE:
-      return action.message;
+      return action.payload.message;
     case CREATE_USER_SUCCESS:
       return "Account created";
     case CREATE_ARTIST_SUCCESS:

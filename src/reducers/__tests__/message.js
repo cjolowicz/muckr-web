@@ -52,7 +52,7 @@ describe("message", () => {
         });
 
         it("has message", () => {
-          expect(getMessage(state)).toEqual(action.message);
+          expect(getMessage(state)).toEqual(action.payload.message);
         });
       });
 
