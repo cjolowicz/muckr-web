@@ -1,15 +1,12 @@
 // @flow
 import React from "react";
 import { renderToString } from "react-dom/server";
-import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
 import Cookies from "universal-cookie";
 import { ServerStyleSheets } from "@material-ui/styles";
 
 import ServerRoot from "./ServerRoot";
 import generatePage from "./generatePage";
-import persistToken from "../redux/store/persistToken";
-import rootReducer from "../redux/reducers";
+import createStore from "../redux/store";
 
 type Request = express$Request & {
   universalCookies: Cookies
@@ -23,12 +20,7 @@ function renderState(store) {
 }
 
 export default function render(request: Request, response: Response) {
-  const preloadedState = undefined;
-  const enhancer = compose(
-    applyMiddleware(thunk),
-    persistToken(request.universalCookies)
-  );
-  const store = createStore(rootReducer, preloadedState, enhancer);
+  const store = createStore(request.universalCookies);
   const sheets = new ServerStyleSheets();
   const html = renderToString(
     sheets.collect(<ServerRoot location={request.url} store={store} />)
