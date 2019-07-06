@@ -40,12 +40,12 @@ function isFetching(state = initialState.isFetching, action: Action) {
 function token(state = initialState.token, action: Action) {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
-      return action.token;
+      return action.payload.token;
     case FETCH_TOKEN_FAILURE:
     case CLEAR_TOKEN:
       return null;
     case FETCH_ARTISTS_FAILURE:
-      return isUnauthorized(action.error) ? null : state;
+      return isUnauthorized(action.payload.error) ? null : state;
     default:
       return state;
   }
@@ -57,7 +57,7 @@ function error(state = initialState.error, action: Action) {
     case FETCH_TOKEN_SUCCESS:
       return null;
     case FETCH_TOKEN_FAILURE:
-      return action.error;
+      return action.payload.error;
     default:
       return state;
   }

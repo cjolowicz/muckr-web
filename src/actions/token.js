@@ -9,22 +9,29 @@ export const CLEAR_TOKEN = "CLEAR_TOKEN";
 
 export type FetchTokenRequestAction = {
   type: typeof FETCH_TOKEN_REQUEST,
-  username: string,
-  password: string
+  payload: {
+    username: string,
+    password: string
+  }
 };
 
 export type FetchTokenSuccessAction = {
   type: typeof FETCH_TOKEN_SUCCESS,
-  token: string
+  payload: {
+    token: string
+  }
 };
 
 export type FetchTokenFailureAction = {
   type: typeof FETCH_TOKEN_FAILURE,
-  error: FetchError
+  payload: {
+    error: FetchError
+  }
 };
 
 export type ClearTokenAction = {
-  type: typeof CLEAR_TOKEN
+  type: typeof CLEAR_TOKEN,
+  payload: {}
 };
 
 export type TokenAction =
@@ -38,20 +45,19 @@ export const fetchTokenRequest = (
   password: string
 ): FetchTokenRequestAction => ({
   type: FETCH_TOKEN_REQUEST,
-  username,
-  password
+  payload: { username, password }
 });
 
 export const fetchTokenSuccess = (token: string): FetchTokenSuccessAction => ({
   type: FETCH_TOKEN_SUCCESS,
-  token
+  payload: { token }
 });
 
 export const fetchTokenFailure = (
   error: FetchError
 ): FetchTokenFailureAction => ({
   type: FETCH_TOKEN_FAILURE,
-  error
+  payload: { error }
 });
 
 // eslint-disable-next-line no-use-before-define
@@ -72,5 +78,6 @@ export const fetchToken = (username: string, password: string) => (
 };
 
 export const clearToken = (): ClearTokenAction => ({
-  type: CLEAR_TOKEN
+  type: CLEAR_TOKEN,
+  payload: {}
 });

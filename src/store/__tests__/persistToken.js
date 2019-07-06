@@ -51,7 +51,7 @@ describe("loadToken", () => {
     it("dispatches an action with loaded token", () => {
       const [action] = store.getActions();
       if (action.type === FETCH_TOKEN_SUCCESS) {
-        expect(action.token).toEqual(TOKEN);
+        expect(action.payload.token).toEqual(TOKEN);
       }
     });
   });
