@@ -7,7 +7,7 @@ import { ARTIST, TOKEN } from "../../test/fixtures";
 import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
-} from "../../redux/dialog/reducers";
+} from "../../redux/dialog/constants";
 
 const renderArtistDialog = ({ type, token }) => {
   const createArtist = jest.fn();

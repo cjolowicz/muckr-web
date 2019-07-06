@@ -5,13 +5,12 @@ import {
   OPEN_CREATE_DIALOG,
   OPEN_UPDATE_DIALOG,
   UPDATE_DIALOG,
-  CLOSE_DIALOG
-} from "./actions";
+  CLOSE_DIALOG,
+  DIALOG_TYPE_CREATE,
+  DIALOG_TYPE_UPDATE
+} from "./constants";
 import type { Action } from "../actions";
 import type { Artist } from "../../api/artist";
-
-export const DIALOG_TYPE_CREATE = "DIALOG_TYPE_CREATE";
-export const DIALOG_TYPE_UPDATE = "DIALOG_TYPE_UPDATE";
 
 export type DialogType = typeof DIALOG_TYPE_CREATE | typeof DIALOG_TYPE_UPDATE;
 

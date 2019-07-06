@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 
 import type { Artist } from "../api/artist";
 import type { DialogType } from "../redux/dialog/reducers";
-import { DIALOG_TYPE_CREATE } from "../redux/dialog/reducers";
+import { DIALOG_TYPE_CREATE } from "../redux/dialog/constants";
 
 type Props = {
   type: DialogType,
