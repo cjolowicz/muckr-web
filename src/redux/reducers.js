@@ -12,6 +12,7 @@ import * as navigationTypes from "./navigation/types";
 import * as navigationSelectors from "./navigation/selectors";
 import token, * as fromToken from "./token/reducers";
 import * as tokenTypes from "./token/types";
+import * as tokenSelectors from "./token/selectors";
 import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
@@ -63,12 +64,12 @@ export const isNavigationOpen = (state: State) =>
   navigationSelectors.isNavigationOpen(state.navigation);
 
 export const isFetchingToken = (state: State) =>
-  fromToken.isFetchingToken(state.token);
+  tokenSelectors.isFetchingToken(state.token);
 
-export const getToken = (state: State) => fromToken.getToken(state.token);
+export const getToken = (state: State) => tokenSelectors.getToken(state.token);
 
 export const getTokenError = (state: State) =>
-  fromToken.getTokenError(state.token);
+  tokenSelectors.getTokenError(state.token);
 
 export const isCreatingUser = (state: State) =>
   fromUser.isCreatingUser(state.user);

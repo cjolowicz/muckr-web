@@ -1,5 +1,6 @@
 // @flow
-import token, { isFetchingToken, getToken, getTokenError } from "../reducers";
+import token from "../reducers";
+import { isFetchingToken, getToken, getTokenError } from "../selectors";
 import {
   TOKEN,
   GENERIC_ERROR,

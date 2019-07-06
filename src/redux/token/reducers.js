@@ -57,10 +57,4 @@ function error(state = initialState.error, action: Action) {
   }
 }
 
-export const isFetchingToken = (state: State) => state.isFetching;
-
-export const getToken = (state: State) => state.token;
-
-export const getTokenError = (state: State) => state.error;
-
 export default combineReducers<Object, Action>({ isFetching, token, error });
