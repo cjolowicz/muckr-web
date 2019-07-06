@@ -1,27 +1,26 @@
 // @flow
-export const OPEN_MESSAGE = "OPEN_MESSAGE";
-export const CLOSE_MESSAGE = "CLOSE_MESSAGE";
+import * as constants from "./constants";
 
 export type OpenMessageAction = {
-  type: typeof OPEN_MESSAGE,
+  type: typeof constants.OPEN_MESSAGE,
   payload: {
     message: string
   }
 };
 
 export type CloseMessageAction = {
-  type: typeof CLOSE_MESSAGE,
+  type: typeof constants.CLOSE_MESSAGE,
   payload: {}
 };
 
 export type MessageAction = OpenMessageAction | CloseMessageAction;
 
 export const openMessage = (message: string): OpenMessageAction => ({
-  type: OPEN_MESSAGE,
+  type: constants.OPEN_MESSAGE,
   payload: { message }
 });
 
 export const closeMessage = (): CloseMessageAction => ({
-  type: CLOSE_MESSAGE,
+  type: constants.CLOSE_MESSAGE,
   payload: {}
 });
