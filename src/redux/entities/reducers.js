@@ -1,7 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 import artists from "./artists/reducers";
 
-export default combineReducers<Object, Action>({ artists });
+export default combineReducers<State, Action>({ artists });
