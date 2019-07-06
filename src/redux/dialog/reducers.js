@@ -9,7 +9,7 @@ import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
 } from "./constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 export const NO_ARTIST = {
   id: -1,
@@ -42,4 +42,4 @@ const artist = (state = NO_ARTIST, action) => {
   }
 };
 
-export default combineReducers<Object, Action>({ open, artist });
+export default combineReducers<State, Action>({ open, artist });
