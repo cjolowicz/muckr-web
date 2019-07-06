@@ -1,4 +1,6 @@
 // @flow
+import * as redux from "redux";
+
 import * as dialog from "./dialog/types";
 import * as message from "./message/types";
 import * as navigation from "./navigation/types";
@@ -26,3 +28,7 @@ export type State = {
   artists: artist.State,
   entities: entities.State
 };
+
+export type Store = redux.Store<State, Action>;
+
+export type StoreCreator = redux.StoreCreator<State, Action>;

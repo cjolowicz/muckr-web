@@ -1,12 +1,11 @@
 // @flow
-import type { Store, StoreCreator } from "redux";
 import Cookies from "universal-cookie";
 
 import { fetchTokenSuccess } from "../token/actions";
 import { getToken } from "../selectors";
-import type { Action, State } from "../types";
+import type { Store, StoreCreator } from "../types";
 
-export const loadToken = (store: Store<State, Action>, cookies: Cookies) => {
+export const loadToken = (store: Store, cookies: Cookies) => {
   const token = cookies.get("token");
 
   if (token) {
@@ -14,7 +13,7 @@ export const loadToken = (store: Store<State, Action>, cookies: Cookies) => {
   }
 };
 
-export const saveToken = (store: Store<State, Action>, cookies: Cookies) => {
+export const saveToken = (store: Store, cookies: Cookies) => {
   let previousToken = null;
 
   store.subscribe(() => {
@@ -34,9 +33,10 @@ export const saveToken = (store: Store<State, Action>, cookies: Cookies) => {
   });
 };
 
-const persistToken = (cookies: Cookies) => (
-  next: StoreCreator<State, Action>
-) => (reducer: Function, state: any) => {
+const persistToken = (cookies: Cookies) => (next: StoreCreator) => (
+  reducer: Function,
+  state: any
+) => {
   const store = next(reducer, state);
 
   saveToken(store, cookies);
