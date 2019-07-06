@@ -12,3 +12,7 @@ export type CloseNavigationAction = {
 };
 
 export type NavigationAction = OpenNavigationAction | CloseNavigationAction;
+
+export type State = {
+  open: boolean
+};
