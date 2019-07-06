@@ -1,5 +1,5 @@
 // @flow
-import type { Artist } from "../api/artist";
+import type { Artist } from "../../api/artist";
 
 export const OPEN_CREATE_DIALOG = "OPEN_CREATE_DIALOG";
 export const OPEN_UPDATE_DIALOG = "OPEN_UPDATE_DIALOG";

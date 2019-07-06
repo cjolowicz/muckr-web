@@ -1,6 +1,6 @@
 // @flow
 import artists, { isFetchingArtists, getArtistsError } from "../artists";
-import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../test/fixtures";
+import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
 import {
   createArtistRequest,
   createArtistSuccess,

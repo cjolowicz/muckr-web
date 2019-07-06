@@ -12,7 +12,7 @@ import {
   openCreateDialog
 } from "../../actions/dialog";
 import { noop } from "../../actions/noop";
-import { ARTIST } from "../../test/fixtures";
+import { ARTIST } from "../../../test/fixtures";
 
 describe("dialog", () => {
   const initialState = reducer(undefined, noop());

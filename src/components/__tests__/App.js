@@ -5,8 +5,8 @@ import App from "../App";
 import render from "../../test/render";
 import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
 import * as routes from "../../routes";
-import { fetchTokenSuccess } from "../../actions/token";
-import { fetchArtistsSuccess } from "../../actions/artist";
+import { fetchTokenSuccess } from "../../redux/actions/token";
+import { fetchArtistsSuccess } from "../../redux/actions/artist";
 
 describe("App", () => {
   it("renders welcome page", () => {

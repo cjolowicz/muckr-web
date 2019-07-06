@@ -8,8 +8,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 
 import type { Artist } from "../api/artist";
-import type { DialogType } from "../reducers/dialog";
-import { DIALOG_TYPE_CREATE } from "../reducers/dialog";
+import type { DialogType } from "../redux/reducers/dialog";
+import { DIALOG_TYPE_CREATE } from "../redux/reducers/dialog";
 
 type Props = {
   type: DialogType,

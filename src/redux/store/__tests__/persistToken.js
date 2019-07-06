@@ -10,7 +10,7 @@ import {
   clearToken,
   FETCH_TOKEN_SUCCESS
 } from "../../actions/token";
-import { TOKEN } from "../../test/fixtures";
+import { TOKEN } from "../../../test/fixtures";
 
 const cookies = new Cookies();
 

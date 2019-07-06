@@ -8,7 +8,7 @@ import {
   CLOSE_DIALOG
 } from "../actions/dialog";
 import type { Action } from "../actions";
-import type { Artist } from "../api/artist";
+import type { Artist } from "../../api/artist";
 
 export const DIALOG_TYPE_CREATE = "DIALOG_TYPE_CREATE";
 export const DIALOG_TYPE_UPDATE = "DIALOG_TYPE_UPDATE";

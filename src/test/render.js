@@ -8,11 +8,11 @@ import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { render } from "@testing-library/react";
 
-import { noop } from "../actions/noop";
+import { noop } from "../redux/actions/noop";
 import * as routes from "../routes";
-import rootReducer from "../reducers";
+import rootReducer from "../redux/reducers";
 import theme from "../theme";
-import type { Action } from "../actions";
+import type { Action } from "../redux/actions";
 
 type RenderConfig = {
   actions?: Array<Action>,

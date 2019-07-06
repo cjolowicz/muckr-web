@@ -9,10 +9,10 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
 } from "../user";
-import * as api from "../../api/user";
-import { unsafeCast } from "../../utils";
-import mock from "../../test/mock";
-import { USER } from "../../test/fixtures";
+import * as api from "../../../api/user";
+import { unsafeCast } from "../../../utils";
+import mock from "../../../test/mock";
+import { USER } from "../../../test/fixtures";
 
 const mockStore = configureStore([thunk]);
 

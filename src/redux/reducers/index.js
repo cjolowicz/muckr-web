@@ -9,7 +9,7 @@ import user, * as fromUser from "./user";
 import artists, * as fromArtists from "./artists";
 import entities, * as fromEntities from "./entities";
 import type { Action } from "../actions";
-import { getItemsById } from "../utils";
+import { getItemsById } from "../../utils";
 
 export type State = {
   dialog: fromDialog.State,

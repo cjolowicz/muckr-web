@@ -1,6 +1,10 @@
 // @flow
 import token, { isFetchingToken, getToken, getTokenError } from "../token";
-import { TOKEN, GENERIC_ERROR, UNAUTHORIZED_ERROR } from "../../test/fixtures";
+import {
+  TOKEN,
+  GENERIC_ERROR,
+  UNAUTHORIZED_ERROR
+} from "../../../test/fixtures";
 import { noop } from "../../actions/noop";
 import { fetchArtistsFailure } from "../../actions/artist";
 import {

@@ -1,6 +1,6 @@
 // @flow
-import * as api from "../api/user";
-import type { FetchError } from "../api/error";
+import * as api from "../../api/user";
+import type { FetchError } from "../../api/error";
 
 export const CREATE_USER_REQUEST = "CREATE_USER_REQUEST";
 export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";

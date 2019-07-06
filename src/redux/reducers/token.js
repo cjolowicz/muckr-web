@@ -9,8 +9,8 @@ import {
 } from "../actions/token";
 import { FETCH_ARTISTS_FAILURE } from "../actions/artist";
 import type { Action } from "../actions";
-import { isUnauthorized } from "../api/error";
-import type { FetchError } from "../api/error";
+import { isUnauthorized } from "../../api/error";
+import type { FetchError } from "../../api/error";
 
 export type State = {
   isFetching: boolean,

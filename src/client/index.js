@@ -10,8 +10,8 @@ import Cookies from "universal-cookie";
 import { just } from "../utils";
 import { APP_ROOT } from "../constants";
 import ClientRoot from "./ClientRoot";
-import persistToken from "../store/persistToken";
-import rootReducer from "../reducers";
+import persistToken from "../redux/store/persistToken";
+import rootReducer from "../redux/reducers";
 
 const cookies = new Cookies();
 

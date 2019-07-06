@@ -6,8 +6,8 @@ import {
   UPDATE_ARTIST_SUCCESS
 } from "../../actions/artist";
 import type { Action } from "../../actions";
-import type { Artist } from "../../api/artist";
-import { addById, indexById, removeById } from "../../utils";
+import type { Artist } from "../../../api/artist";
+import { addById, indexById, removeById } from "../../../utils";
 
 export type State = { [number]: Artist };
 

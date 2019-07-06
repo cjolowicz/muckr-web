@@ -1,6 +1,6 @@
 // @flow
-import * as api from "../api/token";
-import type { FetchError } from "../api/error";
+import * as api from "../../api/token";
+import type { FetchError } from "../../api/error";
 
 export const FETCH_TOKEN_REQUEST = "FETCH_TOKEN_REQUEST";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";

@@ -2,8 +2,8 @@
 import { connect } from "react-redux";
 
 import SignIn from "../components/SignIn";
-import { fetchToken } from "../actions/token";
-import { getToken } from "../reducers";
+import { fetchToken } from "../redux/actions/token";
+import { getToken } from "../redux/reducers";
 
 export default connect(
   state => ({ token: getToken(state) }),

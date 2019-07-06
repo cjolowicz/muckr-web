@@ -7,7 +7,7 @@ import {
   CREATE_USER_FAILURE
 } from "../actions/user";
 import type { Action } from "../actions";
-import type { FetchError } from "../api/error";
+import type { FetchError } from "../../api/error";
 
 export type State = {
   isCreating: boolean,

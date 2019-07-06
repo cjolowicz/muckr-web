@@ -2,9 +2,13 @@
 import { connect } from "react-redux";
 
 import FetchingArtistList from "../components/FetchingArtistList";
-import { fetchArtists, createArtist, removeArtist } from "../actions/artist";
-import { openCreateDialog, openUpdateDialog } from "../actions/dialog";
-import { getArtists, isFetchingArtists, getToken } from "../reducers";
+import {
+  fetchArtists,
+  createArtist,
+  removeArtist
+} from "../redux/actions/artist";
+import { openCreateDialog, openUpdateDialog } from "../redux/actions/dialog";
+import { getArtists, isFetchingArtists, getToken } from "../redux/reducers";
 
 export default connect(
   state => ({

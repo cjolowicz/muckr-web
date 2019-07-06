@@ -2,9 +2,9 @@
 import { connect } from "react-redux";
 
 import ArtistDialog from "../components/ArtistDialog";
-import { createArtist, updateArtist } from "../actions/artist";
-import { updateDialog, closeDialog } from "../actions/dialog";
-import { getDialogType, getDialogArtist, getToken } from "../reducers";
+import { createArtist, updateArtist } from "../redux/actions/artist";
+import { updateDialog, closeDialog } from "../redux/actions/dialog";
+import { getDialogType, getDialogArtist, getToken } from "../redux/reducers";
 
 export default connect(
   state => ({

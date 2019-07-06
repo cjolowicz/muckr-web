@@ -9,10 +9,10 @@ import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE
 } from "../token";
-import * as api from "../../api/token";
-import { unsafeCast } from "../../utils";
-import mock from "../../test/mock";
-import { TOKEN } from "../../test/fixtures";
+import * as api from "../../../api/token";
+import { unsafeCast } from "../../../utils";
+import mock from "../../../test/mock";
+import { TOKEN } from "../../../test/fixtures";
 
 const mockStore = configureStore([thunk]);
 

@@ -3,9 +3,9 @@ import type { Dispatch } from "redux";
 import { connect } from "react-redux";
 
 import Message from "../components/Message";
-import { closeMessage } from "../actions/message";
-import { getMessage, isMessageOpen } from "../reducers";
-import type { Action } from "../actions";
+import { closeMessage } from "../redux/actions/message";
+import { getMessage, isMessageOpen } from "../redux/reducers";
+import type { Action } from "../redux/actions";
 
 type Event = SyntheticEvent<HTMLButtonElement>;
 

@@ -8,8 +8,8 @@ import { ServerStyleSheets } from "@material-ui/styles";
 
 import ServerRoot from "./ServerRoot";
 import generatePage from "./generatePage";
-import persistToken from "../store/persistToken";
-import rootReducer from "../reducers";
+import persistToken from "../redux/store/persistToken";
+import rootReducer from "../redux/reducers";
 
 type Request = express$Request & {
   universalCookies: Cookies

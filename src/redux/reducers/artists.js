@@ -16,7 +16,7 @@ import {
   UPDATE_ARTIST_FAILURE
 } from "../actions/artist";
 import type { Action } from "../actions";
-import type { FetchError } from "../api/error";
+import type { FetchError } from "../../api/error";
 
 export type State = {
   isFetching: boolean,

@@ -1,6 +1,6 @@
 // @flow
-import * as api from "../api/artist";
-import type { FetchError } from "../api/error";
+import * as api from "../../api/artist";
+import type { FetchError } from "../../api/error";
 
 export const FETCH_ARTISTS_REQUEST = "FETCH_ARTISTS_REQUEST";
 export const FETCH_ARTISTS_SUCCESS = "FETCH_ARTISTS_SUCCESS";

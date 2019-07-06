@@ -6,8 +6,8 @@ import {
   removeArtistSuccess,
   updateArtistSuccess
 } from "../../../actions/artist";
-import { ARTIST, ARTISTS } from "../../../test/fixtures";
-import indexById from "../../../utils/indexById";
+import { ARTIST, ARTISTS } from "../../../../test/fixtures";
+import indexById from "../../../../utils/indexById";
 
 describe("artists", () => {
   const state = indexById([ARTIST]);

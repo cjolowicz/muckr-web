@@ -21,10 +21,10 @@ import {
   UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE
 } from "../artist";
-import * as api from "../../api/artist";
-import { unsafeCast } from "../../utils";
-import mock from "../../test/mock";
-import { TOKEN, ARTISTS, ARTIST } from "../../test/fixtures";
+import * as api from "../../../api/artist";
+import { unsafeCast } from "../../../utils";
+import mock from "../../../test/mock";
+import { TOKEN, ARTISTS, ARTIST } from "../../../test/fixtures";
 
 const mockStore = configureStore([thunk]);
 
