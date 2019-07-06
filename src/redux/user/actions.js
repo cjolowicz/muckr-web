@@ -25,16 +25,3 @@ export const createUserFailure = (
   type: constants.CREATE_USER_FAILURE,
   payload: { error }
 });
-
-export const createUser = (username: string, password: string) => (
-  dispatch: types.Dispatch
-) => {
-  dispatch(createUserRequest(username, password));
-
-  return api
-    .createUser(username, password)
-    .then(
-      user => dispatch(createUserSuccess(user)),
-      error => dispatch(createUserFailure(error))
-    );
-};

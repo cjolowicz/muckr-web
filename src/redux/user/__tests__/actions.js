@@ -3,7 +3,7 @@ import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
 import type { Dispatch } from "../types";
-import { createUser } from "../actions";
+import { createUser } from "../operations";
 import {
   CREATE_USER_REQUEST,
   CREATE_USER_SUCCESS,
