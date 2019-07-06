@@ -8,7 +8,7 @@ import {
   CLEAR_TOKEN
 } from "./constants";
 import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 import { isUnauthorized } from "../../api/error";
 
 const isFetching = (state = false, action: Action) => {
@@ -50,4 +50,4 @@ const error = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<Object, Action>({ isFetching, token, error });
+export default combineReducers<State, Action>({ isFetching, token, error });
