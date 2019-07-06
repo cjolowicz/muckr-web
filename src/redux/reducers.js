@@ -2,37 +2,20 @@
 import { combineReducers } from "redux";
 
 import dialog, * as fromDialog from "./dialog/reducers";
-import * as dialogTypes from "./dialog/types";
 import * as dialogSelectors from "./dialog/selectors";
 import message, * as fromMessage from "./message/reducers";
-import * as messageTypes from "./message/types";
 import * as messageSelectors from "./message/selectors";
 import navigation, * as fromNavigation from "./navigation/reducers";
-import * as navigationTypes from "./navigation/types";
 import * as navigationSelectors from "./navigation/selectors";
 import token, * as fromToken from "./token/reducers";
-import * as tokenTypes from "./token/types";
 import * as tokenSelectors from "./token/selectors";
 import user, * as fromUser from "./user/reducers";
-import * as userTypes from "./user/types";
 import * as userSelectors from "./user/selectors";
 import entities, * as fromEntities from "./entities/reducers";
-import * as entitiesTypes from "./entities/types";
 import artists, * as fromArtists from "./artist/reducers";
-import * as artistTypes from "./artist/types";
 import * as artistSelectors from "./artist/selectors";
-import type { Action } from "./types";
+import type { Action, State } from "./types";
 import { getItemsById } from "../utils";
-
-export type State = {
-  dialog: dialogTypes.State,
-  message: messageTypes.State,
-  navigation: navigationTypes.State,
-  token: tokenTypes.State,
-  user: userTypes.State,
-  artists: artistTypes.State,
-  entities: entitiesTypes.State
-};
 
 export const initialState: State = {
   dialog: fromDialog.initialState,

@@ -4,8 +4,7 @@ import Cookies from "universal-cookie";
 
 import { fetchTokenSuccess } from "../token/actions";
 import { getToken } from "../reducers";
-import type { State } from "../reducers";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 export const loadToken = (store: Store<State, Action>, cookies: Cookies) => {
   const token = cookies.get("token");

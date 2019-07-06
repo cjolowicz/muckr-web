@@ -6,6 +6,7 @@ import * as noop from "./noop/types";
 import * as token from "./token/types";
 import * as artist from "./artist/types";
 import * as user from "./user/types";
+import * as entities from "./entities/types";
 
 export type Action =
   | noop.Action
@@ -15,3 +16,13 @@ export type Action =
   | token.Action
   | artist.Action
   | user.Action;
+
+export type State = {
+  dialog: dialog.State,
+  message: message.State,
+  navigation: navigation.State,
+  token: token.State,
+  user: user.State,
+  artists: artist.State,
+  entities: entities.State
+};
