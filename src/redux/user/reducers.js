@@ -6,16 +6,9 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
 } from "./constants";
-import type { State } from "./types";
 import type { Action } from "../types";
 
-export const initialState: State = {
-  isCreating: false,
-  user: null,
-  error: null
-};
-
-function isCreating(state = initialState.isCreating, action: Action) {
+function isCreating(state = false, action: Action) {
   switch (action.type) {
     case CREATE_USER_REQUEST:
       return true;
@@ -28,7 +21,7 @@ function isCreating(state = initialState.isCreating, action: Action) {
   }
 }
 
-function user(state = initialState.user, action: Action) {
+function user(state = null, action: Action) {
   switch (action.type) {
     case CREATE_USER_SUCCESS:
       return action.payload.user;
@@ -39,7 +32,7 @@ function user(state = initialState.user, action: Action) {
   }
 }
 
-function error(state = initialState.error, action: Action) {
+function error(state = null, action: Action) {
   switch (action.type) {
     case CREATE_USER_REQUEST:
     case CREATE_USER_SUCCESS:
