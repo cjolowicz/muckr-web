@@ -16,7 +16,7 @@ export const NO_ARTIST = {
   name: ""
 };
 
-function open(state = null, action) {
+const open = (state = null, action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
@@ -27,9 +27,9 @@ function open(state = null, action) {
     default:
       return state;
   }
-}
+};
 
-function artist(state = NO_ARTIST, action) {
+const artist = (state = NO_ARTIST, action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
     case CLOSE_DIALOG:
@@ -40,6 +40,6 @@ function artist(state = NO_ARTIST, action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers<Object, Action>({ open, artist });
