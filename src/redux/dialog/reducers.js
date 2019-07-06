@@ -9,7 +9,6 @@ import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
 } from "./constants";
-import * as types from "./types";
 import type { Action } from "../types";
 
 export const NO_ARTIST = {
@@ -17,29 +16,24 @@ export const NO_ARTIST = {
   name: ""
 };
 
-export const initialState: types.State = {
-  open: null,
-  artist: NO_ARTIST
-};
-
-function open(state = initialState.open, action) {
+function open(state = null, action) {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
     case OPEN_UPDATE_DIALOG:
       return DIALOG_TYPE_UPDATE;
     case CLOSE_DIALOG:
-      return initialState.open;
+      return null;
     default:
       return state;
   }
 }
 
-function artist(state = initialState.artist, action) {
+function artist(state = NO_ARTIST, action) {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
     case CLOSE_DIALOG:
-      return initialState.artist;
+      return NO_ARTIST;
     case OPEN_UPDATE_DIALOG:
     case UPDATE_DIALOG:
       return action.payload.artist;
