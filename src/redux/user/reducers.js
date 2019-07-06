@@ -6,14 +6,8 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
 } from "./constants";
+import type { State } from "./types";
 import type { Action } from "../actions";
-import type { FetchError } from "../../api/error";
-
-export type State = {
-  isCreating: boolean,
-  user: ?string,
-  error: ?FetchError
-};
 
 export const initialState: State = {
   isCreating: false,

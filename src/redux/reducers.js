@@ -14,6 +14,7 @@ import token, * as fromToken from "./token/reducers";
 import * as tokenTypes from "./token/types";
 import * as tokenSelectors from "./token/selectors";
 import user, * as fromUser from "./user/reducers";
+import * as userTypes from "./user/types";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
 import * as entitiesTypes from "./entities/types";
@@ -27,7 +28,7 @@ export type State = {
   message: messageTypes.State,
   navigation: navigationTypes.State,
   token: tokenTypes.State,
-  user: fromUser.State,
+  user: userTypes.State,
   artists: artistTypes.State,
   entities: entitiesTypes.State
 };
