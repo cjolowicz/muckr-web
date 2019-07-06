@@ -1,7 +1,6 @@
 // @flow
 import { combineReducers } from "redux";
 
-import type { State } from "./types";
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./constants";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/constants";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../user/constants";
@@ -17,12 +16,7 @@ import {
 } from "../artist/constants";
 import type { Action } from "../types";
 
-export const initialState: State = {
-  open: false,
-  message: null
-};
-
-function open(state = initialState.open, action) {
+function open(state = false, action) {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
@@ -69,7 +63,7 @@ export function formatErrorMessage(actionType: string, errorMessage: string) {
   return prefix ? `${prefix}: ${errorMessage}` : errorMessage;
 }
 
-function message(state = initialState.message, action) {
+function message(state = null, action) {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
