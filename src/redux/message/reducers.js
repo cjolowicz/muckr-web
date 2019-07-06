@@ -15,7 +15,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../artist/constants";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 
 export const initialState: State = {
   open: false,

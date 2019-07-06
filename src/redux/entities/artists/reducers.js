@@ -6,7 +6,7 @@ import {
   REMOVE_ARTIST_SUCCESS,
   UPDATE_ARTIST_SUCCESS
 } from "../../artist/constants";
-import type { Action } from "../../actions";
+import type { Action } from "../../types";
 import { addById, indexById, removeById } from "../../../utils";
 
 export const initialState: types.State = {};

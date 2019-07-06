@@ -10,7 +10,7 @@ import {
   DIALOG_TYPE_UPDATE
 } from "./constants";
 import * as types from "./types";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 
 export const NO_ARTIST = {
   id: -1,

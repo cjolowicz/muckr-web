@@ -9,7 +9,7 @@ import {
   CLEAR_TOKEN
 } from "./constants";
 import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 import { isUnauthorized } from "../../api/error";
 
 export const initialState: State = {

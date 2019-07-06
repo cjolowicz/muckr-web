@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Message from "../components/Message";
 import { closeMessage } from "../redux/message/actions";
 import { getMessage, isMessageOpen } from "../redux/reducers";
-import type { Action } from "../redux/actions";
+import type { Action } from "../redux/types";
 
 type Event = SyntheticEvent<HTMLButtonElement>;
 

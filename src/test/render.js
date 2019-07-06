@@ -12,7 +12,7 @@ import { noop } from "../redux/noop/actions";
 import * as routes from "../routes";
 import rootReducer from "../redux/reducers";
 import theme from "../theme";
-import type { Action } from "../redux/actions";
+import type { Action } from "../redux/types";
 
 type RenderConfig = {
   actions?: Array<Action>,

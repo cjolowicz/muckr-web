@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 
 import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "./constants";
 import type { State } from "./types";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 
 export const initialState: State = {
   open: false

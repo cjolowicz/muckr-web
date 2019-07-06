@@ -15,7 +15,7 @@ import {
   UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE
 } from "./constants";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 import type { State } from "./types";
 
 export const initialState: State = {

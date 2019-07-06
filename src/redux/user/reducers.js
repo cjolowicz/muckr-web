@@ -7,7 +7,7 @@ import {
   CREATE_USER_FAILURE
 } from "./constants";
 import type { State } from "./types";
-import type { Action } from "../actions";
+import type { Action } from "../types";
 
 export const initialState: State = {
   isCreating: false,

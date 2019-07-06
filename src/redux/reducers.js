@@ -21,7 +21,7 @@ import * as entitiesTypes from "./entities/types";
 import artists, * as fromArtists from "./artist/reducers";
 import * as artistTypes from "./artist/types";
 import * as artistSelectors from "./artist/selectors";
-import type { Action } from "./actions";
+import type { Action } from "./types";
 import { getItemsById } from "../utils";
 
 export type State = {
