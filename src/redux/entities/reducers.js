@@ -1,15 +1,11 @@
 // @flow
 import { combineReducers } from "redux";
 
+import * as types from "./types";
 import type { Action } from "../actions";
 import artists, * as fromArtists from "./artists/reducers";
-import * as artistsTypes from "./artists/types";
 
-export type State = {
-  artists: artistsTypes.State
-};
-
-export const initialState: State = {
+export const initialState: types.State = {
   artists: fromArtists.initialState
 };
 

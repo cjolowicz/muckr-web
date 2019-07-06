@@ -10,6 +10,7 @@ import token, * as fromToken from "./token/reducers";
 import user, * as fromUser from "./user/reducers";
 import artists, * as fromArtists from "./artist/reducers";
 import entities, * as fromEntities from "./entities/reducers";
+import * as entitiesTypes from "./entities/types";
 import * as artistTypes from "./artist/types";
 import * as artistSelectors from "./artist/selectors";
 import type { Action } from "./actions";
@@ -22,7 +23,7 @@ export type State = {
   token: fromToken.State,
   user: fromUser.State,
   artists: artistTypes.State,
-  entities: fromEntities.State
+  entities: entitiesTypes.State
 };
 
 export const initialState: State = {
