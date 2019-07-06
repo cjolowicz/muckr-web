@@ -17,7 +17,7 @@ import {
 } from "./constants";
 import type { Action } from "../types";
 
-function isFetching(state = false, action: Action) {
+const isFetching = (state = false, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case CREATE_ARTIST_REQUEST:
@@ -37,9 +37,9 @@ function isFetching(state = false, action: Action) {
     default:
       return state;
   }
-}
+};
 
-function ids(state = [], action: Action) {
+const ids = (state = [], action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return action.payload.artists.map(({ id }) => id);
@@ -50,9 +50,9 @@ function ids(state = [], action: Action) {
     default:
       return state;
   }
-}
+};
 
-function error(state = null, action: Action) {
+const error = (state = null, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case FETCH_ARTISTS_SUCCESS:
@@ -71,7 +71,7 @@ function error(state = null, action: Action) {
     default:
       return state;
   }
-}
+};
 
 export default combineReducers<Object, Action>({
   isFetching,
