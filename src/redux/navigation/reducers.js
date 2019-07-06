@@ -1,7 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
-import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "../actions/navigation";
+import { OPEN_NAVIGATION, CLOSE_NAVIGATION } from "./actions";
 import type { Action } from "../actions";
 
 export type State = {

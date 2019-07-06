@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 
 import MenuButton from "../components/MenuButton";
-import { openNavigation } from "../redux/actions/navigation";
+import { openNavigation } from "../redux/navigation/actions";
 
 export default connect(
   null,
