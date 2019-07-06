@@ -6,7 +6,7 @@ import {
   UNAUTHORIZED_ERROR
 } from "../../../test/fixtures";
 import { noop } from "../../actions/noop";
-import { fetchArtistsFailure } from "../../actions/artist";
+import { fetchArtistsFailure } from "../../artist/actions";
 import {
   fetchTokenRequest,
   fetchTokenSuccess,

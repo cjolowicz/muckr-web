@@ -1,5 +1,5 @@
 // @flow
-import artists, { isFetchingArtists, getArtistsError } from "../artists";
+import artists, { isFetchingArtists, getArtistsError } from "../reducers";
 import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
 import {
   createArtistRequest,
@@ -13,7 +13,7 @@ import {
   fetchArtistsRequest,
   fetchArtistsSuccess,
   fetchArtistsFailure
-} from "../../actions/artist";
+} from "../actions";
 import { noop } from "../../actions/noop";
 
 describe("artists", () => {

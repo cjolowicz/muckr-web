@@ -5,7 +5,7 @@ import {
   createArtistSuccess,
   removeArtistSuccess,
   updateArtistSuccess
-} from "../../../actions/artist";
+} from "../../../artist/actions";
 import { ARTIST, ARTISTS } from "../../../../test/fixtures";
 import indexById from "../../../../utils/indexById";
 

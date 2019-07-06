@@ -14,7 +14,7 @@ import {
   updateArtistSuccess,
   updateArtistFailure,
   fetchArtistsFailure
-} from "../../actions/artist";
+} from "../../artist/actions";
 import { createUserSuccess, createUserFailure } from "../../actions/user";
 import { NOOP, noop } from "../../actions/noop";
 import { ARTIST, USER, GENERIC_ERROR } from "../../../test/fixtures";

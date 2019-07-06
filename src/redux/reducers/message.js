@@ -13,7 +13,7 @@ import {
   UPDATE_ARTIST_FAILURE,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
-} from "../actions/artist";
+} from "../artist/actions";
 import type { Action } from "../actions";
 
 export type State = {
