@@ -1,7 +1,7 @@
 // @flow
 import * as dialog from "./dialog/types";
 import * as message from "./message/types";
-import type { NavigationAction } from "./navigation/actions";
+import type { NavigationAction } from "./navigation/types";
 import type { NoopAction } from "./noop/actions";
 import type { TokenAction } from "./token/actions";
 import * as artist from "./artist/types";

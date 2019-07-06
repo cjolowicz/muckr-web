@@ -1,24 +1,13 @@
 // @flow
 import * as constants from "./constants";
+import * as types from "./types";
 
-export type OpenNavigationAction = {
-  type: typeof constants.OPEN_NAVIGATION,
-  payload: {}
-};
-
-export type CloseNavigationAction = {
-  type: typeof constants.CLOSE_NAVIGATION,
-  payload: {}
-};
-
-export type NavigationAction = OpenNavigationAction | CloseNavigationAction;
-
-export const openNavigation = (): OpenNavigationAction => ({
+export const openNavigation = (): types.OpenNavigationAction => ({
   type: constants.OPEN_NAVIGATION,
   payload: {}
 });
 
-export const closeNavigation = (): CloseNavigationAction => ({
+export const closeNavigation = (): types.CloseNavigationAction => ({
   type: constants.CLOSE_NAVIGATION,
   payload: {}
 });
