@@ -6,7 +6,7 @@ import {
   OPEN_UPDATE_DIALOG,
   UPDATE_DIALOG,
   CLOSE_DIALOG
-} from "../actions/dialog";
+} from "./actions";
 import type { Action } from "../actions";
 import type { Artist } from "../../api/artist";
 

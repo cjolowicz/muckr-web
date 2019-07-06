@@ -16,7 +16,7 @@ import rootReducer, {
   getArtists,
   getArtistsError
 } from "..";
-import { NO_ARTIST } from "../dialog";
+import { NO_ARTIST } from "../../dialog/reducers";
 import { noop } from "../../actions/noop";
 
 describe("initial state", () => {

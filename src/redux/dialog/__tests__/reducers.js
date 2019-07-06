@@ -4,13 +4,13 @@ import reducer, {
   getDialogArtist,
   isCreateDialogOpen,
   isUpdateDialogOpen
-} from "../dialog";
+} from "../reducers";
 import {
   openUpdateDialog,
   updateDialog,
   closeDialog,
   openCreateDialog
-} from "../../actions/dialog";
+} from "../actions";
 import { noop } from "../../actions/noop";
 import { ARTIST } from "../../../test/fixtures";
 

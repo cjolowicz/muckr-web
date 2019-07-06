@@ -1,5 +1,5 @@
 // @flow
-import type { DialogAction } from "./dialog";
+import type { DialogAction } from "../dialog/actions";
 import type { MessageAction } from "./message";
 import type { NavigationAction } from "./navigation";
 import type { NoopAction } from "./noop";
