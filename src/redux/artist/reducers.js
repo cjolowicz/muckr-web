@@ -15,7 +15,7 @@ import {
   UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE
 } from "./constants";
-import type { Action } from "../types";
+import type { Action, State } from "../types";
 
 const isFetching = (state = false, action: Action) => {
   switch (action.type) {
@@ -73,7 +73,7 @@ const error = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<Object, Action>({
+export default combineReducers<State, Action>({
   isFetching,
   ids,
   error
