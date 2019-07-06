@@ -5,7 +5,7 @@ import reducer, {
   formatErrorMessage
 } from "../reducers";
 import { openMessage, closeMessage } from "../actions";
-import { fetchTokenFailure } from "../../actions/token";
+import { fetchTokenFailure } from "../../token/actions";
 import {
   createArtistSuccess,
   createArtistFailure,

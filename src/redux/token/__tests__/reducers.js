@@ -1,5 +1,5 @@
 // @flow
-import token, { isFetchingToken, getToken, getTokenError } from "../token";
+import token, { isFetchingToken, getToken, getTokenError } from "../reducers";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -12,7 +12,7 @@ import {
   fetchTokenSuccess,
   fetchTokenFailure,
   clearToken
-} from "../../actions/token";
+} from "../actions";
 
 describe("token", () => {
   describe("initially", () => {

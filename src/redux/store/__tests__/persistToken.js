@@ -9,7 +9,7 @@ import {
   fetchTokenSuccess,
   clearToken,
   FETCH_TOKEN_SUCCESS
-} from "../../actions/token";
+} from "../../token/actions";
 import { TOKEN } from "../../../test/fixtures";
 
 const cookies = new Cookies();
