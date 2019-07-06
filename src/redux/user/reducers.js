@@ -5,7 +5,7 @@ import {
   CREATE_USER_REQUEST,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
-} from "../actions/user";
+} from "./actions";
 import type { Action } from "../actions";
 import type { FetchError } from "../../api/error";
 

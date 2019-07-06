@@ -2,13 +2,13 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../user";
+import type { Dispatch } from "../actions";
 import {
   createUser,
   CREATE_USER_REQUEST,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE
-} from "../user";
+} from "../actions";
 import * as api from "../../../api/user";
 import { unsafeCast } from "../../../utils";
 import mock from "../../../test/mock";

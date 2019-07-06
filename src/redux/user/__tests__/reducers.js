@@ -1,12 +1,12 @@
 // @flow
-import user, { isCreatingUser, getUser, getUserError } from "../user";
+import user, { isCreatingUser, getUser, getUserError } from "../reducers";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
 import { noop } from "../../noop/actions";
 import {
   createUserRequest,
   createUserSuccess,
   createUserFailure
-} from "../../actions/user";
+} from "../actions";
 
 describe("user", () => {
   describe("initially", () => {
