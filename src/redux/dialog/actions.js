@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as types from "./types";
-import type { Artist } from "../../api/artist";
+import type { Artist } from "../../api/types";
 
 export const openCreateDialog = (): types.OpenCreateDialogAction => ({
   type: constants.OPEN_CREATE_DIALOG,

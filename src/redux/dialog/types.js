@@ -1,6 +1,6 @@
 // @flow
 import * as constants from "./constants";
-import type { Artist } from "../../api/artist";
+import type { Artist } from "../../api/types";
 
 export type OpenCreateDialogAction = {
   type: typeof constants.OPEN_CREATE_DIALOG,
