@@ -11,9 +11,9 @@ import { unsafeCast } from "../../utils";
 import render from "../../test/render";
 import select from "../../test/select";
 
-const onSubmit = jest.fn();
+const fetchToken = jest.fn();
 
-afterEach(() => onSubmit.mockClear());
+afterEach(() => fetchToken.mockClear());
 
 const renderSignIn = ({ token, referrer }) => {
   const location = unsafeCast<Location>(
@@ -23,7 +23,7 @@ const renderSignIn = ({ token, referrer }) => {
   const utils = render(
     <Switch>
       <Route path={routes.SIGNIN}>
-        <SignIn location={location} onSubmit={onSubmit} token={token} />
+        <SignIn location={location} fetchToken={fetchToken} token={token} />
       </Route>
     </Switch>,
     { route: routes.SIGNIN }
@@ -57,7 +57,7 @@ describe("SignIn", () => {
   });
 
   describe("handleSubmit", () => {
-    it("invokes onSubmit", async () => {
+    it("invokes fetchToken", async () => {
       const { username, password, submit } = renderSignIn({
         token: null,
         referrer: null
@@ -67,7 +67,7 @@ describe("SignIn", () => {
       fireEvent.change(password, { target: { value: "secret" } });
       fireEvent.click(submit);
 
-      expect(onSubmit).toHaveBeenLastCalledWith("john", "secret");
+      expect(fetchToken).toHaveBeenLastCalledWith("john", "secret");
     });
   });
 

@@ -15,7 +15,7 @@ import * as routes from "../routes";
 
 type Props = {
   location: Location,
-  onSubmit: Function,
+  fetchToken: Function,
   token: ?string
 };
 
@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignIn = ({ location, onSubmit, token }: Props) => {
+const SignIn = ({ location, fetchToken, token }: Props) => {
   const classes = useStyles();
   const [username, handleUsernameChange] = useInputField();
   const [password, handlePasswordChange] = useInputField();
@@ -66,7 +66,7 @@ const SignIn = ({ location, onSubmit, token }: Props) => {
 
   const handleSubmit = (event: ButtonEvent) => {
     event.preventDefault();
-    onSubmit(username, password);
+    fetchToken(username, password);
   };
 
   return (

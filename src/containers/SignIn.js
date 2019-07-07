@@ -8,5 +8,5 @@ import { token } from "../redux/selectors";
 
 export default connect(
   createStructuredSelector({ token }),
-  { onSubmit: fetchToken }
+  { fetchToken }
 )(SignIn);
