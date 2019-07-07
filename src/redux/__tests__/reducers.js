@@ -1,9 +1,9 @@
 // @flow
 import rootReducer from "../reducers";
 import {
-  isCreateDialogOpen,
-  isUpdateDialogOpen,
-  getDialogArtist,
+  createDialogOpen,
+  updateDialogOpen,
+  dialogArtist,
   isMessageOpen,
   getMessage,
   isNavigationOpen,
@@ -29,21 +29,21 @@ describe("initial state", () => {
     });
   });
 
-  describe("isCreateDialogOpen", () => {
+  describe("createDialogOpen", () => {
     it("is false", () => {
-      expect(isCreateDialogOpen(state)).toBe(false);
+      expect(createDialogOpen(state)).toBe(false);
     });
   });
 
-  describe("isUpdateDialogOpen", () => {
+  describe("updateDialogOpen", () => {
     it("is false", () => {
-      expect(isUpdateDialogOpen(state)).toBe(false);
+      expect(updateDialogOpen(state)).toBe(false);
     });
   });
 
-  describe("getDialogArtist", () => {
+  describe("dialogArtist", () => {
     it("returns no artist", () => {
-      expect(getDialogArtist(state)).toEqual(NO_ARTIST);
+      expect(dialogArtist(state)).toEqual(NO_ARTIST);
     });
   });
 

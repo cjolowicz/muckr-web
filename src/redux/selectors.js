@@ -10,17 +10,15 @@ import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
 import type { State } from "./types";
 
-export const isCreateDialogOpen = (state: State) =>
-  dialog.isCreateDialogOpen(state.dialog);
+export const createDialogOpen = (state: State) =>
+  dialog.createDialogOpen(state.dialog);
 
-export const isUpdateDialogOpen = (state: State) =>
-  dialog.isUpdateDialogOpen(state.dialog);
+export const updateDialogOpen = (state: State) =>
+  dialog.updateDialogOpen(state.dialog);
 
-export const getDialogArtist = (state: State) =>
-  dialog.getDialogArtist(state.dialog);
+export const dialogArtist = (state: State) => dialog.dialogArtist(state.dialog);
 
-export const getDialogType = (state: State) =>
-  dialog.getDialogType(state.dialog);
+export const dialogType = (state: State) => dialog.dialogType(state.dialog);
 
 export const isMessageOpen = (state: State) =>
   message.isMessageOpen(state.message);

@@ -1,10 +1,6 @@
 // @flow
 import reducer, { NO_ARTIST } from "../reducers";
-import {
-  getDialogArtist,
-  isCreateDialogOpen,
-  isUpdateDialogOpen
-} from "../selectors";
+import { dialogArtist, createDialogOpen, updateDialogOpen } from "../selectors";
 import {
   openUpdateDialog,
   updateDialog,
@@ -19,11 +15,11 @@ describe("dialog", () => {
 
   describe("initial state", () => {
     it("is closed", () => {
-      expect(isUpdateDialogOpen(initialState)).toBe(false);
+      expect(updateDialogOpen(initialState)).toBe(false);
     });
 
     it("has no artist", () => {
-      expect(getDialogArtist(initialState)).toEqual(NO_ARTIST);
+      expect(dialogArtist(initialState)).toEqual(NO_ARTIST);
     });
   });
 
@@ -32,11 +28,11 @@ describe("dialog", () => {
     const state = reducer(initialState, action);
 
     it("is open", () => {
-      expect(isUpdateDialogOpen(state)).toBe(true);
+      expect(updateDialogOpen(state)).toBe(true);
     });
 
     it("has artist", () => {
-      expect(getDialogArtist(state)).toEqual(ARTIST);
+      expect(dialogArtist(state)).toEqual(ARTIST);
     });
   });
 
@@ -47,11 +43,11 @@ describe("dialog", () => {
     const state = reducer(stateBefore, action);
 
     it("is open", () => {
-      expect(isUpdateDialogOpen(state)).toBe(true);
+      expect(updateDialogOpen(state)).toBe(true);
     });
 
     it("has updated artist", () => {
-      expect(getDialogArtist(state)).toEqual(artist);
+      expect(dialogArtist(state)).toEqual(artist);
     });
   });
 
@@ -61,11 +57,11 @@ describe("dialog", () => {
     const state = reducer(stateBefore, action);
 
     it("is closed", () => {
-      expect(isUpdateDialogOpen(state)).toBe(false);
+      expect(updateDialogOpen(state)).toBe(false);
     });
 
     it("has no artist", () => {
-      expect(getDialogArtist(state)).toEqual(NO_ARTIST);
+      expect(dialogArtist(state)).toEqual(NO_ARTIST);
     });
   });
 
@@ -74,7 +70,7 @@ describe("dialog", () => {
     const state = reducer(initialState, action);
 
     it("is open", () => {
-      expect(isCreateDialogOpen(state)).toBe(true);
+      expect(createDialogOpen(state)).toBe(true);
     });
   });
 });

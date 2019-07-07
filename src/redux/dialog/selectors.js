@@ -2,12 +2,12 @@
 import * as constants from "./constants";
 import type { State } from "./types";
 
-export const isCreateDialogOpen = (state: State) =>
+export const createDialogOpen = (state: State) =>
   state.open === constants.DIALOG_TYPE_CREATE;
 
-export const isUpdateDialogOpen = (state: State) =>
+export const updateDialogOpen = (state: State) =>
   state.open === constants.DIALOG_TYPE_UPDATE;
 
-export const getDialogType = (state: State) => state.open;
+export const dialogType = (state: State) => state.open;
 
-export const getDialogArtist = (state: State) => state.artist;
+export const dialogArtist = (state: State) => state.artist;
