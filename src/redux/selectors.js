@@ -21,7 +21,7 @@ export const message = (state: State) => message$.message(state.message);
 export const navigationOpen = (state: State) =>
   navigation.open(state.navigation);
 
-export const isFetchingToken = (state: State) => token.pending(state.token);
+export const tokenPending = (state: State) => token.pending(state.token);
 
 export const getToken = (state: State) => token.token(state.token);
 

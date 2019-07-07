@@ -6,7 +6,7 @@ import {
   messageOpen,
   message,
   navigationOpen,
-  isFetchingToken,
+  tokenPending,
   getToken,
   getTokenError,
   isCreatingUser,
@@ -57,9 +57,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("isFetchingToken", () => {
+  describe("tokenPending", () => {
     it("is false", () => {
-      expect(isFetchingToken(state)).toBe(false);
+      expect(tokenPending(state)).toBe(false);
     });
   });
 
