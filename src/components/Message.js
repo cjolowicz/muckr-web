@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/styles";
 
 type Props = {
   open: boolean,
-  onClose: Function,
+  closeMessage: Function,
   message: ?string
 };
 
@@ -17,8 +17,17 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Message = ({ open, onClose, message }: Props) => {
+type Event = SyntheticEvent<HTMLButtonElement>;
+
+const Message = ({ open, closeMessage, message }: Props) => {
   const classes = useStyles();
+
+  const onClose = (event: ?Event, reason: ?string) => {
+    if (reason !== "clickaway") {
+      closeMessage();
+    }
+  };
+
   return (
     <Snackbar
       anchorOrigin={{

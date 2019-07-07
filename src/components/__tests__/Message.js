@@ -10,7 +10,7 @@ describe("Message", () => {
   describe("on startup", () => {
     it("renders message", () => {
       const { queryByText } = render(
-        <Message open onClose={jest.fn()} message={message} />
+        <Message open closeMessage={jest.fn()} message={message} />
       );
       expect(queryByText(message)).not.toBeNull();
     });
