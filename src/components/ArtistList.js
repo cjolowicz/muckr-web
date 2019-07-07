@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/styles";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 
-import type { Artist } from "../api/artist";
+import type { Artist } from "../api/types";
 import ArtistDialog from "../containers/ArtistDialog";
 
 export type Props = {
