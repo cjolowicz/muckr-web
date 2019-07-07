@@ -3,7 +3,7 @@ import rootReducer from "../reducers";
 import {
   dialogType,
   dialogArtist,
-  isMessageOpen,
+  messageOpen,
   getMessage,
   isNavigationOpen,
   isFetchingToken,
@@ -39,9 +39,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("isMessageOpen", () => {
+  describe("messageOpen", () => {
     it("is false", () => {
-      expect(isMessageOpen(state)).toBe(false);
+      expect(messageOpen(state)).toBe(false);
     });
   });
 
