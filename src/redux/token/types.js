@@ -36,7 +36,6 @@ export type Action =
   | ClearTokenAction;
 
 export type State = {
-  isFetching: boolean,
   token: ?string,
   error: ?FetchError
 };

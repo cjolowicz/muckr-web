@@ -11,19 +11,6 @@ import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action, State } from "../types";
 import { isUnauthorized } from "../../api/error";
 
-const isFetching = (state = false, action: Action) => {
-  switch (action.type) {
-    case FETCH_TOKEN_REQUEST:
-      return true;
-    case FETCH_TOKEN_SUCCESS:
-      return false;
-    case FETCH_TOKEN_FAILURE:
-      return false;
-    default:
-      return state;
-  }
-};
-
 const token = (state = null, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
@@ -50,4 +37,4 @@ const error = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ isFetching, token, error });
+export default combineReducers<State, Action>({ token, error });
