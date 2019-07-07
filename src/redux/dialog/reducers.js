@@ -16,7 +16,7 @@ export const NO_ARTIST = {
   name: ""
 };
 
-const open = (state = null, action) => {
+const type = (state = null, action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
@@ -42,4 +42,4 @@ const artist = (state = NO_ARTIST, action) => {
   }
 };
 
-export default combineReducers<State, Action>({ open, artist });
+export default combineReducers<State, Action>({ type, artist });

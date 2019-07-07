@@ -37,6 +37,6 @@ export type DialogType =
   | typeof constants.DIALOG_TYPE_UPDATE;
 
 export type State = {
-  open: ?DialogType,
+  type: ?DialogType,
   artist: Artist
 };
