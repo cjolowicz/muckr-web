@@ -11,7 +11,7 @@ import * as routes from "../routes";
 
 type Props = {
   open: boolean,
-  onClose: Function
+  closeNavigation: Function
 };
 
 const useStyles = makeStyles({
@@ -20,11 +20,16 @@ const useStyles = makeStyles({
   }
 });
 
-const Navigation = ({ open, onClose }: Props) => {
+const Navigation = ({ open, closeNavigation }: Props) => {
   const classes = useStyles();
   return (
-    <Drawer open={open} onClose={onClose}>
-      <div tabIndex={0} role="button" onClick={onClose} onKeyDown={onClose}>
+    <Drawer open={open} onClose={closeNavigation}>
+      <div
+        tabIndex={0}
+        role="button"
+        onClick={closeNavigation}
+        onKeyDown={closeNavigation}
+      >
         <div className={classes.list}>
           <List>
             <ListItem button component={Link} to={routes.ARTISTS}>

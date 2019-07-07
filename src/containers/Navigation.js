@@ -8,5 +8,5 @@ import { navigationOpen } from "../redux/selectors";
 
 export default connect(
   createStructuredSelector({ open: navigationOpen }),
-  { onClose: closeNavigation }
+  { closeNavigation }
 )(Navigation);
