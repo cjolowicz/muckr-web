@@ -43,6 +43,3 @@ export const getArtists = createSelector<State, *, *, *, *>(
   state => state.artists.ids,
   (artists, ids) => getItemsById(artists, ids)
 );
-
-export const artistsError = (state: State) =>
-  artist.artistsError(state.artists);

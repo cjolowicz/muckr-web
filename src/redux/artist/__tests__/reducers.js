@@ -1,6 +1,6 @@
 // @flow
 import artists from "../reducers";
-import { fetchingArtists, artistsError } from "../selectors";
+import { fetchingArtists } from "../selectors";
 import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
 import {
   createArtistRequest,
@@ -26,7 +26,7 @@ describe("artists", () => {
     });
 
     it("has no error", () => {
-      expect(artistsError(state)).toBe(null);
+      expect(state.error).toBe(null);
     });
   });
 

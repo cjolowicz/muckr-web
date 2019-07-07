@@ -13,8 +13,7 @@ import {
   getUser,
   getUserError,
   fetchingArtists,
-  getArtists,
-  artistsError
+  getArtists
 } from "../selectors";
 import { NO_ARTIST } from "../dialog/reducers";
 import { noop } from "../noop/actions";
@@ -103,12 +102,6 @@ describe("initial state", () => {
   describe("getArtists", () => {
     it("is null", () => {
       expect(getArtists(state)).toHaveLength(0);
-    });
-  });
-
-  describe("artistsError", () => {
-    it("is null", () => {
-      expect(artistsError(state)).toBeNull();
     });
   });
 });
