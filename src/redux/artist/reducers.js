@@ -17,7 +17,7 @@ import {
 } from "./constants";
 import type { Action, State } from "../types";
 
-const isFetching = (state = false, action: Action) => {
+const pending = (state = false, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case CREATE_ARTIST_REQUEST:
@@ -53,6 +53,6 @@ const ids = (state = [], action: Action) => {
 };
 
 export default combineReducers<State, Action>({
-  isFetching,
+  pending,
   ids
 });

@@ -4,7 +4,7 @@ import * as constants from "./constants";
 import type { FetchError } from "../../api/error";
 
 export type State = {
-  isFetching: boolean,
+  pending: boolean,
   ids: Array<number>
 };
 
