@@ -1,6 +1,6 @@
 // @flow
 import reducer from "../reducers";
-import { pending, user, getUserError } from "../selectors";
+import { pending, user, error } from "../selectors";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
 import { noop } from "../../noop/actions";
 import {
@@ -22,7 +22,7 @@ describe("user", () => {
     });
 
     it("has no error", () => {
-      expect(getUserError(state)).toBe(null);
+      expect(error(state)).toBe(null);
     });
   });
 
