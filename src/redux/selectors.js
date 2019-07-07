@@ -14,8 +14,7 @@ export const dialogArtist = (state: State) => dialog.artist(state.dialog);
 
 export const dialogType = (state: State) => dialog.type(state.dialog);
 
-export const isMessageOpen = (state: State) =>
-  message.messageOpen(state.message);
+export const isMessageOpen = (state: State) => message.open(state.message);
 
 export const getMessage = (state: State) => message.message(state.message);
 
