@@ -19,7 +19,7 @@ export const createUserSuccess = (
 });
 
 export const createUserFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.CreateUserFailureAction => ({
   type: constants.CREATE_USER_FAILURE,
   payload: { error }

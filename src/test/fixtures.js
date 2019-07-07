@@ -23,8 +23,8 @@ export const OTHER_ARTIST = {
 
 export const ARTISTS = [ARTIST, OTHER_ARTIST];
 
-export const GENERIC_ERROR = unsafeCast<api.FetchError>(new Error("failure"));
+export const GENERIC_ERROR = unsafeCast<api.Error>(new Error("failure"));
 
-export const UNAUTHORIZED_ERROR = unsafeCast<api.FetchError>({
+export const UNAUTHORIZED_ERROR = unsafeCast<api.Error>({
   response: { status: 401 }
 });

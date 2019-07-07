@@ -20,7 +20,7 @@ export type CreateUserSuccessAction = {
 export type CreateUserFailureAction = {
   type: typeof constants.CREATE_USER_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 
@@ -32,5 +32,5 @@ export type Action =
 export type State = {
   pending: boolean,
   user: ?string,
-  error: ?api.FetchError
+  error: ?api.Error
 };

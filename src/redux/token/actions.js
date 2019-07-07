@@ -19,7 +19,7 @@ export const fetchTokenSuccess = (
 });
 
 export const fetchTokenFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.FetchTokenFailureAction => ({
   type: constants.FETCH_TOKEN_FAILURE,
   payload: { error }

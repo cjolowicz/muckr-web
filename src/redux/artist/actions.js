@@ -18,7 +18,7 @@ export const fetchArtistsSuccess = (
 });
 
 export const fetchArtistsFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.FetchArtistsFailureAction => ({
   type: constants.FETCH_ARTISTS_FAILURE,
   payload: { error }
@@ -40,7 +40,7 @@ export const createArtistSuccess = (
 });
 
 export const createArtistFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.CreateArtistFailureAction => ({
   type: constants.CREATE_ARTIST_FAILURE,
   payload: { error }
@@ -62,7 +62,7 @@ export const removeArtistSuccess = (
 });
 
 export const removeArtistFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.RemoveArtistFailureAction => ({
   type: constants.REMOVE_ARTIST_FAILURE,
   payload: { error }
@@ -84,7 +84,7 @@ export const updateArtistSuccess = (
 });
 
 export const updateArtistFailure = (
-  error: api.FetchError
+  error: api.Error
 ): types.UpdateArtistFailureAction => ({
   type: constants.UPDATE_ARTIST_FAILURE,
   payload: { error }

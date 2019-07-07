@@ -24,7 +24,7 @@ export type FetchArtistsSuccessAction = {
 export type FetchArtistsFailureAction = {
   type: typeof constants.FETCH_ARTISTS_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 
@@ -46,7 +46,7 @@ export type CreateArtistSuccessAction = {
 export type CreateArtistFailureAction = {
   type: typeof constants.CREATE_ARTIST_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 
@@ -68,7 +68,7 @@ export type RemoveArtistSuccessAction = {
 export type RemoveArtistFailureAction = {
   type: typeof constants.REMOVE_ARTIST_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 
@@ -90,7 +90,7 @@ export type UpdateArtistSuccessAction = {
 export type UpdateArtistFailureAction = {
   type: typeof constants.UPDATE_ARTIST_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 

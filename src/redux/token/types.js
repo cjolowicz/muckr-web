@@ -20,7 +20,7 @@ export type FetchTokenSuccessAction = {
 export type FetchTokenFailureAction = {
   type: typeof constants.FETCH_TOKEN_FAILURE,
   payload: {
-    error: api.FetchError
+    error: api.Error
   }
 };
 
