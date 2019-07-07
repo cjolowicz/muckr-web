@@ -1,11 +1,11 @@
 // @flow
-import * as types from "./types";
+import type { Dispatch } from "../types";
 import * as actions from "./actions";
 import * as api from "../../api/token";
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchToken = (username: string, password: string) => (
-  dispatch: types.Dispatch
+  dispatch: Dispatch
 ) => {
   dispatch(actions.fetchTokenRequest(username, password));
 
