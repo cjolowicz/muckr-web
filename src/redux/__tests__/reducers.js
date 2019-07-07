@@ -4,7 +4,7 @@ import {
   dialogType,
   dialogArtist,
   messageOpen,
-  getMessage,
+  message,
   isNavigationOpen,
   isFetchingToken,
   getToken,
@@ -45,9 +45,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("getMessage", () => {
+  describe("message", () => {
     it("is null", () => {
-      expect(getMessage(state)).toBeNull();
+      expect(message(state)).toBeNull();
     });
   });
 
