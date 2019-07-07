@@ -1,6 +1,6 @@
 // @flow
 import type { State } from "./types";
 
-export const isFetchingArtists = (state: State) => state.isFetching;
+export const fetchingArtists = (state: State) => state.isFetching;
 
-export const getArtistsError = (state: State) => state.error;
+export const artistsError = (state: State) => state.error;

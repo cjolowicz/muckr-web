@@ -1,6 +1,6 @@
 // @flow
 import artists from "../reducers";
-import { isFetchingArtists, getArtistsError } from "../selectors";
+import { fetchingArtists, artistsError } from "../selectors";
 import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
 import {
   createArtistRequest,
@@ -22,11 +22,11 @@ describe("artists", () => {
     const state = artists(undefined, noop());
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
 
     it("has no error", () => {
-      expect(getArtistsError(state)).toBe(null);
+      expect(artistsError(state)).toBe(null);
     });
   });
 
@@ -34,7 +34,7 @@ describe("artists", () => {
     const state = artists(undefined, fetchArtistsRequest(TOKEN));
 
     it("is fetching", () => {
-      expect(isFetchingArtists(state)).toBe(true);
+      expect(fetchingArtists(state)).toBe(true);
     });
   });
 
@@ -43,7 +43,7 @@ describe("artists", () => {
     const state = artists(stateBefore, fetchArtistsSuccess(ARTISTS));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -52,7 +52,7 @@ describe("artists", () => {
     const state = artists(stateBefore, fetchArtistsFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -62,7 +62,7 @@ describe("artists", () => {
     const state = artists(stateBefore, createArtistSuccess(ARTIST));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -71,7 +71,7 @@ describe("artists", () => {
     const state = artists(stateBefore, createArtistSuccess(ARTIST));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -81,7 +81,7 @@ describe("artists", () => {
     const state = artists(stateBefore, removeArtistSuccess(id));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -91,7 +91,7 @@ describe("artists", () => {
     const state = artists(stateBefore, removeArtistSuccess(id));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -101,7 +101,7 @@ describe("artists", () => {
     const state = artists(stateBefore, removeArtistFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -110,7 +110,7 @@ describe("artists", () => {
     const state = artists(stateBefore, updateArtistSuccess(ARTIST));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -119,7 +119,7 @@ describe("artists", () => {
     const state = artists(stateBefore, updateArtistSuccess(ARTIST));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -128,7 +128,7 @@ describe("artists", () => {
     const state = artists(stateBefore, updateArtistFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 });

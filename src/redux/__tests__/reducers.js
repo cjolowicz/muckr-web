@@ -12,9 +12,9 @@ import {
   isCreatingUser,
   getUser,
   getUserError,
-  isFetchingArtists,
+  fetchingArtists,
   getArtists,
-  getArtistsError
+  artistsError
 } from "../selectors";
 import { NO_ARTIST } from "../dialog/reducers";
 import { noop } from "../noop/actions";
@@ -94,9 +94,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("isFetchingArtists", () => {
+  describe("fetchingArtists", () => {
     it("is false", () => {
-      expect(isFetchingArtists(state)).toBe(false);
+      expect(fetchingArtists(state)).toBe(false);
     });
   });
 
@@ -106,9 +106,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("getArtistsError", () => {
+  describe("artistsError", () => {
     it("is null", () => {
-      expect(getArtistsError(state)).toBeNull();
+      expect(artistsError(state)).toBeNull();
     });
   });
 });

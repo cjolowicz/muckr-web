@@ -35,8 +35,8 @@ export const getUser = (state: State) => user.getUser(state.user);
 
 export const getUserError = (state: State) => user.getUserError(state.user);
 
-export const isFetchingArtists = (state: State) =>
-  artist.isFetchingArtists(state.artists);
+export const fetchingArtists = (state: State) =>
+  artist.fetchingArtists(state.artists);
 
 export const getArtists = createSelector<State, *, *, *, *>(
   state => state.entities.artists,
@@ -44,5 +44,5 @@ export const getArtists = createSelector<State, *, *, *, *>(
   (artists, ids) => getItemsById(artists, ids)
 );
 
-export const getArtistsError = (state: State) =>
-  artist.getArtistsError(state.artists);
+export const artistsError = (state: State) =>
+  artist.artistsError(state.artists);
