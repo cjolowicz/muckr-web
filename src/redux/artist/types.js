@@ -109,7 +109,3 @@ export type Action =
   | UpdateArtistRequestAction
   | UpdateArtistSuccessAction
   | UpdateArtistFailureAction;
-
-// eslint-disable-next-line no-use-before-define
-type ThunkAction = Dispatch => any;
-export type Dispatch = (Action | ThunkAction) => any;

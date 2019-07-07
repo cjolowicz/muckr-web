@@ -2,7 +2,7 @@
 import configureStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import type { Dispatch } from "../types";
+import type { Dispatch } from "../../types";
 import {
   fetchArtists,
   createArtist,

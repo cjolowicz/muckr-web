@@ -1,9 +1,9 @@
 // @flow
+import type { Dispatch } from "../types";
 import * as api from "../../api/artist";
 import * as actions from "./actions";
-import * as types from "./types";
 
-export const fetchArtists = (token: string) => (dispatch: types.Dispatch) => {
+export const fetchArtists = (token: string) => (dispatch: Dispatch) => {
   dispatch(actions.fetchArtistsRequest(token));
 
   return api
@@ -15,7 +15,7 @@ export const fetchArtists = (token: string) => (dispatch: types.Dispatch) => {
 };
 
 export const createArtist = (token: string, name: string) => (
-  dispatch: types.Dispatch
+  dispatch: Dispatch
 ) => {
   dispatch(actions.createArtistRequest(token, name));
 
@@ -28,7 +28,7 @@ export const createArtist = (token: string, name: string) => (
 };
 
 export const removeArtist = (token: string, id: number) => (
-  dispatch: types.Dispatch
+  dispatch: Dispatch
 ) => {
   dispatch(actions.removeArtistRequest(token, id));
 
@@ -41,7 +41,7 @@ export const removeArtist = (token: string, id: number) => (
 };
 
 export const updateArtist = (token: string, artist: api.Artist) => (
-  dispatch: types.Dispatch
+  dispatch: Dispatch
 ) => {
   dispatch(actions.updateArtistRequest(token, artist));
 
