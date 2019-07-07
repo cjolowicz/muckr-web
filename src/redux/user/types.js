@@ -1,7 +1,6 @@
 // @flow
 import * as constants from "./constants";
 import * as api from "../../api/types";
-import type { FetchError } from "../../api/types";
 
 export type CreateUserRequestAction = {
   type: typeof constants.CREATE_USER_REQUEST,
@@ -21,7 +20,7 @@ export type CreateUserSuccessAction = {
 export type CreateUserFailureAction = {
   type: typeof constants.CREATE_USER_FAILURE,
   payload: {
-    error: FetchError
+    error: api.FetchError
   }
 };
 
@@ -33,5 +32,5 @@ export type Action =
 export type State = {
   pending: boolean,
   user: ?string,
-  error: ?FetchError
+  error: ?api.FetchError
 };

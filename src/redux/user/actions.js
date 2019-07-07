@@ -2,7 +2,6 @@
 import * as constants from "./constants";
 import * as types from "./types";
 import * as api from "../../api/types";
-import type { FetchError } from "../../api/types";
 
 export const createUserRequest = (
   username: string,
@@ -20,7 +19,7 @@ export const createUserSuccess = (
 });
 
 export const createUserFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.CreateUserFailureAction => ({
   type: constants.CREATE_USER_FAILURE,
   payload: { error }
