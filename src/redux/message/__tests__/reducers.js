@@ -35,117 +35,115 @@ describe("message", () => {
     });
   });
 
-  describe.each([[false], [true]])("with open", open$ => {
-    describe.each([[null], [""], ["success"]])("with message", message$ => {
-      describe("openMessage", () => {
-        const action = openMessage("failure");
-        const state = reducer({ open: open$, message: message$ }, action);
+  describe.each([[null], [""], ["success"]])("with message", message$ => {
+    describe("openMessage", () => {
+      const action = openMessage("failure");
+      const state = reducer({ message: message$ }, action);
 
-        it("has message", () => {
-          expect(message(state)).toEqual(action.payload.message);
-        });
+      it("has message", () => {
+        expect(message(state)).toEqual(action.payload.message);
       });
+    });
 
-      describe("fetchTokenFailure", () => {
-        describe("unknown error", () => {
-          const action = fetchTokenFailure(GENERIC_ERROR);
-          const state = reducer({ open: open$, message: message$ }, action);
-
-          it("has error message", () => {
-            expect(message(state)).toEqual("Cannot log in: failure");
-          });
-        });
-      });
-
-      describe("createUserFailure", () => {
-        const action = createUserFailure(GENERIC_ERROR);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("fetchTokenFailure", () => {
+      describe("unknown error", () => {
+        const action = fetchTokenFailure(GENERIC_ERROR);
+        const state = reducer({ message: message$ }, action);
 
         it("has error message", () => {
-          expect(message(state)).toEqual("Cannot create user: failure");
+          expect(message(state)).toEqual("Cannot log in: failure");
         });
       });
+    });
 
-      describe("fetchArtistsFailure", () => {
-        const action = fetchArtistsFailure(GENERIC_ERROR);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("createUserFailure", () => {
+      const action = createUserFailure(GENERIC_ERROR);
+      const state = reducer({ message: message$ }, action);
 
-        it("has error message", () => {
-          expect(message(state)).toEqual("Cannot load artists: failure");
-        });
+      it("has error message", () => {
+        expect(message(state)).toEqual("Cannot create user: failure");
       });
+    });
 
-      describe("createArtistFailure", () => {
-        const action = createArtistFailure(GENERIC_ERROR);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("fetchArtistsFailure", () => {
+      const action = fetchArtistsFailure(GENERIC_ERROR);
+      const state = reducer({ message: message$ }, action);
 
-        it("has error message", () => {
-          expect(message(state)).toEqual("Cannot create artist: failure");
-        });
+      it("has error message", () => {
+        expect(message(state)).toEqual("Cannot load artists: failure");
       });
+    });
 
-      describe("createArtistSuccess", () => {
-        const action = createArtistSuccess(ARTIST);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("createArtistFailure", () => {
+      const action = createArtistFailure(GENERIC_ERROR);
+      const state = reducer({ message: message$ }, action);
 
-        it("has success message", () => {
-          expect(message(state)).toEqual("Artist created");
-        });
+      it("has error message", () => {
+        expect(message(state)).toEqual("Cannot create artist: failure");
       });
+    });
 
-      describe("removeArtistFailure", () => {
-        const action = removeArtistFailure(GENERIC_ERROR);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("createArtistSuccess", () => {
+      const action = createArtistSuccess(ARTIST);
+      const state = reducer({ message: message$ }, action);
 
-        it("has error message", () => {
-          expect(message(state)).toEqual("Cannot remove artist: failure");
-        });
+      it("has success message", () => {
+        expect(message(state)).toEqual("Artist created");
       });
+    });
 
-      describe("removeArtistSuccess", () => {
-        const { id } = ARTIST;
-        const action = removeArtistSuccess(id);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("removeArtistFailure", () => {
+      const action = removeArtistFailure(GENERIC_ERROR);
+      const state = reducer({ message: message$ }, action);
 
-        it("has success message", () => {
-          expect(message(state)).toEqual("Artist removed");
-        });
+      it("has error message", () => {
+        expect(message(state)).toEqual("Cannot remove artist: failure");
       });
+    });
 
-      describe("updateArtistFailure", () => {
-        const action = updateArtistFailure(GENERIC_ERROR);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("removeArtistSuccess", () => {
+      const { id } = ARTIST;
+      const action = removeArtistSuccess(id);
+      const state = reducer({ message: message$ }, action);
 
-        it("has error message", () => {
-          expect(message(state)).toEqual("Cannot update artist: failure");
-        });
+      it("has success message", () => {
+        expect(message(state)).toEqual("Artist removed");
       });
+    });
 
-      describe("updateArtistSuccess", () => {
-        const action = updateArtistSuccess(ARTIST);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("updateArtistFailure", () => {
+      const action = updateArtistFailure(GENERIC_ERROR);
+      const state = reducer({ message: message$ }, action);
 
-        it("has success message", () => {
-          expect(message(state)).toEqual("Artist updated");
-        });
+      it("has error message", () => {
+        expect(message(state)).toEqual("Cannot update artist: failure");
       });
+    });
 
-      describe("createUserSuccess", () => {
-        const action = createUserSuccess(USER);
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("updateArtistSuccess", () => {
+      const action = updateArtistSuccess(ARTIST);
+      const state = reducer({ message: message$ }, action);
 
-        it("has success message", () => {
-          expect(message(state)).toEqual("Account created");
-        });
+      it("has success message", () => {
+        expect(message(state)).toEqual("Artist updated");
       });
+    });
 
-      describe("closeMessage", () => {
-        const action = closeMessage();
-        const state = reducer({ open: open$, message: message$ }, action);
+    describe("createUserSuccess", () => {
+      const action = createUserSuccess(USER);
+      const state = reducer({ message: message$ }, action);
 
-        it("has no message", () => {
-          expect(message(state)).toBeNull();
-        });
+      it("has success message", () => {
+        expect(message(state)).toEqual("Account created");
+      });
+    });
+
+    describe("closeMessage", () => {
+      const action = closeMessage();
+      const state = reducer({ message: message$ }, action);
+
+      it("has no message", () => {
+        expect(message(state)).toBeNull();
       });
     });
   });
