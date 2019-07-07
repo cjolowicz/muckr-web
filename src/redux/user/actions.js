@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as types from "./types";
-import * as api from "../../api/user";
+import * as api from "../../api/types";
 import type { FetchError } from "../../api/types";
 
 export const createUserRequest = (
