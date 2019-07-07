@@ -23,7 +23,7 @@ export const navigationOpen = (state: State) =>
 
 export const token = (state: State) => token$.token(state.token);
 
-export const isCreatingUser = (state: State) => user.pending(state.user);
+export const userPending = (state: State) => user.pending(state.user);
 
 export const getUser = (state: State) => user.user(state.user);
 

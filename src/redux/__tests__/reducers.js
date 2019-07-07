@@ -7,7 +7,7 @@ import {
   message,
   navigationOpen,
   token,
-  isCreatingUser,
+  userPending,
   getUser,
   getUserError,
   artistsPending,
@@ -61,9 +61,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("isCreatingUser", () => {
+  describe("userPending", () => {
     it("is false", () => {
-      expect(isCreatingUser(state)).toBe(false);
+      expect(userPending(state)).toBe(false);
     });
   });
 
