@@ -16,29 +16,6 @@ import {
 } from "../artist/constants";
 import type { Action, State } from "../types";
 
-const open = (state = false, action) => {
-  switch (action.type) {
-    case CREATE_USER_FAILURE:
-    case CREATE_ARTIST_FAILURE:
-    case REMOVE_ARTIST_FAILURE:
-    case UPDATE_ARTIST_FAILURE:
-    case FETCH_TOKEN_FAILURE:
-    case FETCH_ARTISTS_FAILURE:
-    case OPEN_MESSAGE:
-    case CREATE_USER_SUCCESS:
-    case CREATE_ARTIST_SUCCESS:
-    case REMOVE_ARTIST_SUCCESS:
-    case UPDATE_ARTIST_SUCCESS:
-      return true;
-    case FETCH_TOKEN_SUCCESS:
-    case FETCH_ARTISTS_SUCCESS:
-    case CLOSE_MESSAGE:
-      return false;
-    default:
-      return state;
-  }
-};
-
 const formatFailedAction = actionType => {
   switch (actionType) {
     case CREATE_USER_FAILURE:
@@ -94,4 +71,4 @@ const message = (state = null, action) => {
   }
 };
 
-export default combineReducers<State, Action>({ open, message });
+export default combineReducers<State, Action>({ message });
