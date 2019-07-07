@@ -1,5 +1,5 @@
 // @flow
-import type { FetchError } from "../api/types";
+import * as api from "../api/types";
 import { unsafeCast } from "../utils";
 
 // an arbitrary 32-byte sequence in hexadecimal
@@ -23,8 +23,8 @@ export const OTHER_ARTIST = {
 
 export const ARTISTS = [ARTIST, OTHER_ARTIST];
 
-export const GENERIC_ERROR = unsafeCast<FetchError>(new Error("failure"));
+export const GENERIC_ERROR = unsafeCast<api.FetchError>(new Error("failure"));
 
-export const UNAUTHORIZED_ERROR = unsafeCast<FetchError>({
+export const UNAUTHORIZED_ERROR = unsafeCast<api.FetchError>({
   response: { status: 401 }
 });
