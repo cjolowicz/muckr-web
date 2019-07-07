@@ -1,6 +1,6 @@
 // @flow
 import type { State } from "./types";
 
-export const dialogType = (state: State) => state.type;
+export const type = (state: State) => state.type;
 
-export const dialogArtist = (state: State) => state.artist;
+export const artist = (state: State) => state.artist;
