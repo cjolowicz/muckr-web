@@ -1,6 +1,6 @@
 // @flow
 import user from "../reducers";
-import { isCreatingUser, getUser, getUserError } from "../selectors";
+import { pending, getUser, getUserError } from "../selectors";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
 import { noop } from "../../noop/actions";
 import {
@@ -14,7 +14,7 @@ describe("user", () => {
     const state = user(undefined, noop());
 
     it("is not creating", () => {
-      expect(isCreatingUser(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
 
     it("has no user", () => {
@@ -30,7 +30,7 @@ describe("user", () => {
     const state = user(undefined, createUserRequest("john", "secret"));
 
     it("is creating", () => {
-      expect(isCreatingUser(state)).toBe(true);
+      expect(pending(state)).toBe(true);
     });
   });
 
@@ -39,7 +39,7 @@ describe("user", () => {
     const state = user(stateBefore, createUserSuccess(USER));
 
     it("is not creating", () => {
-      expect(isCreatingUser(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
 
     it("sets user", () => {
@@ -52,7 +52,7 @@ describe("user", () => {
     const state = user(stateBefore, createUserFailure(GENERIC_ERROR));
 
     it("is not creating", () => {
-      expect(isCreatingUser(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
   });
 });
