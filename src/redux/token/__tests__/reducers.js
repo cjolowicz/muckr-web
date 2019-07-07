@@ -1,6 +1,6 @@
 // @flow
 import reducer from "../reducers";
-import { pending, token, error } from "../selectors";
+import { token, error } from "../selectors";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -19,10 +19,6 @@ describe("token", () => {
   describe("initially", () => {
     const state = reducer(undefined, noop());
 
-    it("is not fetching", () => {
-      expect(pending(state)).toBe(false);
-    });
-
     it("has no token", () => {
       expect(token(state)).toBe(null);
     });
@@ -35,10 +31,6 @@ describe("token", () => {
   describe("FETCH_TOKEN_REQUEST", () => {
     const state = reducer(undefined, fetchTokenRequest("john", "secret"));
 
-    it("is fetching", () => {
-      expect(pending(state)).toBe(true);
-    });
-
     it("has no token", () => {
       expect(token(state)).toBe(null);
     });
@@ -48,10 +40,6 @@ describe("token", () => {
     const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
     const state = reducer(stateBefore, fetchTokenSuccess(TOKEN));
 
-    it("is not fetching", () => {
-      expect(pending(state)).toBe(false);
-    });
-
     it("sets token", () => {
       expect(token(state)).toEqual(TOKEN);
     });
@@ -60,10 +48,6 @@ describe("token", () => {
   describe("FETCH_TOKEN_FAILURE", () => {
     const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
     const state = reducer(stateBefore, fetchTokenFailure(GENERIC_ERROR));
-
-    it("is not fetching", () => {
-      expect(pending(state)).toBe(false);
-    });
 
     it("has no token", () => {
       expect(token(state)).toBe(null);
