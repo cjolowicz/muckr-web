@@ -2,7 +2,6 @@
 import * as api from "../../api/types";
 import * as constants from "./constants";
 import * as types from "./types";
-import type { FetchError } from "../../api/types";
 
 export const fetchArtistsRequest = (
   token: string
@@ -19,7 +18,7 @@ export const fetchArtistsSuccess = (
 });
 
 export const fetchArtistsFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.FetchArtistsFailureAction => ({
   type: constants.FETCH_ARTISTS_FAILURE,
   payload: { error }
@@ -41,7 +40,7 @@ export const createArtistSuccess = (
 });
 
 export const createArtistFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.CreateArtistFailureAction => ({
   type: constants.CREATE_ARTIST_FAILURE,
   payload: { error }
@@ -63,7 +62,7 @@ export const removeArtistSuccess = (
 });
 
 export const removeArtistFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.RemoveArtistFailureAction => ({
   type: constants.REMOVE_ARTIST_FAILURE,
   payload: { error }
@@ -85,7 +84,7 @@ export const updateArtistSuccess = (
 });
 
 export const updateArtistFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.UpdateArtistFailureAction => ({
   type: constants.UPDATE_ARTIST_FAILURE,
   payload: { error }

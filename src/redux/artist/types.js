@@ -1,7 +1,6 @@
 // @flow
 import * as api from "../../api/types";
 import * as constants from "./constants";
-import type { FetchError } from "../../api/types";
 
 export type State = {
   pending: boolean,
@@ -25,7 +24,7 @@ export type FetchArtistsSuccessAction = {
 export type FetchArtistsFailureAction = {
   type: typeof constants.FETCH_ARTISTS_FAILURE,
   payload: {
-    error: FetchError
+    error: api.FetchError
   }
 };
 
@@ -47,7 +46,7 @@ export type CreateArtistSuccessAction = {
 export type CreateArtistFailureAction = {
   type: typeof constants.CREATE_ARTIST_FAILURE,
   payload: {
-    error: FetchError
+    error: api.FetchError
   }
 };
 
@@ -69,7 +68,7 @@ export type RemoveArtistSuccessAction = {
 export type RemoveArtistFailureAction = {
   type: typeof constants.REMOVE_ARTIST_FAILURE,
   payload: {
-    error: FetchError
+    error: api.FetchError
   }
 };
 
@@ -91,7 +90,7 @@ export type UpdateArtistSuccessAction = {
 export type UpdateArtistFailureAction = {
   type: typeof constants.UPDATE_ARTIST_FAILURE,
   payload: {
-    error: FetchError
+    error: api.FetchError
   }
 };
 
