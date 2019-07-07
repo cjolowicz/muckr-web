@@ -1,5 +1,5 @@
 // @flow
-import * as api from "../../api/artist";
+import * as api from "../../api/types";
 import * as constants from "./constants";
 import type { FetchError } from "../../api/types";
 
