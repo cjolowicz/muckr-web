@@ -12,12 +12,12 @@ import { makeStyles } from "@material-ui/styles";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 
-import type { Artist } from "../api/types";
+import * as api from "../api/types";
 import ArtistDialog from "../containers/ArtistDialog";
 
 export type Props = {
   token: ?string,
-  artists: Array<Artist>,
+  artists: Array<api.Artist>,
   pending: boolean,
   removeArtist: Function,
   openCreateDialog: Function,
