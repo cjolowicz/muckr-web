@@ -8,7 +8,7 @@ import {
 } from "./constants";
 import type { Action, State } from "../types";
 
-const isCreating = (state = false, action: Action) => {
+const pending = (state = false, action: Action) => {
   switch (action.type) {
     case CREATE_USER_REQUEST:
       return true;
@@ -44,4 +44,4 @@ const error = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ isCreating, user, error });
+export default combineReducers<State, Action>({ pending, user, error });

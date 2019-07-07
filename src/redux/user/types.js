@@ -31,7 +31,7 @@ export type Action =
   | CreateUserFailureAction;
 
 export type State = {
-  isCreating: boolean,
+  pending: boolean,
   user: ?string,
   error: ?FetchError
 };
