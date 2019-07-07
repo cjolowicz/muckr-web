@@ -25,7 +25,7 @@ export const tokenPending = (state: State) => token$.pending(state.token);
 
 export const token = (state: State) => token$.token(state.token);
 
-export const getTokenError = (state: State) => token$.error(state.token);
+export const tokenError = (state: State) => token$.error(state.token);
 
 export const isCreatingUser = (state: State) => user.isCreatingUser(state.user);
 
