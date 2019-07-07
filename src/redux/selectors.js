@@ -35,8 +35,7 @@ export const getUser = (state: State) => user.getUser(state.user);
 
 export const getUserError = (state: State) => user.getUserError(state.user);
 
-export const fetchingArtists = (state: State) =>
-  artist.fetchingArtists(state.artists);
+export const fetchingArtists = (state: State) => artist.pending(state.artists);
 
 export const getArtists = createSelector<State, *, *, *, *>(
   state => state.entities.artists,
