@@ -7,7 +7,6 @@ import {
   message,
   navigationOpen,
   token,
-  userPending,
   user,
   userError,
   artistsPending,
@@ -58,12 +57,6 @@ describe("initial state", () => {
   describe("token", () => {
     it("is null", () => {
       expect(token(state)).toBeNull();
-    });
-  });
-
-  describe("userPending", () => {
-    it("is false", () => {
-      expect(userPending(state)).toBe(false);
     });
   });
 
