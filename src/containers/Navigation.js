@@ -4,9 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import Navigation from "../components/Navigation";
 import { closeNavigation } from "../redux/navigation/actions";
-import { isNavigationOpen } from "../redux/selectors";
+import { navigationOpen } from "../redux/selectors";
 
 export default connect(
-  createStructuredSelector({ open: isNavigationOpen }),
+  createStructuredSelector({ open: navigationOpen }),
   { onClose: closeNavigation }
 )(Navigation);

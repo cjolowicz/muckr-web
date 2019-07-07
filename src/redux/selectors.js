@@ -18,7 +18,7 @@ export const messageOpen = (state: State) => message$.open(state.message);
 
 export const message = (state: State) => message$.message(state.message);
 
-export const isNavigationOpen = (state: State) =>
+export const navigationOpen = (state: State) =>
   navigation.open(state.navigation);
 
 export const isFetchingToken = (state: State) =>

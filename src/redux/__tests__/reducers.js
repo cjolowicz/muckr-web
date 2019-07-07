@@ -5,7 +5,7 @@ import {
   dialogArtist,
   messageOpen,
   message,
-  isNavigationOpen,
+  navigationOpen,
   isFetchingToken,
   getToken,
   getTokenError,
@@ -51,9 +51,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("isNavigationOpen", () => {
+  describe("navigationOpen", () => {
     it("is false", () => {
-      expect(isNavigationOpen(state)).toBe(false);
+      expect(navigationOpen(state)).toBe(false);
     });
   });
 
