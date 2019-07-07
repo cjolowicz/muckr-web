@@ -1,6 +1,6 @@
 // @flow
 import reducer from "../reducers";
-import { token, error } from "../selectors";
+import { token } from "../selectors";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -21,10 +21,6 @@ describe("token", () => {
 
     it("has no token", () => {
       expect(token(state)).toBe(null);
-    });
-
-    it("has no error", () => {
-      expect(error(state)).toBe(null);
     });
   });
 
