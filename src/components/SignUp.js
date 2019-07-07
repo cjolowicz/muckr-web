@@ -13,7 +13,7 @@ import * as api from "../api/user";
 import * as routes from "../routes";
 
 type Props = {
-  onSubmit: Function,
+  createUser: Function,
   user: ?api.User
 };
 
@@ -45,14 +45,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignUp = ({ onSubmit, user }: Props) => {
+const SignUp = ({ createUser, user }: Props) => {
   const classes = useStyles();
   const [username, handleUsernameChange] = useInputField();
   const [password, handlePasswordChange] = useInputField();
 
   const handleSubmit = (event: ButtonEvent) => {
     event.preventDefault();
-    onSubmit(username, password);
+    createUser(username, password);
   };
 
   if (user) {

@@ -9,15 +9,15 @@ import render from "../../test/render";
 import { USER } from "../../test/fixtures";
 import select from "../../test/select";
 
-const onSubmit = jest.fn();
+const createUser = jest.fn();
 
-afterEach(() => onSubmit.mockClear());
+afterEach(() => createUser.mockClear());
 
 const renderSignUp = ({ user }) => {
   const utils = render(
     <Switch>
       <Route path="/join">
-        <SignUp onSubmit={onSubmit} user={user} />
+        <SignUp createUser={createUser} user={user} />
       </Route>
     </Switch>,
     { route: "/join" }
@@ -66,7 +66,7 @@ describe("SignUp", () => {
   });
 
   describe("handleSubmit", () => {
-    it("invokes onSubmit", async () => {
+    it("invokes createUser", async () => {
       const { username, password, submit } = renderSignUp({ user: null });
 
       expect(username).not.toBeNull();
@@ -78,7 +78,7 @@ describe("SignUp", () => {
       fireEvent.change(password, { target: { value: "secret" } });
       fireEvent.click(submit);
 
-      expect(onSubmit).toHaveBeenLastCalledWith("john", "secret");
+      expect(createUser).toHaveBeenLastCalledWith("john", "secret");
     });
   });
 

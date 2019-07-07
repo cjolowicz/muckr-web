@@ -8,5 +8,5 @@ import { user } from "../redux/selectors";
 
 export default connect(
   createStructuredSelector({ user }),
-  { onSubmit: createUser }
+  { createUser }
 )(SignUp);
