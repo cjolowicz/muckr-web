@@ -8,7 +8,7 @@ import {
   navigationOpen,
   token,
   userPending,
-  getUser,
+  user,
   getUserError,
   artistsPending,
   getArtists
@@ -67,9 +67,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("getUser", () => {
+  describe("user", () => {
     it("is null", () => {
-      expect(getUser(state)).toBeNull();
+      expect(user(state)).toBeNull();
     });
   });
 

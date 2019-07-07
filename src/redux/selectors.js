@@ -5,7 +5,7 @@ import * as dialog from "./dialog/selectors";
 import * as message$ from "./message/selectors";
 import * as navigation from "./navigation/selectors";
 import * as token$ from "./token/selectors";
-import * as user from "./user/selectors";
+import * as user$ from "./user/selectors";
 import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
 import type { State } from "./types";
@@ -23,11 +23,11 @@ export const navigationOpen = (state: State) =>
 
 export const token = (state: State) => token$.token(state.token);
 
-export const userPending = (state: State) => user.pending(state.user);
+export const userPending = (state: State) => user$.pending(state.user);
 
-export const getUser = (state: State) => user.user(state.user);
+export const user = (state: State) => user$.user(state.user);
 
-export const getUserError = (state: State) => user.error(state.user);
+export const getUserError = (state: State) => user$.error(state.user);
 
 export const artistsPending = (state: State) => artist.pending(state.artists);
 

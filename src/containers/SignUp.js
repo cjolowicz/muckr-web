@@ -4,9 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import SignUp from "../components/SignUp";
 import { createUser } from "../redux/user/operations";
-import { getUser } from "../redux/selectors";
+import { user } from "../redux/selectors";
 
 export default connect(
-  createStructuredSelector({ user: getUser }),
+  createStructuredSelector({ user }),
   { onSubmit: createUser }
 )(SignUp);
