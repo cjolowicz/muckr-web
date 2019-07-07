@@ -1,4 +1,6 @@
 // @flow
+import { createSelector } from "reselect";
+
 import * as dialog from "./dialog/selectors";
 import * as message from "./message/selectors";
 import * as navigation from "./navigation/selectors";
@@ -44,8 +46,11 @@ export const getUserError = (state: State) => user.getUserError(state.user);
 export const isFetchingArtists = (state: State) =>
   artist.isFetchingArtists(state.artists);
 
-export const getArtists = (state: State) =>
-  getItemsById(state.entities.artists, state.artists.ids);
+export const getArtists = createSelector<State, *, *, *, *>(
+  state => state.entities.artists,
+  state => state.artists.ids,
+  (artists, ids) => getItemsById(artists, ids)
+);
 
 export const getArtistsError = (state: State) =>
   artist.getArtistsError(state.artists);
