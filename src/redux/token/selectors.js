@@ -5,4 +5,4 @@ export const pending = (state: State) => state.isFetching;
 
 export const token = (state: State) => state.token;
 
-export const getTokenError = (state: State) => state.error;
+export const error = (state: State) => state.error;
