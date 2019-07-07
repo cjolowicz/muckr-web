@@ -6,7 +6,7 @@ import ArtistList from "../ArtistList";
 import render from "../../test/render";
 import { ARTISTS, ARTIST, TOKEN } from "../../test/fixtures";
 
-const renderArtistList = ({ artists, isLoading }) => {
+const renderArtistList = ({ artists, pending }) => {
   const openUpdateDialog = jest.fn();
   const utils = render(
     <ArtistList
@@ -15,7 +15,7 @@ const renderArtistList = ({ artists, isLoading }) => {
       removeArtist={jest.fn()}
       openCreateDialog={jest.fn()}
       openUpdateDialog={openUpdateDialog}
-      isLoading={isLoading}
+      pending={pending}
       token={TOKEN}
     />
   );
@@ -27,7 +27,7 @@ describe("ArtistList", () => {
     it("renders artists", () => {
       const { getByText } = renderArtistList({
         artists: ARTISTS,
-        isLoading: false
+        pending: false
       });
       expect(getByText(ARTISTS[0].name)).not.toBeNull();
     });
@@ -35,7 +35,7 @@ describe("ArtistList", () => {
     it("renders message while loading", () => {
       const { getByText } = renderArtistList({
         artists: ARTISTS,
-        isLoading: true
+        pending: true
       });
       expect(getByText("Loading...")).not.toBeNull();
     });
@@ -45,7 +45,7 @@ describe("ArtistList", () => {
     it("opens dialog", () => {
       const { getByTitle, openUpdateDialog } = renderArtistList({
         artists: [ARTIST],
-        isLoading: false
+        pending: false
       });
 
       const editButton = getByTitle("Edit");

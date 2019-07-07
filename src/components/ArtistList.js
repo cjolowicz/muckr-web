@@ -18,7 +18,7 @@ import ArtistDialog from "../containers/ArtistDialog";
 export type Props = {
   token: ?string,
   artists: Array<Artist>,
-  isLoading: boolean,
+  pending: boolean,
   removeArtist: Function,
   openCreateDialog: Function,
   openUpdateDialog: Function
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 const ArtistList = ({
   token,
   artists,
-  isLoading,
+  pending,
   removeArtist,
   openCreateDialog,
   openUpdateDialog
@@ -55,7 +55,7 @@ const ArtistList = ({
   const classes = useStyles();
   return (
     <>
-      {isLoading ? <Typography>Loading...</Typography> : null}
+      {pending ? <Typography>Loading...</Typography> : null}
       <List>
         {artists.map(artist => (
           <ListItem

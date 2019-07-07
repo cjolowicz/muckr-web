@@ -23,7 +23,7 @@ const renderFetchingArtistList = ({ token, artists }) => {
   const utils = render(
     <FetchingArtistList
       artists={artists}
-      isLoading={false}
+      pending={false}
       token={token}
       fetchArtists={fetchArtists}
       createArtist={jest.fn()}

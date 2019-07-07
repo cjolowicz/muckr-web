@@ -14,7 +14,7 @@ import { artists, artistsPending, token } from "../redux/selectors";
 export default connect(
   createStructuredSelector({
     artists,
-    isLoading: artistsPending,
+    pending: artistsPending,
     token
   }),
   {
