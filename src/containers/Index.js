@@ -1,10 +1,11 @@
 // @flow
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import Index from "../components/Index";
 import { getToken } from "../redux/selectors";
 
 export default connect(
-  state => ({ token: getToken(state) }),
+  createStructuredSelector({ token: getToken }),
   null
 )(Index);
