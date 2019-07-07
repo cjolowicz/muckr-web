@@ -12,7 +12,7 @@ import {
   isCreatingUser,
   getUser,
   getUserError,
-  fetchingArtists,
+  artistsPending,
   getArtists
 } from "../selectors";
 import { NO_ARTIST } from "../dialog/reducers";
@@ -93,9 +93,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("fetchingArtists", () => {
+  describe("artistsPending", () => {
     it("is false", () => {
-      expect(fetchingArtists(state)).toBe(false);
+      expect(artistsPending(state)).toBe(false);
     });
   });
 

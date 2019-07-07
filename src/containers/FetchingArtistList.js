@@ -9,12 +9,12 @@ import {
   removeArtist
 } from "../redux/artist/operations";
 import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
-import { getArtists, fetchingArtists, getToken } from "../redux/selectors";
+import { getArtists, artistsPending, getToken } from "../redux/selectors";
 
 export default connect(
   createStructuredSelector({
     artists: getArtists,
-    isLoading: fetchingArtists,
+    isLoading: artistsPending,
     token: getToken
   }),
   {
