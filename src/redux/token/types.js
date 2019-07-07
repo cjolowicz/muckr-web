@@ -36,6 +36,5 @@ export type Action =
   | ClearTokenAction;
 
 export type State = {
-  token: ?string,
-  error: ?FetchError
+  token: ?string
 };

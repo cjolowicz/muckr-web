@@ -2,7 +2,6 @@
 import { combineReducers } from "redux";
 
 import {
-  FETCH_TOKEN_REQUEST,
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE,
   CLEAR_TOKEN
@@ -25,16 +24,4 @@ const token = (state = null, action: Action) => {
   }
 };
 
-const error = (state = null, action: Action) => {
-  switch (action.type) {
-    case FETCH_TOKEN_REQUEST:
-    case FETCH_TOKEN_SUCCESS:
-      return null;
-    case FETCH_TOKEN_FAILURE:
-      return action.payload.error;
-    default:
-      return state;
-  }
-};
-
-export default combineReducers<State, Action>({ token, error });
+export default combineReducers<State, Action>({ token });
