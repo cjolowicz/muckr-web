@@ -1,6 +1,5 @@
 // @flow
 import type { State } from "./types";
 
-export const open = (state: State) => state.message != null;
-
+// eslint-disable-next-line import/prefer-default-export
 export const message = (state: State) => state.message;

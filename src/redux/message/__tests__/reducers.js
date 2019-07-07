@@ -1,6 +1,6 @@
 // @flow
 import reducer, { formatErrorMessage } from "../reducers";
-import { open, message } from "../selectors";
+import { message } from "../selectors";
 import { openMessage, closeMessage } from "../actions";
 import { fetchTokenFailure } from "../../token/actions";
 import {
@@ -30,10 +30,6 @@ describe("message", () => {
   describe("initially", () => {
     const state = reducer(undefined, noop());
 
-    it("is closed", () => {
-      expect(open(state)).toBe(false);
-    });
-
     it("has no message", () => {
       expect(message(state)).toBeNull();
     });
@@ -45,10 +41,6 @@ describe("message", () => {
         const action = openMessage("failure");
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has message", () => {
           expect(message(state)).toEqual(action.payload.message);
         });
@@ -58,10 +50,6 @@ describe("message", () => {
         describe("unknown error", () => {
           const action = fetchTokenFailure(GENERIC_ERROR);
           const state = reducer({ open: open$, message: message$ }, action);
-
-          it("is open", () => {
-            expect(open(state)).toBe(true);
-          });
 
           it("has error message", () => {
             expect(message(state)).toEqual("Cannot log in: failure");
@@ -73,10 +61,6 @@ describe("message", () => {
         const action = createUserFailure(GENERIC_ERROR);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has error message", () => {
           expect(message(state)).toEqual("Cannot create user: failure");
         });
@@ -85,10 +69,6 @@ describe("message", () => {
       describe("fetchArtistsFailure", () => {
         const action = fetchArtistsFailure(GENERIC_ERROR);
         const state = reducer({ open: open$, message: message$ }, action);
-
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
 
         it("has error message", () => {
           expect(message(state)).toEqual("Cannot load artists: failure");
@@ -99,10 +79,6 @@ describe("message", () => {
         const action = createArtistFailure(GENERIC_ERROR);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has error message", () => {
           expect(message(state)).toEqual("Cannot create artist: failure");
         });
@@ -112,10 +88,6 @@ describe("message", () => {
         const action = createArtistSuccess(ARTIST);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has success message", () => {
           expect(message(state)).toEqual("Artist created");
         });
@@ -124,10 +96,6 @@ describe("message", () => {
       describe("removeArtistFailure", () => {
         const action = removeArtistFailure(GENERIC_ERROR);
         const state = reducer({ open: open$, message: message$ }, action);
-
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
 
         it("has error message", () => {
           expect(message(state)).toEqual("Cannot remove artist: failure");
@@ -139,10 +107,6 @@ describe("message", () => {
         const action = removeArtistSuccess(id);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has success message", () => {
           expect(message(state)).toEqual("Artist removed");
         });
@@ -151,10 +115,6 @@ describe("message", () => {
       describe("updateArtistFailure", () => {
         const action = updateArtistFailure(GENERIC_ERROR);
         const state = reducer({ open: open$, message: message$ }, action);
-
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
 
         it("has error message", () => {
           expect(message(state)).toEqual("Cannot update artist: failure");
@@ -165,10 +125,6 @@ describe("message", () => {
         const action = updateArtistSuccess(ARTIST);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has success message", () => {
           expect(message(state)).toEqual("Artist updated");
         });
@@ -178,10 +134,6 @@ describe("message", () => {
         const action = createUserSuccess(USER);
         const state = reducer({ open: open$, message: message$ }, action);
 
-        it("is open", () => {
-          expect(open(state)).toBe(true);
-        });
-
         it("has success message", () => {
           expect(message(state)).toEqual("Account created");
         });
@@ -190,10 +142,6 @@ describe("message", () => {
       describe("closeMessage", () => {
         const action = closeMessage();
         const state = reducer({ open: open$, message: message$ }, action);
-
-        it("is closed", () => {
-          expect(open(state)).toBe(false);
-        });
 
         it("has no message", () => {
           expect(message(state)).toBeNull();
