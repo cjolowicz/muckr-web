@@ -1,11 +1,11 @@
 // @flow
 import * as actions from "./actions";
-import * as types from "./types";
+import type { Dispatch } from "../types";
 import * as api from "../../api/user";
 
 // eslint-disable-next-line import/prefer-default-export
 export const createUser = (username: string, password: string) => (
-  dispatch: types.Dispatch
+  dispatch: Dispatch
 ) => {
   dispatch(actions.createUserRequest(username, password));
 

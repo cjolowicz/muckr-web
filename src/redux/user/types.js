@@ -30,10 +30,6 @@ export type Action =
   | CreateUserSuccessAction
   | CreateUserFailureAction;
 
-// eslint-disable-next-line no-use-before-define
-type ThunkAction = Dispatch => any;
-export type Dispatch = (Action | ThunkAction) => any;
-
 export type State = {
   isCreating: boolean,
   user: ?string,
