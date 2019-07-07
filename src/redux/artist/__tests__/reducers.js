@@ -24,10 +24,6 @@ describe("artists", () => {
     it("is not fetching", () => {
       expect(fetchingArtists(state)).toBe(false);
     });
-
-    it("has no error", () => {
-      expect(state.error).toBe(null);
-    });
   });
 
   describe("fetchArtistsRequest", () => {

@@ -5,8 +5,7 @@ import type { FetchError } from "../../api/error";
 
 export type State = {
   isFetching: boolean,
-  ids: Array<number>,
-  error: ?FetchError
+  ids: Array<number>
 };
 
 export type FetchArtistsRequestAction = {

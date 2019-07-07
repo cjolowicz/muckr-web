@@ -52,29 +52,7 @@ const ids = (state = [], action: Action) => {
   }
 };
 
-const error = (state = null, action: Action) => {
-  switch (action.type) {
-    case FETCH_ARTISTS_REQUEST:
-    case FETCH_ARTISTS_SUCCESS:
-    case CREATE_ARTIST_REQUEST:
-    case CREATE_ARTIST_SUCCESS:
-    case REMOVE_ARTIST_REQUEST:
-    case REMOVE_ARTIST_SUCCESS:
-    case UPDATE_ARTIST_REQUEST:
-    case UPDATE_ARTIST_SUCCESS:
-      return null;
-    case FETCH_ARTISTS_FAILURE:
-    case CREATE_ARTIST_FAILURE:
-    case REMOVE_ARTIST_FAILURE:
-    case UPDATE_ARTIST_FAILURE:
-      return action.payload.error;
-    default:
-      return state;
-  }
-};
-
 export default combineReducers<State, Action>({
   isFetching,
-  ids,
-  error
+  ids
 });
