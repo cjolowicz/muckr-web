@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as types from "./types";
-import type { FetchError } from "../../api/types";
+import * as api from "../../api/types";
 
 export const fetchTokenRequest = (
   username: string,
@@ -19,7 +19,7 @@ export const fetchTokenSuccess = (
 });
 
 export const fetchTokenFailure = (
-  error: FetchError
+  error: api.FetchError
 ): types.FetchTokenFailureAction => ({
   type: constants.FETCH_TOKEN_FAILURE,
   payload: { error }
