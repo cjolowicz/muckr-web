@@ -3,7 +3,6 @@ import rootReducer from "../reducers";
 import {
   dialogType,
   dialogArtist,
-  messageOpen,
   message,
   navigationOpen,
   token,
@@ -32,12 +31,6 @@ describe("initial state", () => {
   describe("dialogArtist", () => {
     it("returns no artist", () => {
       expect(dialogArtist(state)).toEqual(NO_ARTIST);
-    });
-  });
-
-  describe("messageOpen", () => {
-    it("is false", () => {
-      expect(messageOpen(state)).toBe(false);
     });
   });
 

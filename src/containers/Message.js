@@ -4,12 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import Message from "../components/Message";
 import { closeMessage } from "../redux/message/actions";
-import { message, messageOpen } from "../redux/selectors";
+import { message } from "../redux/selectors";
 
 export default connect(
-  createStructuredSelector({
-    open: messageOpen,
-    message
-  }),
+  createStructuredSelector({ message }),
   { closeMessage }
 )(Message);

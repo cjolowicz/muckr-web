@@ -6,7 +6,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/styles";
 
 type Props = {
-  open: boolean,
   closeMessage: Function,
   message: ?string
 };
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 type Event = SyntheticEvent<HTMLButtonElement>;
 
-const Message = ({ open, closeMessage, message }: Props) => {
+const Message = ({ closeMessage, message }: Props) => {
   const classes = useStyles();
 
   const onClose = (event: ?Event, reason: ?string) => {
@@ -34,7 +33,7 @@ const Message = ({ open, closeMessage, message }: Props) => {
         vertical: "bottom",
         horizontal: "left"
       }}
-      open={open}
+      open={message != null}
       message={message}
       autoHideDuration={6000}
       onClose={onClose}
