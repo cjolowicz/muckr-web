@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 import * as dialog from "./dialog/selectors";
 import * as message$ from "./message/selectors";
 import * as navigation from "./navigation/selectors";
-import * as token from "./token/selectors";
+import * as token$ from "./token/selectors";
 import * as user from "./user/selectors";
 import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
@@ -21,11 +21,11 @@ export const message = (state: State) => message$.message(state.message);
 export const navigationOpen = (state: State) =>
   navigation.open(state.navigation);
 
-export const tokenPending = (state: State) => token.pending(state.token);
+export const tokenPending = (state: State) => token$.pending(state.token);
 
-export const getToken = (state: State) => token.token(state.token);
+export const token = (state: State) => token$.token(state.token);
 
-export const getTokenError = (state: State) => token.error(state.token);
+export const getTokenError = (state: State) => token$.error(state.token);
 
 export const isCreatingUser = (state: State) => user.isCreatingUser(state.user);
 

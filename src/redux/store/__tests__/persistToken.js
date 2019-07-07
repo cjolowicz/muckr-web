@@ -6,7 +6,7 @@ import Cookies from "universal-cookie";
 import persistToken, { loadToken, saveToken } from "../persistToken";
 import rootReducer from "../../reducers";
 import { noop } from "../../noop/actions";
-import { getToken } from "../../selectors";
+import { token as tokenSelector } from "../../selectors";
 import { FETCH_TOKEN_SUCCESS } from "../../token/constants";
 import { fetchTokenSuccess, clearToken } from "../../token/actions";
 import { TOKEN } from "../../../test/fixtures";
@@ -122,7 +122,7 @@ describe("persistToken", () => {
 
     it("loads token", () => {
       const state = store.getState();
-      expect(getToken(state)).toEqual(TOKEN);
+      expect(tokenSelector(state)).toEqual(TOKEN);
     });
   });
 });

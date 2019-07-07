@@ -4,9 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import SignIn from "../components/SignIn";
 import { fetchToken } from "../redux/token/operations";
-import { getToken } from "../redux/selectors";
+import { token } from "../redux/selectors";
 
 export default connect(
-  createStructuredSelector({ token: getToken }),
+  createStructuredSelector({ token }),
   { onSubmit: fetchToken }
 )(SignIn);

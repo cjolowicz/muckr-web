@@ -4,9 +4,9 @@ import { createStructuredSelector } from "reselect";
 
 import AuthButton from "../components/AuthButton";
 import { clearToken } from "../redux/token/actions";
-import { getToken } from "../redux/selectors";
+import { token } from "../redux/selectors";
 
 export default connect(
-  createStructuredSelector({ token: getToken }),
+  createStructuredSelector({ token }),
   { clearToken }
 )(AuthButton);

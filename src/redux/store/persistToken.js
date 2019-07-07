@@ -2,7 +2,7 @@
 import Cookies from "universal-cookie";
 
 import { fetchTokenSuccess } from "../token/actions";
-import { getToken } from "../selectors";
+import { token as tokenSelector } from "../selectors";
 import type { Store, StoreCreator } from "../types";
 
 export const loadToken = (store: Store, cookies: Cookies) => {
@@ -17,7 +17,7 @@ export const saveToken = (store: Store, cookies: Cookies) => {
   let previousToken = null;
 
   store.subscribe(() => {
-    const token = getToken(store.getState());
+    const token = tokenSelector(store.getState());
 
     if (token === previousToken) {
       return;
