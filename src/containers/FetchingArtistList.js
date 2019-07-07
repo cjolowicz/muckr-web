@@ -1,5 +1,6 @@
 // @flow
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import FetchingArtistList from "../components/FetchingArtistList";
 import {
@@ -11,10 +12,10 @@ import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
 import { getArtists, isFetchingArtists, getToken } from "../redux/selectors";
 
 export default connect(
-  state => ({
-    artists: getArtists(state),
-    isLoading: isFetchingArtists(state),
-    token: getToken(state)
+  createStructuredSelector({
+    artists: getArtists,
+    isLoading: isFetchingArtists,
+    token: getToken
   }),
   {
     fetchArtists,
