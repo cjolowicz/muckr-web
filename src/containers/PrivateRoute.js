@@ -1,10 +1,11 @@
 // @flow
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import PrivateRoute from "../components/PrivateRoute";
 import { getToken } from "../redux/selectors";
 
 export default connect(
-  state => ({ token: getToken(state) }),
+  createStructuredSelector({ token: getToken }),
   null
 )(PrivateRoute);
