@@ -38,6 +38,10 @@ describe("token", () => {
     it("is fetching", () => {
       expect(pending(state)).toBe(true);
     });
+
+    it("has no token", () => {
+      expect(token(state)).toBe(null);
+    });
   });
 
   describe("FETCH_TOKEN_SUCCESS", () => {
@@ -59,6 +63,10 @@ describe("token", () => {
 
     it("is not fetching", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no token", () => {
+      expect(token(state)).toBe(null);
     });
   });
 
