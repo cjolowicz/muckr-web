@@ -25,7 +25,7 @@ export const token = (state: State) => token$.token(state.token);
 
 export const isCreatingUser = (state: State) => user.pending(state.user);
 
-export const getUser = (state: State) => user.getUser(state.user);
+export const getUser = (state: State) => user.user(state.user);
 
 export const getUserError = (state: State) => user.getUserError(state.user);
 
