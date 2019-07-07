@@ -1,6 +1,6 @@
 // @flow
 import token from "../reducers";
-import { isFetchingToken, getToken, getTokenError } from "../selectors";
+import { pending, getToken, getTokenError } from "../selectors";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -20,7 +20,7 @@ describe("token", () => {
     const state = token(undefined, noop());
 
     it("is not fetching", () => {
-      expect(isFetchingToken(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
 
     it("has no token", () => {
@@ -36,7 +36,7 @@ describe("token", () => {
     const state = token(undefined, fetchTokenRequest("john", "secret"));
 
     it("is fetching", () => {
-      expect(isFetchingToken(state)).toBe(true);
+      expect(pending(state)).toBe(true);
     });
   });
 
@@ -45,7 +45,7 @@ describe("token", () => {
     const state = token(stateBefore, fetchTokenSuccess(TOKEN));
 
     it("is not fetching", () => {
-      expect(isFetchingToken(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
 
     it("sets token", () => {
@@ -58,7 +58,7 @@ describe("token", () => {
     const state = token(stateBefore, fetchTokenFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
-      expect(isFetchingToken(state)).toBe(false);
+      expect(pending(state)).toBe(false);
     });
   });
 
