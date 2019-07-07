@@ -21,8 +21,6 @@ export const message = (state: State) => message$.message(state.message);
 export const navigationOpen = (state: State) =>
   navigation.open(state.navigation);
 
-export const tokenPending = (state: State) => token$.pending(state.token);
-
 export const token = (state: State) => token$.token(state.token);
 
 export const tokenError = (state: State) => token$.error(state.token);

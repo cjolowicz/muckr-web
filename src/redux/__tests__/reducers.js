@@ -6,7 +6,6 @@ import {
   messageOpen,
   message,
   navigationOpen,
-  tokenPending,
   token,
   tokenError,
   isCreatingUser,
@@ -54,12 +53,6 @@ describe("initial state", () => {
   describe("navigationOpen", () => {
     it("is false", () => {
       expect(navigationOpen(state)).toBe(false);
-    });
-  });
-
-  describe("tokenPending", () => {
-    it("is false", () => {
-      expect(tokenPending(state)).toBe(false);
     });
   });
 
