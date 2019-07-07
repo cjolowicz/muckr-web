@@ -31,8 +31,8 @@ export const userError = (state: State) => user$.error(state.user);
 
 export const artistsPending = (state: State) => artist.pending(state.artists);
 
-export const getArtists = createSelector<State, *, *, *, *>(
+export const artists = createSelector<State, *, *, *, *>(
   state => state.entities.artists,
   state => state.artists.ids,
-  (artists, ids) => getItemsById(artists, ids)
+  (artists$, ids) => getItemsById(artists$, ids)
 );

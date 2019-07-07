@@ -9,11 +9,11 @@ import {
   removeArtist
 } from "../redux/artist/operations";
 import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
-import { getArtists, artistsPending, token } from "../redux/selectors";
+import { artists, artistsPending, token } from "../redux/selectors";
 
 export default connect(
   createStructuredSelector({
-    artists: getArtists,
+    artists,
     isLoading: artistsPending,
     token
   }),

@@ -11,7 +11,7 @@ import {
   user,
   userError,
   artistsPending,
-  getArtists
+  artists
 } from "../selectors";
 import { NO_ARTIST } from "../dialog/reducers";
 import { noop } from "../noop/actions";
@@ -85,9 +85,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("getArtists", () => {
+  describe("artists", () => {
     it("is null", () => {
-      expect(getArtists(state)).toHaveLength(0);
+      expect(artists(state)).toHaveLength(0);
     });
   });
 });
