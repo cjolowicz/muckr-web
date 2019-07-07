@@ -9,7 +9,7 @@ import {
   token,
   userPending,
   user,
-  getUserError,
+  userError,
   artistsPending,
   getArtists
 } from "../selectors";
@@ -73,9 +73,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("getUserError", () => {
+  describe("userError", () => {
     it("is null", () => {
-      expect(getUserError(state)).toBeNull();
+      expect(userError(state)).toBeNull();
     });
   });
 

@@ -27,7 +27,7 @@ export const userPending = (state: State) => user$.pending(state.user);
 
 export const user = (state: State) => user$.user(state.user);
 
-export const getUserError = (state: State) => user$.error(state.user);
+export const userError = (state: State) => user$.error(state.user);
 
 export const artistsPending = (state: State) => artist.pending(state.artists);
 
