@@ -1,8 +1,7 @@
 // @flow
 import rootReducer from "../reducers";
 import {
-  createDialogOpen,
-  updateDialogOpen,
+  dialogType,
   dialogArtist,
   isMessageOpen,
   getMessage,
@@ -29,15 +28,9 @@ describe("initial state", () => {
     });
   });
 
-  describe("createDialogOpen", () => {
-    it("is false", () => {
-      expect(createDialogOpen(state)).toBe(false);
-    });
-  });
-
-  describe("updateDialogOpen", () => {
-    it("is false", () => {
-      expect(updateDialogOpen(state)).toBe(false);
+  describe("dialogType", () => {
+    it("is null", () => {
+      expect(dialogType(state)).toBeNull();
     });
   });
 

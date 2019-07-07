@@ -10,12 +10,6 @@ import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
 import type { State } from "./types";
 
-export const createDialogOpen = (state: State) =>
-  dialog.createDialogOpen(state.dialog);
-
-export const updateDialogOpen = (state: State) =>
-  dialog.updateDialogOpen(state.dialog);
-
 export const dialogArtist = (state: State) => dialog.dialogArtist(state.dialog);
 
 export const dialogType = (state: State) => dialog.dialogType(state.dialog);
