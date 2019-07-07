@@ -23,8 +23,6 @@ export const navigationOpen = (state: State) =>
 
 export const token = (state: State) => token$.token(state.token);
 
-export const tokenError = (state: State) => token$.error(state.token);
-
 export const isCreatingUser = (state: State) => user.isCreatingUser(state.user);
 
 export const getUser = (state: State) => user.getUser(state.user);

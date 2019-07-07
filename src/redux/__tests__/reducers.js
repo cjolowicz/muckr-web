@@ -7,7 +7,6 @@ import {
   message,
   navigationOpen,
   token,
-  tokenError,
   isCreatingUser,
   getUser,
   getUserError,
@@ -59,12 +58,6 @@ describe("initial state", () => {
   describe("token", () => {
     it("is null", () => {
       expect(token(state)).toBeNull();
-    });
-  });
-
-  describe("tokenError", () => {
-    it("is null", () => {
-      expect(tokenError(state)).toBeNull();
     });
   });
 
