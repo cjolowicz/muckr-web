@@ -1,5 +1,5 @@
 // @flow
-import token from "../reducers";
+import reducer from "../reducers";
 import { pending, getToken, getTokenError } from "../selectors";
 import {
   TOKEN,
@@ -17,7 +17,7 @@ import {
 
 describe("token", () => {
   describe("initially", () => {
-    const state = token(undefined, noop());
+    const state = reducer(undefined, noop());
 
     it("is not fetching", () => {
       expect(pending(state)).toBe(false);
@@ -33,7 +33,7 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_REQUEST", () => {
-    const state = token(undefined, fetchTokenRequest("john", "secret"));
+    const state = reducer(undefined, fetchTokenRequest("john", "secret"));
 
     it("is fetching", () => {
       expect(pending(state)).toBe(true);
@@ -41,8 +41,8 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_SUCCESS", () => {
-    const stateBefore = token(undefined, fetchTokenRequest("john", "secret"));
-    const state = token(stateBefore, fetchTokenSuccess(TOKEN));
+    const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
+    const state = reducer(stateBefore, fetchTokenSuccess(TOKEN));
 
     it("is not fetching", () => {
       expect(pending(state)).toBe(false);
@@ -54,8 +54,8 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_FAILURE", () => {
-    const stateBefore = token(undefined, fetchTokenRequest("john", "secret"));
-    const state = token(stateBefore, fetchTokenFailure(GENERIC_ERROR));
+    const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
+    const state = reducer(stateBefore, fetchTokenFailure(GENERIC_ERROR));
 
     it("is not fetching", () => {
       expect(pending(state)).toBe(false);
@@ -64,9 +64,9 @@ describe("token", () => {
 
   describe("CLEAR_TOKEN", () => {
     let state;
-    state = token(undefined, fetchTokenRequest("john", "secret"));
-    state = token(state, fetchTokenSuccess(TOKEN));
-    state = token(state, clearToken());
+    state = reducer(undefined, fetchTokenRequest("john", "secret"));
+    state = reducer(state, fetchTokenSuccess(TOKEN));
+    state = reducer(state, clearToken());
 
     it("clears token", () => {
       expect(getToken(state)).toBeNull();
@@ -76,8 +76,8 @@ describe("token", () => {
   describe("FETCH_ARTISTS_FAILURE", () => {
     describe("authorization failure", () => {
       let state;
-      state = token(state, fetchTokenSuccess(TOKEN));
-      state = token(state, fetchArtistsFailure(UNAUTHORIZED_ERROR));
+      state = reducer(state, fetchTokenSuccess(TOKEN));
+      state = reducer(state, fetchArtistsFailure(UNAUTHORIZED_ERROR));
 
       it("clears token", () => {
         expect(getToken(state)).toBeNull();
@@ -86,8 +86,8 @@ describe("token", () => {
 
     describe("generic error", () => {
       let state;
-      state = token(state, fetchTokenSuccess(TOKEN));
-      state = token(state, fetchArtistsFailure(GENERIC_ERROR));
+      state = reducer(state, fetchTokenSuccess(TOKEN));
+      state = reducer(state, fetchArtistsFailure(GENERIC_ERROR));
 
       it("preserves token", () => {
         expect(getToken(state)).toEqual(TOKEN);
