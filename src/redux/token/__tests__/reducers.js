@@ -1,6 +1,6 @@
 // @flow
 import reducer from "../reducers";
-import { pending, getToken, getTokenError } from "../selectors";
+import { pending, token, getTokenError } from "../selectors";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -24,7 +24,7 @@ describe("token", () => {
     });
 
     it("has no token", () => {
-      expect(getToken(state)).toBe(null);
+      expect(token(state)).toBe(null);
     });
 
     it("has no error", () => {
@@ -49,7 +49,7 @@ describe("token", () => {
     });
 
     it("sets token", () => {
-      expect(getToken(state)).toEqual(TOKEN);
+      expect(token(state)).toEqual(TOKEN);
     });
   });
 
@@ -69,7 +69,7 @@ describe("token", () => {
     state = reducer(state, clearToken());
 
     it("clears token", () => {
-      expect(getToken(state)).toBeNull();
+      expect(token(state)).toBeNull();
     });
   });
 
@@ -80,7 +80,7 @@ describe("token", () => {
       state = reducer(state, fetchArtistsFailure(UNAUTHORIZED_ERROR));
 
       it("clears token", () => {
-        expect(getToken(state)).toBeNull();
+        expect(token(state)).toBeNull();
       });
     });
 
@@ -90,7 +90,7 @@ describe("token", () => {
       state = reducer(state, fetchArtistsFailure(GENERIC_ERROR));
 
       it("preserves token", () => {
-        expect(getToken(state)).toEqual(TOKEN);
+        expect(token(state)).toEqual(TOKEN);
       });
     });
   });

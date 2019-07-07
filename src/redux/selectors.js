@@ -23,7 +23,7 @@ export const navigationOpen = (state: State) =>
 
 export const isFetchingToken = (state: State) => token.pending(state.token);
 
-export const getToken = (state: State) => token.getToken(state.token);
+export const getToken = (state: State) => token.token(state.token);
 
 export const getTokenError = (state: State) => token.getTokenError(state.token);
 

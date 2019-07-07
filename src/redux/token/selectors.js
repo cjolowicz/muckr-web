@@ -3,6 +3,6 @@ import type { State } from "./types";
 
 export const pending = (state: State) => state.isFetching;
 
-export const getToken = (state: State) => state.token;
+export const token = (state: State) => state.token;
 
 export const getTokenError = (state: State) => state.error;
