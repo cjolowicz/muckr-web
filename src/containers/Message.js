@@ -1,6 +1,7 @@
 // @flow
 import type { Dispatch } from "redux";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import Message from "../components/Message";
 import { closeMessage } from "../redux/message/actions";
@@ -18,9 +19,9 @@ export const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
 });
 
 export default connect(
-  state => ({
-    open: isMessageOpen(state),
-    message: getMessage(state)
+  createStructuredSelector({
+    open: isMessageOpen,
+    message: getMessage
   }),
   mapDispatchToProps
 )(Message);
