@@ -32,3 +32,5 @@ export type State = {
 export type Store = redux.Store<State, Action>;
 
 export type StoreCreator = redux.StoreCreator<State, Action>;
+
+export type Dispatch = redux.Dispatch<Action>;
