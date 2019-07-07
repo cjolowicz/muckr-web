@@ -6,5 +6,5 @@ import { openNavigation } from "../redux/navigation/actions";
 
 export default connect(
   null,
-  { onMenuClick: openNavigation }
+  { openNavigation }
 )(MenuButton);

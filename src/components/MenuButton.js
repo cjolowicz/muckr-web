@@ -5,11 +5,11 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 type Props = {
   className: string,
-  onMenuClick: Function
+  openNavigation: Function
 };
 
-const MenuButton = ({ className, onMenuClick }: Props) => (
-  <IconButton onClick={onMenuClick} className={className} color="inherit">
+const MenuButton = ({ className, openNavigation }: Props) => (
+  <IconButton onClick={openNavigation} className={className} color="inherit">
     <MenuIcon />
   </IconButton>
 );
