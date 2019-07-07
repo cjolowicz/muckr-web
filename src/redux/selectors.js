@@ -15,9 +15,9 @@ export const dialogArtist = (state: State) => dialog.artist(state.dialog);
 export const dialogType = (state: State) => dialog.type(state.dialog);
 
 export const isMessageOpen = (state: State) =>
-  message.isMessageOpen(state.message);
+  message.messageOpen(state.message);
 
-export const getMessage = (state: State) => message.getMessage(state.message);
+export const getMessage = (state: State) => message.message(state.message);
 
 export const isNavigationOpen = (state: State) =>
   navigation.isNavigationOpen(state.navigation);
