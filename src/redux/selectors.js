@@ -25,8 +25,6 @@ export const token = (state: State) => token$.token(state.token);
 
 export const user = (state: State) => user$.user(state.user);
 
-export const userError = (state: State) => user$.error(state.user);
-
 export const artistsPending = (state: State) => artist.pending(state.artists);
 
 export const artists = createSelector<State, *, *, *, *>(

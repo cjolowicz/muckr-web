@@ -8,7 +8,6 @@ import {
   navigationOpen,
   token,
   user,
-  userError,
   artistsPending,
   artists
 } from "../selectors";
@@ -63,12 +62,6 @@ describe("initial state", () => {
   describe("user", () => {
     it("is null", () => {
       expect(user(state)).toBeNull();
-    });
-  });
-
-  describe("userError", () => {
-    it("is null", () => {
-      expect(userError(state)).toBeNull();
     });
   });
 
