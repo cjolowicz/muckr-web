@@ -1,5 +1,5 @@
 // @flow
-import user from "../reducers";
+import reducer from "../reducers";
 import { pending, getUser, getUserError } from "../selectors";
 import { USER, GENERIC_ERROR } from "../../../test/fixtures";
 import { noop } from "../../noop/actions";
@@ -11,7 +11,7 @@ import {
 
 describe("user", () => {
   describe("initially", () => {
-    const state = user(undefined, noop());
+    const state = reducer(undefined, noop());
 
     it("is not creating", () => {
       expect(pending(state)).toBe(false);
@@ -27,7 +27,7 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_REQUEST", () => {
-    const state = user(undefined, createUserRequest("john", "secret"));
+    const state = reducer(undefined, createUserRequest("john", "secret"));
 
     it("is creating", () => {
       expect(pending(state)).toBe(true);
@@ -35,8 +35,8 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_SUCCESS", () => {
-    const stateBefore = user(undefined, createUserRequest("john", "secret"));
-    const state = user(stateBefore, createUserSuccess(USER));
+    const stateBefore = reducer(undefined, createUserRequest("john", "secret"));
+    const state = reducer(stateBefore, createUserSuccess(USER));
 
     it("is not creating", () => {
       expect(pending(state)).toBe(false);
@@ -48,8 +48,8 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_FAILURE", () => {
-    const stateBefore = user(undefined, createUserRequest("john", "secret"));
-    const state = user(stateBefore, createUserFailure(GENERIC_ERROR));
+    const stateBefore = reducer(undefined, createUserRequest("john", "secret"));
+    const state = reducer(stateBefore, createUserFailure(GENERIC_ERROR));
 
     it("is not creating", () => {
       expect(pending(state)).toBe(false);
