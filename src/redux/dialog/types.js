@@ -1,6 +1,6 @@
 // @flow
 import * as constants from "./constants";
-import type { Artist } from "../../api/types";
+import * as api from "../../api/types";
 
 export type OpenCreateDialogAction = {
   type: typeof constants.OPEN_CREATE_DIALOG,
@@ -10,14 +10,14 @@ export type OpenCreateDialogAction = {
 export type OpenUpdateDialogAction = {
   type: typeof constants.OPEN_UPDATE_DIALOG,
   payload: {
-    artist: Artist
+    artist: api.Artist
   }
 };
 
 export type UpdateDialogAction = {
   type: typeof constants.UPDATE_DIALOG,
   payload: {
-    artist: Artist
+    artist: api.Artist
   }
 };
 
@@ -38,5 +38,5 @@ export type DialogType =
 
 export type State = {
   type: ?DialogType,
-  artist: Artist
+  artist: api.Artist
 };

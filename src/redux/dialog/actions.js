@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as types from "./types";
-import type { Artist } from "../../api/types";
+import * as api from "../../api/types";
 
 export const openCreateDialog = (): types.OpenCreateDialogAction => ({
   type: constants.OPEN_CREATE_DIALOG,
@@ -9,13 +9,13 @@ export const openCreateDialog = (): types.OpenCreateDialogAction => ({
 });
 
 export const openUpdateDialog = (
-  artist: Artist
+  artist: api.Artist
 ): types.OpenUpdateDialogAction => ({
   type: constants.OPEN_UPDATE_DIALOG,
   payload: { artist }
 });
 
-export const updateDialog = (artist: Artist): types.UpdateDialogAction => ({
+export const updateDialog = (artist: api.Artist): types.UpdateDialogAction => ({
   type: constants.UPDATE_DIALOG,
   payload: { artist }
 });
