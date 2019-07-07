@@ -2,7 +2,7 @@
 import * as api from "../../api/artist";
 import * as constants from "./constants";
 import * as types from "./types";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export const fetchArtistsRequest = (
   token: string

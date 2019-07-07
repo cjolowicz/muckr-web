@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as types from "./types";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export const fetchTokenRequest = (
   username: string,

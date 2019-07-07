@@ -1,7 +1,7 @@
 // @flow
 import * as api from "../../api/artist";
 import * as constants from "./constants";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export type State = {
   pending: boolean,

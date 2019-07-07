@@ -1,5 +1,5 @@
 // @flow
-import type { FetchError } from "../api/error";
+import type { FetchError } from "../api/types";
 import { unsafeCast } from "../utils";
 
 // an arbitrary 32-byte sequence in hexadecimal

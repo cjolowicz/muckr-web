@@ -1,6 +1,6 @@
 // @flow
 import * as constants from "./constants";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export type FetchTokenRequestAction = {
   type: typeof constants.FETCH_TOKEN_REQUEST,

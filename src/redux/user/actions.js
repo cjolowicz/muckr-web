@@ -2,7 +2,7 @@
 import * as constants from "./constants";
 import * as types from "./types";
 import * as api from "../../api/user";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export const createUserRequest = (
   username: string,

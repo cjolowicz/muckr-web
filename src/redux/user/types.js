@@ -1,7 +1,7 @@
 // @flow
 import * as constants from "./constants";
 import * as api from "../../api/user";
-import type { FetchError } from "../../api/error";
+import type { FetchError } from "../../api/types";
 
 export type CreateUserRequestAction = {
   type: typeof constants.CREATE_USER_REQUEST,
