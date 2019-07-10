@@ -30,7 +30,6 @@ export type Action =
   | CreateUserFailureAction;
 
 export type State = {
-  pending: boolean,
   user: ?string,
   error: ?api.Error
 };
