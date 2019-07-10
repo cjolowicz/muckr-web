@@ -1,11 +1,7 @@
 // @flow
 import { combineReducers } from "redux";
 
-import {
-  CREATE_USER_REQUEST,
-  CREATE_USER_SUCCESS,
-  CREATE_USER_FAILURE
-} from "./constants";
+import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "./constants";
 import type { Action, State } from "../types";
 
 const user = (state = null, action: Action) => {
@@ -19,16 +15,4 @@ const user = (state = null, action: Action) => {
   }
 };
 
-const error = (state = null, action: Action) => {
-  switch (action.type) {
-    case CREATE_USER_REQUEST:
-    case CREATE_USER_SUCCESS:
-      return null;
-    case CREATE_USER_FAILURE:
-      return action.payload.error;
-    default:
-      return state;
-  }
-};
-
-export default combineReducers<State, Action>({ user, error });
+export default combineReducers<State, Action>({ user });

@@ -30,6 +30,5 @@ export type Action =
   | CreateUserFailureAction;
 
 export type State = {
-  user: ?string,
-  error: ?api.Error
+  user: ?string
 };
