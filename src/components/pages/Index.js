@@ -2,8 +2,8 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-import Layout, { Header } from "./Layout";
-import SignUp from "../containers/SignUp";
+import Layout, { Header } from "../Layout";
+import SignUp from "../../containers/SignUp";
 
 type Props = {
   token: ?string
