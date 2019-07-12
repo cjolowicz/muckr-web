@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server";
 import Cookies from "universal-cookie";
 import { ServerStyleSheets } from "@material-ui/styles";
 
-import ServerRoot from "../components/ServerRoot";
+import ServerRoot from "../components/app/ServerRoot";
 import generatePage from "./generatePage";
 import createStore from "../redux/store";
 

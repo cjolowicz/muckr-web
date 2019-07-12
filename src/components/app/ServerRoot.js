@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
-import App from "./app/App";
-import theme from "../theme";
+import App from "./App";
+import theme from "../../theme";
 
 type Props = {
   location: string,
