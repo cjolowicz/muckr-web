@@ -4,7 +4,7 @@ import { renderToString } from "react-dom/server";
 import Cookies from "universal-cookie";
 import { ServerStyleSheets } from "@material-ui/styles";
 
-import ServerRoot from "../components/app/ServerRoot";
+import Server from "../components/app/Server";
 import generatePage from "./generatePage";
 import createStore from "../redux/store";
 
@@ -23,7 +23,7 @@ export default function render(request: Request, response: Response) {
   const store = createStore(request.universalCookies);
   const sheets = new ServerStyleSheets();
   const html = renderToString(
-    sheets.collect(<ServerRoot location={request.url} store={store} />)
+    sheets.collect(<Server location={request.url} store={store} />)
   );
   const css = sheets.toString();
   const state = renderState(store);

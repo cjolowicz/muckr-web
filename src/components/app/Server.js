@@ -13,7 +13,7 @@ type Props = {
   store: Store<*, *>
 };
 
-const ServerRoot = ({ location, store }: Props) => (
+const Server = ({ location, store }: Props) => (
   <StaticRouter context={{}} location={location}>
     <ThemeProvider theme={theme}>
       <Provider store={store}>
@@ -23,4 +23,4 @@ const ServerRoot = ({ location, store }: Props) => (
   </StaticRouter>
 );
 
-export default ServerRoot;
+export default Server;
