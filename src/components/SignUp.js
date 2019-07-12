@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
@@ -11,6 +13,8 @@ import { makeStyles } from "@material-ui/styles";
 import useInputField from "../hooks/useInputField";
 import * as api from "../api/types";
 import * as routes from "../routes";
+import { createUser } from "../redux/user/operations";
+import { user } from "../redux/selectors";
 
 type Props = {
   createUser: Function,
@@ -45,7 +49,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignUp = ({ createUser, user }: Props) => {
+// eslint-disable-next-line no-shadow
+export const SignUp = ({ createUser, user }: Props) => {
   const classes = useStyles();
   const [username, handleUsernameChange] = useInputField();
   const [password, handlePasswordChange] = useInputField();
@@ -104,4 +109,7 @@ const SignUp = ({ createUser, user }: Props) => {
   );
 };
 
-export default SignUp;
+export default connect(
+  createStructuredSelector({ user }),
+  { createUser }
+)(SignUp);

@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import Typography from "@material-ui/core/Typography";
 
 import Layout, { Header } from "../Layout";
-import SignUp from "../../containers/SignUp";
+import SignUp from "../SignUp";
 import { token } from "../../redux/selectors";
 
 type Props = {

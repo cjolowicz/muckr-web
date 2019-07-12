@@ -3,7 +3,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
-import SignUp from "../SignUp";
+import { SignUp } from "../SignUp";
 import * as routes from "../../routes";
 import render from "../../test/render";
 import { USER } from "../../test/fixtures";
