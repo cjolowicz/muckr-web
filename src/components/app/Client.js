@@ -14,7 +14,7 @@ type Props = {
   store: Store
 };
 
-const ClientRoot = ({ store }: Props) => (
+const Client = ({ store }: Props) => (
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <RemoveElement elementId={JSS_STYLE_ID}>
@@ -26,4 +26,4 @@ const ClientRoot = ({ store }: Props) => (
   </BrowserRouter>
 );
 
-export default ClientRoot;
+export default Client;
