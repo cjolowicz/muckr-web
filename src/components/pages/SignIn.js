@@ -10,8 +10,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
-import useInputField from "../hooks/useInputField";
-import * as routes from "../routes";
+import useInputField from "../../hooks/useInputField";
+import * as routes from "../../routes";
 
 type Props = {
   location: Location,
