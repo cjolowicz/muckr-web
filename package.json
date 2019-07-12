@@ -16,7 +16,7 @@
     "test:unit": "env `cat .env.example` jest --coverage src",
     "coverage:submit": "coveralls < coverage/lcov.info",
     "build": "run-s -y build:*",
-    "build:babel": "babel --delete-dir-on-start src --out-dir lib --ignore '**/__tests__'",
+    "build:babel": "babel --delete-dir-on-start src --out-dir lib --ignore '**/*.spec.js'",
     "build:webpack": "webpack -p --env.production",
     "heroku-postbuild": "yarn run build",
     "start": "node lib/server",

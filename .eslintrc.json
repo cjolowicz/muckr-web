@@ -13,7 +13,7 @@
     "compat/compat": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/__tests__/*.js", "src/utils/test/*.js"] }
+      { "devDependencies": ["**/*.spec.js", "src/utils/test/*.js"] }
     ],
     "no-param-reassign": ["error", { "props": false }],
     "prettier/prettier": "error",
@@ -24,7 +24,7 @@
   },
   "overrides": [
     {
-      "files": ["**/__tests__/**"],
+      "files": ["**/*.spec.js"],
       "rules": {
         "compat/compat": "off"
       }
