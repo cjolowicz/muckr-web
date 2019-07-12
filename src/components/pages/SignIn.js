@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import type { Location } from "react-router-dom";
 import { Redirect, Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
@@ -12,6 +14,8 @@ import { makeStyles } from "@material-ui/styles";
 
 import useInputField from "../../hooks/useInputField";
 import * as routes from "../../routes";
+import { fetchToken } from "../../redux/token/operations";
+import { token } from "../../redux/selectors";
 
 type Props = {
   location: Location,
@@ -52,7 +56,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignIn = ({ location, fetchToken, token }: Props) => {
+// eslint-disable-next-line no-shadow
+export const SignIn = ({ location, fetchToken, token }: Props) => {
   const classes = useStyles();
   const [username, handleUsernameChange] = useInputField();
   const [password, handlePasswordChange] = useInputField();
@@ -121,4 +126,7 @@ const SignIn = ({ location, fetchToken, token }: Props) => {
   );
 };
 
-export default SignIn;
+export default connect(
+  createStructuredSelector({ token }),
+  { fetchToken }
+)(SignIn);

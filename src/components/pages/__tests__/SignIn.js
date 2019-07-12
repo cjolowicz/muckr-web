@@ -4,7 +4,7 @@ import type { Location } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
-import SignIn from "../SignIn";
+import { SignIn } from "../SignIn";
 import * as routes from "../../../routes";
 import { TOKEN } from "../../../test/fixtures";
 import { unsafeCast } from "../../../utils";
