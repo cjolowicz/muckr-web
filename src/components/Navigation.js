@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
@@ -8,6 +10,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/styles";
 
 import * as routes from "../routes";
+import { closeNavigation } from "../redux/navigation/actions";
+import { navigationOpen } from "../redux/selectors";
 
 type Props = {
   open: boolean,
@@ -20,6 +24,7 @@ const useStyles = makeStyles({
   }
 });
 
+// eslint-disable-next-line no-shadow
 const Navigation = ({ open, closeNavigation }: Props) => {
   const classes = useStyles();
   return (
@@ -42,4 +47,7 @@ const Navigation = ({ open, closeNavigation }: Props) => {
   );
 };
 
-export default Navigation;
+export default connect(
+  createStructuredSelector({ open: navigationOpen }),
+  { closeNavigation }
+)(Navigation);
