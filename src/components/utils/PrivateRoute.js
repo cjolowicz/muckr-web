@@ -5,8 +5,8 @@ import { createStructuredSelector } from "reselect";
 import type { Location } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 
-import * as routes from "../routes";
-import { token } from "../redux/selectors";
+import * as routes from "../../routes";
+import { token } from "../../redux/selectors";
 
 type Props = {
   component: React.ComponentType<*>,

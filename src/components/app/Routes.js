@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import ArtistsPage from "../pages/ArtistsPage";
-import PrivateRoute from "../PrivateRoute";
+import PrivateRoute from "../utils/PrivateRoute";
 import FrontPage from "../pages/FrontPage";
 import SignInPage from "../pages/SignInPage";
 import * as routes from "../../routes";
