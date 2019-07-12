@@ -6,7 +6,7 @@ import { ThemeProvider } from "@material-ui/styles";
 
 import { JSS_STYLE_ID } from "../../constants";
 import App from "./App";
-import RemoveElement from "../RemoveElement";
+import RemoveElement from "../utils/RemoveElement";
 import theme from "../../theme";
 import type { Store } from "../../redux/types";
 
