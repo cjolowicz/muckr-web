@@ -1,16 +1,16 @@
 // @flow
 import React from "react";
-import type { Store } from "redux";
 import { Provider } from "react-redux";
 import { StaticRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
 import App from "./App";
 import theme from "../../theme";
+import type { Store } from "../../redux/types";
 
 type Props = {
   location: string,
-  store: Store<*, *>
+  store: Store
 };
 
 const Server = ({ location, store }: Props) => (
