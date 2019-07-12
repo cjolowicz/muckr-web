@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 
-import Index from "../Index";
+import { Index } from "../Index";
 import render from "../../../test/render";
 import { TOKEN } from "../../../test/fixtures";
 

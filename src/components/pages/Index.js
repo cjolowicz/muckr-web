@@ -1,15 +1,19 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import Typography from "@material-ui/core/Typography";
 
 import Layout, { Header } from "../Layout";
 import SignUp from "../../containers/SignUp";
+import { token } from "../../redux/selectors";
 
 type Props = {
   token: ?string
 };
 
-const Index = ({ token }: Props) => {
+// eslint-disable-next-line no-shadow
+export const Index = ({ token }: Props) => {
   if (token) {
     return (
       <Layout>
@@ -26,4 +30,7 @@ const Index = ({ token }: Props) => {
   );
 };
 
-export default Index;
+export default connect(
+  createStructuredSelector({ token }),
+  null
+)(Index);

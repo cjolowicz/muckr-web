@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import ArtistsPage from "./pages/ArtistsPage";
 import PrivateRoute from "../containers/PrivateRoute";
-import Index from "../containers/pages/Index";
+import Index from "./pages/Index";
 import SignIn from "../containers/pages/SignIn";
 import Message from "../containers/Message";
 import * as routes from "../routes";
