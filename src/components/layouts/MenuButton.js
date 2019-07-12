@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import { openNavigation } from "../redux/navigation/actions";
+import { openNavigation } from "../../redux/navigation/actions";
 
 type Props = {
   className: string,
