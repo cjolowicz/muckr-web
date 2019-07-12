@@ -12,7 +12,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
-import useInputField from "../../hooks/useInputField";
+import useInputField from "../hooks/useInputField";
 import * as routes from "../../routes";
 import { fetchToken } from "../../redux/token/operations";
 import { token } from "../../redux/selectors";
