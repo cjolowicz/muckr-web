@@ -2,7 +2,7 @@
 import React from "react";
 
 import { Message } from "../Message";
-import render from "../../test/render";
+import render from "../../utils/test/render";
 
 describe("Message", () => {
   const message = "lorem ipsum dolor";

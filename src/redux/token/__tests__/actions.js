@@ -11,8 +11,8 @@ import {
 import { fetchToken } from "../operations";
 import * as api from "../../../api/token";
 import { unsafeCast } from "../../../utils";
-import mock from "../../../test/mock";
-import { TOKEN } from "../../../test/fixtures";
+import mock from "../../../utils/test/mock";
+import { TOKEN } from "../../../utils/test/fixtures";
 
 const mockStore = configureStore([thunk]);
 

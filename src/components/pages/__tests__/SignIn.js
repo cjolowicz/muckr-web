@@ -6,10 +6,10 @@ import { fireEvent } from "@testing-library/react";
 
 import { SignIn } from "../SignIn";
 import * as routes from "../../../routes";
-import { TOKEN } from "../../../test/fixtures";
+import { TOKEN } from "../../../utils/test/fixtures";
 import { unsafeCast } from "../../../utils";
-import render from "../../../test/render";
-import select from "../../../test/select";
+import render from "../../../utils/test/render";
+import select from "../../../utils/test/select";
 
 const fetchToken = jest.fn();
 

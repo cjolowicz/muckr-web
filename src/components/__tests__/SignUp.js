@@ -5,9 +5,9 @@ import { fireEvent } from "@testing-library/react";
 
 import { SignUp } from "../SignUp";
 import * as routes from "../../routes";
-import render from "../../test/render";
-import { USER } from "../../test/fixtures";
-import select from "../../test/select";
+import render from "../../utils/test/render";
+import { USER } from "../../utils/test/fixtures";
+import select from "../../utils/test/select";
 
 const createUser = jest.fn();
 

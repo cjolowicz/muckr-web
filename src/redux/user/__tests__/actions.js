@@ -11,8 +11,8 @@ import {
 } from "../constants";
 import * as api from "../../../api/user";
 import { unsafeCast } from "../../../utils";
-import mock from "../../../test/mock";
-import { USER } from "../../../test/fixtures";
+import mock from "../../../utils/test/mock";
+import { USER } from "../../../utils/test/fixtures";
 
 const mockStore = configureStore([thunk]);
 

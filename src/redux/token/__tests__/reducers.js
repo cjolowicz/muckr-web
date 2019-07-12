@@ -5,7 +5,7 @@ import {
   TOKEN,
   GENERIC_ERROR,
   UNAUTHORIZED_ERROR
-} from "../../../test/fixtures";
+} from "../../../utils/test/fixtures";
 import { noop } from "../../noop/actions";
 import { fetchArtistsFailure } from "../../artist/actions";
 import {

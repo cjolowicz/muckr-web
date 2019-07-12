@@ -13,7 +13,7 @@
     "compat/compat": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/__tests__/*.js", "src/test/*.js"] }
+      { "devDependencies": ["**/__tests__/*.js", "src/utils/test/*.js"] }
     ],
     "no-param-reassign": ["error", { "props": false }],
     "prettier/prettier": "error",

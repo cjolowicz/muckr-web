@@ -1,7 +1,12 @@
 // @flow
 import artists from "../reducers";
 import { pending } from "../selectors";
-import { TOKEN, ARTIST, ARTISTS, GENERIC_ERROR } from "../../../test/fixtures";
+import {
+  TOKEN,
+  ARTIST,
+  ARTISTS,
+  GENERIC_ERROR
+} from "../../../utils/test/fixtures";
 import {
   createArtistRequest,
   createArtistSuccess,

@@ -1,6 +1,6 @@
 // @flow
-import * as api from "../api/types";
-import { unsafeCast } from "../utils";
+import * as api from "../../api/types";
+import unsafeCast from "../unsafeCast";
 
 // an arbitrary 32-byte sequence in hexadecimal
 export const TOKEN =

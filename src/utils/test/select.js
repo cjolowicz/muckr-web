@@ -1,5 +1,5 @@
 // @flow
-import unsafeCast from "../utils/unsafeCast";
+import unsafeCast from "../unsafeCast";
 
 export default function select<T>(element: Element, selector: string): ?T {
   const result = element.querySelector(selector);

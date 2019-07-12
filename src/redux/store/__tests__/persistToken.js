@@ -9,7 +9,7 @@ import { noop } from "../../noop/actions";
 import { token as tokenSelector } from "../../selectors";
 import { FETCH_TOKEN_SUCCESS } from "../../token/constants";
 import { fetchTokenSuccess, clearToken } from "../../token/actions";
-import { TOKEN } from "../../../test/fixtures";
+import { TOKEN } from "../../../utils/test/fixtures";
 
 const cookies = new Cookies();
 const initialState = rootReducer(undefined, noop());

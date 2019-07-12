@@ -15,7 +15,7 @@ import {
 import { createUserSuccess, createUserFailure } from "../../user/actions";
 import { NOOP } from "../../noop/constants";
 import { noop } from "../../noop/actions";
-import { ARTIST, USER, GENERIC_ERROR } from "../../../test/fixtures";
+import { ARTIST, USER, GENERIC_ERROR } from "../../../utils/test/fixtures";
 
 describe("formatErrorMessage", () => {
   describe("unknown action", () => {

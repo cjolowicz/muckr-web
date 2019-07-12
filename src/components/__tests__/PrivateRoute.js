@@ -4,8 +4,8 @@ import { Switch } from "react-router-dom";
 
 import { PrivateRoute } from "../PrivateRoute";
 import * as routes from "../../routes";
-import render from "../../test/render";
-import { TOKEN } from "../../test/fixtures";
+import render from "../../utils/test/render";
+import { TOKEN } from "../../utils/test/fixtures";
 
 const renderPrivateRoute = ({ token }) => {
   const Component = () => <div>Lorem Ipsum Dolor</div>;

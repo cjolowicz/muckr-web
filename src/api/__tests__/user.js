@@ -2,7 +2,7 @@
 import axios from "axios";
 
 import { createUser } from "../user";
-import { USER } from "../../test/fixtures";
+import { USER } from "../../utils/test/fixtures";
 
 describe("createUser", () => {
   const promise = Promise.resolve({ data: USER });

@@ -7,7 +7,7 @@ import {
   removeArtist,
   updateArtist
 } from "../artist";
-import { TOKEN, ARTIST } from "../../test/fixtures";
+import { TOKEN, ARTIST } from "../../utils/test/fixtures";
 
 describe("fetchArtists", () => {
   const artist = { id: 1, name: "Artist" };

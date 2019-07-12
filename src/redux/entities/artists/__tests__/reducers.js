@@ -6,7 +6,7 @@ import {
   removeArtistSuccess,
   updateArtistSuccess
 } from "../../../artist/actions";
-import { ARTIST, ARTISTS } from "../../../../test/fixtures";
+import { ARTIST, ARTISTS } from "../../../../utils/test/fixtures";
 import indexById from "../../../../utils/indexById";
 
 describe("artists", () => {

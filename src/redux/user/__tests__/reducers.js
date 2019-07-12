@@ -1,7 +1,7 @@
 // @flow
 import reducer from "../reducers";
 import { user } from "../selectors";
-import { USER, GENERIC_ERROR } from "../../../test/fixtures";
+import { USER, GENERIC_ERROR } from "../../../utils/test/fixtures";
 import { noop } from "../../noop/actions";
 import {
   createUserRequest,
