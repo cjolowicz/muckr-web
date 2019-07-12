@@ -3,7 +3,7 @@ import * as React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
 
-import AppBar from "../AppBar";
+import AppBar from "./AppBar";
 import Navigation from "../Navigation";
 
 type Props = {
