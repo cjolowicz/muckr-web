@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import ArtistsPage from "./pages/ArtistsPage";
-import PrivateRoute from "../containers/PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 import Index from "./pages/Index";
 import SignIn from "./pages/SignIn";
 import Message from "./Message";

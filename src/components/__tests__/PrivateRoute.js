@@ -2,7 +2,7 @@
 import * as React from "react";
 import { Switch } from "react-router-dom";
 
-import PrivateRoute from "../PrivateRoute";
+import { PrivateRoute } from "../PrivateRoute";
 import * as routes from "../../routes";
 import render from "../../test/render";
 import { TOKEN } from "../../test/fixtures";

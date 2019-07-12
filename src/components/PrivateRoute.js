@@ -1,9 +1,12 @@
 // @flow
 import * as React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import type { Location } from "react-router-dom";
 import { Route, Redirect } from "react-router-dom";
 
 import * as routes from "../routes";
+import { token } from "../redux/selectors";
 
 type Props = {
   component: React.ComponentType<*>,
@@ -14,7 +17,13 @@ type InnerProps = {
   location: Location
 };
 
-const PrivateRoute = ({ component: Component, token, ...rest }: Props) => (
+export const PrivateRoute = ({
+  /* eslint-disable no-shadow */
+  component: Component,
+  token,
+  ...rest
+}: Props) => (
+  /* eslint-enable */
   <Route
     {...rest}
     render={(props: InnerProps) =>
@@ -32,4 +41,7 @@ const PrivateRoute = ({ component: Component, token, ...rest }: Props) => (
   />
 );
 
-export default PrivateRoute;
+export default connect(
+  createStructuredSelector({ token }),
+  null
+)(PrivateRoute);
