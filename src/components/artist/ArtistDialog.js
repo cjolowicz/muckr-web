@@ -9,12 +9,12 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 
-import * as api from "../api/types";
-import type { DialogType } from "../redux/dialog/types";
-import { DIALOG_TYPE_CREATE } from "../redux/dialog/constants";
-import { createArtist, updateArtist } from "../redux/artist/operations";
-import { updateDialog, closeDialog } from "../redux/dialog/actions";
-import { dialogType, dialogArtist, token } from "../redux/selectors";
+import * as api from "../../api/types";
+import type { DialogType } from "../../redux/dialog/types";
+import { DIALOG_TYPE_CREATE } from "../../redux/dialog/constants";
+import { createArtist, updateArtist } from "../../redux/artist/operations";
+import { updateDialog, closeDialog } from "../../redux/dialog/actions";
+import { dialogType, dialogArtist, token } from "../../redux/selectors";
 
 type Props = {
   type: DialogType,

@@ -3,11 +3,11 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 
 import { ArtistDialog } from "../ArtistDialog";
-import { ARTIST, TOKEN } from "../../utils/test/fixtures";
+import { ARTIST, TOKEN } from "../../../utils/test/fixtures";
 import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
-} from "../../redux/dialog/constants";
+} from "../../../redux/dialog/constants";
 
 const renderArtistDialog = ({ type, token }) => {
   const createArtist = jest.fn();
