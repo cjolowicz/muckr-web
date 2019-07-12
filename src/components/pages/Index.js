@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import WelcomePage from "./WelcomePage";
-import SignUpLayout from "../layouts/SignUpLayout";
-import SignUp from "../SignUp";
+import SignUpPage from "./SignUpPage";
 import { token } from "../../redux/selectors";
 
 type Props = {
@@ -13,17 +12,8 @@ type Props = {
 };
 
 // eslint-disable-next-line no-shadow
-export const Index = ({ token }: Props) => {
-  if (token) {
-    return <WelcomePage />;
-  }
-
-  return (
-    <SignUpLayout>
-      <SignUp />
-    </SignUpLayout>
-  );
-};
+export const Index = ({ token }: Props) =>
+  token ? <WelcomePage /> : <SignUpPage />;
 
 export default connect(
   createStructuredSelector({ token }),
