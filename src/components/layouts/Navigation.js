@@ -9,9 +9,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles } from "@material-ui/styles";
 
-import * as routes from "../routes";
-import { closeNavigation } from "../redux/navigation/actions";
-import { navigationOpen } from "../redux/selectors";
+import * as routes from "../../routes";
+import { closeNavigation } from "../../redux/navigation/actions";
+import { navigationOpen } from "../../redux/selectors";
 
 type Props = {
   open: boolean,
