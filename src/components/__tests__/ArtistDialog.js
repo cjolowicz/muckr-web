@@ -2,7 +2,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 
-import ArtistDialog from "../ArtistDialog";
+import { ArtistDialog } from "../ArtistDialog";
 import { ARTIST, TOKEN } from "../../test/fixtures";
 import {
   DIALOG_TYPE_CREATE,

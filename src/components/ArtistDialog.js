@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -10,6 +12,9 @@ import TextField from "@material-ui/core/TextField";
 import * as api from "../api/types";
 import type { DialogType } from "../redux/dialog/types";
 import { DIALOG_TYPE_CREATE } from "../redux/dialog/constants";
+import { createArtist, updateArtist } from "../redux/artist/operations";
+import { updateDialog, closeDialog } from "../redux/dialog/actions";
+import { dialogType, dialogArtist, token } from "../redux/selectors";
 
 type Props = {
   type: DialogType,
@@ -21,7 +26,8 @@ type Props = {
   token: ?string
 };
 
-const ArtistDialog = ({
+export const ArtistDialog = ({
+  /* eslint-disable no-shadow */
   type,
   updateDialog,
   closeDialog,
@@ -30,6 +36,7 @@ const ArtistDialog = ({
   artist,
   token
 }: Props) => {
+  /* eslint-enable */
   const handleChange = event =>
     updateDialog({ ...artist, name: event.target.value });
 
@@ -72,4 +79,11 @@ const ArtistDialog = ({
   );
 };
 
-export default ArtistDialog;
+export default connect(
+  createStructuredSelector({
+    type: dialogType,
+    artist: dialogArtist,
+    token
+  }),
+  { createArtist, updateArtist, updateDialog, closeDialog }
+)(ArtistDialog);
