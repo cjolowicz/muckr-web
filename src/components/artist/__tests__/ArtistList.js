@@ -3,8 +3,8 @@ import React from "react";
 import { fireEvent } from "@testing-library/react";
 
 import ArtistList from "../ArtistList";
-import render from "../../utils/test/render";
-import { ARTISTS, ARTIST, TOKEN } from "../../utils/test/fixtures";
+import render from "../../../utils/test/render";
+import { ARTISTS, ARTIST, TOKEN } from "../../../utils/test/fixtures";
 
 const renderArtistList = ({ artists, pending }) => {
   const openUpdateDialog = jest.fn();

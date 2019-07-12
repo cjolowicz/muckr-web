@@ -12,8 +12,8 @@ import { makeStyles } from "@material-ui/styles";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 
-import * as api from "../api/types";
-import ArtistDialog from "./artist/ArtistDialog";
+import * as api from "../../api/types";
+import ArtistDialog from "./ArtistDialog";
 
 export type Props = {
   token: ?string,
