@@ -2,7 +2,7 @@
 import React from "react";
 
 import SignUpLayout from "../layouts/SignUpLayout";
-import SignUp from "../SignUp";
+import SignUp from "../user/SignUp";
 
 export const SignUpPage = () => (
   <SignUpLayout>

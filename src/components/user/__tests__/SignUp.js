@@ -4,10 +4,10 @@ import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
 import { SignUp } from "../SignUp";
-import * as routes from "../../routes";
-import render from "../../utils/test/render";
-import { USER } from "../../utils/test/fixtures";
-import select from "../../utils/test/select";
+import * as routes from "../../../routes";
+import render from "../../../utils/test/render";
+import { USER } from "../../../utils/test/fixtures";
+import select from "../../../utils/test/select";
 
 const createUser = jest.fn();
 
