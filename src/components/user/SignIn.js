@@ -11,10 +11,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
-import useInputField from "./hooks/useInputField";
-import * as routes from "../routes";
-import { fetchToken } from "../redux/token/operations";
-import { token } from "../redux/selectors";
+import useInputField from "../hooks/useInputField";
+import * as routes from "../../routes";
+import { fetchToken } from "../../redux/token/operations";
+import { token } from "../../redux/selectors";
 
 type Props = {
   location: Location,

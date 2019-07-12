@@ -2,7 +2,7 @@
 import React from "react";
 
 import SignInLayout from "../layouts/SignInLayout";
-import SignIn from "../SignIn";
+import SignIn from "../user/SignIn";
 
 const SignInPage = () => (
   <SignInLayout>
