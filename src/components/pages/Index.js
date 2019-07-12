@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Typography from "@material-ui/core/Typography";
 
-import Layout, { Header } from "../layouts/Layout";
+import Layout from "../layouts/Layout";
+import SignUpLayout from "../layouts/SignUpLayout";
 import SignUp from "../SignUp";
 import { token } from "../../redux/selectors";
 
@@ -23,10 +24,9 @@ export const Index = ({ token }: Props) => {
   }
 
   return (
-    <>
-      <Header />
+    <SignUpLayout>
       <SignUp />
-    </>
+    </SignUpLayout>
   );
 };
 
