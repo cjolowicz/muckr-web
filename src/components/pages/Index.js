@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Typography from "@material-ui/core/Typography";
 
-import Layout, { Header } from "../Layout";
+import Layout, { Header } from "../layouts/Layout";
 import SignUp from "../SignUp";
 import { token } from "../../redux/selectors";
 
