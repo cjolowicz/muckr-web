@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import ArtistList from "./artist/ArtistList";
-import type { Props as BaseProps } from "./artist/ArtistList";
+import ArtistList from "./ArtistList";
+import type { Props as BaseProps } from "./ArtistList";
 import {
   fetchArtists,
   createArtist,
   removeArtist
-} from "../redux/artist/operations";
-import { openCreateDialog, openUpdateDialog } from "../redux/dialog/actions";
-import { artists, artistsPending, token } from "../redux/selectors";
+} from "../../redux/artist/operations";
+import { openCreateDialog, openUpdateDialog } from "../../redux/dialog/actions";
+import { artists, artistsPending, token } from "../../redux/selectors";
 
 type Props = BaseProps & {
   token: ?string,
