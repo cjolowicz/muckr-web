@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
 import { JSS_STYLE_ID } from "../constants";
-import App from "./App";
+import App from "./app/App";
 import RemoveElement from "./RemoveElement";
 import theme from "../theme";
 import type { Store } from "../redux/types";

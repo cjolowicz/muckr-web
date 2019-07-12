@@ -2,11 +2,11 @@
 import React from "react";
 
 import App from "../App";
-import render from "../../utils/test/render";
-import { TOKEN, ARTIST, ARTISTS } from "../../utils/test/fixtures";
-import * as routes from "../../routes";
-import { fetchTokenSuccess } from "../../redux/token/actions";
-import { fetchArtistsSuccess } from "../../redux/artist/actions";
+import render from "../../../utils/test/render";
+import { TOKEN, ARTIST, ARTISTS } from "../../../utils/test/fixtures";
+import * as routes from "../../../routes";
+import { fetchTokenSuccess } from "../../../redux/token/actions";
+import { fetchArtistsSuccess } from "../../../redux/artist/actions";
 
 describe("App", () => {
   it("renders welcome page", () => {
