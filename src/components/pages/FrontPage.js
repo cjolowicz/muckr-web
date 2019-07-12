@@ -12,10 +12,10 @@ type Props = {
 };
 
 // eslint-disable-next-line no-shadow
-export const Index = ({ token }: Props) =>
+export const FrontPage = ({ token }: Props) =>
   token ? <WelcomePage /> : <SignUpPage />;
 
 export default connect(
   createStructuredSelector({ token }),
   null
-)(Index);
+)(FrontPage);
