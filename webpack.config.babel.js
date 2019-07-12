@@ -2,7 +2,7 @@
 import path from "path";
 
 export default (env: Object) => ({
-  entry: ["./src/client/index.js"],
+  entry: ["./src/client.js"],
   output: {
     filename: "js/bundle.js",
     path: path.resolve(__dirname, "dist"),
