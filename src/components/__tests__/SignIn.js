@@ -5,11 +5,11 @@ import { Switch, Route } from "react-router-dom";
 import { fireEvent } from "@testing-library/react";
 
 import { SignIn } from "../SignIn";
-import * as routes from "../../../routes";
-import { TOKEN } from "../../../utils/test/fixtures";
-import { unsafeCast } from "../../../utils";
-import render from "../../../utils/test/render";
-import select from "../../../utils/test/select";
+import * as routes from "../../routes";
+import { TOKEN } from "../../utils/test/fixtures";
+import { unsafeCast } from "../../utils";
+import render from "../../utils/test/render";
+import select from "../../utils/test/select";
 
 const fetchToken = jest.fn();
 
