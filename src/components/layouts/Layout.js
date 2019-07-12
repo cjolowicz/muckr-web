@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/styles";
 
 import AppBar from "./AppBar";
 import Navigation from "./Navigation";
+import Message from "./Message";
 
 type Props = {
   children: React.Node
@@ -36,6 +37,7 @@ const Layout = ({ children }: Props) => {
       <main className={classes.main}>
         <Paper className={classes.paper}>{children}</Paper>
       </main>
+      <Message />
     </>
   );
 };

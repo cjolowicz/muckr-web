@@ -7,7 +7,6 @@ import ArtistsPage from "./pages/ArtistsPage";
 import PrivateRoute from "./PrivateRoute";
 import FrontPage from "./pages/FrontPage";
 import SignInPage from "./pages/SignInPage";
-import Message from "./layouts/Message";
 import * as routes from "../routes";
 
 const App = () => (
@@ -18,7 +17,6 @@ const App = () => (
       <Route path={routes.SIGNIN} component={SignInPage} />
       <PrivateRoute path={routes.ARTISTS} component={ArtistsPage} />
     </Switch>
-    <Message />
   </>
 );
 
