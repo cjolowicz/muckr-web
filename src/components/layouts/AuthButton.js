@@ -5,9 +5,9 @@ import { createStructuredSelector } from "reselect";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-import * as routes from "../routes";
-import { clearToken } from "../redux/token/actions";
-import { token } from "../redux/selectors";
+import * as routes from "../../routes";
+import { clearToken } from "../../redux/token/actions";
+import { token } from "../../redux/selectors";
 
 type Props = {
   token: ?string,

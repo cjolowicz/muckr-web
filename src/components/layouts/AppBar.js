@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 
 import MenuButton from "../MenuButton";
-import AuthButton from "../AuthButton";
+import AuthButton from "./AuthButton";
 import * as routes from "../../routes";
 
 const useStyles = makeStyles({
