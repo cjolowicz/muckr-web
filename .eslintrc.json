@@ -28,6 +28,12 @@
       "rules": {
         "compat/compat": "off"
       }
+    },
+    {
+      "files": ["src/components/**"],
+      "rules": {
+        "import/no-named-as-default": "off"
+      }
     }
   ],
   "env": {
