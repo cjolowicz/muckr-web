@@ -1,9 +1,14 @@
 // @flow
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { makeStyles } from "@material-ui/styles";
+
+import { closeMessage } from "../redux/message/actions";
+import { message } from "../redux/selectors";
 
 type Props = {
   closeMessage: Function,
@@ -18,7 +23,8 @@ const useStyles = makeStyles(theme => ({
 
 type Event = SyntheticEvent<HTMLButtonElement>;
 
-const Message = ({ closeMessage, message }: Props) => {
+// eslint-disable-next-line no-shadow
+export const Message = ({ closeMessage, message }: Props) => {
   const classes = useStyles();
 
   const onClose = (event: ?Event, reason: ?string) => {
@@ -51,4 +57,7 @@ const Message = ({ closeMessage, message }: Props) => {
   );
 };
 
-export default Message;
+export default connect(
+  createStructuredSelector({ message }),
+  { closeMessage }
+)(Message);

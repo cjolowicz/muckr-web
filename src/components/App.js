@@ -7,7 +7,7 @@ import ArtistsPage from "./pages/ArtistsPage";
 import PrivateRoute from "../containers/PrivateRoute";
 import Index from "./pages/Index";
 import SignIn from "./pages/SignIn";
-import Message from "../containers/Message";
+import Message from "./Message";
 import * as routes from "../routes";
 
 const App = () => (
