@@ -2,7 +2,7 @@
 import React from "react";
 
 import Layout from "../Layout";
-import FetchingArtistList from "../../containers/FetchingArtistList";
+import FetchingArtistList from "../FetchingArtistList";
 
 const ArtistsPage = () => (
   <Layout>

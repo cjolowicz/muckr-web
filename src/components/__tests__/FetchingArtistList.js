@@ -2,7 +2,7 @@
 import React from "react";
 import { fireEvent, within } from "@testing-library/react";
 
-import FetchingArtistList from "../FetchingArtistList";
+import { FetchingArtistList } from "../FetchingArtistList";
 import { TOKEN, ARTIST, ARTISTS } from "../../test/fixtures";
 import render from "../../test/render";
 
