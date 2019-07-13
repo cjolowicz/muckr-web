@@ -8,10 +8,14 @@ import {
   createUserSuccess,
   createUserFailure
 } from "./actions";
+import type { State } from "./types";
+
+const applyReducer = actions =>
+  actions.reduce(reducer, ((undefined: any): State));
 
 describe("user", () => {
   describe("initially", () => {
-    const state = reducer(undefined, noop());
+    const state = applyReducer([noop()]);
 
     it("has no user", () => {
       expect(user(state)).toBe(null);
@@ -19,7 +23,7 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_REQUEST", () => {
-    const state = reducer(undefined, createUserRequest("john", "secret"));
+    const state = applyReducer([createUserRequest("john", "secret")]);
 
     it("has no user", () => {
       expect(user(state)).toBe(null);
@@ -27,8 +31,10 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_SUCCESS", () => {
-    const stateBefore = reducer(undefined, createUserRequest("john", "secret"));
-    const state = reducer(stateBefore, createUserSuccess(USER));
+    const state = applyReducer([
+      createUserRequest("john", "secret"),
+      createUserSuccess(USER)
+    ]);
 
     it("sets user", () => {
       expect(user(state)).toEqual(USER);
@@ -36,8 +42,10 @@ describe("user", () => {
   });
 
   describe("CREATE_USER_FAILURE", () => {
-    const stateBefore = reducer(undefined, createUserRequest("john", "secret"));
-    const state = reducer(stateBefore, createUserFailure(GENERIC_ERROR));
+    const state = applyReducer([
+      createUserRequest("john", "secret"),
+      createUserFailure(GENERIC_ERROR)
+    ]);
 
     it("has no user", () => {
       expect(user(state)).toBe(null);
