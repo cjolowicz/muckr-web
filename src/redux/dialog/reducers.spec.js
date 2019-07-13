@@ -10,23 +10,26 @@ import {
 } from "./actions";
 import { noop } from "../noop/actions";
 import { ARTIST } from "../../utils/test/fixtures";
+import type { State } from "./types";
+
+const applyReducer = actions =>
+  actions.reduce(reducer, ((undefined: any): State));
 
 describe("dialog", () => {
-  const initialState = reducer(undefined, noop());
-
   describe("initial state", () => {
+    const state = applyReducer([noop()]);
+
     it("is closed", () => {
-      expect(type(initialState)).toBeNull();
+      expect(type(state)).toBeNull();
     });
 
     it("has no artist", () => {
-      expect(artist(initialState)).toEqual(NO_ARTIST);
+      expect(artist(state)).toEqual(NO_ARTIST);
     });
   });
 
   describe("openUpdateDialog", () => {
-    const action = openUpdateDialog(ARTIST);
-    const state = reducer(initialState, action);
+    const state = applyReducer([openUpdateDialog(ARTIST)]);
 
     it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
@@ -39,8 +42,7 @@ describe("dialog", () => {
 
   describe("updateDialog", () => {
     const action = updateDialog({ ...ARTIST, name: "foo" });
-    const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
-    const state = reducer(stateBefore, action);
+    const state = applyReducer([openUpdateDialog(ARTIST), action]);
 
     it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
@@ -52,9 +54,7 @@ describe("dialog", () => {
   });
 
   describe("closeDialog", () => {
-    const action = closeDialog();
-    const stateBefore = reducer(undefined, openUpdateDialog(ARTIST));
-    const state = reducer(stateBefore, action);
+    const state = applyReducer([openUpdateDialog(ARTIST), closeDialog()]);
 
     it("is closed", () => {
       expect(type(state)).toBe(null);
@@ -66,8 +66,7 @@ describe("dialog", () => {
   });
 
   describe("openCreateDialog", () => {
-    const action = openCreateDialog();
-    const state = reducer(initialState, action);
+    const state = applyReducer([openCreateDialog()]);
 
     it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_CREATE);
