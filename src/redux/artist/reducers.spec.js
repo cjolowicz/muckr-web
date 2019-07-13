@@ -88,7 +88,7 @@ describe("artists", () => {
 
   describe("removeArtistSuccess after fetch", () => {
     const { id } = ARTIST;
-    const stateBefore = artists(undefined, fetchArtistsSuccess([]));
+    const stateBefore = artists(undefined, fetchArtistsSuccess([ARTIST]));
     const state = artists(stateBefore, removeArtistSuccess(id));
 
     it("is not fetching", () => {
