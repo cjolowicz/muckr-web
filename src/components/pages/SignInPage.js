@@ -1,12 +1,17 @@
 // @flow
 import React from "react";
+import type { Location } from "react-router-dom";
 
 import SignInLayout from "../layouts/SignInLayout";
 import SignIn from "../user/SignIn";
 
-const SignInPage = () => (
+type Props = {
+  location: Location
+};
+
+const SignInPage = (props: Props) => (
   <SignInLayout>
-    <SignIn />
+    <SignIn {...props} />
   </SignInLayout>
 );
 
