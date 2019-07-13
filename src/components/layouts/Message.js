@@ -46,6 +46,7 @@ export const Message = ({ closeMessage, message }: Props) => {
       action={[
         <IconButton
           key="close"
+          aria-label="Close"
           color="inherit"
           className={classes.close}
           onClick={onClose}
