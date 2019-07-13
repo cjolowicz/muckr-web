@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.19.2] - 2019-07-13
+### Fixed
+- Fix crash on sign in page due to an undefined prop in `SignIn` component.
+
 ## [0.19.1] - 2019-07-13
 ### Changed
 - Complete test coverage.
@@ -644,7 +648,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.19.1...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.19.2...HEAD
+[0.19.2]: https://github.com/cjolowicz/muckr-web/compare/v0.19.1...v0.19.2
 [0.19.1]: https://github.com/cjolowicz/muckr-web/compare/v0.19.0...v0.19.1
 [0.19.0]: https://github.com/cjolowicz/muckr-web/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/cjolowicz/muckr-web/compare/v0.17.1...v0.18.0
