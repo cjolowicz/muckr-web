@@ -1,5 +1,5 @@
 // @flow
-import artists from "./reducers";
+import reducer from "./reducers";
 import { pending } from "./selectors";
 import {
   TOKEN,
@@ -21,115 +21,188 @@ import {
   fetchArtistsFailure
 } from "./actions";
 import { noop } from "../noop/actions";
+import type { State } from "./types";
 
-describe("artists", () => {
+const applyReducer = actions =>
+  actions.reduce(reducer, ((undefined: any): State));
+
+describe("reducer", () => {
   describe("initially", () => {
-    const state = artists(undefined, noop());
+    const state = applyReducer([noop()]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("fetchArtistsRequest", () => {
-    const state = artists(undefined, fetchArtistsRequest(TOKEN));
+    const state = applyReducer([fetchArtistsRequest(TOKEN)]);
 
-    it("is fetching", () => {
+    it("is pending", () => {
       expect(pending(state)).toBe(true);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("fetchArtistsSuccess", () => {
-    const stateBefore = artists(undefined, fetchArtistsRequest(TOKEN));
-    const state = artists(stateBefore, fetchArtistsSuccess(ARTISTS));
+    const state = applyReducer([
+      fetchArtistsRequest(TOKEN),
+      fetchArtistsSuccess(ARTISTS)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has ids", () => {
+      expect(state.ids).toEqual(ARTISTS.map(({ id }) => id));
     });
   });
 
   describe("fetchArtistsFailure", () => {
-    const stateBefore = artists(undefined, fetchArtistsRequest(TOKEN));
-    const state = artists(stateBefore, fetchArtistsFailure(GENERIC_ERROR));
+    const state = applyReducer([
+      fetchArtistsRequest(TOKEN),
+      fetchArtistsFailure(GENERIC_ERROR)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("createArtistSuccess", () => {
     const { name } = ARTIST;
-    const stateBefore = artists(undefined, createArtistRequest(TOKEN, name));
-    const state = artists(stateBefore, createArtistSuccess(ARTIST));
+    const state = applyReducer([
+      createArtistRequest(TOKEN, name),
+      createArtistSuccess(ARTIST)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has ids", () => {
+      expect(state.ids).toEqual([ARTIST.id]);
     });
   });
 
   describe("createArtistSuccess after fetch", () => {
-    const stateBefore = artists(undefined, fetchArtistsSuccess([]));
-    const state = artists(stateBefore, createArtistSuccess(ARTIST));
+    const state = applyReducer([
+      fetchArtistsSuccess([]),
+      createArtistSuccess(ARTIST)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has ids", () => {
+      expect(state.ids).toEqual([ARTIST.id]);
     });
   });
 
   describe("removeArtistSuccess", () => {
     const { id } = ARTIST;
-    const stateBefore = artists(undefined, removeArtistRequest(TOKEN, id));
-    const state = artists(stateBefore, removeArtistSuccess(id));
+    const state = applyReducer([
+      removeArtistRequest(TOKEN, id),
+      removeArtistSuccess(id)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("removeArtistSuccess after fetch", () => {
     const { id } = ARTIST;
-    const stateBefore = artists(undefined, fetchArtistsSuccess([ARTIST]));
-    const state = artists(stateBefore, removeArtistSuccess(id));
+    const state = applyReducer([
+      fetchArtistsSuccess([ARTIST]),
+      removeArtistSuccess(id)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("removeArtistFailure", () => {
     const { id } = ARTIST;
-    const stateBefore = artists(undefined, removeArtistRequest(TOKEN, id));
-    const state = artists(stateBefore, removeArtistFailure(GENERIC_ERROR));
+    const state = applyReducer([
+      fetchArtistsSuccess([ARTIST]),
+      removeArtistRequest(TOKEN, id),
+      removeArtistFailure(GENERIC_ERROR)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has ids", () => {
+      expect(state.ids).toEqual([ARTIST.id]);
     });
   });
 
   describe("updateArtistSuccess", () => {
-    const stateBefore = artists(undefined, updateArtistRequest(TOKEN, ARTIST));
-    const state = artists(stateBefore, updateArtistSuccess(ARTIST));
+    const state = applyReducer([
+      updateArtistRequest(TOKEN, ARTIST),
+      updateArtistSuccess(ARTIST)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 
   describe("updateArtistSuccess after fetch", () => {
-    const stateBefore = artists(undefined, fetchArtistsSuccess(ARTISTS));
-    const state = artists(stateBefore, updateArtistSuccess(ARTIST));
+    const state = applyReducer([
+      fetchArtistsSuccess(ARTISTS),
+      updateArtistSuccess(ARTIST)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has ids", () => {
+      expect(state.ids).toEqual(ARTISTS.map(({ id }) => id));
     });
   });
 
   describe("updateArtistFailure", () => {
-    const stateBefore = artists(undefined, updateArtistRequest(TOKEN, ARTIST));
-    const state = artists(stateBefore, updateArtistFailure(GENERIC_ERROR));
+    const state = applyReducer([
+      updateArtistRequest(TOKEN, ARTIST),
+      updateArtistFailure(GENERIC_ERROR)
+    ]);
 
-    it("is not fetching", () => {
+    it("is not pending", () => {
       expect(pending(state)).toBe(false);
+    });
+
+    it("has no ids", () => {
+      expect(state.ids).toEqual([]);
     });
   });
 });
