@@ -6,6 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.17.1] - 2019-07-13
+### Fixed
+- Bump lodash from 4.17.11 to 4.17.14
+
+### Changed
+- Update dependencies:
+  - @material-ui/core 4.2.0
+  - @material-ui/styles 4.2.0
+  - redux 4.0.4
+  - universal-cookie 4.0.2
+- Update dev dependencies:
+  - @babel/core 7.5.4
+  - @babel/plugin-proposal-object-rest-spread 7.5.4
+  - @babel/preset-env 7.5.4
+  - @testing-library/react 8.0.5
+  - coveralls 3.0.5
+  - webpack 4.35.3
+
 ## [0.17.0] - 2019-07-05
 ### Changed
 - Refactor artist dialog.
@@ -494,7 +512,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.17.1...HEAD
+[0.17.1]: https://github.com/cjolowicz/muckr-web/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/cjolowicz/muckr-web/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/cjolowicz/muckr-web/compare/v0.15.1...v0.16.0
 [0.15.1]: https://github.com/cjolowicz/muckr-web/compare/v0.15.0...v0.15.1
