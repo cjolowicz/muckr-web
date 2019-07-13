@@ -6,6 +6,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.19.0] - 2019-07-13
+### Added
+- Add directory `components/app` for top-level components.
+- Add directory `components/pages` for page components.
+- Add directory `components/layouts` for layout components and their
+  constituents.
+- Add directory `components/hooks` for React hooks.
+- Add directory `components/FEATURE` for each feature:
+  - `artist`
+  - `user`
+- Add directory `components/utils` for helper components.
+- Add components:
+  - `ArtistPage`
+  - `SignInLayout`
+  - `SignUpLayout`
+  - `SignUpPage`
+  - `SignInPage`
+  - `WelcomePage`
+  - `Routes`
+
+### Changed
+- Organize components in subdirectories (see above).
+- Collocate container and component in the same module.
+  - Pure components are exported by name.
+  - Connected components are the default export.
+- Collocate tests with subjects using `*.spec.js` suffix.
+- Disable eslint rule
+  [import/no-named-as-default](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)
+  in component files.
+- Rename components:
+  - `server/ServerRoot` → `components/app/Server`
+  - `client/ClientRoot` → `components/app/Client`
+  - `Index` → `pages/FrontPage`
+- Move modules:
+  - `client/index` → `client`
+- Move directories:
+  - `test` → `utils/test`
+  - `hooks` → `components/hooks`
+
+### Removed
+- Remove subdirectory `containers` and its modules.
+- Remove `__tests__` subdirectories.
+
 ## [0.18.0] - 2019-07-13
 ### Added
 - Add `redux` directory.
@@ -596,7 +639,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.18.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.19.0...HEAD
+[0.19.0]: https://github.com/cjolowicz/muckr-web/compare/v0.18.0...v0.19.0
 [0.18.0]: https://github.com/cjolowicz/muckr-web/compare/v0.17.1...v0.18.0
 [0.17.1]: https://github.com/cjolowicz/muckr-web/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/cjolowicz/muckr-web/compare/v0.16.0...v0.17.0
