@@ -14,10 +14,14 @@ import {
   fetchTokenFailure,
   clearToken
 } from "./actions";
+import type { State } from "./types";
+
+const applyReducer = actions =>
+  actions.reduce(reducer, ((undefined: any): State));
 
 describe("token", () => {
   describe("initially", () => {
-    const state = reducer(undefined, noop());
+    const state = applyReducer([noop()]);
 
     it("has no token", () => {
       expect(token(state)).toBe(null);
@@ -25,7 +29,7 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_REQUEST", () => {
-    const state = reducer(undefined, fetchTokenRequest("john", "secret"));
+    const state = applyReducer([fetchTokenRequest("john", "secret")]);
 
     it("has no token", () => {
       expect(token(state)).toBe(null);
@@ -33,8 +37,10 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_SUCCESS", () => {
-    const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
-    const state = reducer(stateBefore, fetchTokenSuccess(TOKEN));
+    const state = applyReducer([
+      fetchTokenRequest("john", "secret"),
+      fetchTokenSuccess(TOKEN)
+    ]);
 
     it("sets token", () => {
       expect(token(state)).toEqual(TOKEN);
@@ -42,8 +48,10 @@ describe("token", () => {
   });
 
   describe("FETCH_TOKEN_FAILURE", () => {
-    const stateBefore = reducer(undefined, fetchTokenRequest("john", "secret"));
-    const state = reducer(stateBefore, fetchTokenFailure(GENERIC_ERROR));
+    const state = applyReducer([
+      fetchTokenRequest("john", "secret"),
+      fetchTokenFailure(GENERIC_ERROR)
+    ]);
 
     it("has no token", () => {
       expect(token(state)).toBe(null);
@@ -51,10 +59,11 @@ describe("token", () => {
   });
 
   describe("CLEAR_TOKEN", () => {
-    let state;
-    state = reducer(undefined, fetchTokenRequest("john", "secret"));
-    state = reducer(state, fetchTokenSuccess(TOKEN));
-    state = reducer(state, clearToken());
+    const state = applyReducer([
+      fetchTokenRequest("john", "secret"),
+      fetchTokenSuccess(TOKEN),
+      clearToken()
+    ]);
 
     it("clears token", () => {
       expect(token(state)).toBeNull();
@@ -63,9 +72,10 @@ describe("token", () => {
 
   describe("FETCH_ARTISTS_FAILURE", () => {
     describe("authorization failure", () => {
-      let state;
-      state = reducer(state, fetchTokenSuccess(TOKEN));
-      state = reducer(state, fetchArtistsFailure(UNAUTHORIZED_ERROR));
+      const state = applyReducer([
+        fetchTokenSuccess(TOKEN),
+        fetchArtistsFailure(UNAUTHORIZED_ERROR)
+      ]);
 
       it("clears token", () => {
         expect(token(state)).toBeNull();
@@ -73,9 +83,10 @@ describe("token", () => {
     });
 
     describe("generic error", () => {
-      let state;
-      state = reducer(state, fetchTokenSuccess(TOKEN));
-      state = reducer(state, fetchArtistsFailure(GENERIC_ERROR));
+      const state = applyReducer([
+        fetchTokenSuccess(TOKEN),
+        fetchArtistsFailure(GENERIC_ERROR)
+      ]);
 
       it("preserves token", () => {
         expect(token(state)).toEqual(TOKEN);
