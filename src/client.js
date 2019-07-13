@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Cookies from "universal-cookie";
 
-import createStore from "./redux/store";
+import createStore from "./redux/store/createStore";
 import { just } from "./utils";
 import { APP_ROOT } from "./constants";
 import Client from "./components/app/Client";

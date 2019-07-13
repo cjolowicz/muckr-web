@@ -1,7 +1,7 @@
 // @flow
 import Cookies from "universal-cookie";
 
-import createStore from ".";
+import createStore from "./createStore";
 import rootReducer from "../reducers";
 import { message } from "../selectors";
 import { openMessage } from "../message/actions";

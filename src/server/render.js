@@ -6,7 +6,7 @@ import { ServerStyleSheets } from "@material-ui/styles";
 
 import Server from "../components/app/Server";
 import generatePage from "./generatePage";
-import createStore from "../redux/store";
+import createStore from "../redux/store/createStore";
 
 type Request = express$Request & {
   universalCookies: Cookies
