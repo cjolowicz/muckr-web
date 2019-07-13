@@ -6,6 +6,90 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.18.0] - 2019-07-13
+### Added
+- Add `redux` directory.
+- Add types (in `redux/types`):
+  - `Store`
+  - `StoreCreator`
+  - `Dispatch`
+- Add function `createStore` (in `redux/store`).
+- Add module `api/types`.
+- Add dependencies:
+  - reselect 4.0.0
+ 
+### Changed
+- Organize Redux modules by feature, under `redux`:
+  - `artist`
+  - `dialog`
+  - `message`
+  - `navigation`
+  - `noop`
+  - `token`
+  - `user`
+- Organize each feature subdirectory by type:
+  - `actions`
+  - `constants`
+  - `operations`
+  - `reducers`
+  - `selectors`
+  - `types`
+- Organize top-level modules in `redux`:
+  - `reducers`
+  - `selectors`
+  - `types`
+  - `store` (subdirectory)
+- Rename selectors:
+  - `getDialogArtist` → `dialogArtist`
+  - `getDialogType` → `dialogType`
+  - `getMessage` → `message`
+  - `getToken` → `token`
+  - `getUser` → `user`
+  - `isFetchingArtists` → `artistsPending`
+  - `isNavigationOpen` → `navigationOpen`
+- Rename reducers:
+  - `artist.isFetching` → `artist.pending`
+  - `dialog.open` → `dialog.type`
+- Rename props:
+  - `isLoading` → `pending`, in `ArtistList`
+  - `onClose` → `closeNavigation`, in `Navigation`
+  - `onMenuClick` → `openNavigation`, in `MenuButton`
+  - `onSubmit` → `createUser`, in `SignUp`
+  - `onSubmit` → `fetchToken`, in `SignIn`
+- Rename types:
+  - `api.FetchError` → `api.Error`
+  - `foo.FooAction` → `foo.Action`.
+- Normalize action payloads, introducing a `payload` attribute.
+- Minor changes:
+  - Use `createSelector` for selectors.
+  - Use `createStructuredSelector` for containers.
+  - Use `State` in reducer types, instead of generic `Object`.
+  - Use arrow functions for reducers.
+  - Rename private selectors to omit prefixes.
+  - Move event handler `onClose` to component in `Message`
+
+### Removed
+- Remove constant `initialState` from reducer modules.
+- Remove selectors:
+  - `getArtistsError`
+  - `getTokenError`
+  - `getUserError`
+  - `isCreateDialogOpen`
+  - `isCreatingUser`
+  - `isFetchingToken`
+  - `isMessageOpen`
+  - `isUpdateDialogOpen`
+- Remove reducers:
+  - `artist.error`
+  - `message.open`
+  - `user.error`
+  - `user.isCreating`
+- Remove props:
+  - `open` in `Message`
+ 
+### Fixed
+- Fix missing user actions in `Action` type.
+
 ## [0.17.1] - 2019-07-13
 ### Fixed
 - Bump lodash from 4.17.11 to 4.17.14
@@ -512,7 +596,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.17.1...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.18.0...HEAD
+[0.18.0]: https://github.com/cjolowicz/muckr-web/compare/v0.17.1...v0.18.0
 [0.17.1]: https://github.com/cjolowicz/muckr-web/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/cjolowicz/muckr-web/compare/v0.16.0...v0.17.0
 [0.16.0]: https://github.com/cjolowicz/muckr-web/compare/v0.15.1...v0.16.0
