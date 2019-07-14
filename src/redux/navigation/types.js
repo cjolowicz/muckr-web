@@ -13,6 +13,4 @@ export type CloseNavigationAction = {
 
 export type Action = OpenNavigationAction | CloseNavigationAction;
 
-export type State = {
-  open: boolean
-};
+export type State = boolean;
