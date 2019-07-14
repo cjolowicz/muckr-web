@@ -10,7 +10,7 @@ import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
 import type { Action, State } from "../types";
 import { isUnauthorized } from "../../api/error";
 
-const token = (state = null, action: Action) => {
+const token = (state: ?string = null, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
       return action.payload.token;
