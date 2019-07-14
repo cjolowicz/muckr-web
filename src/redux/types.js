@@ -9,6 +9,7 @@ import * as token from "./token/types";
 import * as artist from "./artist/types";
 import * as user from "./user/types";
 import * as entities from "./entities/types";
+import * as spinner from "./spinner/types";
 
 export type Action =
   | noop.Action
@@ -26,7 +27,8 @@ export type State = {
   token: token.State,
   user: user.State,
   artists: artist.State,
-  entities: entities.State
+  entities: entities.State,
+  spinner: spinner.State
 };
 
 export type Store = redux.Store<State, Action>;
