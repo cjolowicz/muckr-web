@@ -35,6 +35,4 @@ export type Action =
   | FetchTokenFailureAction
   | ClearTokenAction;
 
-export type State = {
-  token: ?string
-};
+export type State = ?string;
