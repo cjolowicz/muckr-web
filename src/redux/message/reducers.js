@@ -43,7 +43,7 @@ export const formatErrorMessage = (
   return prefix ? `${prefix}: ${errorMessage}` : errorMessage;
 };
 
-const message = (state = null, action) => {
+const message = (state: ?string = null, action: Action) => {
   switch (action.type) {
     case CREATE_USER_FAILURE:
     case CREATE_ARTIST_FAILURE:
