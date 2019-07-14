@@ -1,8 +1,6 @@
 // @flow
-import { combineReducers } from "redux";
-
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "./constants";
-import type { Action, State } from "../types";
+import type { Action } from "../types";
 
 const user = (state: ?string = null, action: Action) => {
   switch (action.type) {
@@ -15,4 +13,4 @@ const user = (state: ?string = null, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ user });
+export default user;

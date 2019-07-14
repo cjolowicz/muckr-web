@@ -29,6 +29,4 @@ export type Action =
   | CreateUserSuccessAction
   | CreateUserFailureAction;
 
-export type State = {
-  user: ?string
-};
+export type State = ?string;

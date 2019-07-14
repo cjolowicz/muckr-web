@@ -1,6 +1,5 @@
 // @flow
 import reducer from "./reducers";
-import { user } from "./selectors";
 import { USER, GENERIC_ERROR } from "../../utils/test/fixtures";
 import { noop } from "../noop/actions";
 import {
@@ -18,7 +17,7 @@ describe("user", () => {
     const state = applyReducer([noop()]);
 
     it("has no user", () => {
-      expect(user(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 
@@ -26,7 +25,7 @@ describe("user", () => {
     const state = applyReducer([createUserRequest("john", "secret")]);
 
     it("has no user", () => {
-      expect(user(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 
@@ -37,7 +36,7 @@ describe("user", () => {
     ]);
 
     it("sets user", () => {
-      expect(user(state)).toEqual(USER);
+      expect(state).toEqual(USER);
     });
   });
 
@@ -48,7 +47,7 @@ describe("user", () => {
     ]);
 
     it("has no user", () => {
-      expect(user(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 });

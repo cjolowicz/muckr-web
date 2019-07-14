@@ -2,7 +2,6 @@
 import { createSelector } from "reselect";
 
 import * as dialog from "./dialog/selectors";
-import * as user$ from "./user/selectors";
 import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
 import type { State } from "./types";
@@ -17,7 +16,7 @@ export const navigationOpen = (state: State) => state.navigation;
 
 export const token = (state: State) => state.token;
 
-export const user = (state: State) => user$.user(state.user);
+export const user = (state: State) => state.user;
 
 export const artistsPending = (state: State) => artist.pending(state.artists);
 
