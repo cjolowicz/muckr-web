@@ -9,14 +9,16 @@ import {
   DIALOG_TYPE_CREATE,
   DIALOG_TYPE_UPDATE
 } from "./constants";
+import type { DialogType } from "./types";
 import type { Action, State } from "../types";
+import type { Artist } from "../../api/types";
 
 export const NO_ARTIST = {
   id: -1,
   name: ""
 };
 
-const type = (state = null, action) => {
+const type = (state: ?DialogType = null, action: Action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
@@ -29,7 +31,7 @@ const type = (state = null, action) => {
   }
 };
 
-const artist = (state = NO_ARTIST, action) => {
+const artist = (state: Artist = NO_ARTIST, action: Action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
     case CLOSE_DIALOG:
