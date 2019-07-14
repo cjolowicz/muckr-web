@@ -1,6 +1,4 @@
 // @flow
-import { combineReducers } from "redux";
-
 import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./constants";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/constants";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../user/constants";
@@ -14,7 +12,7 @@ import {
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
 } from "../artist/constants";
-import type { Action, State } from "../types";
+import type { Action } from "../types";
 
 const formatFailedAction = actionType => {
   switch (actionType) {
@@ -71,4 +69,4 @@ const message = (state: ?string = null, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ message });
+export default message;

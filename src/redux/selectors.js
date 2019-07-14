@@ -2,7 +2,6 @@
 import { createSelector } from "reselect";
 
 import * as dialog from "./dialog/selectors";
-import * as message$ from "./message/selectors";
 import * as navigation from "./navigation/selectors";
 import * as token$ from "./token/selectors";
 import * as user$ from "./user/selectors";
@@ -14,7 +13,7 @@ export const dialogArtist = (state: State) => dialog.artist(state.dialog);
 
 export const dialogType = (state: State) => dialog.type(state.dialog);
 
-export const message = (state: State) => message$.message(state.message);
+export const message = (state: State) => state.message;
 
 export const navigationOpen = (state: State) =>
   navigation.open(state.navigation);

@@ -15,6 +15,4 @@ export type CloseMessageAction = {
 
 export type Action = OpenMessageAction | CloseMessageAction;
 
-export type State = {
-  message: ?string
-};
+export type State = ?string;
