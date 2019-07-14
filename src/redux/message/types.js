@@ -16,6 +16,5 @@ export type CloseMessageAction = {
 export type Action = OpenMessageAction | CloseMessageAction;
 
 export type State = {
-  open: boolean,
   message: ?string
 };
