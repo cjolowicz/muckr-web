@@ -3,7 +3,8 @@ import * as React from "react";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
 
-import { Header } from "./Layout";
+import AppBar from "./AppBar";
+import Navigation from "./Navigation";
 import Message from "./Message";
 
 type Props = {
@@ -34,7 +35,8 @@ const SignUpLayout = ({ children }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Header />
+      <AppBar />
+      <Navigation />
       <main className={classes.main}>
         <Paper className={classes.paper}>{children}</Paper>
       </main>
