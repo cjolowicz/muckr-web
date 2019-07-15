@@ -8,8 +8,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import { makeStyles } from "@material-ui/styles";
-import AddIcon from "@material-ui/icons/Add";
-import Fab from "@material-ui/core/Fab";
 
 import * as api from "../../api/types";
 
@@ -17,7 +15,6 @@ export type Props = {
   token: ?string,
   artists: Array<api.Artist>,
   removeArtist: Function,
-  openCreateDialog: Function,
   openUpdateDialog: Function
 };
 
@@ -30,14 +27,6 @@ const useStyles = makeStyles({
     "&:hover $delete": {
       visibility: "visible"
     }
-  },
-  fab: {
-    margin: 0,
-    top: "auto",
-    right: 20,
-    bottom: 20,
-    left: "auto",
-    position: "fixed"
   }
 });
 
@@ -45,50 +34,35 @@ const ArtistList = ({
   token,
   artists,
   removeArtist,
-  openCreateDialog,
   openUpdateDialog
 }: Props) => {
   const classes = useStyles();
   return (
-    <>
-      <List>
-        {artists.map(artist => (
-          <ListItem
-            key={artist.id}
-            button
-            classes={{ container: classes.item }}
-          >
-            <ListItemText primary={artist.name} />
-            <ListItemSecondaryAction>
-              <IconButton
-                aria-label="Edit"
-                title="Edit"
-                className={classes.delete}
-                onClick={() => openUpdateDialog(artist)}
-              >
-                <EditIcon />
-              </IconButton>
-              <IconButton
-                aria-label="Delete"
-                title="Delete"
-                className={classes.delete}
-                onClick={() => removeArtist(token, artist.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-        ))}
-      </List>
-      <Fab
-        title="Add"
-        color="primary"
-        onClick={openCreateDialog}
-        className={classes.fab}
-      >
-        <AddIcon />
-      </Fab>
-    </>
+    <List>
+      {artists.map(artist => (
+        <ListItem key={artist.id} button classes={{ container: classes.item }}>
+          <ListItemText primary={artist.name} />
+          <ListItemSecondaryAction>
+            <IconButton
+              aria-label="Edit"
+              title="Edit"
+              className={classes.delete}
+              onClick={() => openUpdateDialog(artist)}
+            >
+              <EditIcon />
+            </IconButton>
+            <IconButton
+              aria-label="Delete"
+              title="Delete"
+              className={classes.delete}
+              onClick={() => removeArtist(token, artist.id)}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
+      ))}
+    </List>
   );
 };
 

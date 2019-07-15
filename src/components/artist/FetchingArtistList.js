@@ -10,7 +10,7 @@ import {
   createArtist,
   removeArtist
 } from "../../redux/artist/operations";
-import { openCreateDialog, openUpdateDialog } from "../../redux/dialog/actions";
+import { openUpdateDialog } from "../../redux/dialog/actions";
 import { artists, token } from "../../redux/selectors";
 
 type Props = BaseProps & {
@@ -40,7 +40,6 @@ export default connect(
     fetchArtists,
     createArtist,
     removeArtist,
-    openCreateDialog,
     openUpdateDialog
   }
 )(FetchingArtistList);
