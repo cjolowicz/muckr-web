@@ -36,7 +36,7 @@ describe("user", () => {
     ]);
 
     it("sets user", () => {
-      expect(state).toEqual(USER);
+      expect(state).toEqual(USER.username);
     });
   });
 
