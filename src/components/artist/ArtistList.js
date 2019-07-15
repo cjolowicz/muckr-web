@@ -7,7 +7,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
@@ -18,7 +17,6 @@ import ArtistDialog from "./ArtistDialog";
 export type Props = {
   token: ?string,
   artists: Array<api.Artist>,
-  pending: boolean,
   removeArtist: Function,
   openCreateDialog: Function,
   openUpdateDialog: Function
@@ -47,7 +45,6 @@ const useStyles = makeStyles({
 const ArtistList = ({
   token,
   artists,
-  pending,
   removeArtist,
   openCreateDialog,
   openUpdateDialog
@@ -55,7 +52,6 @@ const ArtistList = ({
   const classes = useStyles();
   return (
     <>
-      {pending ? <Typography>Loading...</Typography> : null}
       <List>
         {artists.map(artist => (
           <ListItem

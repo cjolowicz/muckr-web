@@ -11,7 +11,7 @@ import {
   removeArtist
 } from "../../redux/artist/operations";
 import { openCreateDialog, openUpdateDialog } from "../../redux/dialog/actions";
-import { artists, artistsPending, token } from "../../redux/selectors";
+import { artists, token } from "../../redux/selectors";
 
 type Props = BaseProps & {
   token: ?string,
@@ -34,7 +34,6 @@ export const FetchingArtistList = (props: Props) => {
 export default connect(
   createStructuredSelector({
     artists,
-    pending: artistsPending,
     token
   }),
   {
