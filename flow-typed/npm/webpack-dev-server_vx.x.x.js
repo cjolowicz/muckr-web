@@ -1,4 +1,4 @@
-// flow-typed signature: 9c7f8918d99d72d9b79a0d3d7e6345ee
+// flow-typed signature: 181de12963cff579db44c9a55b81a15e
 // flow-typed version: <<STUB>>/webpack-dev-server_v^3.7.2/flow_v0.102.0
 
 /**
@@ -46,7 +46,7 @@ declare module 'webpack-dev-server/client/index.bundle' {
   declare module.exports: any;
 }
 
-declare module 'webpack-dev-server/client/index' {
+declare module 'webpack-dev-server/client' {
   declare module.exports: any;
 }
 
@@ -201,8 +201,11 @@ declare module 'webpack-dev-server/client/clients/WebsocketClient.js' {
 declare module 'webpack-dev-server/client/index.bundle.js' {
   declare module.exports: $Exports<'webpack-dev-server/client/index.bundle'>;
 }
+declare module 'webpack-dev-server/client/index' {
+  declare module.exports: $Exports<'webpack-dev-server/client'>;
+}
 declare module 'webpack-dev-server/client/index.js' {
-  declare module.exports: $Exports<'webpack-dev-server/client/index'>;
+  declare module.exports: $Exports<'webpack-dev-server/client'>;
 }
 declare module 'webpack-dev-server/client/live.bundle.js' {
   declare module.exports: $Exports<'webpack-dev-server/client/live.bundle'>;

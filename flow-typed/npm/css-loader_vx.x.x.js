@@ -1,4 +1,4 @@
-// flow-typed signature: accf34e934b20c99fd8a1112f735a4d3
+// flow-typed signature: b9e317dc05199157d2edd014c1a35f1f
 // flow-typed version: <<STUB>>/css-loader_v^3.0.0/flow_v0.102.0
 
 /**
@@ -30,11 +30,11 @@ declare module 'css-loader/dist/CssSyntaxError' {
   declare module.exports: any;
 }
 
-declare module 'css-loader/dist/index' {
+declare module 'css-loader/dist' {
   declare module.exports: any;
 }
 
-declare module 'css-loader/dist/plugins/index' {
+declare module 'css-loader/dist/plugins' {
   declare module.exports: any;
 }
 
@@ -73,11 +73,17 @@ declare module 'css-loader/dist/cjs.js' {
 declare module 'css-loader/dist/CssSyntaxError.js' {
   declare module.exports: $Exports<'css-loader/dist/CssSyntaxError'>;
 }
+declare module 'css-loader/dist/index' {
+  declare module.exports: $Exports<'css-loader/dist'>;
+}
 declare module 'css-loader/dist/index.js' {
-  declare module.exports: $Exports<'css-loader/dist/index'>;
+  declare module.exports: $Exports<'css-loader/dist'>;
+}
+declare module 'css-loader/dist/plugins/index' {
+  declare module.exports: $Exports<'css-loader/dist/plugins'>;
 }
 declare module 'css-loader/dist/plugins/index.js' {
-  declare module.exports: $Exports<'css-loader/dist/plugins/index'>;
+  declare module.exports: $Exports<'css-loader/dist/plugins'>;
 }
 declare module 'css-loader/dist/plugins/postcss-icss-parser.js' {
   declare module.exports: $Exports<'css-loader/dist/plugins/postcss-icss-parser'>;

@@ -1,4 +1,4 @@
-// flow-typed signature: dbb9c59ae1e12d8fdd7796441790bd8d
+// flow-typed signature: cb92a4ca5068293667334dcbda8ce870
 // flow-typed version: <<STUB>>/universal-cookie_v^4.0.2/flow_v0.102.0
 
 /**
@@ -26,7 +26,7 @@ declare module 'universal-cookie/cjs/Cookies' {
   declare module.exports: any;
 }
 
-declare module 'universal-cookie/cjs/index' {
+declare module 'universal-cookie/cjs' {
   declare module.exports: any;
 }
 
@@ -42,7 +42,7 @@ declare module 'universal-cookie/es6/Cookies' {
   declare module.exports: any;
 }
 
-declare module 'universal-cookie/es6/index' {
+declare module 'universal-cookie/es6' {
   declare module.exports: any;
 }
 
@@ -58,7 +58,7 @@ declare module 'universal-cookie/lib/Cookies' {
   declare module.exports: any;
 }
 
-declare module 'universal-cookie/lib/index' {
+declare module 'universal-cookie/lib' {
   declare module.exports: any;
 }
 
@@ -82,8 +82,11 @@ declare module 'universal-cookie/umd/universalCookie.min' {
 declare module 'universal-cookie/cjs/Cookies.js' {
   declare module.exports: $Exports<'universal-cookie/cjs/Cookies'>;
 }
+declare module 'universal-cookie/cjs/index' {
+  declare module.exports: $Exports<'universal-cookie/cjs'>;
+}
 declare module 'universal-cookie/cjs/index.js' {
-  declare module.exports: $Exports<'universal-cookie/cjs/index'>;
+  declare module.exports: $Exports<'universal-cookie/cjs'>;
 }
 declare module 'universal-cookie/cjs/types.js' {
   declare module.exports: $Exports<'universal-cookie/cjs/types'>;
@@ -94,8 +97,11 @@ declare module 'universal-cookie/cjs/utils.js' {
 declare module 'universal-cookie/es6/Cookies.js' {
   declare module.exports: $Exports<'universal-cookie/es6/Cookies'>;
 }
+declare module 'universal-cookie/es6/index' {
+  declare module.exports: $Exports<'universal-cookie/es6'>;
+}
 declare module 'universal-cookie/es6/index.js' {
-  declare module.exports: $Exports<'universal-cookie/es6/index'>;
+  declare module.exports: $Exports<'universal-cookie/es6'>;
 }
 declare module 'universal-cookie/es6/types.js' {
   declare module.exports: $Exports<'universal-cookie/es6/types'>;
@@ -106,8 +112,11 @@ declare module 'universal-cookie/es6/utils.js' {
 declare module 'universal-cookie/lib/Cookies.js' {
   declare module.exports: $Exports<'universal-cookie/lib/Cookies'>;
 }
+declare module 'universal-cookie/lib/index' {
+  declare module.exports: $Exports<'universal-cookie/lib'>;
+}
 declare module 'universal-cookie/lib/index.js' {
-  declare module.exports: $Exports<'universal-cookie/lib/index'>;
+  declare module.exports: $Exports<'universal-cookie/lib'>;
 }
 declare module 'universal-cookie/lib/types.js' {
   declare module.exports: $Exports<'universal-cookie/lib/types'>;

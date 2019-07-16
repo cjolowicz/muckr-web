@@ -1,4 +1,4 @@
-// flow-typed signature: 5a5c10c7dcd4bc715021e4d8abbbc347
+// flow-typed signature: 1030608bde0f773ec9b67c0e2b941618
 // flow-typed version: <<STUB>>/coveralls_v^3.0.5/flow_v0.102.0
 
 /**
@@ -26,7 +26,7 @@ declare module 'coveralls/bin/coveralls' {
   declare module.exports: any;
 }
 
-declare module 'coveralls/fixtures/lib/index' {
+declare module 'coveralls/fixtures/lib' {
   declare module.exports: any;
 }
 
@@ -90,8 +90,11 @@ declare module 'coveralls/test/sendToCoveralls' {
 declare module 'coveralls/bin/coveralls.js' {
   declare module.exports: $Exports<'coveralls/bin/coveralls'>;
 }
+declare module 'coveralls/fixtures/lib/index' {
+  declare module.exports: $Exports<'coveralls/fixtures/lib'>;
+}
 declare module 'coveralls/fixtures/lib/index.js' {
-  declare module.exports: $Exports<'coveralls/fixtures/lib/index'>;
+  declare module.exports: $Exports<'coveralls/fixtures/lib'>;
 }
 declare module 'coveralls/index' {
   declare module.exports: $Exports<'coveralls'>;

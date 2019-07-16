@@ -1,4 +1,4 @@
-// flow-typed signature: 1c4c92b00972faec7265f325e13f602d
+// flow-typed signature: 3e5760aaec85ee0193ec4aff5d563d1d
 // flow-typed version: <<STUB>>/yarn-run-all_v^3.1.1/flow_v0.102.0
 
 /**
@@ -38,7 +38,7 @@ declare module 'yarn-run-all/bin/npm-run-all/help' {
   declare module.exports: any;
 }
 
-declare module 'yarn-run-all/bin/npm-run-all/index' {
+declare module 'yarn-run-all/bin/npm-run-all' {
   declare module.exports: any;
 }
 
@@ -50,7 +50,7 @@ declare module 'yarn-run-all/bin/run-p/help' {
   declare module.exports: any;
 }
 
-declare module 'yarn-run-all/bin/run-p/index' {
+declare module 'yarn-run-all/bin/run-p' {
   declare module.exports: any;
 }
 
@@ -62,7 +62,7 @@ declare module 'yarn-run-all/bin/run-s/help' {
   declare module.exports: any;
 }
 
-declare module 'yarn-run-all/bin/run-s/index' {
+declare module 'yarn-run-all/bin/run-s' {
   declare module.exports: any;
 }
 
@@ -78,7 +78,7 @@ declare module 'yarn-run-all/lib/create-prefix-transform-stream' {
   declare module.exports: any;
 }
 
-declare module 'yarn-run-all/lib/index' {
+declare module 'yarn-run-all/lib' {
   declare module.exports: any;
 }
 
@@ -131,8 +131,11 @@ declare module 'yarn-run-all/bin/common/version.js' {
 declare module 'yarn-run-all/bin/npm-run-all/help.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/npm-run-all/help'>;
 }
+declare module 'yarn-run-all/bin/npm-run-all/index' {
+  declare module.exports: $Exports<'yarn-run-all/bin/npm-run-all'>;
+}
 declare module 'yarn-run-all/bin/npm-run-all/index.js' {
-  declare module.exports: $Exports<'yarn-run-all/bin/npm-run-all/index'>;
+  declare module.exports: $Exports<'yarn-run-all/bin/npm-run-all'>;
 }
 declare module 'yarn-run-all/bin/npm-run-all/main.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/npm-run-all/main'>;
@@ -140,8 +143,11 @@ declare module 'yarn-run-all/bin/npm-run-all/main.js' {
 declare module 'yarn-run-all/bin/run-p/help.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/run-p/help'>;
 }
+declare module 'yarn-run-all/bin/run-p/index' {
+  declare module.exports: $Exports<'yarn-run-all/bin/run-p'>;
+}
 declare module 'yarn-run-all/bin/run-p/index.js' {
-  declare module.exports: $Exports<'yarn-run-all/bin/run-p/index'>;
+  declare module.exports: $Exports<'yarn-run-all/bin/run-p'>;
 }
 declare module 'yarn-run-all/bin/run-p/main.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/run-p/main'>;
@@ -149,8 +155,11 @@ declare module 'yarn-run-all/bin/run-p/main.js' {
 declare module 'yarn-run-all/bin/run-s/help.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/run-s/help'>;
 }
+declare module 'yarn-run-all/bin/run-s/index' {
+  declare module.exports: $Exports<'yarn-run-all/bin/run-s'>;
+}
 declare module 'yarn-run-all/bin/run-s/index.js' {
-  declare module.exports: $Exports<'yarn-run-all/bin/run-s/index'>;
+  declare module.exports: $Exports<'yarn-run-all/bin/run-s'>;
 }
 declare module 'yarn-run-all/bin/run-s/main.js' {
   declare module.exports: $Exports<'yarn-run-all/bin/run-s/main'>;
@@ -161,8 +170,11 @@ declare module 'yarn-run-all/lib/create-header.js' {
 declare module 'yarn-run-all/lib/create-prefix-transform-stream.js' {
   declare module.exports: $Exports<'yarn-run-all/lib/create-prefix-transform-stream'>;
 }
+declare module 'yarn-run-all/lib/index' {
+  declare module.exports: $Exports<'yarn-run-all/lib'>;
+}
 declare module 'yarn-run-all/lib/index.js' {
-  declare module.exports: $Exports<'yarn-run-all/lib/index'>;
+  declare module.exports: $Exports<'yarn-run-all/lib'>;
 }
 declare module 'yarn-run-all/lib/match-tasks.js' {
   declare module.exports: $Exports<'yarn-run-all/lib/match-tasks'>;
