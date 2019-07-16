@@ -33,13 +33,13 @@ const useStyles = makeStyles(theme => ({
 const SignUpLayout = ({ children }: Props) => {
   const classes = useStyles();
   return (
-    <main className={classes.main}>
-      <Paper className={classes.paper}>
-        <Header />
-        {children}
-        <Message />
-      </Paper>
-    </main>
+    <>
+      <Header />
+      <main className={classes.main}>
+        <Paper className={classes.paper}>{children}</Paper>
+      </main>
+      <Message />
+    </>
   );
 };
 
