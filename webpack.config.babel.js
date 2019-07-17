@@ -20,7 +20,7 @@ export default ({ production }: Env) => ({
       }
     ]
   },
-  devtool: production ? "source-map" : "eval",
+  devtool: production ? "source-map" : "eval-source-map",
   devServer: {
     port: 7000
   },
