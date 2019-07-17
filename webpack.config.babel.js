@@ -6,7 +6,7 @@ export default (env: Object) => ({
   output: {
     filename: "js/bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: env.production ? "/static" : "http://localhost:7000/dist"
+    publicPath: env.production ? "/static/" : "http://localhost:7000/dist/"
   },
   module: {
     rules: [
