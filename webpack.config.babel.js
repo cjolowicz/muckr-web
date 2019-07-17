@@ -4,6 +4,11 @@ type Env = {
 };
 
 export default ({ production }: Env) => ({
+  mode: production ? "production" : "development",
+  devtool: production ? "source-map" : "eval-source-map",
+  devServer: {
+    port: 7000
+  },
   output: {
     publicPath: production ? "/static/" : "http://localhost:7000/"
   },
@@ -19,10 +24,5 @@ export default ({ production }: Env) => ({
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       }
     ]
-  },
-  devtool: production ? "source-map" : "eval-source-map",
-  devServer: {
-    port: 7000
-  },
-  mode: production ? "production" : "development"
+  }
 });
