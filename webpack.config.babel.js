@@ -1,7 +1,7 @@
 // @flow
 export default (env: Object) => ({
   output: {
-    publicPath: env.production ? "/static/" : "http://localhost:7000/dist/"
+    publicPath: env.production ? "/static/" : "http://localhost:7000/"
   },
   module: {
     rules: [
