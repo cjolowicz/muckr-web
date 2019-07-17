@@ -1,5 +1,9 @@
 // @flow
-export default (env: Object) => ({
+type Env = {
+  production: boolean
+};
+
+export default (env: Env) => ({
   output: {
     publicPath: env.production ? "/static/" : "http://localhost:7000/"
   },
