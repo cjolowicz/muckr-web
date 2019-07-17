@@ -3,9 +3,9 @@ type Env = {
   production: boolean
 };
 
-export default (env: Env) => ({
+export default ({ production }: Env) => ({
   output: {
-    publicPath: env.production ? "/static/" : "http://localhost:7000/"
+    publicPath: production ? "/static/" : "http://localhost:7000/"
   },
   module: {
     rules: [
@@ -20,9 +20,9 @@ export default (env: Env) => ({
       }
     ]
   },
-  devtool: env.production ? "source-map" : "eval",
+  devtool: production ? "source-map" : "eval",
   devServer: {
     port: 7000
   },
-  mode: env.production ? "production" : "development"
+  mode: production ? "production" : "development"
 });
