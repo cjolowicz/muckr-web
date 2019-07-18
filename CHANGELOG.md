@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix invalid generated URLs in webpack output.
 
 ### Changed
+- Refactor artist components:
+  - Incorporate FetchingArtistList in ArtistList.
+  - Move Artist button to separate component.
+  - Decouple ArtistList and ArtistDialog.
+  - Decouple ArtistList and ArtistButton.
 - Refactor Redux:
   - Fix invalid state after user creation (unused).
   - Simplify state tree.
@@ -32,6 +37,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - flow-typed 2.6.0
   - webpack 4.36.1
   - webpack-cli 3.3.6
+
+### Removed
+- Remove textual loading indicator from Artists page.
 
 ## [0.19.2] - 2019-07-13
 ### Fixed
