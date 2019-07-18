@@ -5,6 +5,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Upgrade dependencies:
+  - @material-ui/core 4.2.1
+  - @material-ui/styles 4.2.1
+  - typeface-roboto 0.0.75
+- Upgrade dev dependencies:
+  - @babel/cli 7.5.5
+  - @babel/core 7.5.5
+  - @babel/node 7.5.5
+  - @babel/plugin-proposal-class-properties 7.5.5
+  - @babel/plugin-proposal-object-rest-spread 7.5.5
+  - @babel/preset-env 7.5.5
+  - eslint-plugin-compat 3.3.0
+  - flow-typed 2.6.0
+  - webpack 4.36.1
+  - webpack-cli 3.3.6
 
 ## [0.19.2] - 2019-07-13
 ### Fixed
