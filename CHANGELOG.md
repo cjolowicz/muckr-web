@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Refactor webpack configuration.
+- Clean up package.json.
 - Upgrade dependencies:
   - @material-ui/core 4.2.1
   - @material-ui/styles 4.2.1
