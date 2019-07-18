@@ -9,9 +9,6 @@ export default ({ production }: Env) => ({
   devServer: {
     port: 7000
   },
-  output: {
-    publicPath: production ? "/static/" : "http://localhost:7000/"
-  },
   module: {
     rules: [
       {
