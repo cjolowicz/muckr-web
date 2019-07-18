@@ -1,4 +1,4 @@
-// flow-typed signature: 73331e2d94c78b110c000ce477ee25db
+// flow-typed signature: 4db1972e30454174912c43aa218f8d4a
 // flow-typed version: <<STUB>>/universal-cookie-express_v^4.0.1/flow_v0.102.0
 
 /**
@@ -22,25 +22,34 @@ declare module 'universal-cookie-express' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module 'universal-cookie-express/cjs/index' {
+declare module 'universal-cookie-express/cjs' {
   declare module.exports: any;
 }
 
-declare module 'universal-cookie-express/es6/index' {
+declare module 'universal-cookie-express/es6' {
   declare module.exports: any;
 }
 
-declare module 'universal-cookie-express/lib/index' {
+declare module 'universal-cookie-express/lib' {
   declare module.exports: any;
 }
 
 // Filename aliases
+declare module 'universal-cookie-express/cjs/index' {
+  declare module.exports: $Exports<'universal-cookie-express/cjs'>;
+}
 declare module 'universal-cookie-express/cjs/index.js' {
-  declare module.exports: $Exports<'universal-cookie-express/cjs/index'>;
+  declare module.exports: $Exports<'universal-cookie-express/cjs'>;
+}
+declare module 'universal-cookie-express/es6/index' {
+  declare module.exports: $Exports<'universal-cookie-express/es6'>;
 }
 declare module 'universal-cookie-express/es6/index.js' {
-  declare module.exports: $Exports<'universal-cookie-express/es6/index'>;
+  declare module.exports: $Exports<'universal-cookie-express/es6'>;
+}
+declare module 'universal-cookie-express/lib/index' {
+  declare module.exports: $Exports<'universal-cookie-express/lib'>;
 }
 declare module 'universal-cookie-express/lib/index.js' {
-  declare module.exports: $Exports<'universal-cookie-express/lib/index'>;
+  declare module.exports: $Exports<'universal-cookie-express/lib'>;
 }

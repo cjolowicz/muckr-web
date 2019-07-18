@@ -1,4 +1,4 @@
-// flow-typed signature: ee6c186ff9a21e8b4ebc24b311eaa75a
+// flow-typed signature: a1ea9bddfca680df441e973bd13b8ac7
 // flow-typed version: <<STUB>>/eslint_v^6.0.1/flow_v0.102.0
 
 /**
@@ -74,7 +74,7 @@ declare module 'eslint/lib/cli-engine/config-array/extracted-config' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/cli-engine/config-array/index' {
+declare module 'eslint/lib/cli-engine/config-array' {
   declare module.exports: any;
 }
 
@@ -146,7 +146,7 @@ declare module 'eslint/lib/cli-engine/ignored-paths' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/cli-engine/index' {
+declare module 'eslint/lib/cli-engine' {
   declare module.exports: any;
 }
 
@@ -230,7 +230,7 @@ declare module 'eslint/lib/linter/config-comment-parser' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/linter/index' {
+declare module 'eslint/lib/linter' {
   declare module.exports: any;
 }
 
@@ -274,7 +274,7 @@ declare module 'eslint/lib/options' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/rule-tester/index' {
+declare module 'eslint/lib/rule-tester' {
   declare module.exports: any;
 }
 
@@ -466,7 +466,7 @@ declare module 'eslint/lib/rules/indent' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/rules/index' {
+declare module 'eslint/lib/rules' {
   declare module.exports: any;
 }
 
@@ -1342,7 +1342,7 @@ declare module 'eslint/lib/rules/utils/patterns/letters' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/rules/utils/unicode/index' {
+declare module 'eslint/lib/rules/utils/unicode' {
   declare module.exports: any;
 }
 
@@ -1422,7 +1422,7 @@ declare module 'eslint/lib/shared/types' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/source-code/index' {
+declare module 'eslint/lib/source-code' {
   declare module.exports: any;
 }
 
@@ -1462,7 +1462,7 @@ declare module 'eslint/lib/source-code/token-store/forward-token-cursor' {
   declare module.exports: any;
 }
 
-declare module 'eslint/lib/source-code/token-store/index' {
+declare module 'eslint/lib/source-code/token-store' {
   declare module.exports: any;
 }
 
@@ -1522,8 +1522,11 @@ declare module 'eslint/lib/cli-engine/config-array/config-dependency.js' {
 declare module 'eslint/lib/cli-engine/config-array/extracted-config.js' {
   declare module.exports: $Exports<'eslint/lib/cli-engine/config-array/extracted-config'>;
 }
+declare module 'eslint/lib/cli-engine/config-array/index' {
+  declare module.exports: $Exports<'eslint/lib/cli-engine/config-array'>;
+}
 declare module 'eslint/lib/cli-engine/config-array/index.js' {
-  declare module.exports: $Exports<'eslint/lib/cli-engine/config-array/index'>;
+  declare module.exports: $Exports<'eslint/lib/cli-engine/config-array'>;
 }
 declare module 'eslint/lib/cli-engine/config-array/override-tester.js' {
   declare module.exports: $Exports<'eslint/lib/cli-engine/config-array/override-tester'>;
@@ -1576,8 +1579,11 @@ declare module 'eslint/lib/cli-engine/hash.js' {
 declare module 'eslint/lib/cli-engine/ignored-paths.js' {
   declare module.exports: $Exports<'eslint/lib/cli-engine/ignored-paths'>;
 }
+declare module 'eslint/lib/cli-engine/index' {
+  declare module.exports: $Exports<'eslint/lib/cli-engine'>;
+}
 declare module 'eslint/lib/cli-engine/index.js' {
-  declare module.exports: $Exports<'eslint/lib/cli-engine/index'>;
+  declare module.exports: $Exports<'eslint/lib/cli-engine'>;
 }
 declare module 'eslint/lib/cli-engine/lint-result-cache.js' {
   declare module.exports: $Exports<'eslint/lib/cli-engine/lint-result-cache'>;
@@ -1639,8 +1645,11 @@ declare module 'eslint/lib/linter/code-path-analysis/id-generator.js' {
 declare module 'eslint/lib/linter/config-comment-parser.js' {
   declare module.exports: $Exports<'eslint/lib/linter/config-comment-parser'>;
 }
+declare module 'eslint/lib/linter/index' {
+  declare module.exports: $Exports<'eslint/lib/linter'>;
+}
 declare module 'eslint/lib/linter/index.js' {
-  declare module.exports: $Exports<'eslint/lib/linter/index'>;
+  declare module.exports: $Exports<'eslint/lib/linter'>;
 }
 declare module 'eslint/lib/linter/interpolate.js' {
   declare module.exports: $Exports<'eslint/lib/linter/interpolate'>;
@@ -1672,8 +1681,11 @@ declare module 'eslint/lib/linter/timing.js' {
 declare module 'eslint/lib/options.js' {
   declare module.exports: $Exports<'eslint/lib/options'>;
 }
+declare module 'eslint/lib/rule-tester/index' {
+  declare module.exports: $Exports<'eslint/lib/rule-tester'>;
+}
 declare module 'eslint/lib/rule-tester/index.js' {
-  declare module.exports: $Exports<'eslint/lib/rule-tester/index'>;
+  declare module.exports: $Exports<'eslint/lib/rule-tester'>;
 }
 declare module 'eslint/lib/rule-tester/rule-tester.js' {
   declare module.exports: $Exports<'eslint/lib/rule-tester/rule-tester'>;
@@ -1816,8 +1828,11 @@ declare module 'eslint/lib/rules/indent-legacy.js' {
 declare module 'eslint/lib/rules/indent.js' {
   declare module.exports: $Exports<'eslint/lib/rules/indent'>;
 }
+declare module 'eslint/lib/rules/index' {
+  declare module.exports: $Exports<'eslint/lib/rules'>;
+}
 declare module 'eslint/lib/rules/index.js' {
-  declare module.exports: $Exports<'eslint/lib/rules/index'>;
+  declare module.exports: $Exports<'eslint/lib/rules'>;
 }
 declare module 'eslint/lib/rules/init-declarations.js' {
   declare module.exports: $Exports<'eslint/lib/rules/init-declarations'>;
@@ -2473,8 +2488,11 @@ declare module 'eslint/lib/rules/utils/lazy-loading-rule-map.js' {
 declare module 'eslint/lib/rules/utils/patterns/letters.js' {
   declare module.exports: $Exports<'eslint/lib/rules/utils/patterns/letters'>;
 }
+declare module 'eslint/lib/rules/utils/unicode/index' {
+  declare module.exports: $Exports<'eslint/lib/rules/utils/unicode'>;
+}
 declare module 'eslint/lib/rules/utils/unicode/index.js' {
-  declare module.exports: $Exports<'eslint/lib/rules/utils/unicode/index'>;
+  declare module.exports: $Exports<'eslint/lib/rules/utils/unicode'>;
 }
 declare module 'eslint/lib/rules/utils/unicode/is-combining-character.js' {
   declare module.exports: $Exports<'eslint/lib/rules/utils/unicode/is-combining-character'>;
@@ -2533,8 +2551,11 @@ declare module 'eslint/lib/shared/traverser.js' {
 declare module 'eslint/lib/shared/types.js' {
   declare module.exports: $Exports<'eslint/lib/shared/types'>;
 }
+declare module 'eslint/lib/source-code/index' {
+  declare module.exports: $Exports<'eslint/lib/source-code'>;
+}
 declare module 'eslint/lib/source-code/index.js' {
-  declare module.exports: $Exports<'eslint/lib/source-code/index'>;
+  declare module.exports: $Exports<'eslint/lib/source-code'>;
 }
 declare module 'eslint/lib/source-code/source-code.js' {
   declare module.exports: $Exports<'eslint/lib/source-code/source-code'>;
@@ -2563,8 +2584,11 @@ declare module 'eslint/lib/source-code/token-store/forward-token-comment-cursor.
 declare module 'eslint/lib/source-code/token-store/forward-token-cursor.js' {
   declare module.exports: $Exports<'eslint/lib/source-code/token-store/forward-token-cursor'>;
 }
+declare module 'eslint/lib/source-code/token-store/index' {
+  declare module.exports: $Exports<'eslint/lib/source-code/token-store'>;
+}
 declare module 'eslint/lib/source-code/token-store/index.js' {
-  declare module.exports: $Exports<'eslint/lib/source-code/token-store/index'>;
+  declare module.exports: $Exports<'eslint/lib/source-code/token-store'>;
 }
 declare module 'eslint/lib/source-code/token-store/limit-cursor.js' {
   declare module.exports: $Exports<'eslint/lib/source-code/token-store/limit-cursor'>;

@@ -1,4 +1,4 @@
-// flow-typed signature: 3c1269506085210cf5a030ae21fad6a2
+// flow-typed signature: 9499dc5b9e2b0554d1a978605c662c6a
 // flow-typed version: <<STUB>>/@babel/preset-react_v^7.0.0/flow_v0.102.0
 
 /**
@@ -22,11 +22,14 @@ declare module '@babel/preset-react' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module '@babel/preset-react/lib/index' {
+declare module '@babel/preset-react/lib' {
   declare module.exports: any;
 }
 
 // Filename aliases
+declare module '@babel/preset-react/lib/index' {
+  declare module.exports: $Exports<'@babel/preset-react/lib'>;
+}
 declare module '@babel/preset-react/lib/index.js' {
-  declare module.exports: $Exports<'@babel/preset-react/lib/index'>;
+  declare module.exports: $Exports<'@babel/preset-react/lib'>;
 }
