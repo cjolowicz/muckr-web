@@ -2,10 +2,6 @@
 import { createSelector } from "reselect";
 
 import * as dialog from "./dialog/selectors";
-import * as message$ from "./message/selectors";
-import * as navigation from "./navigation/selectors";
-import * as token$ from "./token/selectors";
-import * as user$ from "./user/selectors";
 import * as artist from "./artist/selectors";
 import { getItemsById } from "../utils";
 import type { State } from "./types";
@@ -14,14 +10,13 @@ export const dialogArtist = (state: State) => dialog.artist(state.dialog);
 
 export const dialogType = (state: State) => dialog.type(state.dialog);
 
-export const message = (state: State) => message$.message(state.message);
+export const message = (state: State) => state.message;
 
-export const navigationOpen = (state: State) =>
-  navigation.open(state.navigation);
+export const navigationOpen = (state: State) => state.navigation;
 
-export const token = (state: State) => token$.token(state.token);
+export const token = (state: State) => state.token;
 
-export const user = (state: State) => user$.user(state.user);
+export const user = (state: State) => state.user;
 
 export const artistsPending = (state: State) => artist.pending(state.artists);
 

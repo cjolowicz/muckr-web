@@ -17,7 +17,7 @@ import {
 } from "./constants";
 import type { Action, State } from "../types";
 
-const pending = (state = false, action: Action) => {
+const pending = (state: boolean = false, action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_REQUEST:
     case CREATE_ARTIST_REQUEST:
@@ -39,7 +39,7 @@ const pending = (state = false, action: Action) => {
   }
 };
 
-const ids = (state = [], action: Action) => {
+const ids = (state: Array<number> = [], action: Action) => {
   switch (action.type) {
     case FETCH_ARTISTS_SUCCESS:
       return action.payload.artists.map(({ id }) => id);

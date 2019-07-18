@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix invalid generated URLs in webpack output.
 
 ### Changed
+- Refactor Redux:
+  - Fix invalid state after user creation (unused).
+  - Simplify state tree.
+  - Add parameter types for reducers.
+  - Remove obsolete field in message State type.
 - Refactor webpack configuration.
 - Clean up package.json.
 - Upgrade dependencies:

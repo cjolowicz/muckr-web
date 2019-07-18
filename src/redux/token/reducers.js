@@ -1,16 +1,14 @@
 // @flow
-import { combineReducers } from "redux";
-
 import {
   FETCH_TOKEN_SUCCESS,
   FETCH_TOKEN_FAILURE,
   CLEAR_TOKEN
 } from "./constants";
 import { FETCH_ARTISTS_FAILURE } from "../artist/constants";
-import type { Action, State } from "../types";
+import type { Action } from "../types";
 import { isUnauthorized } from "../../api/error";
 
-const token = (state = null, action: Action) => {
+const token = (state: ?string = null, action: Action) => {
   switch (action.type) {
     case FETCH_TOKEN_SUCCESS:
       return action.payload.token;
@@ -24,4 +22,4 @@ const token = (state = null, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ token });
+export default token;

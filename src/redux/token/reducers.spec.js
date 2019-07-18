@@ -1,6 +1,5 @@
 // @flow
 import reducer from "./reducers";
-import { token } from "./selectors";
 import {
   TOKEN,
   GENERIC_ERROR,
@@ -24,7 +23,7 @@ describe("token", () => {
     const state = applyReducer([noop()]);
 
     it("has no token", () => {
-      expect(token(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 
@@ -32,7 +31,7 @@ describe("token", () => {
     const state = applyReducer([fetchTokenRequest("john", "secret")]);
 
     it("has no token", () => {
-      expect(token(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 
@@ -43,7 +42,7 @@ describe("token", () => {
     ]);
 
     it("sets token", () => {
-      expect(token(state)).toEqual(TOKEN);
+      expect(state).toEqual(TOKEN);
     });
   });
 
@@ -54,7 +53,7 @@ describe("token", () => {
     ]);
 
     it("has no token", () => {
-      expect(token(state)).toBe(null);
+      expect(state).toBe(null);
     });
   });
 
@@ -66,7 +65,7 @@ describe("token", () => {
     ]);
 
     it("clears token", () => {
-      expect(token(state)).toBeNull();
+      expect(state).toBeNull();
     });
   });
 
@@ -78,7 +77,7 @@ describe("token", () => {
       ]);
 
       it("clears token", () => {
-        expect(token(state)).toBeNull();
+        expect(state).toBeNull();
       });
     });
 
@@ -89,7 +88,7 @@ describe("token", () => {
       ]);
 
       it("preserves token", () => {
-        expect(token(state)).toEqual(TOKEN);
+        expect(state).toEqual(TOKEN);
       });
     });
   });
