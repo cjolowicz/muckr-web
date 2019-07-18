@@ -1,12 +1,13 @@
 // @flow
-import path from "path";
+type Env = {
+  production: boolean
+};
 
-export default (env: Object) => ({
-  entry: ["./src/client.js"],
-  output: {
-    filename: "js/bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath: env.production ? "/static/" : "http://localhost:7000/dist/"
+export default ({ production }: Env) => ({
+  mode: production ? "production" : "development",
+  devtool: production ? "source-map" : "eval-source-map",
+  devServer: {
+    port: 7000
   },
   module: {
     rules: [
@@ -20,10 +21,5 @@ export default (env: Object) => ({
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       }
     ]
-  },
-  devtool: env.production ? "source-map" : "eval",
-  devServer: {
-    port: 7000
-  },
-  mode: env.production ? "production" : "development"
+  }
 });
