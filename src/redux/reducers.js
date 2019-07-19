@@ -8,6 +8,7 @@ import token from "./token/reducers";
 import user from "./user/reducers";
 import entities from "./entities/reducers";
 import artists from "./artist/reducers";
+import spinner from "./spinner/reducers";
 import type { Action, State } from "./types";
 
 export default combineReducers<State, Action>({
@@ -17,5 +18,6 @@ export default combineReducers<State, Action>({
   token,
   user,
   artists,
-  entities
+  entities,
+  spinner
 });

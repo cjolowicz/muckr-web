@@ -25,3 +25,5 @@ export const artists = createSelector<State, *, *, *, *>(
   state => state.artists.ids,
   (artists$, ids) => getItemsById(artists$, ids)
 );
+
+export const spinner = (state: State) => state.spinner;

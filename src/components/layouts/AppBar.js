@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/styles";
 
 import MenuButton from "./MenuButton";
 import AuthButton from "./AuthButton";
+import Spinner from "./Spinner";
 import * as routes from "../../routes";
 
 const useStyles = makeStyles({
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
   },
   menuButton: {
     marginLeft: -12,
+    marginRight: 20
+  },
+  spinner: {
     marginRight: 20
   }
 });
@@ -36,6 +40,7 @@ const AppBar = () => {
         >
           Muckr
         </Typography>
+        <Spinner className={classes.spinner} />
         <AuthButton />
       </Toolbar>
     </MUIAppBar>

@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Add spinner to AppBar and SignInLayout ([#110](../../issues/110)).
 - Configure `API_URL` for Heroku apps ([#114](../../issues/114)).
 
 ### Fixed

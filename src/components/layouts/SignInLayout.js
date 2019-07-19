@@ -1,8 +1,10 @@
 // @flow
 import * as React from "react";
 import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/styles";
 
+import Spinner from "./Spinner";
 import Message from "./Message";
 
 type Props = {
@@ -35,6 +37,15 @@ const SignInLayout = ({ children }: Props) => {
     <>
       <main className={classes.main}>
         <Paper className={classes.paper}>{children}</Paper>
+        <Box
+          mt={3}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Spinner />
+        </Box>
       </main>
       <Message />
     </>
