@@ -8,6 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/styles";
 
 import * as api from "../../api/types";
 import type { DialogType } from "../../redux/dialog/types";
@@ -31,6 +32,19 @@ type Props = {
   artist: api.Artist,
   token: ?string
 };
+
+const useStyles = makeStyles(theme => ({
+  paper: {
+    width: "auto",
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(400 + theme.spacing(3 * 2))]: {
+      width: 400,
+      marginLeft: "auto",
+      marginRight: "auto"
+    }
+  }
+}));
 
 export const ArtistDialog = ({
   /* eslint-disable no-shadow */
@@ -59,9 +73,15 @@ export const ArtistDialog = ({
   };
 
   const title = type === DIALOG_TYPE_CREATE ? "Add" : "Update";
+  const classes = useStyles();
 
   return (
-    <Dialog data-testid="dialog" open={open} onClose={closeDialog}>
+    <Dialog
+      data-testid="dialog"
+      open={open}
+      onClose={closeDialog}
+      classes={classes}
+    >
       <DialogTitle>{title} artist</DialogTitle>
       <DialogContent>
         <TextField

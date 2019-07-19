@@ -1,8 +1,9 @@
 // @flow
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 
 import { ArtistDialog } from "./ArtistDialog";
+import render from "../../utils/test/render";
 import { ARTIST, TOKEN } from "../../utils/test/fixtures";
 import {
   DIALOG_TYPE_CREATE,
