@@ -2,7 +2,12 @@
   "name": "muckr-web",
   "description": "Web app for muckr",
   "scripts": {},
-  "env": {},
+  "env": {
+    "API_URL": {
+      "description": "The URL of the muckr API.",
+      "value": "https://muckr-service.herokuapp.com"
+    }
+  },
   "formation": {},
   "addons": [],
   "stack": "heroku-18",
