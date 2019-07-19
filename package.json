@@ -1,6 +1,6 @@
 {
   "name": "muckr-web",
-  "version": "0.19.2",
+  "version": "0.20.0",
   "description": "Web app for muckr",
   "main": "src/server/index.js",
   "repository": "https://github.com/cjolowicz/muckr-web.git",
@@ -24,10 +24,18 @@
     "start:dev:nodemon": "nodemon --ignore lib --ignore dist --exec babel-node .",
     "start:dev:webpack": "webpack-dev-server --env.production=0"
   },
-  "browserslist": ["last 1 version", "> 1%", "not dead"],
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ],
   "jest": {
-    "setupFiles": ["<rootDir>/node_modules/regenerator-runtime/runtime"],
-    "setupFilesAfterEnv": ["@testing-library/react/cleanup-after-each"]
+    "setupFiles": [
+      "<rootDir>/node_modules/regenerator-runtime/runtime"
+    ],
+    "setupFilesAfterEnv": [
+      "@testing-library/react/cleanup-after-each"
+    ]
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
