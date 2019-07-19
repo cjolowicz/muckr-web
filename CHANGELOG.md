@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix invalid generated URLs in webpack output.
 
 ### Changed
+- Refactor layout components ([#115](../../issues/115)):
+  - Move Paper from SignUp to SignUpLayout.
+  - Move Header out of main in SignUpLayout.
+  - Eliminate Header component in layouts.
 - Refactor artist components ([#111](../../issues/111)):
   - Incorporate FetchingArtistList in ArtistList.
   - Move Artist button to separate component.
