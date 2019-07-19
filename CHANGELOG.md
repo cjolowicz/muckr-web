@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Downgrade dev dependencies:
   - eslint 5.3.0 
   - eslint-plugin-flowtype 3.9.1
+- Upgrade dev dependencies ([#122](../../issues/122)):
+  - css-loader 3.1.0
+  - eslint-plugin-import 2.18.2
+  - flow-bin 0.103.0
 
 ### Removed
 - Do not display message when artists are created, updated, or deleted.
