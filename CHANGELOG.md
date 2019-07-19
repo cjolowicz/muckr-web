@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - @testing-library/jest-dom
 
 ### Changed
+- Increase width of artist dialogs ([#120](../../issues/120)).
 - Downgrade dev dependencies:
   - eslint 5.3.0 
   - eslint-plugin-flowtype 3.9.1
