@@ -5,12 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Configure `API_URL` for Heroku apps ([#114](../../issues/114)).
+
 ### Fixed
 - Do not invoke `webpack-dev-server` in production mode.
 - Fix invalid generated URLs in webpack output.
 
 ### Changed
-- Refactor artist components:
+- Refactor artist components ([#111](../../issues/111)):
   - Incorporate FetchingArtistList in ArtistList.
   - Move Artist button to separate component.
   - Decouple ArtistList and ArtistDialog.
