@@ -1,5 +1,7 @@
 // @flow
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
@@ -10,11 +12,19 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import { makeStyles } from "@material-ui/styles";
 
 import * as api from "../../api/types";
+import {
+  fetchArtists,
+  createArtist,
+  removeArtist
+} from "../../redux/artist/operations";
+import { openUpdateDialog } from "../../redux/dialog/actions";
+import { artists, token } from "../../redux/selectors";
 
 export type Props = {
   token: ?string,
   artists: Array<api.Artist>,
   removeArtist: Function,
+  fetchArtists: Function,
   openUpdateDialog: Function
 };
 
@@ -30,13 +40,23 @@ const useStyles = makeStyles({
   }
 });
 
-const ArtistList = ({
+export const ArtistList = ({
+  /* eslint-disable no-shadow */
   token,
   artists,
   removeArtist,
+  fetchArtists,
   openUpdateDialog
 }: Props) => {
+  /* eslint-enable */
+  useEffect(() => {
+    if (token) {
+      fetchArtists(token);
+    }
+  }, [token, fetchArtists]);
+
   const classes = useStyles();
+
   return (
     <List>
       {artists.map(artist => (
@@ -66,4 +86,15 @@ const ArtistList = ({
   );
 };
 
-export default ArtistList;
+export default connect(
+  createStructuredSelector({
+    artists,
+    token
+  }),
+  {
+    fetchArtists,
+    createArtist,
+    removeArtist,
+    openUpdateDialog
+  }
+)(ArtistList);
