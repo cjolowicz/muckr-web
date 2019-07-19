@@ -11,13 +11,6 @@ type Props = {
   children: React.Node
 };
 
-export const Header = () => (
-  <>
-    <AppBar />
-    <Navigation />
-  </>
-);
-
 const useStyles = makeStyles(theme => ({
   main: {
     padding: theme.spacing(3)
@@ -33,7 +26,8 @@ const Layout = ({ children }: Props) => {
   const classes = useStyles();
   return (
     <>
-      <Header />
+      <AppBar />
+      <Navigation />
       <main className={classes.main}>
         <Paper className={classes.paper}>{children}</Paper>
       </main>
