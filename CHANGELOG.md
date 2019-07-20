@@ -9,11 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix wrong button caption when artist creation dialog is closed.
   ([#123](../../issues/123))
 - Replace obsolete @babel/polyfill import ([#124](../../issues/124))
+- Fix broken peer dependency of `eslint-config-airbnb` ([#125](../../issues/125))
 
 ### Added
 - Add dependencies:
   - core-js 3.1.4
   - regenerator-runtime 0.13.3
+
+### Changed
+- Downgrade dev dependencies:
+  - eslint 5.3.0 
+  - eslint-plugin-flowtype 3.9.1
 
 ### Removed
 - Remove dependencies:
