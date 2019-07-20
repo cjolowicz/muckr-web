@@ -11,6 +11,7 @@ import {
   artists,
   spinner
 } from "./selectors";
+import { DIALOG_TYPE_CREATE } from "./dialog/constants";
 import { NO_ARTIST } from "./dialog/reducers";
 import { noop } from "./noop/actions";
 
@@ -24,8 +25,8 @@ describe("initial state", () => {
   });
 
   describe("dialogType", () => {
-    it("is null", () => {
-      expect(dialogType(state)).toBeNull();
+    it("is create", () => {
+      expect(dialogType(state)).toBe(DIALOG_TYPE_CREATE);
     });
   });
 

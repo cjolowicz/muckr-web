@@ -18,14 +18,24 @@ export const NO_ARTIST = {
   name: ""
 };
 
-const type = (state: ?DialogType = null, action: Action) => {
+const open = (state: boolean = false, action: Action) => {
+  switch (action.type) {
+    case OPEN_CREATE_DIALOG:
+    case OPEN_UPDATE_DIALOG:
+      return true;
+    case CLOSE_DIALOG:
+      return false;
+    default:
+      return state;
+  }
+};
+
+const type = (state: DialogType = DIALOG_TYPE_CREATE, action: Action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
     case OPEN_UPDATE_DIALOG:
       return DIALOG_TYPE_UPDATE;
-    case CLOSE_DIALOG:
-      return null;
     default:
       return state;
   }
@@ -44,4 +54,4 @@ const artist = (state: Artist = NO_ARTIST, action: Action) => {
   }
 };
 
-export default combineReducers<State, Action>({ type, artist });
+export default combineReducers<State, Action>({ open, type, artist });

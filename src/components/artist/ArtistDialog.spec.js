@@ -16,6 +16,7 @@ const renderArtistDialog = ({ type, token }) => {
   const closeDialog = jest.fn();
   const result = render(
     <ArtistDialog
+      open
       type={type}
       token={token}
       artist={ARTIST}

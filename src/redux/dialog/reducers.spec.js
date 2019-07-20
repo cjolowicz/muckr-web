@@ -1,7 +1,7 @@
 // @flow
 import reducer, { NO_ARTIST } from "./reducers";
 import { DIALOG_TYPE_CREATE, DIALOG_TYPE_UPDATE } from "./constants";
-import { artist, type } from "./selectors";
+import { open, artist, type } from "./selectors";
 import {
   openUpdateDialog,
   updateDialog,
@@ -20,7 +20,11 @@ describe("dialog", () => {
     const state = applyReducer([noop()]);
 
     it("is closed", () => {
-      expect(type(state)).toBeNull();
+      expect(open(state)).toBe(false);
+    });
+
+    it("is closed", () => {
+      expect(type(state)).toBe(DIALOG_TYPE_CREATE);
     });
 
     it("has no artist", () => {
@@ -30,6 +34,10 @@ describe("dialog", () => {
 
   describe("openUpdateDialog", () => {
     const state = applyReducer([openUpdateDialog(ARTIST)]);
+
+    it("is open", () => {
+      expect(open(state)).toBe(true);
+    });
 
     it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
@@ -45,6 +53,10 @@ describe("dialog", () => {
     const state = applyReducer([openUpdateDialog(ARTIST), action]);
 
     it("is open", () => {
+      expect(open(state)).toBe(true);
+    });
+
+    it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
     });
 
@@ -57,7 +69,11 @@ describe("dialog", () => {
     const state = applyReducer([openUpdateDialog(ARTIST), closeDialog()]);
 
     it("is closed", () => {
-      expect(type(state)).toBe(null);
+      expect(open(state)).toBe(false);
+    });
+
+    it("is closed", () => {
+      expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
     });
 
     it("has no artist", () => {
@@ -67,6 +83,10 @@ describe("dialog", () => {
 
   describe("openCreateDialog", () => {
     const state = applyReducer([openCreateDialog()]);
+
+    it("is open", () => {
+      expect(open(state)).toBe(true);
+    });
 
     it("is open", () => {
       expect(type(state)).toBe(DIALOG_TYPE_CREATE);
