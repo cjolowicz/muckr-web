@@ -8,7 +8,7 @@ import type { State } from "./types";
 
 export const dialogArtist = (state: State) => dialog.artist(state.dialog);
 
-export const dialogOpen = (state: State) => dialog.type(state.dialog) != null;
+export const dialogOpen = (state: State) => dialog.open(state.dialog);
 
 export const dialogType = (state: State) => dialog.type(state.dialog);
 
