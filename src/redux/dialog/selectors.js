@@ -1,7 +1,7 @@
 // @flow
 import type { State } from "./types";
 
-export const open = (state: State) => state.type != null;
+export const open = (state: State) => state.open;
 
 export const type = (state: State) => state.type;
 
