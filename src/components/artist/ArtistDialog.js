@@ -14,9 +14,15 @@ import type { DialogType } from "../../redux/dialog/types";
 import { DIALOG_TYPE_CREATE } from "../../redux/dialog/constants";
 import { createArtist, updateArtist } from "../../redux/artist/operations";
 import { updateDialog, closeDialog } from "../../redux/dialog/actions";
-import { dialogType, dialogArtist, token } from "../../redux/selectors";
+import {
+  dialogOpen,
+  dialogType,
+  dialogArtist,
+  token
+} from "../../redux/selectors";
 
 type Props = {
+  open: boolean,
   type: DialogType,
   updateDialog: Function,
   closeDialog: Function,
@@ -28,6 +34,7 @@ type Props = {
 
 export const ArtistDialog = ({
   /* eslint-disable no-shadow */
+  open,
   type,
   updateDialog,
   closeDialog,
@@ -54,7 +61,7 @@ export const ArtistDialog = ({
   const title = type === DIALOG_TYPE_CREATE ? "Add" : "Update";
 
   return (
-    <Dialog data-testid="dialog" open={type != null} onClose={closeDialog}>
+    <Dialog data-testid="dialog" open={open} onClose={closeDialog}>
       <DialogTitle>{title} artist</DialogTitle>
       <DialogContent>
         <TextField
@@ -81,6 +88,7 @@ export const ArtistDialog = ({
 
 export default connect(
   createStructuredSelector({
+    open: dialogOpen,
     type: dialogType,
     artist: dialogArtist,
     token
