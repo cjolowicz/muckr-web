@@ -3,11 +3,8 @@ import { OPEN_MESSAGE, CLOSE_MESSAGE } from "./constants";
 import { FETCH_TOKEN_SUCCESS, FETCH_TOKEN_FAILURE } from "../token/constants";
 import { CREATE_USER_SUCCESS, CREATE_USER_FAILURE } from "../user/constants";
 import {
-  CREATE_ARTIST_SUCCESS,
   CREATE_ARTIST_FAILURE,
-  REMOVE_ARTIST_SUCCESS,
   REMOVE_ARTIST_FAILURE,
-  UPDATE_ARTIST_SUCCESS,
   UPDATE_ARTIST_FAILURE,
   FETCH_ARTISTS_SUCCESS,
   FETCH_ARTISTS_FAILURE
@@ -54,12 +51,6 @@ const message = (state: ?string = null, action: Action) => {
       return action.payload.message;
     case CREATE_USER_SUCCESS:
       return "Account created";
-    case CREATE_ARTIST_SUCCESS:
-      return "Artist created";
-    case REMOVE_ARTIST_SUCCESS:
-      return "Artist removed";
-    case UPDATE_ARTIST_SUCCESS:
-      return "Artist updated";
     case FETCH_TOKEN_SUCCESS:
     case FETCH_ARTISTS_SUCCESS:
     case CLOSE_MESSAGE:

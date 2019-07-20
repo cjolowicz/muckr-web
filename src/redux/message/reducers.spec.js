@@ -3,18 +3,15 @@ import reducer, { formatErrorMessage } from "./reducers";
 import { openMessage, closeMessage } from "./actions";
 import { fetchTokenFailure } from "../token/actions";
 import {
-  createArtistSuccess,
   createArtistFailure,
-  removeArtistSuccess,
   removeArtistFailure,
-  updateArtistSuccess,
   updateArtistFailure,
   fetchArtistsFailure
 } from "../artist/actions";
 import { createUserSuccess, createUserFailure } from "../user/actions";
 import { NOOP } from "../noop/constants";
 import { noop } from "../noop/actions";
-import { ARTIST, USER, GENERIC_ERROR } from "../../utils/test/fixtures";
+import { USER, GENERIC_ERROR } from "../../utils/test/fixtures";
 
 describe("formatErrorMessage", () => {
   describe("unknown action", () => {
@@ -82,15 +79,6 @@ describe("message", () => {
       });
     });
 
-    describe("createArtistSuccess", () => {
-      const action = createArtistSuccess(ARTIST);
-      const state = reducer(initialState, action);
-
-      it("has success message", () => {
-        expect(state).toEqual("Artist created");
-      });
-    });
-
     describe("removeArtistFailure", () => {
       const action = removeArtistFailure(GENERIC_ERROR);
       const state = reducer(initialState, action);
@@ -100,31 +88,12 @@ describe("message", () => {
       });
     });
 
-    describe("removeArtistSuccess", () => {
-      const { id } = ARTIST;
-      const action = removeArtistSuccess(id);
-      const state = reducer(initialState, action);
-
-      it("has success message", () => {
-        expect(state).toEqual("Artist removed");
-      });
-    });
-
     describe("updateArtistFailure", () => {
       const action = updateArtistFailure(GENERIC_ERROR);
       const state = reducer(initialState, action);
 
       it("has error message", () => {
         expect(state).toEqual("Cannot update artist: failure");
-      });
-    });
-
-    describe("updateArtistSuccess", () => {
-      const action = updateArtistSuccess(ARTIST);
-      const state = reducer(initialState, action);
-
-      it("has success message", () => {
-        expect(state).toEqual("Artist updated");
       });
     });
 
