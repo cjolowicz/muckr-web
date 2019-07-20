@@ -30,14 +30,12 @@ const open = (state: boolean = false, action: Action) => {
   }
 };
 
-const type = (state: ?DialogType = null, action: Action) => {
+const type = (state: DialogType = DIALOG_TYPE_CREATE, action: Action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
       return DIALOG_TYPE_CREATE;
     case OPEN_UPDATE_DIALOG:
       return DIALOG_TYPE_UPDATE;
-    case CLOSE_DIALOG:
-      return null;
     default:
       return state;
   }

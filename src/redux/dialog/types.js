@@ -38,6 +38,6 @@ export type DialogType =
 
 export type State = {
   open: boolean,
-  type: ?DialogType,
+  type: DialogType,
   artist: api.Artist
 };

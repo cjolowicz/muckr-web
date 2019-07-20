@@ -24,7 +24,7 @@ describe("dialog", () => {
     });
 
     it("is closed", () => {
-      expect(type(state)).toBeNull();
+      expect(type(state)).toBe(DIALOG_TYPE_CREATE);
     });
 
     it("has no artist", () => {
@@ -73,7 +73,7 @@ describe("dialog", () => {
     });
 
     it("is closed", () => {
-      expect(type(state)).toBe(null);
+      expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
     });
 
     it("has no artist", () => {
