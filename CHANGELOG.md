@@ -25,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - eslint-plugin-flowtype 3.9.1
 
 ### Removed
+- Do not display message when artists are created, updated, or deleted.
+  ([#128](../../issues/128))
 - Remove dependencies:
   - @babel/polyfill
  
