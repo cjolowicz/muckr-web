@@ -21,7 +21,12 @@ export const Spinner = ({ className, spinner }: Props) => (
     }}
     unmountOnExit
   >
-    <CircularProgress className={className} color="secondary" size={30} />
+    <CircularProgress
+      data-testid="spinner"
+      className={className}
+      color="secondary"
+      size={30}
+    />
   </Fade>
 );
 

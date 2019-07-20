@@ -12,9 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix broken peer dependency of `eslint-config-airbnb` ([#125](../../issues/125))
 
 ### Added
+- Add test for Spinner component. ([#126](../../issues/126))
 - Add dependencies:
   - core-js 3.1.4
   - regenerator-runtime 0.13.3
+- Add dev dependencies:
+  - @testing-library/jest-dom
 
 ### Changed
 - Downgrade dev dependencies:
