@@ -8,7 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fix wrong button caption when artist creation dialog is closed.
   ([#123](../../issues/123))
+- Replace obsolete @babel/polyfill import ([#124](../../issues/124))
 
+### Added
+- Add dependencies:
+  - core-js 3.1.4
+  - regenerator-runtime 0.13.3
+
+### Removed
+- Remove dependencies:
+  - @babel/polyfill
+ 
 ## [0.20.0] - 2019-07-19
 ### Added
 - Add spinner to AppBar and SignInLayout ([#110](../../issues/110)).
