@@ -72,6 +72,12 @@ export const ArtistDialog = ({
     closeDialog();
   };
 
+  const handleKeyPress = event => {
+    if (event.key === "Enter") {
+      handleClick();
+    }
+  };
+
   const title = type === DIALOG_TYPE_CREATE ? "Add" : "Update";
   const classes = useStyles();
 
@@ -80,6 +86,7 @@ export const ArtistDialog = ({
       data-testid="dialog"
       open={open}
       onClose={closeDialog}
+      onKeyPress={handleKeyPress}
       classes={classes}
     >
       <DialogTitle>{title} artist</DialogTitle>

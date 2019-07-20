@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Increase width of artist dialogs ([#120](../../issues/120)).
+- Submit ArtistDialog when Enter key is pressed. ([#127](../../issues/127))
 - Downgrade dev dependencies:
   - eslint 5.3.0 
   - eslint-plugin-flowtype 3.9.1

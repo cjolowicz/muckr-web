@@ -34,7 +34,8 @@ const renderArtistDialog = ({ type, token }) => {
     updateDialog,
     closeDialog,
     input: result.getByLabelText("Name"),
-    button: result.getByText(type === DIALOG_TYPE_CREATE ? "Add" : "Update")
+    button: result.getByText(type === DIALOG_TYPE_CREATE ? "Add" : "Update"),
+    dialog: result.getByTestId("dialog")
   };
 };
 
@@ -67,6 +68,42 @@ describe("ArtistDialog", () => {
         });
         fireEvent.click(button);
         expect(createArtist).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("on enter", () => {
+      const key = { key: "Enter", code: 13, charCode: 13 };
+
+      it("calls createArtist", async () => {
+        const { dialog, createArtist } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(dialog, key);
+        expect(createArtist).toHaveBeenCalled();
+      });
+
+      it("calls closeDialog", async () => {
+        const { dialog, closeDialog } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(dialog, key);
+        expect(closeDialog).toHaveBeenCalled();
+      });
+    });
+
+    describe("on escape", () => {
+      const key = { key: "Escape", code: 27, charCode: 27 };
+
+      it("does not call createArtist", async () => {
+        const { dialog, createArtist } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(dialog, key);
+        expect(createArtist).not.toHaveBeenCalled();
+      });
+    });
+
+    describe("on other keys", () => {
+      const key = { key: "A", code: 65, charCode: 65 };
+
+      it("does not call closeDialog", async () => {
+        const { dialog, closeDialog } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(dialog, key);
+        expect(closeDialog).not.toHaveBeenCalled();
       });
     });
   });
