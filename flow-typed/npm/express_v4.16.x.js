@@ -1,5 +1,5 @@
-// flow-typed signature: 857a106b9abb6891420a31ef19f2ba09
-// flow-typed version: c4396be32b/express_v4.16.x/flow_>=v0.94.x
+// flow-typed signature: f047e0a55bdbaf313506942a0f59a1e4
+// flow-typed version: def1ce6bf5/express_v4.16.x/flow_>=v0.94.x
 
 declare type express$RouterOptions = {
   caseSensitive?: boolean,
@@ -43,7 +43,7 @@ declare class express$Request extends http$IncomingMessage mixins express$Reques
   acceptsEncodings(...encoding: Array<string>): string | false;
   acceptsLanguages(...lang: Array<string>): string | false;
   header(field: string): string | void;
-  is(type: string): boolean;
+  is(type: string): string | false;
   param(name: string, defaultValue?: string): string | void;
 }
 
