@@ -75,14 +75,20 @@ describe("ArtistDialog", () => {
       const key = { key: "Enter", code: 13, charCode: 13 };
 
       it("calls createArtist", async () => {
-        const { dialog, createArtist } = renderArtistDialog({ type, token });
-        fireEvent.keyPress(dialog, key);
+        const { input, createArtist } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(input, key);
         expect(createArtist).toHaveBeenCalled();
       });
 
-      it("calls closeDialog", async () => {
-        const { dialog, closeDialog } = renderArtistDialog({ type, token });
+      it("does not call createArtist unless input has focus", async () => {
+        const { dialog, createArtist } = renderArtistDialog({ type, token });
         fireEvent.keyPress(dialog, key);
+        expect(createArtist).not.toHaveBeenCalled();
+      });
+
+      it("calls closeDialog", async () => {
+        const { input, closeDialog } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(input, key);
         expect(closeDialog).toHaveBeenCalled();
       });
     });
@@ -91,8 +97,8 @@ describe("ArtistDialog", () => {
       const key = { key: "Escape", code: 27, charCode: 27 };
 
       it("does not call createArtist", async () => {
-        const { dialog, createArtist } = renderArtistDialog({ type, token });
-        fireEvent.keyPress(dialog, key);
+        const { input, createArtist } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(input, key);
         expect(createArtist).not.toHaveBeenCalled();
       });
     });
@@ -101,8 +107,8 @@ describe("ArtistDialog", () => {
       const key = { key: "A", code: 65, charCode: 65 };
 
       it("does not call closeDialog", async () => {
-        const { dialog, closeDialog } = renderArtistDialog({ type, token });
-        fireEvent.keyPress(dialog, key);
+        const { input, closeDialog } = renderArtistDialog({ type, token });
+        fireEvent.keyPress(input, key);
         expect(closeDialog).not.toHaveBeenCalled();
       });
     });

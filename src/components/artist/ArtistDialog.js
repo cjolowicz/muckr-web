@@ -95,7 +95,6 @@ export const ArtistDialog = ({
       data-testid="dialog"
       open={open}
       onClose={closeDialog}
-      onKeyPress={handleKeyPress}
       classes={{ paper: classes.paper }}
     >
       <DialogTitle disableTypography>
@@ -116,6 +115,7 @@ export const ArtistDialog = ({
           label="Name"
           value={artist.name}
           onChange={handleChange}
+          onKeyPress={handleKeyPress}
           fullWidth
         />
       </DialogContent>
