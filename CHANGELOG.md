@@ -8,10 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.21.0] - 2019-07-21
 ### Fixed
-- Fix wrong button caption when artist creation dialog is closed.
-  ([#123](../../pull/123))
-- Replace obsolete `@babel/polyfill` import ([#124](../../pull/124))
-- Fix broken peer dependency of `eslint-config-airbnb` ([#125](../../pull/125))
+- Fix wrong button caption when artist creation dialog is closed. ([#123](../../pull/123))
+- Replace obsolete `@babel/polyfill` import. ([#124](../../pull/124))
+- Fix broken peer dependency of `eslint-config-airbnb`. ([#125](../../pull/125))
 
 ### Added
 - Add test for `Spinner` component. ([#126](../../pull/126))
@@ -22,20 +21,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - @testing-library/jest-dom
 
 ### Changed
-- Increase width of artist dialogs ([#120](../../pull/120)).
+- Increase width of artist dialogs. ([#120](../../pull/120))
 - Submit artist dialog when Enter key is pressed. ([#127](../../pull/127))
 - Use icon button to close artist dialog. ([#129](../../pull/129))
 - Downgrade dev dependencies:
   - eslint 5.3.0 
   - eslint-plugin-flowtype 3.9.1
-- Upgrade dev dependencies ([#122](../../pull/122)):
+- Upgrade dev dependencies ([#122](../../pull/122))
   - css-loader 3.1.0
   - eslint-plugin-import 2.18.2
   - flow-bin 0.103.0
 
 ### Removed
-- Do not display message when artists are created, updated, or deleted.
-  ([#128](../../pull/128))
+- Do not display message when artists are created, updated, or deleted. ([#128](../../pull/128))
 - Remove dependencies:
   - @babel/polyfill
  
