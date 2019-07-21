@@ -76,8 +76,8 @@ describe("dialog", () => {
       expect(type(state)).toBe(DIALOG_TYPE_UPDATE);
     });
 
-    it("has no artist", () => {
-      expect(artist(state)).toEqual(NO_ARTIST);
+    it("has artist", () => {
+      expect(artist(state)).toEqual(ARTIST);
     });
   });
 
