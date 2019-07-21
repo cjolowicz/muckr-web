@@ -5,14 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.21.0] - 2019-07-21
 ### Fixed
 - Fix wrong button caption when artist creation dialog is closed.
-  ([#123](../../issues/123))
-- Replace obsolete @babel/polyfill import ([#124](../../issues/124))
-- Fix broken peer dependency of `eslint-config-airbnb` ([#125](../../issues/125))
+  ([#123](../../pull/123))
+- Replace obsolete `@babel/polyfill` import ([#124](../../pull/124))
+- Fix broken peer dependency of `eslint-config-airbnb` ([#125](../../pull/125))
 
 ### Added
-- Add test for Spinner component. ([#126](../../issues/126))
+- Add test for `Spinner` component. ([#126](../../pull/126))
 - Add dependencies:
   - core-js 3.1.4
   - regenerator-runtime 0.13.3
@@ -20,38 +22,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - @testing-library/jest-dom
 
 ### Changed
-- Increase width of artist dialogs ([#120](../../issues/120)).
-- Submit ArtistDialog when Enter key is pressed. ([#127](../../issues/127))
-- Use icon button to close ArtistDialog. ([#129](../../issues/129))
+- Increase width of artist dialogs ([#120](../../pull/120)).
+- Submit artist dialog when Enter key is pressed. ([#127](../../pull/127))
+- Use icon button to close artist dialog. ([#129](../../pull/129))
 - Downgrade dev dependencies:
   - eslint 5.3.0 
   - eslint-plugin-flowtype 3.9.1
-- Upgrade dev dependencies ([#122](../../issues/122)):
+- Upgrade dev dependencies ([#122](../../pull/122)):
   - css-loader 3.1.0
   - eslint-plugin-import 2.18.2
   - flow-bin 0.103.0
 
 ### Removed
 - Do not display message when artists are created, updated, or deleted.
-  ([#128](../../issues/128))
+  ([#128](../../pull/128))
 - Remove dependencies:
   - @babel/polyfill
  
 ## [0.20.0] - 2019-07-19
 ### Added
-- Add spinner to AppBar and SignInLayout ([#110](../../issues/110)).
-- Configure `API_URL` for Heroku apps ([#114](../../issues/114)).
+- Add spinner to AppBar and SignInLayout ([#110](../../pull/110)).
+- Configure `API_URL` for Heroku apps ([#114](../../pull/114)).
 
 ### Fixed
 - Do not invoke `webpack-dev-server` in production mode.
 - Fix invalid generated URLs in webpack output.
 
 ### Changed
-- Refactor layout components ([#115](../../issues/115)):
+- Refactor layout components ([#115](../../pull/115)):
   - Move Paper from SignUp to SignUpLayout.
   - Move Header out of main in SignUpLayout.
   - Eliminate Header component in layouts.
-- Refactor artist components ([#111](../../issues/111)):
+- Refactor artist components ([#111](../../pull/111)):
   - Incorporate FetchingArtistList in ArtistList.
   - Move Artist button to separate component.
   - Decouple ArtistList and ArtistDialog.
@@ -724,7 +726,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use [Travis CI](https://travis-ci.org/) for continuous integration.
 - Deploy to [Heroku](https://heroku.com).
 
-[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.20.0...HEAD
+[Unreleased]: https://github.com/cjolowicz/muckr-web/compare/v0.21.0...HEAD
+[0.21.0]: https://github.com/cjolowicz/muckr-web/compare/v0.20.0...v0.21.0
 [0.20.0]: https://github.com/cjolowicz/muckr-web/compare/v0.19.2...v0.20.0
 [0.19.2]: https://github.com/cjolowicz/muckr-web/compare/v0.19.1...v0.19.2
 [0.19.1]: https://github.com/cjolowicz/muckr-web/compare/v0.19.0...v0.19.1
