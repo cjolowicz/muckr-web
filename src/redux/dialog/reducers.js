@@ -44,7 +44,6 @@ const type = (state: DialogType = DIALOG_TYPE_CREATE, action: Action) => {
 const artist = (state: Artist = NO_ARTIST, action: Action) => {
   switch (action.type) {
     case OPEN_CREATE_DIALOG:
-    case CLOSE_DIALOG:
       return NO_ARTIST;
     case OPEN_UPDATE_DIALOG:
     case UPDATE_DIALOG:
