@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Upgrade dependencies:
+  - @material-ui/core 4.3.1
+  - @material-ui/styles 4.3.0
+- Upgrade dev dependencies:
+  - @testing-library/react 8.0.7
+  - eslint-plugin-react 7.14.3
+  - flow-bin 0.104.0
+  - flow-typed 2.6.1
+  - webpack 4.39.1
 
 ## [0.21.0] - 2019-07-21
 ### Fixed
