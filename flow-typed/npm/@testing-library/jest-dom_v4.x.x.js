@@ -1,10 +1,11 @@
-// flow-typed signature: 4cc12247dc42c491c224ba256b8acc30
-// flow-typed version: 9c7188dcec/@testing-library/jest-dom_v4.x.x/flow_>=v0.80.x
+// flow-typed signature: 2b0527816b2a1d32ff43775789595b02
+// flow-typed version: c6154227d1/@testing-library/jest-dom_v4.x.x/flow_>=v0.104.x
 
 declare module '@testing-library/jest-dom' {
   declare type JestMatcherResult = {
     message?: string | (() => string),
     pass: boolean,
+    ...
   };
 
   declare type Result = JestMatcherResult | Promise<JestMatcherResult>;
@@ -28,11 +29,11 @@ declare module '@testing-library/jest-dom' {
     toHaveAttribute(attr: string, value?: any): Result,
     toHaveClass(...classNames: string[]): Result,
     toHaveFocus(): Result,
-    toHaveFormValues(expectedValues: { [name: string]: any }): Result,
+    toHaveFormValues(expectedValues: { [name: string]: any, ... }): Result,
     toHaveStyle(css: string): Result,
     toHaveTextContent(
       text: string | RegExp,
-      options?: { normalizeWhitespace: boolean }
+      options?: { normalizeWhitespace: boolean, ... }
     ): Result,
     toHaveValue(value?: string | string[] | number): Result,
   |};
