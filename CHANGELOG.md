@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Use staging API for Heroku review apps ([#138](../../pull/138))
+- Adapt README.md to rename of Heroku production app ([#139](../../pull/139))
 
 ## [0.21.0] - 2019-07-21
 ### Fixed
