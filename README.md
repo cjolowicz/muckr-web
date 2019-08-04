@@ -13,7 +13,7 @@ This project has a [changelog](CHANGELOG.md).
 
 ## Live
 
-- [Production](http://muckr-web-production.herokuapp.com)
+- [Production](http://muckr-web.herokuapp.com)
 - [Staging](http://muckr-web-staging.herokuapp.com)
 
 ## Script API
