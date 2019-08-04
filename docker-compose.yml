@@ -9,11 +9,11 @@ services:
     environment:
       NODE_ENV: production
       API_URL: http://localhost:9000
-      INTERNAL_API_URL: http://web-service-nginx
+      INTERNAL_API_URL: http://muckr-api-nginx
     networks:
       - servicenet
       - default
 networks:
   servicenet:
     external: true
-    name: muckr-service_default
+    name: muckr-api_default
