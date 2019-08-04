@@ -5,7 +5,7 @@
   "env": {
     "API_URL": {
       "description": "The URL of the muckr API.",
-      "value": "https://muckr-service.herokuapp.com"
+      "required": true
     }
   },
   "formation": {},
